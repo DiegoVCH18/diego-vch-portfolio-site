@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diego VCH — Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #1a1a24;
+      --accent: #6ef0c0;
+      --accent2: #a78bfa;
+      --text: #f0f0f5;
+      --muted: #7070a0;
+      --border: rgba(110, 240, 192, 0.15);
+      --glow: rgba(110, 240, 192, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── Noise overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 10, 15, 0.7);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .orb1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(110,240,192,0.12), transparent 70%);
+      top: -100px; right: -100px;
+      animation: float 8s ease-in-out infinite;
+    }
+    .orb2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(167,139,250,0.1), transparent 70%);
+      bottom: 0; left: -80px;
+      animation: float 12s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-30px) scale(1.03); }
+    }
+
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 750px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      line-height: 1.0;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0f;
+    }
+    .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 10px 40px rgba(110,240,192,0.3); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 6rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .section-sub {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 3.5rem;
+      font-size: 1rem;
+    }
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0.2;
+      margin-bottom: 5rem;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      transition: border-color 0.3s;
+    }
+    .stat-card:hover { border-color: var(--accent); }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label { color: var(--muted); font-size: 0.85rem; }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover { transform: translateY(-6px); border-color: rgba(110,240,192,0.3); background: var(--surface2); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: var(--glow);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+    }
+    .service-desc { color: var(--muted); font-size: 0.93rem; line-height: 1.65; }
+
+    /* ─── SKILLS ─── */
+    .skills-container { display: flex; flex-direction: column; gap: 1.2rem; max-width: 700px; }
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .skill-name {
+      width: 160px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .skill-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--surface2);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 100px;
+      width: 0;
+      transition: width 1.2s ease;
+    }
+    .skill-pct {
+      width: 40px;
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+    }
+
+    /* ─── PROJECTS ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.35s;
+      cursor: pointer;
+    }
+    .project-card:hover { transform: translateY(-6px); border-color: rgba(110,240,192,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .project-thumb {
+      height: 180px;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(110,240,192,0.07), rgba(167,139,250,0.07));
+    }
+    .project-body { padding: 1.8rem; }
+    .project-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--glow);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 0.9rem;
+    }
+    .project-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ─── CONTACT ─── */
+    .contact-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      transition: all 0.25s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .contact-email {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 1.5rem;
+    }
+    .contact-email:hover { text-decoration: underline; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero, section { padding: 5rem 1.5rem 3rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+    }
+
+    /* ─── Intersection fade in ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">DIEGO VCH</a>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+    <a href="https://linktr.ee/diegovch18" target="_blank" class="btn btn-primary" style="padding:0.6rem 1.4rem; font-size:0.8rem;">Linktree ↗</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-content">
+      <span class="hero-tag">✦ Disponible para proyectos</span>
+      <h1 class="hero-name">Diego<br/><span>VCH</span></h1>
+      <p class="hero-desc">Desarrollador, creador de contenido y emprendedor digital. Transformo ideas en soluciones reales.</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn btn-primary">Ver servicios</a>
+        <a href="#contact" class="btn btn-secondary">Contáctame</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="section-label">Sobre mí</p>
+        <h2 class="section-title">Construyo cosas que <span style="color:var(--accent)">importan</span></h2>
+        <p>Hola, soy <strong>Diego</strong> — apasionado por la tecnología, el emprendimiento digital y la creación de contenido que conecta con las personas.</p>
+        <p>Me especializo en llevar proyectos desde la idea inicial hasta el producto final, combinando habilidades técnicas con visión estratégica.</p>
+        <p>Siempre en busca de nuevos retos, colaboraciones y formas de agregar valor real.</p>
+        <div style="margin-top: 2rem;">
+          <a href="https://linktr.ee/diegovch18" target="_blank" class="btn btn-secondary">Ver todos mis links ↗</a>
+        </div>
+      </div>
+      <div class="stats-grid reveal">
+        <div class="stat-card">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Proyectos completados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Compromiso con cada cliente</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Ganas de aprender</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <p class="section-label reveal">Lo que hago</p>
+    <h2 class="section-title reveal">Servicios</h2>
+    <p class="section-sub reveal">Ofrezco soluciones digitales adaptadas a tus necesidades y objetivos.</p>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">💻</div>
+        <h3 class="service-title">Desarrollo Web</h3>
+        <p class="service-desc">Sitios web modernos, rápidos y responsivos. Desde landing pages hasta aplicaciones web completas con las últimas tecnologías.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📱</div>
+        <h3 class="service-title">Contenido Digital</h3>
+        <p class="service-desc">Creación de contenido estratégico para redes sociales, blogs y plataformas digitales que conectan con tu audiencia.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🚀</div>
+        <h3 class="service-title">Emprendimiento Digital</h3>
+        <p class="service-desc">Asesoría y consultoría para transformar ideas en negocios digitales rentables. Estrategia, validación y crecimiento.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🎨</div>
+        <h3 class="service-title">Diseño UI/UX</h3>
+        <p class="service-desc">Interfaces limpias, intuitivas y estéticamente cuidadas que mejoran la experiencia del usuario en cada punto de contacto.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Estrategia Digital</h3>
+        <p class="service-desc">Planificación y ejecución de estrategias digitales para aumentar tu presencia online y alcanzar tus metas de negocio.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🤝</div>
+        <h3 class="service-title">Colaboraciones</h3>
+        <p class="service-desc">Abierto a colaborar en proyectos interesantes. Si tienes una idea y necesitas un socio técnico-creativo, hablemos.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label reveal">Herramientas & tecnologías</p>
+    <h2 class="section-title reveal">Habilidades</h2>
+    <div class="skills-container reveal" id="skillsContainer">
+      <div class="skill-row">
+        <span class="skill-name">HTML / CSS</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        <span class="skill-pct">95%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">JavaScript</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        <span class="skill-pct">85%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">React / Next.js</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        <span class="skill-pct">80%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Diseño UI/UX</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+        <span class="skill-pct">78%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Redes Sociales</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        <span class="skill-pct">90%</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">SEO & Marketing</span>
+        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        <span class="skill-pct">75%</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label reveal">Portafolio</p>
+    <h2 class="section-title reveal">Proyectos</h2>
+    <p class="section-sub reveal">Algunos de los proyectos en los que he trabajado.</p>
+
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-thumb">🌐</div>
+        <div class="project-body">
+          <span class="project-tag">Web</span>
+          <h3 class="project-name">Sitio Web Corporativo</h3>
+          <p class="project-desc">Desarrollo de sitio web completo con diseño moderno, optimizado para SEO y totalmente responsivo.</p>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-thumb">📲</div>
+        <div class="project-body">
+          <span class="project-tag">Redes Sociales</span>
+          <h3 class="project-name">Estrategia de Contenido</h3>
+          <p class="project-desc">Creación y gestión de contenido estratégico que aumentó el engagement y el alcance orgánico.</p>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-thumb">🛒</div>
+        <div class="project-body">
+          <span class="project-tag">E-commerce</span>
+          <h3 class="project-name">Tienda Online</h3>
+          <p class="project-desc">Implementación de tienda en línea con pasarela de pagos, carrito optimizado y experiencia de compra fluida.</p>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-thumb">📱</div>
+        <div class="project-body">
+          <span class="project-tag">App</span>
+          <h3 class="project-name">Proyecto Digital</h3>
+          <p class="project-desc">Desarrollo de solución digital a medida que automatiza procesos y mejora la productividad del equipo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrapper reveal">
+      <p class="section-label">¿Trabajamos juntos?</p>
+      <h2 class="section-title">Contáctame</h2>
+      <p style="color:var(--muted); margin-bottom:0.5rem;">¿Tienes un proyecto en mente? Me encantaría escucharte.</p>
+      <a href="mailto:diego@ejemplo.com" class="contact-email">hola@diegovch.com</a>
+      <div class="contact-links">
+        <a href="https://linktr.ee/diegovch18" target="_blank" class="contact-link">🌿 Linktree</a>
+        <a href="#" class="contact-link">📸 Instagram</a>
+        <a href="#" class="contact-link">💼 LinkedIn</a>
+        <a href="#" class="contact-link">🐦 Twitter / X</a>
+        <a href="#" class="contact-link">💻 GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Diego VCH — Todos los derechos reservados.</span>
+    <a href="https://linktr.ee/diegovch18" target="_blank">linktr.ee/diegovch18</a>
+  </footer>
+
+  <script>
+    // Intersection Observer for reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          // Animate skill bars when visible
+          if (el.target.id === 'skillsContainer' || el.target.closest('#skillsContainer')) {
+            animateSkills();
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function animateSkills() {
+      document.querySelectorAll('.skill-fill').forEach(bar => {
+        const w = bar.dataset.width;
+        setTimeout(() => { bar.style.width = w + '%'; }, 100);
+      });
+    }
+
+    // Observe skills container separately
+    const skillsContainer = document.getElementById('skillsContainer');
+    if (skillsContainer) {
+      const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(el => {
+          if (el.isIntersecting) animateSkills();
+        });
+      }, { threshold: 0.3 });
+      skillObserver.observe(skillsContainer);
+    }
+  </script>
+</body>
+</html>
