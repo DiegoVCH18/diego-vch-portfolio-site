@@ -460,13 +460,17 @@
       padding-right: 5.4rem;
     }
     .timeline-logo {
-      height: 32px;
+      height: 30px;
+      max-width: 132px;
       width: auto;
       object-fit: contain;
       filter: grayscale(1) contrast(1.05);
       opacity: 0.9;
       transition: filter 0.24s ease, opacity 0.24s ease;
     }
+    .timeline-logo--mibanco { height: 34px; }
+    .timeline-logo--unacem { height: 26px; }
+    .timeline-logo--inlearning { height: 28px; }
     .timeline-item:hover .timeline-logo {
       filter: grayscale(0);
       opacity: 1;
@@ -1127,12 +1131,16 @@
     }
     .trust-logo {
       height: 26px;
+      max-width: 118px;
       width: auto;
       object-fit: contain;
       filter: grayscale(1) brightness(0.72);
       opacity: 0.6;
       transition: filter 0.22s, opacity 0.22s;
     }
+    .trust-logo--mibanco { height: 31px; }
+    .trust-logo--unacem { height: 23px; }
+    .trust-logo--inlearning { height: 24px; }
     .trust-logo:hover {
       filter: grayscale(0) brightness(1);
       opacity: 1;
@@ -1218,10 +1226,10 @@
     <p class="trust-bar-label">Trabajé con</p>
     <div class="trust-bar-logos">
       <img src="assets/certus-logo.png" alt="CERTUS" class="trust-logo" loading="lazy" />
-      <img src="assets/mibanco-logo.png" alt="MIBANCO" class="trust-logo" loading="lazy" />
-      <img src="assets/unacem-logo.png" alt="Asociación UNACEM" class="trust-logo" loading="lazy" />
+      <img src="assets/mibanco-logo.png" alt="MIBANCO" class="trust-logo trust-logo--mibanco" loading="lazy" />
+      <img src="assets/unacem-logo.png" alt="Asociación UNACEM" class="trust-logo trust-logo--unacem" loading="lazy" />
       <img src="assets/proavance-logo.png" alt="PROAVANCE" class="trust-logo" loading="lazy" />
-      <img src="assets/inlearning-logo.png" alt="inLearning" class="trust-logo" loading="lazy" />
+      <img src="assets/inlearning-logo.png" alt="inLearning" class="trust-logo trust-logo--inlearning" loading="lazy" />
     </div>
   </section>
 
@@ -1286,7 +1294,7 @@
           <span class="timeline-badge">Destacado</span>
           <div class="timeline-item-header">
             <h3 class="timeline-role">Consultor en Gestión y Análisis de Data</h3>
-            <img src="assets/unacem-logo.png" alt="Logo Asociación UNACEM" class="timeline-logo" loading="lazy" decoding="async" />
+            <img src="assets/unacem-logo.png" alt="Logo Asociación UNACEM" class="timeline-logo timeline-logo--unacem" loading="lazy" decoding="async" />
           </div>
           <p class="timeline-org">Asociación UNACEM | Laboratorio Social</p>
           <p class="timeline-date">Mar. 2026 - Oct. 2026</p>
@@ -1296,7 +1304,7 @@
         <article class="timeline-item">
           <div class="timeline-item-header">
             <h3 class="timeline-role">Consultor en Asistencia Técnica Power BI</h3>
-            <img src="assets/unacem-logo.png" alt="Logo Asociación UNACEM" class="timeline-logo" loading="lazy" decoding="async" />
+            <img src="assets/unacem-logo.png" alt="Logo Asociación UNACEM" class="timeline-logo timeline-logo--unacem" loading="lazy" decoding="async" />
           </div>
           <p class="timeline-org">Asociación UNACEM | Contrato CONT-AU112-2025</p>
           <p class="timeline-date">Sept. 2025 - Dic. 2025</p>
@@ -1306,7 +1314,7 @@
         <article class="timeline-item">
           <div class="timeline-item-header">
             <h3 class="timeline-role">Consultor Especializado en Automatización, Datos y Evaluación</h3>
-            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo" loading="lazy" decoding="async" />
+            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo timeline-logo--mibanco" loading="lazy" decoding="async" />
           </div>
           <p class="timeline-org">MIBANCO | Escuela de Negocios y Escuela de Formación</p>
           <p class="timeline-date">Sept. 2023 - Jul. 2025</p>
@@ -1326,7 +1334,7 @@
         <article class="timeline-item">
           <div class="timeline-item-header">
             <h3 class="timeline-role">Consultor en Automatización de Reporterías Académicas</h3>
-            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo" loading="lazy" decoding="async" />
+            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo timeline-logo--mibanco" loading="lazy" decoding="async" />
           </div>
           <p class="timeline-org">MIBANCO | Escuela de Formación (Profesional independiente)</p>
           <p class="timeline-date">Ago. 2024 - Sept. 2024</p>
@@ -1343,7 +1351,7 @@
         <article class="timeline-item">
           <div class="timeline-item-header">
             <h3 class="timeline-role">Consultor Especializado en Simuladores Educativos para Banca</h3>
-            <img src="assets/inlearning-logo.png" alt="Logo inLearning" class="timeline-logo" loading="lazy" decoding="async" />
+            <img src="assets/inlearning-logo.png" alt="Logo inLearning" class="timeline-logo timeline-logo--inlearning" loading="lazy" decoding="async" />
           </div>
           <p class="timeline-org">inLearning Escuelas de Educación Superior | Profesional independiente</p>
           <p class="timeline-date">Mar. 2024 - Abr. 2024</p>
@@ -1353,7 +1361,7 @@
         <article class="timeline-item">
           <div class="timeline-item-header">
             <h3 class="timeline-role">Especialista en Reporterías Automatizadas y Capacitación Digital</h3>
-            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo" loading="lazy" decoding="async" />
+            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo timeline-logo--mibanco" loading="lazy" decoding="async" />
           </div>
           <p class="timeline-org">MIBANCO | Profesional independiente</p>
           <p class="timeline-date">Sept. 2023 - Ene. 2024</p>
