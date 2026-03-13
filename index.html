@@ -7,14 +7,15 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-  <meta name="description" content="Portafolio profesional de Diego Armando Vasquez Chavez, consultor de datos especializado en Business Intelligence, Data Analytics, Power BI, ETL, SQL, Python, automatizacion de reportes y Machine Learning aplicado." />
-  <meta name="keywords" content="Business Intelligence, Data Analytics, Power BI, ETL, SQL, Python, dashboards ejecutivos, automatizacion de reportes, Machine Learning, consultor de datos" />
+  <meta name="description" content="Portafolio profesional de Diego Armando Vasquez Chavez, consultor de datos especializado en Business Intelligence, Data Analytics, Power BI, ETL, SQL, Python, automatización de reportes y Machine Learning aplicado." />
+  <meta name="keywords" content="Business Intelligence, Data Analytics, Power BI, ETL, SQL, Python, dashboards ejecutivos, automatización de reportes, Machine Learning, consultor de datos" />
   <meta name="author" content="Diego Armando Vasquez Chavez" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Diego Vasquez Chavez | Consultor de Datos y Business Intelligence" />
-  <meta property="og:description" content="Especialista en Business Intelligence, Data Analytics, Power BI y automatizacion de reportes para organizaciones de impacto social, educacion y banca." />
+  <meta property="og:description" content="Especialista en Business Intelligence, Data Analytics, Power BI y automatización de reportes para organizaciones de impacto social, educación y banca." />
   <meta property="og:url" content="https://diego-vasquez-chavez-site.vercel.app/" />
   <meta property="og:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego-hero.png" />
+  <meta property="og:image:alt" content="Foto profesional de Diego Armando Vasquez Chavez" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Diego Vasquez Chavez | Data Analytics y Power BI" />
   <meta name="twitter:description" content="Consultor de datos con foco en BI, ETL, SQL, Python y dashboards ejecutivos para toma de decisiones." />
@@ -169,6 +170,26 @@
       position: relative;
       overflow: hidden;
     }
+    .hero-tech-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.45;
+    }
+    .hero-tech-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(0, 180, 216, 0.35) 1px, transparent 1px);
+      background-size: 20px 20px;
+      mask-image: radial-gradient(circle at 50% 35%, black, transparent 78%);
+    }
+    #heroParticles {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
     .hero-orb {
       position: absolute;
       border-radius: 50%;
@@ -248,8 +269,17 @@
       background: rgba(16,31,43,0.75);
       color: #c8d7e4;
       border-radius: 999px;
-      padding: 0.35rem 0.8rem;
+      padding: 0.36rem 0.82rem;
       font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+    }
+    .proof-pill svg {
+      width: 14px;
+      height: 14px;
+      color: #00B4D8;
+      flex-shrink: 0;
     }
     .hero-cta {
       display: flex;
@@ -292,9 +322,9 @@
       width: min(100%, 420px);
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.46);
+      border-radius: 50%;
+      border: 2px solid #00B4D8;
+      box-shadow: 0 0 20px rgba(0, 180, 216, 0.75), 0 22px 60px rgba(0, 0, 0, 0.46);
       background: var(--surface2);
     }
 
@@ -404,6 +434,43 @@
       border-radius: 16px;
       padding: 1.2rem 1.25rem;
     }
+    .timeline-item.strategic {
+      border-left: 3px solid #00B4D8;
+      padding-left: 1.05rem;
+    }
+    .timeline-badge {
+      position: absolute;
+      top: 0.65rem;
+      right: 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7de7fa;
+      background: rgba(0, 180, 216, 0.12);
+    }
+    .timeline-item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
+      margin-bottom: 0.15rem;
+      padding-right: 5.4rem;
+    }
+    .timeline-logo {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(1) contrast(1.05);
+      opacity: 0.9;
+      transition: filter 0.24s ease, opacity 0.24s ease;
+    }
+    .timeline-item:hover .timeline-logo {
+      filter: grayscale(0);
+      opacity: 1;
+    }
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -459,6 +526,12 @@
     .achievement-card,
     .service-card { padding: 1.5rem; }
 
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .achievement-card:hover,
     .service-card:hover,
     .project-card:hover {
@@ -511,30 +584,70 @@
       margin-bottom: 1rem;
     }
 
-    .skills-container { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; }
-    .skill-row { display: flex; align-items: center; gap: 1rem; }
-    .skill-name { width: 190px; font-size: 0.86rem; color: var(--muted); flex-shrink: 0; }
-    .skill-bar {
-      flex: 1;
-      height: 4px;
-      background: #263b4a;
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .skill-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 100px;
-      width: 0;
-      transition: width 1.2s ease;
-    }
-    .skill-pct {
-      width: 42px;
-      text-align: right;
-      font-size: 0.8rem;
+    .service-cta {
+      margin-top: auto;
+      padding-top: 1rem;
       color: var(--accent);
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .service-cta:hover {
+      border-color: rgba(0, 224, 255, 0.45);
+      transform: translateX(2px);
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.85rem;
+      max-width: 900px;
+    }
+    .tech-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(15, 28, 50, 0.82);
+    }
+    .tech-main {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 0;
+    }
+    .tech-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(0, 224, 255, 0.08);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .tech-icon svg { width: 14px; height: 14px; }
+    .tech-name {
+      font-size: 0.87rem;
+      color: #d5e2ee;
+      line-height: 1.35;
+    }
+    .tech-level {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.24rem 0.5rem;
+      color: #9bd7ff;
+      white-space: nowrap;
     }
 
     .project-card { overflow: hidden; }
@@ -816,6 +929,36 @@
       text-decoration: none;
       margin-top: 0.6rem;
     }
+    .availability-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(52, 211, 153, 0.45);
+      background: rgba(16, 185, 129, 0.14);
+      color: #8dfac6;
+      font-size: 0.77rem;
+      letter-spacing: 0.04em;
+      padding: 0.32rem 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+    .briefing-status {
+      margin-top: 0.7rem;
+      border: 1px solid rgba(52, 211, 153, 0.45);
+      background: rgba(16, 185, 129, 0.12);
+      color: #8dfac6;
+      border-radius: 10px;
+      padding: 0.58rem 0.7rem;
+      font-size: 0.82rem;
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .briefing-status.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .briefing-form {
       margin-top: 1.3rem;
@@ -907,15 +1050,27 @@
       .service-desc,
       .project-desc { font-size: 0.92rem; line-height: 1.65; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
-      .skill-row { align-items: flex-start; flex-direction: column; gap: 0.45rem; }
-      .skill-name { width: 100%; }
-      .skill-pct { width: auto; }
+      .hero-cta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+      }
+      .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+        padding-inline: 0.8rem;
+      }
       .timeline::before { left: 10px; }
       .timeline-item { margin-left: 30px; }
       .timeline-item::before { left: -26px; }
+      .timeline-item-header { padding-right: 0; }
+      .timeline-logo { display: none; }
       .briefing-grid { grid-template-columns: 1fr; }
       .divider { width: calc(100% - 2rem); }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.4rem 1rem; }
+    }
+    @media (max-width: 560px) {
+      .hero-cta { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -924,11 +1079,11 @@
   <nav>
     <a class="nav-logo" href="#home"><img src="assets/logo.jpg" alt="Logo Diego Vasquez" loading="eager" /> DIEGO VCH</a>
     <ul class="nav-links">
-      <li><a href="#about">Sobre mi</a></li>
+      <li><a href="#about">Sobre mí</a></li>
       <li><a href="#timeline">Experiencia</a></li>
       <li><a href="#achievements">Logros</a></li>
       <li><a href="#projects">Proyectos</a></li>
-      <li><a href="#services">Especializacion</a></li>
+      <li><a href="#services">Especialización</a></li>
       <li><a href="#skills">Stack</a></li>
       <li><a href="#voluntariado">Voluntariado</a></li>
       <li><a href="#contact">Contacto</a></li>
@@ -941,11 +1096,11 @@
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul class="mobile-nav-links">
-      <li><a href="#about">Sobre mi</a></li>
+      <li><a href="#about">Sobre mí</a></li>
       <li><a href="#timeline">Experiencia</a></li>
       <li><a href="#achievements">Logros</a></li>
       <li><a href="#projects">Proyectos</a></li>
-      <li><a href="#services">Especializacion</a></li>
+      <li><a href="#services">Especialización</a></li>
       <li><a href="#skills">Stack</a></li>
       <li><a href="#voluntariado">Voluntariado</a></li>
       <li><a href="#contact">Contacto</a></li>
@@ -954,18 +1109,28 @@
   </div>
 
   <header class="hero" id="home">
+    <div class="hero-tech-bg"><canvas id="heroParticles" aria-hidden="true"></canvas></div>
     <div class="hero-orb orb1"></div>
     <div class="hero-orb orb2"></div>
     <div class="hero-layout">
       <div>
         <span class="hero-tag">Consultor de datos | Business Intelligence | Data Analytics</span>
         <h1 class="hero-name">Diego Armando<br/><span>Vasquez Chavez</span></h1>
-        <p class="hero-value">Convierto datos dispersos en decisiones ejecutivas con dashboards, ETL, SQL, Python y automatizacion de reportes.</p>
-        <p class="hero-desc">Mas de 10 anos liderando soluciones de Business Intelligence para educacion, banca e impacto social. Combino enfoque tecnico, vision de negocio y formacion para acelerar resultados medibles.</p>
+        <p class="hero-value">Convierto datos dispersos en decisiones ejecutivas con dashboards, ETL, SQL, Python y automatización de reportes.</p>
+        <p class="hero-desc">Más de 10 años liderando soluciones de Business Intelligence para educación, banca e impacto social. Combino enfoque técnico, visión de negocio y formación para acelerar resultados medibles.</p>
         <div class="hero-proof">
-          <span class="proof-pill">10+ anos de experiencia</span>
-          <span class="proof-pill">1.er lugar SBS 2025</span>
-          <span class="proof-pill">Modelos ML +90% precision</span>
+          <span class="proof-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6l4 2"></path></svg>
+            10+ años de experiencia
+          </span>
+          <span class="proof-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V4Z"></path><path d="M8 20h8"></path><path d="M12 11v9"></path><path d="M6 7H4a3 3 0 0 0 3 3"></path><path d="M18 7h2a3 3 0 0 1-3 3"></path></svg>
+            1.er lugar SBS
+          </span>
+          <span class="proof-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 4v-2M15 4v-2M9 22v-2M15 22v-2M4 9H2M4 15H2M22 9h-2M22 15h-2"></path><path d="M9 9h6v6H9z"></path></svg>
+            ML +90% precisión
+          </span>
         </div>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">Ver proyectos clave</a>
@@ -985,34 +1150,34 @@
 
     <section id="about">
       <p class="section-label reveal">Propuesta de valor</p>
-      <h2 class="section-title reveal">Datos, estrategia y ejecucion para decisiones con impacto</h2>
-      <p class="section-sub reveal">Ingeniero Industrial colegiado, especialista en Data Management, Business Intelligence y Data Analytics. Desarrollo ecosistemas de datos que mejoran el control de gestion, la trazabilidad de indicadores y la velocidad de decision.</p>
+      <h2 class="section-title reveal">Datos, estrategia y ejecución para decisiones con impacto</h2>
+      <p class="section-sub reveal">Ingeniero Industrial colegiado, especialista en Data Management, Business Intelligence y Data Analytics. Desarrollo ecosistemas de datos que mejoran el control de gestión, la trazabilidad de indicadores y la velocidad de decisión.</p>
 
       <div class="about-grid">
         <div class="about-text reveal">
-          <p><strong>Trabajo de extremo a extremo:</strong> desde la limpieza y modelado de datos (ETL, SQL, Power Query) hasta la visualizacion ejecutiva en Power BI y el despliegue de analitica avanzada con Python.</p>
-          <p><strong>Experiencia multisectorial real:</strong> proyectos para Asociacion UNACEM, CERTUS, MIBANCO, PROAVANCE y ZEGEL, conectando analitica con resultados operativos y academicos.</p>
-          <p><strong>Perfil senior de consultoria y formacion:</strong> diseno soluciones para direccion y tambien formo equipos para uso autonomo de dashboards, KPIs y reportes de gestion.</p>
+          <p><strong>Trabajo de extremo a extremo:</strong> desde la limpieza y modelado de datos (ETL, SQL, Power Query) hasta la visualización ejecutiva en Power BI y el despliegue de analítica avanzada con Python.</p>
+          <p><strong>Experiencia multisectorial real:</strong> proyectos para Asociación UNACEM, CERTUS, MIBANCO, PROAVANCE y ZEGEL, conectando analítica con resultados operativos y académicos.</p>
+          <p><strong>Perfil senior de consultoría y formación:</strong> diseño soluciones para dirección y también formo equipos para uso autónomo de dashboards, KPIs y reportes de gestión.</p>
           <div style="margin-top:1.4rem;">
             <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ver perfil en LinkedIn</a>
           </div>
         </div>
         <div class="stats-grid reveal">
           <div class="stat-card">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">anos impulsando BI, Data Analytics y automatizacion</div>
+            <div class="stat-number" data-countup="10" data-suffix="+">10+</div>
+            <div class="stat-label">años impulsando BI, Data Analytics y automatización</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">7000+</div>
-            <div class="stat-label">registros por ciclo analizados en modelos academicos</div>
+            <div class="stat-number" data-countup="7000" data-suffix="+">7000+</div>
+            <div class="stat-label">registros por ciclo analizados en modelos académicos</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">4+</div>
-            <div class="stat-label">sectores con implementaciones: educacion, banca, mineria e impacto social</div>
+            <div class="stat-number" data-countup="4" data-suffix="+">4+</div>
+            <div class="stat-label">sectores con implementaciones: educación, banca, minería e impacto social</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">90%+</div>
-            <div class="stat-label">precision en prediccion academica con ML</div>
+            <div class="stat-number" data-countup="90" data-suffix="%+">90%+</div>
+            <div class="stat-label">precisión en predicción académica con ML</div>
           </div>
         </div>
       </div>
@@ -1022,78 +1187,101 @@
 
     <section id="timeline">
       <p class="section-label reveal">Experiencia profesional</p>
-      <h2 class="section-title reveal">Trayectoria en consultoria de datos y analitica aplicada</h2>
-      <p class="section-sub reveal">Experiencia en Business Intelligence, ETL, SQL, Python, dashboards ejecutivos, automatizacion de reportes, Machine Learning y consultoria en gestion estrategica aplicada a educacion, banca y programas sociales.</p>
+      <h2 class="section-title reveal">Trayectoria en consultoría de datos y analítica aplicada</h2>
+      <p class="section-sub reveal">Experiencia en Business Intelligence, ETL, SQL, Python, dashboards ejecutivos, automatización de reportes, Machine Learning y consultoría en gestión estratégica aplicada a educación, banca y programas sociales.</p>
 
       <div class="timeline reveal">
-        <article class="timeline-item">
-          <h3 class="timeline-role">Docente Innovador y EdFinTech Developer</h3>
-          <p class="timeline-org">CERTUS | Administracion Financiera y Banca Digital</p>
+        <article class="timeline-item strategic">
+          <span class="timeline-badge">Actual</span>
+          <div class="timeline-item-header">
+            <h3 class="timeline-role">Docente Innovador y EdFinTech Developer</h3>
+            <img src="assets/certus-logo.png" alt="Logo CERTUS" class="timeline-logo" loading="lazy" decoding="async" />
+          </div>
+          <p class="timeline-org">CERTUS | Administración Financiera y Banca Digital</p>
           <p class="timeline-date">Mar. 2021 - Presente</p>
-          <p class="timeline-desc">Lider de linea curricular, creador de IAhorra CERTUS y de soluciones analiticas para direccion academica. Desarrollo de modelos predictivos, pipelines con Python y automatizacion de dashboards para permanencia estudiantil.</p>
+          <p class="timeline-desc">Líder de línea curricular, creador de IAhorra CERTUS y de soluciones analíticas para dirección académica. Desarrollo de modelos predictivos, pipelines con Python y automatización de dashboards para permanencia estudiantil.</p>
         </article>
 
-        <article class="timeline-item">
-          <h3 class="timeline-role">Consultor en Gestion y Analisis de Data</h3>
-          <p class="timeline-org">Asociacion UNACEM | Laboratorio Social</p>
+        <article class="timeline-item strategic">
+          <span class="timeline-badge">Destacado</span>
+          <div class="timeline-item-header">
+            <h3 class="timeline-role">Consultor en Gestión y Análisis de Data</h3>
+            <img src="assets/unacem-logo.png" alt="Logo Asociación UNACEM" class="timeline-logo" loading="lazy" decoding="async" />
+          </div>
+          <p class="timeline-org">Asociación UNACEM | Laboratorio Social</p>
           <p class="timeline-date">Mar. 2026 - Oct. 2026</p>
-          <p class="timeline-desc">Soporte integral de datos institucionales, dashboards ejecutivos en Power BI, optimizacion de reporteria y cumplimiento de lineamientos de proteccion de datos para toma de decisiones estrategicas.</p>
+          <p class="timeline-desc">Soporte integral de datos institucionales, dashboards ejecutivos en Power BI, optimización de reportería y cumplimiento de lineamientos de protección de datos para toma de decisiones estratégicas.</p>
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Consultor en Asistencia Tecnica Power BI</h3>
-          <p class="timeline-org">Asociacion UNACEM | Contrato CONT-AU112-2025</p>
+          <div class="timeline-item-header">
+            <h3 class="timeline-role">Consultor en Asistencia Técnica Power BI</h3>
+            <img src="assets/unacem-logo.png" alt="Logo Asociación UNACEM" class="timeline-logo" loading="lazy" decoding="async" />
+          </div>
+          <p class="timeline-org">Asociación UNACEM | Contrato CONT-AU112-2025</p>
           <p class="timeline-date">Sept. 2025 - Dic. 2025</p>
-          <p class="timeline-desc">Diseno y optimizacion de tableros para ejecucion presupuestal y cobertura de proyectos sociales. Implementacion ETL, modelado relacional/dimensional y capacitacion para uso operativo en Power BI Service.</p>
+          <p class="timeline-desc">Diseño y optimización de tableros para ejecución presupuestal y cobertura de proyectos sociales. Implementación ETL, modelado relacional/dimensional y capacitación para uso operativo en Power BI Service.</p>
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Consultor Especializado en Automatizacion, Datos y Evaluacion</h3>
-          <p class="timeline-org">MIBANCO | Escuela de Negocios y Escuela de Formacion</p>
+          <div class="timeline-item-header">
+            <h3 class="timeline-role">Consultor Especializado en Automatización, Datos y Evaluación</h3>
+            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo" loading="lazy" decoding="async" />
+          </div>
+          <p class="timeline-org">MIBANCO | Escuela de Negocios y Escuela de Formación</p>
           <p class="timeline-date">Sept. 2023 - Jul. 2025</p>
-          <p class="timeline-desc">Implementacion de sistema automatizado con Power Query, VBA y Apps Script para reporteria de desempeno, con mejoras sostenidas en tiempos de consolidacion y visibilidad de KPIs.</p>
+          <p class="timeline-desc">Implementación de sistema automatizado con Power Query, VBA y Apps Script para reportería de desempeño, con mejoras sostenidas en tiempos de consolidación y visibilidad de KPIs.</p>
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Docente e-learning y Capacitador en Power BI</h3>
+          <div class="timeline-item-header">
+            <h3 class="timeline-role">Docente e-learning y Capacitador en Power BI</h3>
+            <img src="assets/proavance-logo.png" alt="Logo PROAVANCE" class="timeline-logo" loading="lazy" decoding="async" />
+          </div>
           <p class="timeline-org">Proavance | Profesional independiente</p>
           <p class="timeline-date">May. 2025 - Jul. 2025</p>
-          <p class="timeline-desc">Dictado de cursos asincronicos en Tableau Public y Data Governance, ademas de programa Power BI para Cerro Verde con sesiones practicas y evaluaciones.</p>
+          <p class="timeline-desc">Dictado de cursos asíncronos en Tableau Public y Data Governance, además de programa Power BI para Cerro Verde con sesiones prácticas y evaluaciones.</p>
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Consultor en Automatizacion de Reporterias Academicas</h3>
-          <p class="timeline-org">MIBANCO | Escuela de Formacion (Profesional independiente)</p>
+          <div class="timeline-item-header">
+            <h3 class="timeline-role">Consultor en Automatización de Reporterías Académicas</h3>
+            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo" loading="lazy" decoding="async" />
+          </div>
+          <p class="timeline-org">MIBANCO | Escuela de Formación (Profesional independiente)</p>
           <p class="timeline-date">Ago. 2024 - Sept. 2024</p>
-          <p class="timeline-desc">Diseno de sistema automatizado de reporteria con Excel VBA y Power Query para seguimiento academico, productividad y consolidado mensual. Visualizacion de KPIs por facilitador, agencia y programa, validado por Gerencia de Experiencia y Desarrollo Humano.</p>
+          <p class="timeline-desc">Diseño de sistema automatizado de reportería con Excel VBA y Power Query para seguimiento académico, productividad y consolidado mensual. Visualización de KPIs por facilitador, agencia y programa, validado por Gerencia de Experiencia y Desarrollo Humano.</p>
         </article>
 
         <article class="timeline-item">
           <h3 class="timeline-role">Docente</h3>
           <p class="timeline-org">Instituto ILS | Jornada parcial</p>
           <p class="timeline-date">Abr. 2019 - May. 2024</p>
-          <p class="timeline-desc">Docente de Marketing, Estadistica, Investigacion de Mercados y Procesos Administrativos, con tutoria de proyectos de aplicacion profesional en contextos reales.</p>
+          <p class="timeline-desc">Docente de Marketing, Estadística, Investigación de Mercados y Procesos Administrativos, con tutoría de proyectos de aplicación profesional en contextos reales.</p>
         </article>
 
         <article class="timeline-item">
           <h3 class="timeline-role">Consultor Especializado en Simuladores Educativos para Banca</h3>
-          <p class="timeline-org">inLearning Escuelas de Educacion Superior | Profesional independiente</p>
+          <p class="timeline-org">inLearning Escuelas de Educación Superior | Profesional independiente</p>
           <p class="timeline-date">Mar. 2024 - Abr. 2024</p>
-          <p class="timeline-desc">Desarrollo de macro personalizada en Excel VBA para simular operaciones de caja, integrando fichas, formularios y modulos curriculares, con medidas de seguridad y sesiones de induccion para docentes y estudiantes.</p>
+          <p class="timeline-desc">Desarrollo de macro personalizada en Excel VBA para simular operaciones de caja, integrando fichas, formularios y módulos curriculares, con medidas de seguridad y sesiones de inducción para docentes y estudiantes.</p>
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Especialista en Reporterias Automatizadas y Capacitacion Digital</h3>
+          <div class="timeline-item-header">
+            <h3 class="timeline-role">Especialista en Reporterías Automatizadas y Capacitación Digital</h3>
+            <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo" loading="lazy" decoding="async" />
+          </div>
           <p class="timeline-org">MIBANCO | Profesional independiente</p>
           <p class="timeline-date">Sept. 2023 - Ene. 2024</p>
-          <p class="timeline-desc">Desarrollo de sistema de reporteria para capacitaciones y avances individuales, automatizacion de envios por correo y repositorio auditable de dashboards de productividad con Excel, Power Query y Power Pivot.</p>
+          <p class="timeline-desc">Desarrollo de sistema de reportería para capacitaciones y avances individuales, automatización de envíos por correo y repositorio auditable de dashboards de productividad con Excel, Power Query y Power Pivot.</p>
         </article>
 
         <article class="timeline-item">
           <h3 class="timeline-role">Fundador, Consultor y Formador en Data Analytics</h3>
           <p class="timeline-org">TECZONE AQP</p>
           <p class="timeline-date">Ene. 2015 - Mar. 2024</p>
-          <p class="timeline-desc">Formacion avanzada en Power BI, Excel VBA y automatizacion para profesionales y empresas, desarrollando competencias analiticas aplicadas al negocio.</p>
+          <p class="timeline-desc">Formación avanzada en Power BI, Excel VBA y automatización para profesionales y empresas, desarrollando competencias analíticas aplicadas al negocio.</p>
         </article>
 
         <article class="timeline-item">
@@ -1134,7 +1322,7 @@
 
         <article class="achievement-card reveal">
           <p class="achievement-org">MIBANCO | Gestion de Aprendizaje</p>
-          <h3 class="achievement-title">Automatizacion de reportes validada por gerencia</h3>
+          <h3 class="achievement-title">Automatización de reportes validada por gerencia</h3>
           <p class="achievement-desc">Sistema automatizado con Power Query y VBA que mejoro la trazabilidad de indicadores y estandarizo la consolidacion mensual de reportes.</p>
         </article>
 
@@ -1194,7 +1382,7 @@
 
         <article class="project-card reveal">
           <div class="project-body">
-            <span class="project-tag">Automatizacion de reportes</span>
+            <span class="project-tag">Automatización de reportes</span>
             <h3 class="project-name">Sistema automatizado para MIBANCO</h3>
             <p class="project-desc">Integracion de Excel VBA, Power Query y Apps Script para consolidacion mensual, dashboards de productividad y reportes de desempeno por agencia.</p>
             <div class="project-actions">
@@ -1213,44 +1401,50 @@
 
     <section id="services">
       <p class="section-label reveal">Areas de especializacion</p>
-      <h2 class="section-title reveal">Servicios de consultoria y formacion</h2>
-      <p class="section-sub reveal">Acompano organizaciones y equipos para pasar de datos sin contexto a un sistema de decisiones basado en evidencia, incluyendo consultoria en gestion estrategica sustentada en investigacion aplicada.</p>
+      <h2 class="section-title reveal">Servicios de consultoría y formación</h2>
+      <p class="section-sub reveal">Acompaño organizaciones y equipos para pasar de datos sin contexto a un sistema de decisiones basado en evidencia, incluyendo consultoría en gestión estratégica sustentada en investigación aplicada.</p>
 
       <div class="services-grid">
         <article class="service-card reveal">
           <div class="service-icon">BI</div>
           <h3 class="service-title">Business Intelligence y dashboards ejecutivos</h3>
-          <p class="service-desc">Diseno de tableros en Power BI con KPIs, DAX, modelado de datos y narrativas visuales para direccion y gerencia.</p>
+          <p class="service-desc">Diseño de tableros en Power BI con KPIs, DAX, modelado de datos y narrativas visuales para dirección y gerencia.</p>
+          <a href="#contact" class="service-cta" data-service="Business Intelligence">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">ETL</div>
           <h3 class="service-title">Data Management, ETL y calidad de datos</h3>
-          <p class="service-desc">Estructuracion de procesos ETL con Power Query y SQL para integrar, limpiar y transformar datos con trazabilidad.</p>
+          <p class="service-desc">Estructuración de procesos ETL con Power Query y SQL para integrar, limpiar y transformar datos con trazabilidad.</p>
+          <a href="#contact" class="service-cta" data-service="ETL y Data Management">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">SQL</div>
           <h3 class="service-title">Analitica con SQL y Python</h3>
-          <p class="service-desc">Analisis descriptivo y predictivo con pandas y scikit-learn para detectar riesgos, patrones y oportunidades de mejora.</p>
+          <p class="service-desc">Análisis descriptivo y predictivo con pandas y scikit-learn para detectar riesgos, patrones y oportunidades de mejora.</p>
+          <a href="#contact" class="service-cta" data-service="SQL y Python aplicado">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">AUTO</div>
-          <h3 class="service-title">Automatizacion de reportes y procesos</h3>
-          <p class="service-desc">Automatizacion con VBA, Apps Script y flujos de datos para reducir tiempos, errores y dependencia manual.</p>
+          <h3 class="service-title">Automatización de reportes y procesos</h3>
+          <p class="service-desc">Automatización con VBA, Apps Script y flujos de datos para reducir tiempos, errores y dependencia manual.</p>
+          <a href="#contact" class="service-cta" data-service="Automatización de reportes">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">ML</div>
           <h3 class="service-title">Machine Learning aplicado</h3>
-          <p class="service-desc">Modelos de prediccion para permanencia, desempeno y churn con enfoque practico de negocio y despliegue funcional.</p>
+          <p class="service-desc">Modelos de predicción para permanencia, desempeño y churn con enfoque práctico de negocio y despliegue funcional.</p>
+          <a href="#contact" class="service-cta" data-service="Machine Learning aplicado">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">TRAIN</div>
-          <h3 class="service-title">Capacitacion y transferencia de capacidades</h3>
-          <p class="service-desc">Programas formativos en BI y Data Analytics para equipos corporativos y academicos orientados a resultados.</p>
+          <h3 class="service-title">Capacitación y transferencia de capacidades</h3>
+          <p class="service-desc">Programas formativos en BI y Data Analytics para equipos corporativos y académicos orientados a resultados.</p>
+          <a href="#contact" class="service-cta" data-service="Consultoría y formación">Consultar servicio →</a>
         </article>
       </div>
     </section>
@@ -1260,37 +1454,49 @@
     <section id="skills">
       <p class="section-label reveal">Stack tecnologico</p>
       <h2 class="section-title reveal">Herramientas que utilizo para generar valor</h2>
-      <p class="section-sub reveal">Combinacion de herramientas para Business Intelligence, ETL, Data Analytics, automatizacion de reportes y Machine Learning.</p>
+      <p class="section-sub reveal">Combinación de herramientas para Business Intelligence, ETL, Data Analytics, automatización de reportes y Machine Learning.</p>
       <div class="skills-container reveal" id="skillsContainer">
-        <div class="skill-row">
-          <span class="skill-name">Power BI Desktop y Service</span>
-          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-          <span class="skill-pct">95%</span>
+        <div class="tech-chip">
+          <div class="tech-main">
+            <span class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="4" height="10"></rect><rect x="10" y="5" width="4" height="13"></rect><rect x="16" y="3" width="4" height="15"></rect></svg></span>
+            <span class="tech-name">Power BI Desktop y Service</span>
+          </div>
+          <span class="tech-level">Experto</span>
         </div>
-        <div class="skill-row">
-          <span class="skill-name">DAX y Power Query (M)</span>
-          <div class="skill-bar"><div class="skill-fill" data-width="93"></div></div>
-          <span class="skill-pct">93%</span>
+        <div class="tech-chip">
+          <div class="tech-main">
+            <span class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></span>
+            <span class="tech-name">DAX y Power Query (M)</span>
+          </div>
+          <span class="tech-level">Experto</span>
         </div>
-        <div class="skill-row">
-          <span class="skill-name">SQL y modelado relacional</span>
-          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-          <span class="skill-pct">88%</span>
+        <div class="tech-chip">
+          <div class="tech-main">
+            <span class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"></ellipse><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"></path></svg></span>
+            <span class="tech-name">SQL y modelado relacional</span>
+          </div>
+          <span class="tech-level">Avanzado</span>
         </div>
-        <div class="skill-row">
-          <span class="skill-name">Python (pandas y scikit-learn)</span>
-          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-          <span class="skill-pct">90%</span>
+        <div class="tech-chip">
+          <div class="tech-main">
+            <span class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 7v10l8 5 8-5V7z"></path><path d="M12 22V12"></path></svg></span>
+            <span class="tech-name">Python (pandas y scikit-learn)</span>
+          </div>
+          <span class="tech-level">Experto</span>
         </div>
-        <div class="skill-row">
-          <span class="skill-name">Excel VBA y Apps Script</span>
-          <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
-          <span class="skill-pct">87%</span>
+        <div class="tech-chip">
+          <div class="tech-main">
+            <span class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M8 8l8 8M16 8l-8 8"></path></svg></span>
+            <span class="tech-name">Excel VBA y Apps Script</span>
+          </div>
+          <span class="tech-level">Avanzado</span>
         </div>
-        <div class="skill-row">
-          <span class="skill-name">Looker Studio y Tableau</span>
-          <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-          <span class="skill-pct">78%</span>
+        <div class="tech-chip">
+          <div class="tech-main">
+            <span class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M10 19V9M16 19V7M22 19V11"></path></svg></span>
+            <span class="tech-name">Looker Studio y Tableau</span>
+          </div>
+          <span class="tech-level">Avanzado</span>
         </div>
       </div>
     </section>
@@ -1301,7 +1507,7 @@
       <p class="section-label reveal">Actividad reciente</p>
       <h2 class="section-title reveal">Publicaciones en LinkedIn</h2>
       <div class="linkedin-intro reveal">
-        <p style="color:var(--muted);">Comparto aprendizajes, proyectos en curso y reflexiones sobre datos, BI y tecnologia aplicada al negocio.</p>
+        <p style="color:var(--muted);">Comparto aprendizajes, proyectos en curso y reflexiones sobre datos, BI y tecnología aplicada al negocio.</p>
       </div>
 
       <div class="linkedin-posts-grid">
@@ -1343,8 +1549,8 @@
 
     <section id="voluntariado">
       <p class="section-label reveal">Impacto social</p>
-      <h2 class="section-title reveal">Voluntariado y participacion</h2>
-      <p class="section-sub reveal">Aporte a comunidades academicas y profesionales a traves de mentoria, docencia y difusion de conocimiento en analisis de datos e innovacion.</p>
+      <h2 class="section-title reveal">Voluntariado y participación</h2>
+      <p class="section-sub reveal">Aporte a comunidades académicas y profesionales a través de mentoría, docencia y difusión de conocimiento en análisis de datos e innovación.</p>
 
       <div class="voluntariado-grid">
 
@@ -1404,8 +1610,9 @@
       <div class="contact-wrapper reveal">
         <p class="section-label">Contacto profesional</p>
         <h2 class="section-title">Listo para impulsar tus decisiones con datos</h2>
-        <p style="color:var(--muted); margin-bottom:0.4rem;">Si buscas un consultor de datos para BI, dashboards ejecutivos, ETL, SQL, Python o automatizacion de reportes, conversemos.</p>
-        <a href="mailto:diegovch@gmail.com" class="contact-email">diegovch@gmail.com</a>
+        <p class="availability-pill">✓ Disponible para nuevos proyectos — Respondo en menos de 24h</p>
+        <p style="color:var(--muted); margin-bottom:0.4rem;">Si buscas un consultor de datos para BI, dashboards ejecutivos, ETL, SQL, Python o automatización de reportes, conversemos.</p>
+        <a href="mailto:diegovch@gmail.com" class="contact-email" id="contactEmail">diegovch@gmail.com</a>
 
         <div class="contact-links">
           <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="contact-link">WhatsApp</a>
@@ -1415,7 +1622,7 @@
           <a href="assets/CV_Diego_Vasquez.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">CV en PDF</a>
         </div>
 
-        <form id="briefForm" class="briefing-form">
+        <form id="briefForm" class="briefing-form" novalidate>
           <p class="section-label" style="margin-bottom:0.2rem;">Mini briefing</p>
           <div class="briefing-grid">
             <div class="briefing-field">
@@ -1427,9 +1634,9 @@
                 <option>Power BI y dashboards ejecutivos</option>
                 <option>ETL y Data Management</option>
                 <option>SQL y Python aplicado</option>
-                <option>Automatizacion de reportes</option>
+                <option>Automatización de reportes</option>
                 <option>Machine Learning aplicado</option>
-                <option>Consultoria y formacion</option>
+                <option>Consultoría y formación</option>
               </select>
             </div>
             <div class="briefing-field">
@@ -1452,10 +1659,11 @@
             </div>
           </div>
           <div class="briefing-actions">
-            <button type="button" id="btnBriefEmail" class="btn btn-primary">Enviar briefing por correo</button>
+            <button type="submit" id="btnBriefEmail" class="btn btn-primary">Enviar briefing por correo</button>
             <button type="button" id="btnBriefWA" class="btn btn-secondary">Continuar por WhatsApp</button>
           </div>
-          <p class="briefing-note">Recibiras respuesta para evaluar alcance, prioridad y propuesta de trabajo.</p>
+          <div id="briefStatus" class="briefing-status" role="status" aria-live="polite"></div>
+          <p class="briefing-note">Recibirás respuesta para evaluar alcance, prioridad y propuesta de trabajo.</p>
         </form>
       </div>
     </section>
@@ -1488,12 +1696,17 @@
       "SQL",
       "Python",
       "Machine Learning",
-      "Automatizacion de reportes"
+      "Automatización de reportes"
     ]
   }
   </script>
 
   <script>
+    const CONTACT_CONFIG = {
+      email: 'diegovch@gmail.com',
+      whatsapp: '51974205217'
+    };
+
     const navToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a[href^="#"]') : [];
@@ -1512,6 +1725,10 @@
       });
     }
 
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 940) setMenuState(false);
+    });
+
     mobileLinks.forEach((link) => {
       link.addEventListener('click', () => setMenuState(false));
     });
@@ -1520,31 +1737,107 @@
       entries.forEach(el => {
         if (el.isIntersecting) {
           el.target.classList.add('visible');
-          if (el.target.id === 'skillsContainer' || el.target.closest('#skillsContainer')) {
-            animateSkills();
-          }
         }
       });
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    function animateSkills() {
-      document.querySelectorAll('.skill-fill').forEach(bar => {
-        const w = bar.dataset.width;
-        setTimeout(() => { bar.style.width = w + '%'; }, 100);
-      });
+    function animateCountUp(el) {
+      const target = parseInt(el.dataset.countup || '0', 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1300;
+      const start = performance.now();
+
+      function frame(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(target * eased);
+        el.textContent = value.toLocaleString('es-PE') + suffix;
+        if (progress < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
     }
 
-    const skillsContainer = document.getElementById('skillsContainer');
-    if (skillsContainer) {
-      const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(el => {
-          if (el.isIntersecting) animateSkills();
-        });
-      }, { threshold: 0.3 });
-      skillObserver.observe(skillsContainer);
+    const countNumbers = document.querySelectorAll('[data-countup]');
+    const countObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCountUp(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+    countNumbers.forEach((item) => countObserver.observe(item));
+
+    function initHeroParticles() {
+      const canvas = document.getElementById('heroParticles');
+      const hero = document.getElementById('home');
+      if (!canvas || !hero) return;
+
+      const ctx = canvas.getContext('2d');
+      let width = 0;
+      let height = 0;
+      const particles = [];
+      const count = window.innerWidth < 768 ? 24 : 42;
+
+      function resize() {
+        width = hero.clientWidth;
+        height = hero.clientHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+
+      function makeParticle() {
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+          r: Math.random() * 1.4 + 0.8
+        };
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = 'rgba(0, 180, 216, 0.55)';
+
+        for (let i = 0; i < particles.length; i += 1) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j += 1) {
+            const q = particles[j];
+            const dx = p.x - q.x;
+            const dy = p.y - q.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 120) {
+              ctx.strokeStyle = `rgba(0, 180, 216, ${0.16 * (1 - d / 120)})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      for (let i = 0; i < count; i += 1) particles.push(makeParticle());
+      draw();
+      window.addEventListener('resize', resize);
     }
+    initHeroParticles();
 
     const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"], .mobile-nav-links a[href^="#"]')];
     const sections = [...document.querySelectorAll('header[id], main section[id]')];
@@ -1568,8 +1861,43 @@
     window.addEventListener('scroll', setActiveSection, { passive: true });
     window.addEventListener('load', setActiveSection);
 
+    function preselectService(value) {
+      const select = document.getElementById('briefType');
+      if (!select || !value) return;
+
+      const options = [...select.options];
+      const target = options.find((opt) => opt.text.trim() === value.trim());
+      if (target) {
+        select.value = target.value;
+      }
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    document.querySelectorAll('.service-cta[data-service]').forEach((cta) => {
+      cta.addEventListener('click', () => {
+        preselectService(cta.dataset.service);
+      });
+    });
+
     // Mini briefing: construye correo y WhatsApp con los datos del formulario
     (function () {
+      const contactEmail = document.getElementById('contactEmail');
+      if (contactEmail) {
+        contactEmail.textContent = CONTACT_CONFIG.email;
+        contactEmail.href = 'mailto:' + CONTACT_CONFIG.email;
+      }
+
+      const schemaTag = document.querySelector('script[type="application/ld+json"]');
+      if (schemaTag) {
+        try {
+          const schema = JSON.parse(schemaTag.textContent);
+          schema.email = 'mailto:' + CONTACT_CONFIG.email;
+          schemaTag.textContent = JSON.stringify(schema, null, 2);
+        } catch (_) {
+          // No action needed if schema cannot be parsed.
+        }
+      }
+
       function getBriefData() {
         return {
           tipo: document.getElementById('briefType').value.trim(),
@@ -1589,11 +1917,23 @@
 
       const btnEmail = document.getElementById('btnBriefEmail');
       const btnWA = document.getElementById('btnBriefWA');
+      const form = document.getElementById('briefForm');
+      const status = document.getElementById('briefStatus');
 
-      if (btnEmail) {
-        btnEmail.addEventListener('click', function () {
+      function showStatus(message) {
+        if (!status) return;
+        status.textContent = message;
+        status.classList.add('show');
+      }
+
+      if (form && btnEmail) {
+        form.addEventListener('submit', function (ev) {
+          ev.preventDefault();
           const d = getBriefData();
           if (!validarBrief(d)) return;
+
+          showStatus('✓ Briefing listo. Se abrirá tu correo para enviarlo sin recargar la página.');
+
           const subject = encodeURIComponent('Briefing de proyecto: ' + d.tipo);
           const body = encodeURIComponent(
             'Hola Diego,\n\n' +
@@ -1604,10 +1944,12 @@
             '\u2022 Objetivo principal: ' + d.objetivo + '\n\n' +
             'Quedo atento a tu respuesta.'
           );
-          window.open(
-            'https://mail.google.com/mail/u/0/?fs=1&to=diegovch@gmail.com&su=' + subject + '&body=' + body + '&tf=cm',
-            '_blank', 'noopener,noreferrer'
-          );
+          setTimeout(() => {
+            window.open(
+              'https://mail.google.com/mail/u/0/?fs=1&to=' + encodeURIComponent(CONTACT_CONFIG.email) + '&su=' + subject + '&body=' + body + '&tf=cm',
+              '_blank', 'noopener,noreferrer'
+            );
+          }, 250);
         });
       }
 
@@ -1622,7 +1964,8 @@
             '\u2022 Plazo estimado: ' + d.plazo + '\n' +
             '\u2022 Objetivo: ' + d.objetivo
           );
-          window.open('https://wa.me/51974205217?text=' + text, '_blank', 'noopener,noreferrer');
+          showStatus('✓ Briefing listo. Abriremos WhatsApp para continuar la conversación.');
+          window.open('https://wa.me/' + CONTACT_CONFIG.whatsapp + '?text=' + text, '_blank', 'noopener,noreferrer');
         });
       }
     })();
