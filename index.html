@@ -1147,6 +1147,26 @@
     }
     @media (max-width: 940px) {
       .trust-bar { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1rem; }
+      .trust-bar-logos {
+        width: 100%;
+        gap: 1rem 1.2rem;
+        justify-content: flex-start;
+      }
+      .trust-logo {
+        max-width: 104px;
+      }
+    }
+    @media (max-width: 560px) {
+      .trust-bar-logos {
+        gap: 0.8rem 0.9rem;
+      }
+      .trust-logo {
+        max-width: 92px;
+        height: 22px;
+      }
+      .trust-logo--mibanco { height: 25px; }
+      .trust-logo--unacem { height: 20px; }
+      .trust-logo--inlearning { height: 21px; }
     }
   </style>
 </head>
