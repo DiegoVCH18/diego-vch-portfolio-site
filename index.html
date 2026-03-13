@@ -503,14 +503,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 0.72rem;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--accent);
       margin-bottom: 1rem;
-    }
-    .service-icon img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-      border-radius: 6px;
     }
 
     .skills-container { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; }
@@ -587,6 +585,141 @@
       max-height: 80px;
       object-fit: contain;
       filter: saturate(1.05);
+    }
+
+    /* Voluntariado section */
+    #voluntariado { scroll-margin-top: 4.5rem; }
+    .voluntariado-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      max-width: 820px;
+    }
+    .vol-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+    .vol-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+    .vol-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .vol-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .vol-org {
+      font-size: 0.84rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+    .vol-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .vol-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .vol-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .vol-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+    .vol-link:hover {
+      border-color: var(--accent);
+      background: var(--glow);
+    }
+
+    /* Voluntariado section */
+    #voluntariado { scroll-margin-top: 4.5rem; }
+    .voluntariado-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      max-width: 820px;
+    }
+    .vol-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+    .vol-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+    .vol-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .vol-org {
+      font-size: 0.84rem;
+      color: var(--accent);
+      margin-bottom: 0.15rem;
+    }
+    .vol-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .vol-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .vol-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .vol-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+    .vol-link:hover {
+      border-color: var(--accent);
+      background: var(--glow);
     }
 
     /* LinkedIn posts section */
@@ -797,6 +930,7 @@
       <li><a href="#projects">Proyectos</a></li>
       <li><a href="#services">Especializacion</a></li>
       <li><a href="#skills">Stack</a></li>
+      <li><a href="#voluntariado">Voluntariado</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
     <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:0.55rem 1rem; font-size:0.78rem;">Linktree</a>
@@ -813,6 +947,7 @@
       <li><a href="#projects">Proyectos</a></li>
       <li><a href="#services">Especializacion</a></li>
       <li><a href="#skills">Stack</a></li>
+      <li><a href="#voluntariado">Voluntariado</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
     <a href="projects.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Ver pagina de proyectos</a>
@@ -1034,37 +1169,37 @@
 
       <div class="services-grid">
         <article class="service-card reveal">
-          <div class="service-icon"><img src="assets/logo.jpg" alt="Icono BI" loading="lazy" decoding="async" /></div>
+          <div class="service-icon">BI</div>
           <h3 class="service-title">Business Intelligence y dashboards ejecutivos</h3>
           <p class="service-desc">Diseno de tableros en Power BI con KPIs, DAX, modelado de datos y narrativas visuales para direccion y gerencia.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon"><img src="assets/logo-personal.jpg" alt="Icono ETL" loading="lazy" decoding="async" /></div>
+          <div class="service-icon">ETL</div>
           <h3 class="service-title">Data Management, ETL y calidad de datos</h3>
           <p class="service-desc">Estructuracion de procesos ETL con Power Query y SQL para integrar, limpiar y transformar datos con trazabilidad.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon"><img src="assets/logos.jpg" alt="Icono SQL" loading="lazy" decoding="async" /></div>
+          <div class="service-icon">SQL</div>
           <h3 class="service-title">Analitica con SQL y Python</h3>
           <p class="service-desc">Analisis descriptivo y predictivo con pandas y scikit-learn para detectar riesgos, patrones y oportunidades de mejora.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon"><img src="assets/logo.jpg" alt="Icono automatizacion" loading="lazy" decoding="async" /></div>
+          <div class="service-icon">AUTO</div>
           <h3 class="service-title">Automatizacion de reportes y procesos</h3>
           <p class="service-desc">Automatizacion con VBA, Apps Script y flujos de datos para reducir tiempos, errores y dependencia manual.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon"><img src="assets/logo-personal.jpg" alt="Icono machine learning" loading="lazy" decoding="async" /></div>
+          <div class="service-icon">ML</div>
           <h3 class="service-title">Machine Learning aplicado</h3>
           <p class="service-desc">Modelos de prediccion para permanencia, desempeno y churn con enfoque practico de negocio y despliegue funcional.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon"><img src="assets/logos.jpg" alt="Icono formacion" loading="lazy" decoding="async" /></div>
+          <div class="service-icon">TRAIN</div>
           <h3 class="service-title">Capacitacion y transferencia de capacidades</h3>
           <p class="service-desc">Programas formativos en BI y Data Analytics para equipos corporativos y academicos orientados a resultados.</p>
         </article>
@@ -1151,6 +1286,38 @@
             class="linkedin-post-link"
           >Ver en LinkedIn ↗</a>
         </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="voluntariado">
+      <p class="section-label reveal">Impacto social</p>
+      <h2 class="section-title reveal">Voluntariado y participacion</h2>
+      <p class="section-sub reveal">Aporte a comunidades academicas y profesionales a traves de mentoria, docencia y difusion de conocimiento en analisis de datos e innovacion.</p>
+
+      <div class="voluntariado-grid">
+
+        <article class="vol-card reveal">
+          <p class="vol-org">Universidad Nacional de San Agustin de Arequipa</p>
+          <h3 class="vol-title">Mentor — Innova Tech Week 2026</h3>
+          <p class="vol-date">Mar. 2026 · actualidad &nbsp;·&nbsp; Ciencia y tecnologia</p>
+          <p class="vol-desc">Participe como mentor en Innova Tech Week 2026, guiando a equipos multidisciplinarios en la formulacion y mejora de proyectos de innovacion. Mi aporte estuvo enfocado en el analisis de datos, estructuracion de ideas, validacion de propuestas y orientacion hacia soluciones factibles, sostenibles y con impacto.</p>
+          <div class="vol-links">
+            <a href="https://www.facebook.com/photo.php?fbid=122110810563246869&set=a.122106089331246869&id=61587406093265" target="_blank" rel="noopener noreferrer" class="vol-link">Ver en Facebook ↗</a>
+          </div>
+        </article>
+
+        <article class="vol-card reveal">
+          <p class="vol-org">Universidad Nacional de San Agustin de Arequipa</p>
+          <h3 class="vol-title">Ponente invitado — CI CONECTA 2025</h3>
+          <p class="vol-date">May. 2025 · 1 mes &nbsp;·&nbsp; Educacion</p>
+          <p class="vol-desc">Participe como ponente invitado en el ciclo de entrevistas de la sexta edicion de CI CONECTA, organizado por el Centro de Computo de Ingenieria Industrial de la Universidad Nacional de San Agustin. Comparte experiencias sobre automatizacion, analisis de datos y el impacto de la tecnologia en el mundo profesional.</p>
+          <div class="vol-links">
+            <a href="https://www.youtube.com/watch?v=DlcppkyOjPQ" target="_blank" rel="noopener noreferrer" class="vol-link">Ver en YouTube ↗</a>
+          </div>
+        </article>
 
       </div>
     </section>
