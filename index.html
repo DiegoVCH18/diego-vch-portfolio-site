@@ -278,6 +278,104 @@
     }
     .stat-label { color: var(--muted); font-size: 0.85rem; }
 
+    /* ─── ACHIEVEMENTS ─── */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+    .achievement-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.6rem;
+      transition: all 0.25s ease;
+    }
+    .achievement-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(110,240,192,0.35);
+      background: var(--surface2);
+    }
+    .achievement-org {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .achievement-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .achievement-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    /* ─── TIMELINE ─── */
+    .timeline {
+      position: relative;
+      max-width: 920px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), rgba(110,240,192,0.08));
+      opacity: 0.45;
+    }
+    .timeline-item {
+      position: relative;
+      margin-left: 48px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem 1.25rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -38px;
+      top: 18px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(110,240,192,0.18);
+    }
+    .timeline-role {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-org {
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .timeline-date {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-bottom: 0.55rem;
+    }
+    .timeline-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
     /* ─── SERVICES ─── */
     .services-grid {
       display: grid;
@@ -493,6 +591,9 @@
       .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
       .hero-photo { max-width: 320px; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .timeline::before { left: 11px; }
+      .timeline-item { margin-left: 34px; }
+      .timeline-item::before { left: -30px; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
     }
 
@@ -515,6 +616,8 @@
     <a class="nav-logo" href="#">DIEGO VCH</a>
     <ul class="nav-links">
       <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#achievements">Logros</a></li>
+      <li><a href="#timeline">Experiencia</a></li>
       <li><a href="#services">Servicios</a></li>
       <li><a href="#skills">Habilidades</a></li>
       <li><a href="#projects">Proyectos</a></li>
@@ -540,6 +643,69 @@
       <div class="hero-photo-wrap reveal">
         <img src="assets/diego-profile.jpg" alt="Diego Armando Vasquez Chavez" class="hero-photo" loading="eager" />
       </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <p class="section-label reveal">Reconocimientos</p>
+    <h2 class="section-title reveal">Logros destacados</h2>
+    <p class="section-sub reveal">Resultados y reconocimientos institucionales vinculados a innovacion, analitica y educacion financiera.</p>
+
+    <div class="achievements-grid">
+      <div class="achievement-card reveal">
+        <p class="achievement-org">SBS - Semana Mundial del Ahorro 2025</p>
+        <h3 class="achievement-title">1.er lugar en Propuesta Innovadora de Educacion Financiera</h3>
+        <p class="achievement-desc">Reconocimiento por IAhorra CERTUS como solucion EdFinTech para fortalecer el aprendizaje financiero con enfoque practico.</p>
+      </div>
+      <div class="achievement-card reveal">
+        <p class="achievement-org">CERTUS - 2024 y 2026</p>
+        <h3 class="achievement-title">Docente Everest y Docente Milla Extra</h3>
+        <p class="achievement-desc">Distinciones por excelencia academica e impacto en analisis de datos para la Direccion Academica y mejora de la gestion educativa.</p>
+      </div>
+      <div class="achievement-card reveal">
+        <p class="achievement-org">Asociacion UNACEM - 2025 y 2026</p>
+        <h3 class="achievement-title">Consultoria en BI para impacto social</h3>
+        <p class="achievement-desc">Diseno de dashboards ejecutivos, optimizacion ETL y soporte analitico para toma de decisiones en programas sociales institucionales.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <p class="section-label reveal">Trayectoria</p>
+    <h2 class="section-title reveal">Timeline de experiencia</h2>
+    <p class="section-sub reveal">Experiencia combinada en consultoria analitica, docencia innovadora y desarrollo de soluciones para educacion, banca e impacto social.</p>
+
+    <div class="timeline reveal">
+      <article class="timeline-item">
+        <h3 class="timeline-role">Consultor en Gestion y Analisis de Data</h3>
+        <p class="timeline-org">Asociacion UNACEM</p>
+        <p class="timeline-date">Mar 2026 - Oct 2026</p>
+        <p class="timeline-desc">Asistencia tecnica de datos institucionales, dashboards en Power BI para direccion, mejoras ETL y reportes estadisticos para decisiones estrategicas.</p>
+      </article>
+      <article class="timeline-item">
+        <h3 class="timeline-role">Docente Innovador & EdFinTech Developer</h3>
+        <p class="timeline-org">CERTUS - Administracion Financiera y Banca Digital</p>
+        <p class="timeline-date">Mar 2021 - Actualidad</p>
+        <p class="timeline-desc">Lider curricular, creador de IAhorra CERTUS, desarrollo de simuladores bancarios y proyectos de analitica predictiva para permanencia estudiantil.</p>
+      </article>
+      <article class="timeline-item">
+        <h3 class="timeline-role">Consultor Especializado en Automatizacion y Datos</h3>
+        <p class="timeline-org">MIBANCO - Escuela de Negocios / Escuela de Formacion</p>
+        <p class="timeline-date">2023 - 2025</p>
+        <p class="timeline-desc">Implementacion de automatizacion de reportes, dashboards de KPIs por facilitador/agencia y mejora de tiempos operativos de consolidacion.</p>
+      </article>
+      <article class="timeline-item">
+        <h3 class="timeline-role">Fundador, Consultor y Formador en Data Analytics</h3>
+        <p class="timeline-org">TECZONE AQP</p>
+        <p class="timeline-date">2015 - 2024</p>
+        <p class="timeline-desc">Capacitacion en Power BI, VBA y automatizacion para profesionales y empresas, con foco en empleabilidad y soluciones de valor para negocio.</p>
+      </article>
     </div>
   </section>
 
