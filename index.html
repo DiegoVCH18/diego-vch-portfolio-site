@@ -1452,8 +1452,8 @@
             </div>
           </div>
           <div class="briefing-actions">
-            <a href="https://mail.google.com/mail/u/0/?fs=1&to=diegovch@gmail.com&su=Hola&tf=cm" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Enviar briefing por correo</a>
-            <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Continuar por WhatsApp</a>
+            <button type="button" id="btnBriefEmail" class="btn btn-primary">Enviar briefing por correo</button>
+            <button type="button" id="btnBriefWA" class="btn btn-secondary">Continuar por WhatsApp</button>
           </div>
           <p class="briefing-note">Recibiras respuesta para evaluar alcance, prioridad y propuesta de trabajo.</p>
         </form>
@@ -1568,7 +1568,64 @@
     window.addEventListener('scroll', setActiveSection, { passive: true });
     window.addEventListener('load', setActiveSection);
 
-    // El envio de briefing usa enlace directo de Gmail Compose solicitado.
+    // Mini briefing: construye correo y WhatsApp con los datos del formulario
+    (function () {
+      function getBriefData() {
+        return {
+          tipo: document.getElementById('briefType').value.trim(),
+          sector: document.getElementById('briefSector').value.trim(),
+          plazo: document.getElementById('briefDeadline').value.trim(),
+          objetivo: document.getElementById('briefGoal').value.trim()
+        };
+      }
+
+      function validarBrief(d) {
+        if (!d.tipo || !d.sector || !d.plazo || !d.objetivo) {
+          alert('Por favor completa todos los campos del briefing antes de continuar.');
+          return false;
+        }
+        return true;
+      }
+
+      const btnEmail = document.getElementById('btnBriefEmail');
+      const btnWA = document.getElementById('btnBriefWA');
+
+      if (btnEmail) {
+        btnEmail.addEventListener('click', function () {
+          const d = getBriefData();
+          if (!validarBrief(d)) return;
+          const subject = encodeURIComponent('Briefing de proyecto: ' + d.tipo);
+          const body = encodeURIComponent(
+            'Hola Diego,\n\n' +
+            'Te comparto los detalles de mi proyecto:\n\n' +
+            '\u2022 Tipo de servicio: ' + d.tipo + '\n' +
+            '\u2022 Sector: ' + d.sector + '\n' +
+            '\u2022 Plazo estimado: ' + d.plazo + '\n' +
+            '\u2022 Objetivo principal: ' + d.objetivo + '\n\n' +
+            'Quedo atento a tu respuesta.'
+          );
+          window.open(
+            'https://mail.google.com/mail/u/0/?fs=1&to=diegovch@gmail.com&su=' + subject + '&body=' + body + '&tf=cm',
+            '_blank', 'noopener,noreferrer'
+          );
+        });
+      }
+
+      if (btnWA) {
+        btnWA.addEventListener('click', function () {
+          const d = getBriefData();
+          if (!validarBrief(d)) return;
+          const text = encodeURIComponent(
+            'Hola Diego, te comparto los detalles de mi proyecto:\n\n' +
+            '\u2022 Tipo de servicio: ' + d.tipo + '\n' +
+            '\u2022 Sector: ' + d.sector + '\n' +
+            '\u2022 Plazo estimado: ' + d.plazo + '\n' +
+            '\u2022 Objetivo: ' + d.objetivo
+          );
+          window.open('https://wa.me/51974205217?text=' + text, '_blank', 'noopener,noreferrer');
+        });
+      }
+    })();
   </script>
 </body>
 </html>
