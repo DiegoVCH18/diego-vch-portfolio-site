@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Diego VCH — Portafolio</title>
+  <meta name="description" content="Portafolio de Diego Armando Vasquez Chavez: Business Intelligence, Data Analytics, Power BI, Machine Learning e innovacion EdFinTech." />
+  <meta name="keywords" content="Diego Vasquez, Power BI, Data Analytics, Business Intelligence, Machine Learning, EdFinTech, Python, SQL" />
+  <meta name="author" content="Diego Armando Vasquez Chavez" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Diego VCH | Data Analytics & Business Intelligence Portfolio" />
+  <meta property="og:description" content="Especialista en Gestion de Datos, BI, Power BI, Machine Learning e innovacion EdFinTech." />
+  <meta property="og:url" content="https://diegovch18.github.io/diego-vch-portfolio-site/" />
+  <meta property="og:image" content="https://diegovch18.github.io/diego-vch-portfolio-site/favicon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diego VCH | Data Analytics & Business Intelligence Portfolio" />
+  <meta name="twitter:description" content="Portafolio profesional en BI, Data Analytics, ML e innovacion EdFinTech." />
+  <meta name="twitter:image" content="https://diegovch18.github.io/diego-vch-portfolio-site/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -376,6 +388,29 @@
       margin-bottom: 0.5rem;
     }
     .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+    .project-actions {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+    .project-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
 
     /* ─── CONTACT ─── */
     .contact-wrapper {
@@ -611,6 +646,10 @@
           <span class="project-tag">EdFinTech</span>
           <h3 class="project-name">IAhorra CERTUS</h3>
           <p class="project-desc">Asistente web de educacion financiera con IA conversacional (React/Next.js + Vercel), ganador del 1.er lugar en innovacion (SBS 2025).</p>
+          <div class="project-actions">
+            <a class="project-link" href="https://iahorra-certus.vercel.app" target="_blank">Ver demo ↗</a>
+            <a class="project-link" href="https://github.com/DiegoVCH18/iahorra-certus" target="_blank">Codigo ↗</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
@@ -619,6 +658,10 @@
           <span class="project-tag">Machine Learning</span>
           <h3 class="project-name">Academic Performance Prediction - CERTUS</h3>
           <p class="project-desc">Modelo predictivo de rendimiento y permanencia estudiantil (+7000 registros/ciclo) con Random Forest, XGBoost y CatBoost.</p>
+          <div class="project-actions">
+            <a class="project-link" href="https://huggingface.co/spaces/Diegovch18/PROYECTO_CERTUS" target="_blank">App ML ↗</a>
+            <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank">Repositorio ↗</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
@@ -627,6 +670,9 @@
           <span class="project-tag">Business Intelligence</span>
           <h3 class="project-name">Customer Experience & Loyalty Dashboard</h3>
           <p class="project-desc">Dashboard ejecutivo en Power BI con CSAT, NPS, permanencia y analisis de riesgo de churn para toma de decisiones gerenciales.</p>
+          <div class="project-actions">
+            <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank">Ver portafolio BI ↗</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
@@ -635,6 +681,9 @@
           <span class="project-tag">Automatizacion</span>
           <h3 class="project-name">Automatizacion de Reportes - MIBANCO</h3>
           <p class="project-desc">Sistema automatizado de gestion de datos con Power Query y VBA, reduciendo mas del 60% el tiempo de consolidacion mensual.</p>
+          <div class="project-actions">
+            <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank">Casos similares ↗</a>
+          </div>
         </div>
       </div>
     </div>
