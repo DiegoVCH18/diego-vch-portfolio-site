@@ -568,20 +568,22 @@
     }
 
     .service-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       border: 1px solid var(--border);
-      background: var(--glow);
+      background: linear-gradient(135deg, rgba(0,224,255,0.12), rgba(0,224,255,0.04));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.72rem;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      letter-spacing: 0.04em;
       color: var(--accent);
       margin-bottom: 1rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .service-icon svg { width: 22px; height: 22px; }
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg, rgba(0,224,255,0.22), rgba(0,224,255,0.08));
+      transform: scale(1.05);
     }
 
     .service-cta {
@@ -1072,6 +1074,72 @@
     @media (max-width: 560px) {
       .hero-cta { grid-template-columns: 1fr; }
     }
+
+    /* Hero name subtitle */
+    .hero-name-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    /* SBS gold pill */
+    .proof-pill--gold {
+      border-color: rgba(240, 165, 0, 0.5);
+      background: rgba(240, 165, 0, 0.1);
+      color: #f5c842;
+      animation: pulse-gold 2.8s ease-in-out infinite;
+    }
+    .proof-pill--gold svg { color: #f0a500; }
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(240,165,0,0); }
+      50% { box-shadow: 0 0 0 6px rgba(240,165,0,0.14); }
+    }
+
+    /* Trust bar */
+    .trust-bar {
+      padding: 1.3rem 3rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      background: rgba(13, 26, 46, 0.55);
+      position: relative;
+      z-index: 1;
+    }
+    .trust-bar-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .trust-bar-logos {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .trust-logo {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(1) brightness(0.72);
+      opacity: 0.6;
+      transition: filter 0.22s, opacity 0.22s;
+    }
+    .trust-logo:hover {
+      filter: grayscale(0) brightness(1);
+      opacity: 1;
+    }
+    @media (max-width: 940px) {
+      .trust-bar { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -1105,7 +1173,7 @@
       <li><a href="#voluntariado">Voluntariado</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
-    <a href="projects.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Ver pagina de proyectos</a>
+    <a href="projects.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Ver página de proyectos</a>
   </div>
 
   <header class="hero" id="home">
@@ -1114,29 +1182,30 @@
     <div class="hero-orb orb2"></div>
     <div class="hero-layout">
       <div>
-        <span class="hero-tag">Consultor de datos | Business Intelligence | Data Analytics</span>
-        <h1 class="hero-name">Diego Armando<br/><span>Vasquez Chavez</span></h1>
-        <p class="hero-value">Convierto datos dispersos en decisiones ejecutivas con dashboards, ETL, SQL, Python y automatización de reportes.</p>
-        <p class="hero-desc">Más de 10 años liderando soluciones de Business Intelligence para educación, banca e impacto social. Combino enfoque técnico, visión de negocio y formación para acelerar resultados medibles.</p>
+        <span class="hero-tag">Business Intelligence · Data Analytics · Power BI · Python</span>
+        <h1 class="hero-name">Consultor de Datos<br/><span>que transforma decisiones</span></h1>
+        <p class="hero-name-sub">Diego Vasquez Chavez</p>
+        <p class="hero-value">Diseño sistemas de datos que tu equipo entiende, usa y que generan valor desde el primer sprint. De la fuente de datos al dashboard ejecutivo, sin rodeos.</p>
+        <p class="hero-desc">10 años en proyectos reales con CERTUS, MIBANCO, Asociación UNACEM y PROAVANCE. Premio SBS 2025. Experto en Power BI, Python y automatización con resultados medibles.</p>
         <div class="hero-proof">
           <span class="proof-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6l4 2"></path></svg>
-            10+ años de experiencia
+            10+ años en BI y Data Analytics
           </span>
-          <span class="proof-pill">
+          <span class="proof-pill proof-pill--gold">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V4Z"></path><path d="M8 20h8"></path><path d="M12 11v9"></path><path d="M6 7H4a3 3 0 0 0 3 3"></path><path d="M18 7h2a3 3 0 0 1-3 3"></path></svg>
-            1.er lugar SBS
+            Premio SBS 2025 — 1.er lugar
           </span>
           <span class="proof-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 4v-2M15 4v-2M9 22v-2M15 22v-2M4 9H2M4 15H2M22 9h-2M22 15h-2"></path><path d="M9 9h6v6H9z"></path></svg>
-            ML +90% precisión
+            +90% precisión en modelos predictivos
           </span>
         </div>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">Ver proyectos clave</a>
-          <a href="projects.html" class="btn btn-secondary">Pagina de proyectos</a>
+          <a href="projects.html" class="btn btn-secondary">Página de proyectos</a>
           <a href="assets/CV_Diego_Vasquez.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Descargar CV</a>
-          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Agendar por WhatsApp</a>
+          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Agendar conversación →</a>
         </div>
       </div>
       <div class="hero-photo-wrap reveal">
@@ -1144,6 +1213,16 @@
       </div>
     </div>
   </header>
+
+  <section class="trust-bar" aria-label="Empresas con las que he trabajado">
+    <p class="trust-bar-label">Trabajé con</p>
+    <div class="trust-bar-logos">
+      <img src="assets/certus-logo.png" alt="CERTUS" class="trust-logo" loading="lazy" />
+      <img src="assets/mibanco-logo.png" alt="MIBANCO" class="trust-logo" loading="lazy" />
+      <img src="assets/unacem-logo.png" alt="Asociación UNACEM" class="trust-logo" loading="lazy" />
+      <img src="assets/proavance-logo.png" alt="PROAVANCE" class="trust-logo" loading="lazy" />
+    </div>
+  </section>
 
   <main>
     <div class="divider"></div>
@@ -1155,9 +1234,9 @@
 
       <div class="about-grid">
         <div class="about-text reveal">
-          <p><strong>Trabajo de extremo a extremo:</strong> desde la limpieza y modelado de datos (ETL, SQL, Power Query) hasta la visualización ejecutiva en Power BI y el despliegue de analítica avanzada con Python.</p>
-          <p><strong>Experiencia multisectorial real:</strong> proyectos para Asociación UNACEM, CERTUS, MIBANCO, PROAVANCE y ZEGEL, conectando analítica con resultados operativos y académicos.</p>
-          <p><strong>Perfil senior de consultoría y formación:</strong> diseño soluciones para dirección y también formo equipos para uso autónomo de dashboards, KPIs y reportes de gestión.</p>
+          <p><strong>Mi trabajo empieza donde tus datos están dispersos</strong> y termina cuando tu equipo toma mejores decisiones — con un sistema que funciona solo, sin dependencias permanentes.</p>
+          <p><strong>Construyo ecosistemas de datos completos:</strong> diseño el modelo, automatizo los flujos, creo los dashboards ejecutivos y entreno a tu equipo para que los use de forma autónoma.</p>
+          <p><strong>Experiencia multisectorial real:</strong> proyectos con CERTUS, MIBANCO, Asociación UNACEM y PROAVANCE, traduciendo necesidades de gerencia en soluciones técnicas con resultados medibles.</p>
           <div style="margin-top:1.4rem;">
             <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ver perfil en LinkedIn</a>
           </div>
@@ -1285,17 +1364,17 @@
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Consultor en Implementacion de SST (Ley 29783)</h3>
+          <h3 class="timeline-role">Consultor en Implementación de SST (Ley 29783)</h3>
           <p class="timeline-org">San Marcos EIRL</p>
           <p class="timeline-date">2018</p>
-          <p class="timeline-desc">Consultoria para la implementacion del Sistema de Seguridad y Salud en el Trabajo conforme a la Ley 29783, con enfoque en ordenamiento documental, lineamientos de cumplimiento y soporte para la gestion preventiva en la organizacion.</p>
+          <p class="timeline-desc">Consultoría para la implementación del Sistema de Seguridad y Salud en el Trabajo conforme a la Ley 29783, con enfoque en ordenamiento documental, lineamientos de cumplimiento y soporte para la gestión preventiva en la organización.</p>
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Consultoria en Gestion Estrategica basada en Investigacion</h3>
-          <p class="timeline-org">UNSA | Aplicacion profesional de tesis</p>
+          <h3 class="timeline-role">Consultoría en Gestión Estratégica basada en Investigación</h3>
+          <p class="timeline-org">UNSA | Aplicación profesional de tesis</p>
           <p class="timeline-date">2017</p>
-          <p class="timeline-desc">Diseno de propuestas de mejora y analisis para la toma de decisiones estrategicas, sustentadas en metodologia de investigacion aplicada y evidencia academica desarrollada en tesis de ingenieria. <a href="https://repositorio.unsa.edu.pe/server/api/core/bitstreams/d158f04c-f7e9-448f-9bd5-44a15c14501b/content" target="_blank" rel="noopener noreferrer" class="project-link">Ver tesis UNSA</a></p>
+          <p class="timeline-desc">Diseño de propuestas de mejora y análisis para la toma de decisiones estratégicas, sustentadas en metodología de investigación aplicada y evidencia académica desarrollada en tesis de ingeniería. <a href="https://repositorio.unsa.edu.pe/server/api/core/bitstreams/d158f04c-f7e9-448f-9bd5-44a15c14501b/content" target="_blank" rel="noopener noreferrer" class="project-link">Ver tesis UNSA</a></p>
         </article>
       </div>
     </section>
@@ -1305,31 +1384,31 @@
     <section id="achievements">
       <p class="section-label reveal">Credenciales y resultados</p>
       <h2 class="section-title reveal">Logros que respaldan mi impacto profesional</h2>
-      <p class="section-sub reveal">Reconocimientos, iniciativas y resultados concretos obtenidos en proyectos de Data Analytics, BI y educacion financiera digital.</p>
+      <p class="section-sub reveal">Reconocimientos, iniciativas y resultados concretos obtenidos en proyectos de Data Analytics, BI y educación financiera digital.</p>
 
       <div class="achievements-grid">
         <article class="achievement-card reveal">
           <p class="achievement-org">SBS | Semana Mundial del Ahorro 2025</p>
-          <h3 class="achievement-title">1.er lugar en Propuesta Innovadora de Educacion Financiera</h3>
-          <p class="achievement-desc">IAhorra CERTUS fue reconocido como solucion EdFinTech por su enfoque practico y su potencial de escalamiento en formacion financiera.</p>
+          <h3 class="achievement-title">1.er lugar en Propuesta Innovadora de Educación Financiera</h3>
+          <p class="achievement-desc">Premio nacional otorgado por la SBS a IAhorra CERTUS, solución EdFinTech seleccionada por su impacto práctico, escalabilidad y enfoque en formación financiera para jóvenes.</p>
         </article>
 
         <article class="achievement-card reveal">
           <p class="achievement-org">CERTUS | 2024 y 2026</p>
           <h3 class="achievement-title">Docente Everest y Docente Milla Extra</h3>
-          <p class="achievement-desc">Reconocimientos por excelencia academica y contribucion destacada en analisis de data para direccion academica.</p>
+          <p class="achievement-desc">Reconocimientos por excelencia académica y contribución destacada en análisis de data para dirección académica.</p>
         </article>
 
         <article class="achievement-card reveal">
-          <p class="achievement-org">MIBANCO | Gestion de Aprendizaje</p>
+          <p class="achievement-org">MIBANCO | Gestión de Aprendizaje</p>
           <h3 class="achievement-title">Automatización de reportes validada por gerencia</h3>
-          <p class="achievement-desc">Sistema automatizado con Power Query y VBA que mejoro la trazabilidad de indicadores y estandarizo la consolidacion mensual de reportes.</p>
+          <p class="achievement-desc">Sistema automatizado con Power Query y VBA que mejoró la trazabilidad de indicadores y estandarizó la consolidación mensual de reportes.</p>
         </article>
 
         <article class="achievement-card reveal">
-          <p class="achievement-org">CERTUS | Analitica Predictiva</p>
-          <h3 class="achievement-title">Modelo de permanencia con precision superior al 90%</h3>
-          <p class="achievement-desc">Modelo con Random Forest, XGBoost y CatBoost para predecir riesgo de desaprobacion o desercion desde la Evaluacion 1.</p>
+          <p class="achievement-org">CERTUS | Analítica Predictiva</p>
+          <h3 class="achievement-title">Modelo de permanencia con precisión superior al 90%</h3>
+          <p class="achievement-desc">Modelo con Random Forest, XGBoost y CatBoost para predecir riesgo de desaprobación o deserción desde la Evaluación 1.</p>
         </article>
       </div>
     </section>
@@ -1338,15 +1417,15 @@
 
     <section id="projects">
       <p class="section-label reveal">Portafolio</p>
-      <h2 class="section-title reveal">Proyectos relevantes en BI, automatizacion y Machine Learning</h2>
-      <p class="section-sub reveal">Seleccion de proyectos reales alineados a consultoria de datos, dashboards ejecutivos y productos de analitica aplicada.</p>
+      <h2 class="section-title reveal">Proyectos relevantes en BI, automatización y Machine Learning</h2>
+      <p class="section-sub reveal">Selección de proyectos reales alineados a consultoría de datos, dashboards ejecutivos y productos de analítica aplicada.</p>
 
       <div class="projects-grid">
         <article class="project-card reveal">
           <div class="project-body">
             <span class="project-tag">EdFinTech + IA</span>
             <h3 class="project-name">IAhorra CERTUS</h3>
-            <p class="project-desc">Asistente web de educacion financiera (React/Next.js + Vercel), evolucionado desde una version conversacional y ganador del 1.er lugar SBS 2025.</p>
+            <p class="project-desc">Asistente web de educación financiera (React/Next.js + Vercel), evolucionado desde una versión conversacional y ganador del 1.er lugar SBS 2025.</p>
             <div class="project-actions">
               <a class="project-link" href="https://iahorra-certus.vercel.app" target="_blank" rel="noopener noreferrer">Ver demo</a>
               <a class="project-link" href="https://github.com/DiegoVCH18/iahorra-certus" target="_blank" rel="noopener noreferrer">Repositorio</a>
@@ -1384,7 +1463,7 @@
           <div class="project-body">
             <span class="project-tag">Automatización de reportes</span>
             <h3 class="project-name">Sistema automatizado para MIBANCO</h3>
-            <p class="project-desc">Integracion de Excel VBA, Power Query y Apps Script para consolidacion mensual, dashboards de productividad y reportes de desempeno por agencia.</p>
+            <p class="project-desc">Integración de Excel VBA, Power Query y Apps Script para consolidación mensual, dashboards de productividad y reportes de desempeño por agencia.</p>
             <div class="project-actions">
               <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Ver referencia</a>
               <a class="project-link" href="proyectos/automatizacion-reportes-mibanco.html">Ficha del proyecto</a>
@@ -1393,57 +1472,69 @@
         </article>
       </div>
       <div style="margin-top:1rem;">
-        <a href="projects.html" class="btn btn-secondary">Explorar pagina completa de proyectos</a>
+        <a href="projects.html" class="btn btn-secondary">Explorar página completa de proyectos</a>
       </div>
     </section>
 
     <div class="divider"></div>
 
     <section id="services">
-      <p class="section-label reveal">Areas de especializacion</p>
+      <p class="section-label reveal">Áreas de especialización</p>
       <h2 class="section-title reveal">Servicios de consultoría y formación</h2>
-      <p class="section-sub reveal">Acompaño organizaciones y equipos para pasar de datos sin contexto a un sistema de decisiones basado en evidencia, incluyendo consultoría en gestión estratégica sustentada en investigación aplicada.</p>
+      <p class="section-sub reveal">Acompaño a organizaciones y equipos a pasar de datos dispersos a decisiones respaldadas por evidencia — con sistemas que funcionan de forma autónoma una vez entregados.</p>
 
       <div class="services-grid">
         <article class="service-card reveal">
-          <div class="service-icon">BI</div>
-          <h3 class="service-title">Business Intelligence y dashboards ejecutivos</h3>
-          <p class="service-desc">Diseño de tableros en Power BI con KPIs, DAX, modelado de datos y narrativas visuales para dirección y gerencia.</p>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="8" width="4" height="10"></rect><rect x="10" y="5" width="4" height="13"></rect><rect x="16" y="3" width="4" height="15"></rect></svg>
+          </div>
+          <h3 class="service-title">Dashboards ejecutivos en Power BI</h3>
+          <p class="service-desc">Convierto tus datos en tableros claros, con KPIs accionables que la dirección realmente usa para tomar decisiones.</p>
           <a href="#contact" class="service-cta" data-service="Business Intelligence">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">ETL</div>
-          <h3 class="service-title">Data Management, ETL y calidad de datos</h3>
-          <p class="service-desc">Estructuración de procesos ETL con Power Query y SQL para integrar, limpiar y transformar datos con trazabilidad.</p>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"></ellipse><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"></path><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg>
+          </div>
+          <h3 class="service-title">ETL y arquitectura de datos limpia</h3>
+          <p class="service-desc">Estructuro tus flujos de datos de principio a fin: sin duplicados, sin errores manuales, con trazabilidad completa.</p>
           <a href="#contact" class="service-cta" data-service="ETL y Data Management">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">SQL</div>
-          <h3 class="service-title">Analitica con SQL y Python</h3>
-          <p class="service-desc">Análisis descriptivo y predictivo con pandas y scikit-learn para detectar riesgos, patrones y oportunidades de mejora.</p>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 10h16M4 14h8"></path><circle cx="17" cy="17" r="3"></circle><path d="m21 21-1.5-1.5"></path></svg>
+          </div>
+          <h3 class="service-title">Analítica avanzada con SQL y Python</h3>
+          <p class="service-desc">Detecto patrones, riesgos y oportunidades antes de que sean evidentes para tu competencia, usando datos que ya tienes.</p>
           <a href="#contact" class="service-cta" data-service="SQL y Python aplicado">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">AUTO</div>
-          <h3 class="service-title">Automatización de reportes y procesos</h3>
-          <p class="service-desc">Automatización con VBA, Apps Script y flujos de datos para reducir tiempos, errores y dependencia manual.</p>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+          </div>
+          <h3 class="service-title">Automatización de reportes</h3>
+          <p class="service-desc">Elimino el tiempo que tu equipo pierde consolidando datos manualmente. Los reportes se generan solos, sin errores y a tiempo.</p>
           <a href="#contact" class="service-cta" data-service="Automatización de reportes">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">ML</div>
-          <h3 class="service-title">Machine Learning aplicado</h3>
-          <p class="service-desc">Modelos de predicción para permanencia, desempeño y churn con enfoque práctico de negocio y despliegue funcional.</p>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"></path></svg>
+          </div>
+          <h3 class="service-title">Modelos predictivos aplicados al negocio</h3>
+          <p class="service-desc">Predigo deserción, churn o rendimiento con modelos explicables que puedes presentar a tu directorio con confianza.</p>
           <a href="#contact" class="service-cta" data-service="Machine Learning aplicado">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">TRAIN</div>
-          <h3 class="service-title">Capacitación y transferencia de capacidades</h3>
-          <p class="service-desc">Programas formativos en BI y Data Analytics para equipos corporativos y académicos orientados a resultados.</p>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3 class="service-title">Formación en BI y Data Analytics</h3>
+          <p class="service-desc">Entreno a tu equipo para que interprete y actualice sus propios dashboards. Autonomía real, sin dependencia permanente de consultor.</p>
           <a href="#contact" class="service-cta" data-service="Consultoría y formación">Consultar servicio →</a>
         </article>
       </div>
@@ -1504,44 +1595,13 @@
     <div class="divider"></div>
 
     <section id="linkedin-posts">
-      <p class="section-label reveal">Actividad reciente</p>
-      <h2 class="section-title reveal">Publicaciones en LinkedIn</h2>
-      <div class="linkedin-intro reveal">
-        <p style="color:var(--muted);">Comparto aprendizajes, proyectos en curso y reflexiones sobre datos, BI y tecnología aplicada al negocio.</p>
-      </div>
-
-      <div class="linkedin-posts-grid">
-
-        <div class="linkedin-post-card reveal">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7346996469561802753"
-            height="940" width="504"
-            frameborder="0" allowfullscreen
-            title="Publicacion LinkedIn 1"
-            loading="lazy"
-          ></iframe>
-          <a
-            href="https://www.linkedin.com/posts/diego-armando-vasquez_ingenieraedaindustrial-programaciaejn-automatizaciaejn-activity-7332887294179258369-GOig"
-            target="_blank" rel="noopener noreferrer"
-            class="linkedin-post-link"
-          >Ver en LinkedIn ↗</a>
-        </div>
-
-        <div class="linkedin-post-card reveal">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7349655242969366528"
-            height="1210" width="504"
-            frameborder="0" allowfullscreen
-            title="Publicacion LinkedIn 2"
-            loading="lazy"
-          ></iframe>
-          <a
-            href="https://www.linkedin.com/in/diego-armando-vasquez"
-            target="_blank" rel="noopener noreferrer"
-            class="linkedin-post-link"
-          >Ver en LinkedIn ↗</a>
-        </div>
-
+      <p class="section-label reveal">Pensamiento y comunidad</p>
+      <h2 class="section-title reveal">Contenido en LinkedIn</h2>
+      <p class="section-sub reveal">Comparto aprendizajes sobre datos, BI y tecnología aplicada al negocio. Automatización, Power BI, Python y transformación digital en organizaciones reales.</p>
+      <div style="display:flex; gap:0.9rem; flex-wrap:wrap;">
+        <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          Ver perfil y publicaciones en LinkedIn ↗
+        </a>
       </div>
     </section>
 
@@ -1609,9 +1669,9 @@
     <section id="contact">
       <div class="contact-wrapper reveal">
         <p class="section-label">Contacto profesional</p>
-        <h2 class="section-title">Listo para impulsar tus decisiones con datos</h2>
+        <h2 class="section-title">¿Tienes datos que no estás aprovechando?</h2>
         <p class="availability-pill">✓ Disponible para nuevos proyectos — Respondo en menos de 24h</p>
-        <p style="color:var(--muted); margin-bottom:0.4rem;">Si buscas un consultor de datos para BI, dashboards ejecutivos, ETL, SQL, Python o automatización de reportes, conversemos.</p>
+        <p style="color:var(--muted); margin-bottom:0.4rem;">Cuéntame brevemente qué necesitas resolver. En menos de 24 horas te respondo con un diagnóstico inicial y los siguientes pasos concretos.</p>
         <a href="mailto:diegovch@gmail.com" class="contact-email" id="contactEmail">diegovch@gmail.com</a>
 
         <div class="contact-links">
@@ -1670,8 +1730,16 @@
   </main>
 
   <footer>
-    <span>© 2026 Diego Armando Vasquez Chavez. Todos los derechos reservados.</span>
-    <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">linktr.ee/diegovch18</a>
+    <div>
+      <p style="font-family:'Syne',sans-serif; font-weight:700; color:var(--text); font-size:0.9rem; margin-bottom:0.2rem;">Diego Vasquez Chavez</p>
+      <p style="color:var(--muted); font-size:0.78rem;">Consultor de Datos · Business Intelligence · Power BI · Python</p>
+    </div>
+    <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; justify-content:center;">
+      <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">Linktree</a>
+      <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p>© 2026 Diego Armando Vasquez Chavez</p>
   </footer>
 
   <script type="application/ld+json">
