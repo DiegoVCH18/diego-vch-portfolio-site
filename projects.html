@@ -64,12 +64,16 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1rem;
+      align-items: stretch;
     }
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     .tag {
       color: var(--accent);
@@ -84,8 +88,18 @@
       font-size: 1.05rem;
       margin-bottom: 0.45rem;
     }
-    .card p { color: var(--muted); font-size: 0.92rem; }
-    .actions { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex: 1;
+    }
+    .actions {
+      margin-top: auto;
+      padding-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
     .link {
       text-decoration: none;
       color: var(--text);
