@@ -1133,24 +1133,27 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
+    .trust-logo-slot {
+      width: 122px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
     .trust-logo {
-      height: 26px;
-      max-width: 118px;
+      max-width: 100%;
+      max-height: 100%;
       width: auto;
+      height: auto;
       object-fit: contain;
       filter: grayscale(1) brightness(0.72);
       opacity: 0.6;
       transition: filter 0.22s, opacity 0.22s;
     }
     .trust-logo--certus {
-      height: 42px;
-      max-width: 170px;
       filter: grayscale(1) brightness(0.9);
       opacity: 0.9;
     }
-    .trust-logo--mibanco { height: 31px; }
-    .trust-logo--unacem { height: 23px; }
-    .trust-logo--inlearning { height: 24px; }
     .trust-logo:hover {
       filter: grayscale(0) brightness(1);
       opacity: 1;
@@ -1162,25 +1165,19 @@
         gap: 1rem 1.2rem;
         justify-content: flex-start;
       }
-      .trust-logo {
-        max-width: 104px;
+      .trust-logo-slot {
+        width: 108px;
+        height: 34px;
       }
     }
     @media (max-width: 560px) {
       .trust-bar-logos {
         gap: 0.8rem 0.9rem;
       }
-      .trust-logo {
-        max-width: 92px;
-        height: 22px;
+      .trust-logo-slot {
+        width: 92px;
+        height: 28px;
       }
-      .trust-logo--certus {
-        height: 34px;
-        max-width: 136px;
-      }
-      .trust-logo--mibanco { height: 25px; }
-      .trust-logo--unacem { height: 20px; }
-      .trust-logo--inlearning { height: 21px; }
     }
   </style>
 </head>
@@ -1259,11 +1256,11 @@
   <section class="trust-bar" aria-label="Empresas con las que he trabajado">
     <p class="trust-bar-label">Trabajé con</p>
     <div class="trust-bar-logos">
-      <img src="assets/certus-logo.png" alt="CERTUS" class="trust-logo trust-logo--certus" loading="lazy" />
-      <img src="assets/mibanco-logo.png" alt="MIBANCO" class="trust-logo trust-logo--mibanco" loading="lazy" />
-      <img src="assets/unacem-logo.png" alt="Asociación UNACEM" class="trust-logo trust-logo--unacem" loading="lazy" />
-      <img src="assets/proavance-logo.png" alt="PROAVANCE" class="trust-logo" loading="lazy" />
-      <img src="assets/inlearning-logo.png" alt="inLearning" class="trust-logo trust-logo--inlearning" loading="lazy" />
+      <span class="trust-logo-slot"><img src="assets/certus-logo.png" alt="CERTUS" class="trust-logo trust-logo--certus" loading="lazy" /></span>
+      <span class="trust-logo-slot"><img src="assets/mibanco-logo.png" alt="MIBANCO" class="trust-logo" loading="lazy" /></span>
+      <span class="trust-logo-slot"><img src="assets/unacem-logo.png" alt="Asociación UNACEM" class="trust-logo" loading="lazy" /></span>
+      <span class="trust-logo-slot"><img src="assets/proavance-logo.png" alt="PROAVANCE" class="trust-logo" loading="lazy" /></span>
+      <span class="trust-logo-slot"><img src="assets/inlearning-logo.png" alt="inLearning" class="trust-logo" loading="lazy" /></span>
     </div>
   </section>
 
