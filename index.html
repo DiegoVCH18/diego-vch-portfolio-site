@@ -3,39 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diego VCH — Portafolio</title>
-  <meta name="description" content="Portafolio de Diego Armando Vasquez Chavez: Business Intelligence, Data Analytics, Power BI, Machine Learning e innovacion EdFinTech." />
-  <meta name="keywords" content="Diego Vasquez, Power BI, Data Analytics, Business Intelligence, Machine Learning, EdFinTech, Python, SQL" />
+  <title>Diego Armando Vasquez Chavez | Business Intelligence, Data Analytics y Power BI</title>
+  <meta name="description" content="Portafolio profesional de Diego Armando Vasquez Chavez, consultor de datos especializado en Business Intelligence, Data Analytics, Power BI, ETL, SQL, Python, automatizacion de reportes y Machine Learning aplicado." />
+  <meta name="keywords" content="Business Intelligence, Data Analytics, Power BI, ETL, SQL, Python, dashboards ejecutivos, automatizacion de reportes, Machine Learning, consultor de datos" />
   <meta name="author" content="Diego Armando Vasquez Chavez" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Diego VCH | Data Analytics & Business Intelligence Portfolio" />
-  <meta property="og:description" content="Especialista en Gestion de Datos, BI, Power BI, Machine Learning e innovacion EdFinTech." />
-  <meta property="og:url" content="https://diegovch18.github.io/diego-vch-portfolio-site/" />
-  <meta property="og:image" content="https://diegovch18.github.io/diego-vch-portfolio-site/favicon.png" />
+  <meta property="og:title" content="Diego Vasquez Chavez | Consultor de Datos y Business Intelligence" />
+  <meta property="og:description" content="Especialista en Business Intelligence, Data Analytics, Power BI y automatizacion de reportes para organizaciones de impacto social, educacion y banca." />
+  <meta property="og:url" content="https://diego-vasquez-chavez-site.vercel.app/" />
+  <meta property="og:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego-hero-alt.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Diego VCH | Data Analytics & Business Intelligence Portfolio" />
-  <meta name="twitter:description" content="Portafolio profesional en BI, Data Analytics, ML e innovacion EdFinTech." />
-  <meta name="twitter:image" content="https://diegovch18.github.io/diego-vch-portfolio-site/favicon.png" />
+  <meta name="twitter:title" content="Diego Vasquez Chavez | Data Analytics y Power BI" />
+  <meta name="twitter:description" content="Consultor de datos con foco en BI, ETL, SQL, Python y dashboards ejecutivos para toma de decisiones." />
+  <meta name="twitter:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <link rel="preload" as="image" href="assets/diego-hero-alt.avif" imagesrcset="assets/diego-hero-alt.avif 1x, assets/diego-hero-alt.webp 1x, assets/diego-hero-alt.jpg 1x" imagesizes="(max-width: 940px) 320px, 420px" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #0a0a0f;
-      --surface: #111118;
-      --surface2: #1a1a24;
-      --accent: #6ef0c0;
-      --accent2: #a78bfa;
-      --text: #f0f0f5;
-      --muted: #7070a0;
-      --border: rgba(110, 240, 192, 0.15);
-      --glow: rgba(110, 240, 192, 0.08);
+      --bg: #09121c;
+      --surface: #101f2b;
+      --surface2: #152836;
+      --accent: #41d6a7;
+      --accent2: #ffc857;
+      --text: #f2f6fb;
+      --muted: #9eb1c0;
+      --border: rgba(65, 214, 167, 0.2);
+      --glow: rgba(65, 214, 167, 0.1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
+      background: radial-gradient(circle at 0% 0%, rgba(65,214,167,0.12), transparent 35%), var(--bg);
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
@@ -43,7 +43,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── Noise overlay ─── */
     body::before {
       content: '';
       position: fixed;
@@ -51,10 +50,9 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
-      opacity: 0.4;
+      opacity: 0.35;
     }
 
-    /* ─── NAV ─── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -62,129 +60,198 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 4rem;
-      backdrop-filter: blur(20px);
+      padding: 1rem 3rem;
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      background: rgba(10, 10, 15, 0.7);
+      background: rgba(9, 18, 28, 0.78);
     }
     .nav-logo {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       letter-spacing: 0.05em;
       color: var(--accent);
       text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.7rem; list-style: none; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       transition: color 0.25s;
     }
     .nav-links a:hover { color: var(--accent); }
+    .nav-links a.active,
+    .mobile-nav-links a.active {
+      color: var(--accent);
+      text-shadow: 0 0 14px rgba(65, 214, 167, 0.35);
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.23rem;
+      width: 44px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(16, 31, 43, 0.8);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .nav-toggle span {
+      width: 100%;
+      height: 2px;
+      border-radius: 8px;
+      background: var(--text);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-    /* ─── HERO ─── */
+    .mobile-menu {
+      position: fixed;
+      top: 66px;
+      right: 1rem;
+      left: 1rem;
+      z-index: 99;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(9, 18, 28, 0.96);
+      backdrop-filter: blur(10px);
+      padding: 0.9rem;
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .mobile-nav-links {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+      margin-bottom: 0.8rem;
+    }
+    .mobile-nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 0.4rem 0.3rem;
+      display: block;
+      border-radius: 8px;
+    }
+
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 8rem 4rem 4rem;
+      padding: 8rem 3rem 4rem;
       position: relative;
       overflow: hidden;
     }
     .hero-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
+      filter: blur(90px);
       pointer-events: none;
     }
     .orb1 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(110,240,192,0.12), transparent 70%);
-      top: -100px; right: -100px;
-      animation: float 8s ease-in-out infinite;
+      width: 540px; height: 540px;
+      background: radial-gradient(circle, rgba(65,214,167,0.2), transparent 70%);
+      top: -120px; right: -80px;
+      animation: float 9s ease-in-out infinite;
     }
     .orb2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(167,139,250,0.1), transparent 70%);
-      bottom: 0; left: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(255,200,87,0.14), transparent 70%);
+      bottom: 0; left: -90px;
       animation: float 12s ease-in-out infinite reverse;
     }
     @keyframes float {
       0%, 100% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(-30px) scale(1.03); }
+      50% { transform: translateY(-26px) scale(1.04); }
     }
 
-    .hero-content {
-      position: relative; z-index: 1;
-      max-width: 750px;
-    }
     .hero-layout {
       position: relative;
       z-index: 1;
       width: 100%;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 2.5rem;
+      gap: 2.8rem;
       align-items: center;
-    }
-    .hero-photo-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero-photo {
-      width: min(100%, 420px);
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
-      background: var(--surface2);
     }
     .hero-tag {
       display: inline-block;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
       border: 1px solid var(--border);
-      padding: 0.4rem 1rem;
+      padding: 0.45rem 1rem;
       border-radius: 100px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.2rem;
       animation: fadeUp 0.8s ease both;
     }
     .hero-name {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: clamp(3.5rem, 7vw, 6rem);
-      line-height: 1.0;
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      line-height: 1.02;
+      margin-bottom: 1rem;
       animation: fadeUp 0.8s 0.1s ease both;
     }
     .hero-name span { color: var(--accent); }
-    .hero-desc {
+    .hero-value {
       font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
+      color: #dbe6ef;
+      max-width: 650px;
+      margin-bottom: 1rem;
       animation: fadeUp 0.8s 0.2s ease both;
     }
-    .hero-cta {
-      display: flex; gap: 1rem; flex-wrap: wrap;
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.8s 0.25s ease both;
+    }
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.8rem;
       animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .proof-pill {
+      border: 1px solid var(--border);
+      background: rgba(16,31,43,0.75);
+      color: #c8d7e4;
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.78rem;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.35s ease both;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.85rem 2rem;
+      padding: 0.82rem 1.6rem;
       border-radius: 100px;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       letter-spacing: 0.02em;
       transition: all 0.25s;
@@ -192,10 +259,10 @@
       border: none;
     }
     .btn-primary {
-      background: var(--accent);
-      color: #0a0a0f;
+      background: linear-gradient(135deg, var(--accent), #6be3bd);
+      color: #092015;
     }
-    .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 10px 40px rgba(110,240,192,0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(65,214,167,0.26); }
     .btn-secondary {
       background: transparent;
       color: var(--text);
@@ -203,16 +270,40 @@
     }
     .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-photo {
+      width: min(100%, 420px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.46);
+      background: var(--surface2);
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── SECTIONS ─── */
     section {
-      padding: 6rem 4rem;
+      padding: 5.4rem 3rem;
       position: relative;
       z-index: 1;
+    }
+    #trusted,
+    #timeline,
+    #achievements,
+    #projects,
+    #services,
+    #skills,
+    #contact {
+      content-visibility: auto;
+      contain-intrinsic-size: 900px;
     }
     .section-label {
       font-size: 0.72rem;
@@ -224,104 +315,64 @@
     .section-title {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 1rem;
+      font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+      margin-bottom: 0.9rem;
       line-height: 1.15;
     }
     .section-sub {
       color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 3.5rem;
+      max-width: 720px;
+      margin-bottom: 2.8rem;
       font-size: 1rem;
     }
     .divider {
-      width: 100%;
+      width: calc(100% - 6rem);
+      margin: 0 auto;
       height: 1px;
       background: linear-gradient(90deg, var(--accent), transparent);
-      opacity: 0.2;
-      margin-bottom: 5rem;
+      opacity: 0.25;
     }
 
-    /* ─── ABOUT ─── */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.2rem;
+      align-items: stretch;
     }
     .about-text p {
       color: var(--muted);
-      margin-bottom: 1.2rem;
-      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      font-size: 1.02rem;
     }
     .about-text p strong { color: var(--text); font-weight: 500; }
+
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1rem;
     }
     .stat-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.8rem;
-      transition: border-color 0.3s;
+      border-radius: 14px;
+      padding: 1.4rem;
     }
-    .stat-card:hover { border-color: var(--accent); }
     .stat-number {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: var(--accent);
       line-height: 1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
-    .stat-label { color: var(--muted); font-size: 0.85rem; }
+    .stat-label { color: var(--muted); font-size: 0.83rem; }
 
-    /* ─── ACHIEVEMENTS ─── */
-    .achievements-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-    }
-    .achievement-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 1.6rem;
-      transition: all 0.25s ease;
-    }
-    .achievement-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(110,240,192,0.35);
-      background: var(--surface2);
-    }
-    .achievement-org {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    .achievement-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-    .achievement-desc {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.55;
-    }
-
-    /* ─── TIMELINE ─── */
     .timeline {
       position: relative;
-      max-width: 920px;
+      max-width: 960px;
       margin: 0 auto;
       display: grid;
-      gap: 1.2rem;
+      gap: 1rem;
     }
     .timeline::before {
       content: '';
@@ -330,7 +381,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--accent), rgba(110,240,192,0.08));
+      background: linear-gradient(180deg, var(--accent), rgba(65,214,167,0.12));
       opacity: 0.45;
     }
     .timeline-item {
@@ -345,30 +396,30 @@
       content: '';
       position: absolute;
       left: -38px;
-      top: 18px;
+      top: 17px;
       width: 12px;
       height: 12px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(110,240,192,0.18);
+      box-shadow: 0 0 0 4px rgba(65,214,167,0.2);
     }
     .timeline-role {
       font-family: 'Syne', sans-serif;
       font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
     .timeline-org {
       color: var(--accent);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
     }
     .timeline-date {
-      color: var(--muted);
+      color: #b8c8d6;
       font-size: 0.82rem;
-      margin-bottom: 0.55rem;
+      margin-bottom: 0.45rem;
     }
     .timeline-desc {
       color: var(--muted);
@@ -376,69 +427,81 @@
       line-height: 1.55;
     }
 
-    /* ─── SERVICES ─── */
-    .services-grid {
+    .achievements-grid,
+    .services-grid,
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
     }
-    .service-card {
+
+    .achievement-card,
+    .service-card,
+    .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2.2rem;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
+      border-radius: 18px;
+      transition: all 0.25s ease;
     }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+
+    .achievement-card,
+    .service-card { padding: 1.5rem; }
+
+    .achievement-card:hover,
+    .service-card:hover,
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(65,214,167,0.4);
+      background: var(--surface2);
     }
-    .service-card:hover { transform: translateY(-6px); border-color: rgba(110,240,192,0.3); background: var(--surface2); }
-    .service-card:hover::before { transform: scaleX(1); }
+
+    .achievement-org,
+    .project-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .achievement-title,
+    .service-title,
+    .project-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.55rem;
+    }
+
+    .achievement-desc,
+    .service-desc,
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
     .service-icon {
-      width: 48px; height: 48px;
-      background: var(--glow);
-      border: 1px solid var(--border);
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--glow);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
-    .service-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      margin-bottom: 0.75rem;
-    }
-    .service-desc { color: var(--muted); font-size: 0.93rem; line-height: 1.65; }
 
-    /* ─── SKILLS ─── */
-    .skills-container { display: flex; flex-direction: column; gap: 1.2rem; max-width: 700px; }
-    .skill-row {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-    .skill-name {
-      width: 160px;
-      font-size: 0.88rem;
-      color: var(--muted);
-      flex-shrink: 0;
-    }
+    .skills-container { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; }
+    .skill-row { display: flex; align-items: center; gap: 1rem; }
+    .skill-name { width: 190px; font-size: 0.86rem; color: var(--muted); flex-shrink: 0; }
     .skill-bar {
       flex: 1;
       height: 4px;
-      background: var(--surface2);
+      background: #263b4a;
       border-radius: 100px;
       overflow: hidden;
     }
@@ -450,7 +513,7 @@
       transition: width 1.2s ease;
     }
     .skill-pct {
-      width: 40px;
+      width: 42px;
       text-align: right;
       font-size: 0.8rem;
       color: var(--accent);
@@ -458,122 +521,151 @@
       font-weight: 700;
     }
 
-    /* ─── PROJECTS ─── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.35s;
-      cursor: pointer;
-    }
-    .project-card:hover { transform: translateY(-6px); border-color: rgba(110,240,192,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-    .project-thumb {
-      height: 180px;
-      background: var(--surface2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-thumb::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(110,240,192,0.07), rgba(167,139,250,0.07));
-    }
-    .project-body { padding: 1.8rem; }
-    .project-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--glow);
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.75rem;
-      border-radius: 100px;
-      margin-bottom: 0.9rem;
-    }
-    .project-name {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+    .project-card { overflow: hidden; }
+    .project-body { padding: 1.4rem; }
     .project-actions {
-      margin-top: 1rem;
+      margin-top: 0.95rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.55rem;
     }
     .project-link {
       display: inline-flex;
       align-items: center;
-      padding: 0.45rem 0.9rem;
+      padding: 0.42rem 0.82rem;
       border-radius: 999px;
       border: 1px solid var(--border);
       color: var(--text);
       text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.02em;
+      font-size: 0.76rem;
       transition: all 0.2s ease;
     }
-    .project-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
+    .project-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    .logos-trust {
+      background: rgba(16, 31, 43, 0.45);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.3rem;
+    }
+    .logos-grid {
+      margin-top: 1.1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.8rem;
+    }
+    .logo-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      padding: 0.5rem;
+      min-height: 94px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-card img {
+      max-width: 100%;
+      max-height: 80px;
+      object-fit: contain;
+      filter: saturate(1.05);
     }
 
-    /* ─── CONTACT ─── */
     .contact-wrapper {
-      max-width: 600px;
+      max-width: 740px;
       margin: 0 auto;
       text-align: center;
+      background: linear-gradient(135deg, rgba(65,214,167,0.1), rgba(255,200,87,0.08));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 2.2rem 1.4rem;
     }
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
-      margin-top: 2.5rem;
+      margin-top: 1.7rem;
     }
     .contact-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.85rem 1.8rem;
+      gap: 0.4rem;
+      padding: 0.75rem 1.1rem;
       border: 1px solid var(--border);
       border-radius: 100px;
       text-decoration: none;
-      color: var(--muted);
-      font-size: 0.88rem;
+      color: #d2deea;
+      font-size: 0.84rem;
       transition: all 0.25s;
+      background: rgba(9,18,28,0.46);
     }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
     .contact-email {
       display: block;
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-size: clamp(1.2rem, 3vw, 1.9rem);
       color: var(--accent);
       text-decoration: none;
-      margin-top: 1.5rem;
+      margin-top: 0.6rem;
     }
-    .contact-email:hover { text-decoration: underline; }
 
-    /* ─── FOOTER ─── */
+    .briefing-form {
+      margin-top: 1.3rem;
+      text-align: left;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    .briefing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+      margin-top: 0.55rem;
+    }
+    .briefing-field {
+      display: grid;
+      gap: 0.28rem;
+    }
+    .briefing-field label {
+      font-size: 0.75rem;
+      color: #bfd0dd;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .briefing-field input,
+    .briefing-field select,
+    .briefing-field textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(9, 18, 28, 0.65);
+      color: var(--text);
+      padding: 0.62rem 0.7rem;
+      font-size: 0.88rem;
+      font-family: inherit;
+    }
+    .briefing-field textarea {
+      min-height: 92px;
+      resize: vertical;
+      grid-column: 1 / -1;
+    }
+    .briefing-actions {
+      margin-top: 0.7rem;
+      display: flex;
+      justify-content: flex-start;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .briefing-note {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 0.45rem;
+    }
+
     footer {
       border-top: 1px solid var(--border);
-      padding: 2rem 4rem;
+      padding: 1.6rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -583,342 +675,529 @@
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--accent); }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero, section { padding: 5rem 1.5rem 3rem; }
-      .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-photo { max-width: 320px; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .timeline::before { left: 11px; }
-      .timeline-item { margin-left: 34px; }
-      .timeline-item::before { left: -30px; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
-    }
-
-    /* ─── Intersection fade in ─── */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 940px) {
+      nav { padding: 0.9rem 1rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; }
+      .hero, section { padding: 5rem 1rem 2.8rem; }
+      .hero-layout { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-photo { max-width: 320px; }
+      .hero-name { font-size: clamp(2rem, 10vw, 2.7rem); letter-spacing: -0.01em; }
+      .hero-value { font-size: 1.02rem; line-height: 1.48; }
+      .hero-desc { font-size: 0.95rem; line-height: 1.62; }
+      .section-title { font-size: clamp(1.5rem, 8vw, 2rem); line-height: 1.2; }
+      .section-sub,
+      .about-text p,
+      .timeline-desc,
+      .achievement-desc,
+      .service-desc,
+      .project-desc { font-size: 0.92rem; line-height: 1.65; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .skill-row { align-items: flex-start; flex-direction: column; gap: 0.45rem; }
+      .skill-name { width: 100%; }
+      .skill-pct { width: auto; }
+      .timeline::before { left: 10px; }
+      .timeline-item { margin-left: 30px; }
+      .timeline-item::before { left: -26px; }
+      .briefing-grid { grid-template-columns: 1fr; }
+      .divider { width: calc(100% - 2rem); }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.4rem 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#">DIEGO VCH</a>
+    <a class="nav-logo" href="#home">DIEGO VCH</a>
     <ul class="nav-links">
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#achievements">Logros</a></li>
+      <li><a href="#about">Sobre mi</a></li>
       <li><a href="#timeline">Experiencia</a></li>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#achievements">Logros</a></li>
       <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#services">Especializacion</a></li>
+      <li><a href="#skills">Stack</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
-    <a href="https://linktr.ee/diegovch18" target="_blank" class="btn btn-primary" style="padding:0.6rem 1.4rem; font-size:0.8rem;">Linktree ↗</a>
+    <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:0.55rem 1rem; font-size:0.78rem;">Linktree</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="#about">Sobre mi</a></li>
+      <li><a href="#timeline">Experiencia</a></li>
+      <li><a href="#achievements">Logros</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#services">Especializacion</a></li>
+      <li><a href="#skills">Stack</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+    <a href="projects.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Ver pagina de proyectos</a>
+  </div>
+
+  <header class="hero" id="home">
     <div class="hero-orb orb1"></div>
     <div class="hero-orb orb2"></div>
     <div class="hero-layout">
-      <div class="hero-content">
-        <span class="hero-tag">Especialista en Business Intelligence & Data Analytics</span>
-        <h1 class="hero-name">Diego<br/><span>VCH</span></h1>
-        <p class="hero-desc">Consultor en datos, docente innovador y creador de soluciones EdFinTech. Conecto analitica, automatizacion y estrategia para transformar datos en decisiones de alto impacto.</p>
+      <div>
+        <span class="hero-tag">Consultor de datos | Business Intelligence | Data Analytics</span>
+        <h1 class="hero-name">Diego Armando<br/><span>Vasquez Chavez</span></h1>
+        <p class="hero-value">Convierto datos dispersos en decisiones ejecutivas con dashboards, ETL, SQL, Python y automatizacion de reportes.</p>
+        <p class="hero-desc">Mas de 10 anos liderando soluciones de Business Intelligence para educacion, banca e impacto social. Combino enfoque tecnico, vision de negocio y formacion para acelerar resultados medibles.</p>
+        <div class="hero-proof">
+          <span class="proof-pill">10+ anos de experiencia</span>
+          <span class="proof-pill">1.er lugar SBS 2025</span>
+          <span class="proof-pill">Modelos ML +90% precision</span>
+          <span class="proof-pill">Reduccion de 60% en tiempos de reporte</span>
+        </div>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">Ver proyectos</a>
-          <a href="https://wa.me/51974205217" target="_blank" class="btn btn-secondary">WhatsApp</a>
-          <a href="assets/cv-diego-vasquez.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Ver CV</a>
+          <a href="#projects" class="btn btn-primary">Ver proyectos clave</a>
+          <a href="projects.html" class="btn btn-secondary">Pagina de proyectos</a>
+          <a href="assets/CV_Diego_Vasquez.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Descargar CV</a>
+          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Agendar por WhatsApp</a>
         </div>
       </div>
       <div class="hero-photo-wrap reveal">
-        <img src="assets/diego-profile.jpg" alt="Diego Armando Vasquez Chavez" class="hero-photo" loading="eager" />
+        <picture>
+          <source srcset="assets/diego-hero-alt.avif" type="image/avif" />
+          <source srcset="assets/diego-hero-alt.webp" type="image/webp" />
+          <img src="assets/diego-hero-alt.jpg" alt="Foto profesional de Diego Armando Vasquez Chavez" class="hero-photo" loading="eager" decoding="async" fetchpriority="high" width="800" height="800" />
+        </picture>
       </div>
     </div>
-  </section>
+  </header>
 
-  <div class="divider"></div>
+  <main>
+    <div class="divider"></div>
 
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements">
-    <p class="section-label reveal">Reconocimientos</p>
-    <h2 class="section-title reveal">Logros destacados</h2>
-    <p class="section-sub reveal">Resultados y reconocimientos institucionales vinculados a innovacion, analitica y educacion financiera.</p>
+    <section id="about">
+      <p class="section-label reveal">Propuesta de valor</p>
+      <h2 class="section-title reveal">Datos, estrategia y ejecucion para decisiones con impacto</h2>
+      <p class="section-sub reveal">Ingeniero Industrial colegiado, especialista en Data Management, Business Intelligence y Data Analytics. Desarrollo ecosistemas de datos que mejoran el control de gestion, la trazabilidad de indicadores y la velocidad de decision.</p>
 
-    <div class="achievements-grid">
-      <div class="achievement-card reveal">
-        <p class="achievement-org">SBS - Semana Mundial del Ahorro 2025</p>
-        <h3 class="achievement-title">1.er lugar en Propuesta Innovadora de Educacion Financiera</h3>
-        <p class="achievement-desc">Reconocimiento por IAhorra CERTUS como solucion EdFinTech para fortalecer el aprendizaje financiero con enfoque practico.</p>
-      </div>
-      <div class="achievement-card reveal">
-        <p class="achievement-org">CERTUS - 2024 y 2026</p>
-        <h3 class="achievement-title">Docente Everest y Docente Milla Extra</h3>
-        <p class="achievement-desc">Distinciones por excelencia academica e impacto en analisis de datos para la Direccion Academica y mejora de la gestion educativa.</p>
-      </div>
-      <div class="achievement-card reveal">
-        <p class="achievement-org">Asociacion UNACEM - 2025 y 2026</p>
-        <h3 class="achievement-title">Consultoria en BI para impacto social</h3>
-        <p class="achievement-desc">Diseno de dashboards ejecutivos, optimizacion ETL y soporte analitico para toma de decisiones en programas sociales institucionales.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- TIMELINE -->
-  <section id="timeline">
-    <p class="section-label reveal">Trayectoria</p>
-    <h2 class="section-title reveal">Timeline de experiencia</h2>
-    <p class="section-sub reveal">Experiencia combinada en consultoria analitica, docencia innovadora y desarrollo de soluciones para educacion, banca e impacto social.</p>
-
-    <div class="timeline reveal">
-      <article class="timeline-item">
-        <h3 class="timeline-role">Consultor en Gestion y Analisis de Data</h3>
-        <p class="timeline-org">Asociacion UNACEM</p>
-        <p class="timeline-date">Mar 2026 - Oct 2026</p>
-        <p class="timeline-desc">Asistencia tecnica de datos institucionales, dashboards en Power BI para direccion, mejoras ETL y reportes estadisticos para decisiones estrategicas.</p>
-      </article>
-      <article class="timeline-item">
-        <h3 class="timeline-role">Docente Innovador & EdFinTech Developer</h3>
-        <p class="timeline-org">CERTUS - Administracion Financiera y Banca Digital</p>
-        <p class="timeline-date">Mar 2021 - Actualidad</p>
-        <p class="timeline-desc">Lider curricular, creador de IAhorra CERTUS, desarrollo de simuladores bancarios y proyectos de analitica predictiva para permanencia estudiantil.</p>
-      </article>
-      <article class="timeline-item">
-        <h3 class="timeline-role">Consultor Especializado en Automatizacion y Datos</h3>
-        <p class="timeline-org">MIBANCO - Escuela de Negocios / Escuela de Formacion</p>
-        <p class="timeline-date">2023 - 2025</p>
-        <p class="timeline-desc">Implementacion de automatizacion de reportes, dashboards de KPIs por facilitador/agencia y mejora de tiempos operativos de consolidacion.</p>
-      </article>
-      <article class="timeline-item">
-        <h3 class="timeline-role">Fundador, Consultor y Formador en Data Analytics</h3>
-        <p class="timeline-org">TECZONE AQP</p>
-        <p class="timeline-date">2015 - 2024</p>
-        <p class="timeline-desc">Capacitacion en Power BI, VBA y automatizacion para profesionales y empresas, con foco en empleabilidad y soluciones de valor para negocio.</p>
-      </article>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p class="section-label">Sobre mí</p>
-        <h2 class="section-title">Construyo cosas que <span style="color:var(--accent)">importan</span></h2>
-        <p>Hola, soy <strong>Diego Armando Vasquez Chavez</strong>, Ingeniero Industrial colegiado (CIP) y especialista en <strong>Gestion de Datos, Business Intelligence y Educacion Financiera Digital</strong>.</p>
-        <p>Cuento con mas de 10 anos de experiencia desarrollando dashboards ejecutivos en Power BI, automatizando reportes, construyendo pipelines analiticos con Python y liderando proyectos de innovacion en educacion y banca.</p>
-        <p>Actualmente me enfoco en soluciones de alto impacto: analitica para toma de decisiones, modelos predictivos y productos EdFinTech como IAhorra CERTUS.</p>
-        <div style="margin-top: 2rem;">
-          <a href="https://linktr.ee/diegovch18" target="_blank" class="btn btn-secondary">Ver todos mis links ↗</a>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p><strong>Trabajo de extremo a extremo:</strong> desde la limpieza y modelado de datos (ETL, SQL, Power Query) hasta la visualizacion ejecutiva en Power BI y el despliegue de analitica avanzada con Python.</p>
+          <p><strong>Experiencia multisectorial real:</strong> proyectos para Asociacion UNACEM, CERTUS, MIBANCO, PROAVANCE y ZEGEL, conectando analitica con resultados operativos y academicos.</p>
+          <p><strong>Perfil senior de consultoria y formacion:</strong> diseno soluciones para direccion y tambien formo equipos para uso autonomo de dashboards, KPIs y reportes de gestion.</p>
+          <div style="margin-top:1.4rem;">
+            <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ver perfil en LinkedIn</a>
+          </div>
         </div>
-      </div>
-      <div class="stats-grid reveal">
-        <div class="stat-card">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Años de experiencia</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">30+</div>
-          <div class="stat-label">Proyectos completados</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">1er</div>
-          <div class="stat-label">Lugar SBS 2025 - Innovacion en Educacion Financiera</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">7000+</div>
-          <div class="stat-label">Registros analizados en modelos predictivos academicos</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <p class="section-label reveal">Lo que hago</p>
-    <h2 class="section-title reveal">Servicios</h2>
-    <p class="section-sub reveal">Ofrezco soluciones digitales adaptadas a tus necesidades y objetivos.</p>
-
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon">📊</div>
-        <h3 class="service-title">Business Intelligence (Power BI)</h3>
-        <p class="service-desc">Diseno de dashboards ejecutivos, modelos relacionales/dimensionales, DAX y analitica visual para direccion y gerencia.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🧹</div>
-        <h3 class="service-title">ETL y Gestion de Datos</h3>
-        <p class="service-desc">Limpieza, transformacion e integracion de datos con Power Query, SQL y Excel avanzado para generar evidencia confiable.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🤖</div>
-        <h3 class="service-title">Machine Learning Aplicado</h3>
-        <p class="service-desc">Modelos predictivos con Python (Random Forest, XGBoost, CatBoost) para riesgo, permanencia academica y churn.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">⚙️</div>
-        <h3 class="service-title">Automatizacion de Reportes</h3>
-        <p class="service-desc">Automatizacion con Excel VBA, Apps Script y pipelines de datos para reducir tiempos operativos y errores manuales.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🎓</div>
-        <h3 class="service-title">Formacion y Capacitacion Data</h3>
-        <p class="service-desc">Programas de capacitacion en Power BI y analitica para equipos corporativos, academicos y proyectos de impacto social.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">💡</div>
-        <h3 class="service-title">Innovacion EdFinTech</h3>
-        <p class="service-desc">Diseno y desarrollo de soluciones de educacion financiera digital, como IAhorra CERTUS, premiada por la SBS.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <p class="section-label reveal">Herramientas & tecnologías</p>
-    <h2 class="section-title reveal">Habilidades</h2>
-    <div class="skills-container reveal" id="skillsContainer">
-      <div class="skill-row">
-        <span class="skill-name">Power BI (Desktop/Service)</span>
-        <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-        <span class="skill-pct">95%</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">DAX + Power Query (M)</span>
-        <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
-        <span class="skill-pct">92%</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">SQL / MySQL</span>
-        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-        <span class="skill-pct">80%</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">Python (pandas / ML)</span>
-        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-        <span class="skill-pct">88%</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">Excel VBA / Apps Script</span>
-        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-        <span class="skill-pct">85%</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">React / Next.js + Vercel</span>
-        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-        <span class="skill-pct">78%</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <p class="section-label reveal">Portafolio</p>
-    <h2 class="section-title reveal">Proyectos</h2>
-    <p class="section-sub reveal">Algunos de los proyectos en los que he trabajado.</p>
-
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <div class="project-thumb">🐷</div>
-        <div class="project-body">
-          <span class="project-tag">EdFinTech</span>
-          <h3 class="project-name">IAhorra CERTUS</h3>
-          <p class="project-desc">Asistente web de educacion financiera con IA conversacional (React/Next.js + Vercel), ganador del 1.er lugar en innovacion (SBS 2025).</p>
-          <div class="project-actions">
-            <a class="project-link" href="https://iahorra-certus.vercel.app" target="_blank">Ver demo ↗</a>
-            <a class="project-link" href="https://github.com/DiegoVCH18/iahorra-certus" target="_blank">Codigo ↗</a>
+        <div class="stats-grid reveal">
+          <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">anos impulsando BI, Data Analytics y automatizacion</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">7000+</div>
+            <div class="stat-label">registros por ciclo analizados en modelos academicos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">60%</div>
+            <div class="stat-label">reduccion en tiempo de consolidacion mensual (MIBANCO)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">90%+</div>
+            <div class="stat-label">precision en prediccion academica con ML</div>
           </div>
         </div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-thumb">🎓</div>
-        <div class="project-body">
-          <span class="project-tag">Machine Learning</span>
-          <h3 class="project-name">Academic Performance Prediction - CERTUS</h3>
-          <p class="project-desc">Modelo predictivo de rendimiento y permanencia estudiantil (+7000 registros/ciclo) con Random Forest, XGBoost y CatBoost.</p>
-          <div class="project-actions">
-            <a class="project-link" href="https://huggingface.co/spaces/Diegovch18/PROYECTO_CERTUS" target="_blank">App ML ↗</a>
-            <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank">Repositorio ↗</a>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="trusted" class="reveal">
+      <p class="section-label">Marca personal y confianza</p>
+      <h2 class="section-title">Identidad visual para consultoria profesional</h2>
+      <p class="section-sub">Integro mi identidad visual para reforzar consistencia de marca y presencia profesional en servicios de consultoria de datos.</p>
+      <div class="logos-trust">
+        <div class="logos-grid">
+          <div class="logo-card">
+            <picture>
+              <source srcset="assets/logo-personal.avif" type="image/avif" />
+              <source srcset="assets/logo-personal.webp" type="image/webp" />
+              <img src="assets/logo-personal.jpg" alt="Logo personal Diego Vasquez" loading="lazy" decoding="async" width="1024" height="1024" />
+            </picture>
+          </div>
+          <div class="logo-card">
+            <picture>
+              <source srcset="assets/logo.avif" type="image/avif" />
+              <source srcset="assets/logo.webp" type="image/webp" />
+              <img src="assets/logo.jpg" alt="Logo de marca profesional" loading="lazy" decoding="async" width="800" height="800" />
+            </picture>
+          </div>
+          <div class="logo-card">
+            <picture>
+              <source srcset="assets/logos.avif" type="image/avif" />
+              <source srcset="assets/logos.webp" type="image/webp" />
+              <img src="assets/logos.jpg" alt="Variaciones de logos de marca" loading="lazy" decoding="async" width="1200" height="800" />
+            </picture>
           </div>
         </div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-thumb">📈</div>
-        <div class="project-body">
-          <span class="project-tag">Business Intelligence</span>
-          <h3 class="project-name">Customer Experience & Loyalty Dashboard</h3>
-          <p class="project-desc">Dashboard ejecutivo en Power BI con CSAT, NPS, permanencia y analisis de riesgo de churn para toma de decisiones gerenciales.</p>
-          <div class="project-actions">
-            <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank">Ver portafolio BI ↗</a>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="timeline">
+      <p class="section-label reveal">Experiencia profesional</p>
+      <h2 class="section-title reveal">Trayectoria en consultoria de datos y analitica aplicada</h2>
+      <p class="section-sub reveal">Experiencia en Business Intelligence, ETL, SQL, Python, dashboards ejecutivos, automatizacion de reportes y Machine Learning aplicado a educacion, banca y programas sociales.</p>
+
+      <div class="timeline reveal">
+        <article class="timeline-item">
+          <h3 class="timeline-role">Consultor en Gestion y Analisis de Data</h3>
+          <p class="timeline-org">Asociacion UNACEM | Laboratorio Social</p>
+          <p class="timeline-date">Mar. 2026 - Oct. 2026</p>
+          <p class="timeline-desc">Soporte integral de datos institucionales, dashboards ejecutivos en Power BI, optimizacion de reporteria y cumplimiento de lineamientos de proteccion de datos para toma de decisiones estrategicas.</p>
+        </article>
+
+        <article class="timeline-item">
+          <h3 class="timeline-role">Consultor en Asistencia Tecnica Power BI</h3>
+          <p class="timeline-org">Asociacion UNACEM | Contrato CONT-AU112-2025</p>
+          <p class="timeline-date">Sept. 2025 - Dic. 2025</p>
+          <p class="timeline-desc">Diseno y optimizacion de tableros para ejecucion presupuestal y cobertura de proyectos sociales. Implementacion ETL, modelado relacional/dimensional y capacitacion para uso operativo en Power BI Service.</p>
+        </article>
+
+        <article class="timeline-item">
+          <h3 class="timeline-role">Docente Innovador y EdFinTech Developer</h3>
+          <p class="timeline-org">CERTUS | Administracion Financiera y Banca Digital</p>
+          <p class="timeline-date">Mar. 2021 - Presente</p>
+          <p class="timeline-desc">Lider de linea curricular, creador de IAhorra CERTUS y de soluciones analiticas para direccion academica. Desarrollo de modelos predictivos, pipelines con Python y automatizacion de dashboards para permanencia estudiantil.</p>
+        </article>
+
+        <article class="timeline-item">
+          <h3 class="timeline-role">Consultor Especializado en Automatizacion, Datos y Evaluacion</h3>
+          <p class="timeline-org">MIBANCO | Escuela de Negocios y Escuela de Formacion</p>
+          <p class="timeline-date">Sept. 2023 - Jul. 2025</p>
+          <p class="timeline-desc">Implementacion de sistema automatizado con Power Query, VBA y Apps Script para reporteria de desempeno, logrando mas del 60% de reduccion de tiempo en consolidaciones y mejor visibilidad de KPIs.</p>
+        </article>
+
+        <article class="timeline-item">
+          <h3 class="timeline-role">Fundador, Consultor y Formador en Data Analytics</h3>
+          <p class="timeline-org">TECZONE AQP</p>
+          <p class="timeline-date">Ene. 2015 - Mar. 2024</p>
+          <p class="timeline-desc">Formacion avanzada en Power BI, Excel VBA y automatizacion para profesionales y empresas, desarrollando competencias analiticas aplicadas al negocio.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="achievements">
+      <p class="section-label reveal">Credenciales y resultados</p>
+      <h2 class="section-title reveal">Logros que respaldan mi impacto profesional</h2>
+      <p class="section-sub reveal">Reconocimientos, iniciativas y resultados concretos obtenidos en proyectos de Data Analytics, BI y educacion financiera digital.</p>
+
+      <div class="achievements-grid">
+        <article class="achievement-card reveal">
+          <p class="achievement-org">SBS | Semana Mundial del Ahorro 2025</p>
+          <h3 class="achievement-title">1.er lugar en Propuesta Innovadora de Educacion Financiera</h3>
+          <p class="achievement-desc">IAhorra CERTUS fue reconocido como solucion EdFinTech por su enfoque practico y su potencial de escalamiento en formacion financiera.</p>
+        </article>
+
+        <article class="achievement-card reveal">
+          <p class="achievement-org">CERTUS | 2024 y 2026</p>
+          <h3 class="achievement-title">Docente Everest y Docente Milla Extra</h3>
+          <p class="achievement-desc">Reconocimientos por excelencia academica y contribucion destacada en analisis de data para direccion academica.</p>
+        </article>
+
+        <article class="achievement-card reveal">
+          <p class="achievement-org">MIBANCO | Gestion de Aprendizaje</p>
+          <h3 class="achievement-title">Automatizacion de reportes validada por gerencia</h3>
+          <p class="achievement-desc">Sistema automatizado con Power Query y VBA que redujo mas del 60% el tiempo mensual de consolidacion y mejoro la trazabilidad de indicadores.</p>
+        </article>
+
+        <article class="achievement-card reveal">
+          <p class="achievement-org">CERTUS | Analitica Predictiva</p>
+          <h3 class="achievement-title">Modelo de permanencia con precision superior al 90%</h3>
+          <p class="achievement-desc">Modelo con Random Forest, XGBoost y CatBoost para predecir riesgo de desaprobacion o desercion desde la Evaluacion 1.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="projects">
+      <p class="section-label reveal">Portafolio</p>
+      <h2 class="section-title reveal">Proyectos relevantes en BI, automatizacion y Machine Learning</h2>
+      <p class="section-sub reveal">Seleccion de proyectos reales alineados a consultoria de datos, dashboards ejecutivos y productos de analitica aplicada.</p>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-body">
+            <span class="project-tag">EdFinTech + IA</span>
+            <h3 class="project-name">IAhorra CERTUS</h3>
+            <p class="project-desc">Asistente web de educacion financiera (React/Next.js + Vercel), evolucionado desde una version conversacional y ganador del 1.er lugar SBS 2025.</p>
+            <div class="project-actions">
+              <a class="project-link" href="https://iahorra-certus.vercel.app" target="_blank" rel="noopener noreferrer">Ver demo</a>
+              <a class="project-link" href="https://github.com/DiegoVCH18/iahorra-certus" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              <a class="project-link" href="proyectos/iahorra-certus.html">Ficha del proyecto</a>
+            </div>
           </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-body">
+            <span class="project-tag">Machine Learning</span>
+            <h3 class="project-name">Academic Performance Prediction - CERTUS</h3>
+            <p class="project-desc">Prediccion de rendimiento y permanencia sobre ~7,000 registros por ciclo con Random Forest, XGBoost y CatBoost; app desplegada en HuggingFace.</p>
+            <div class="project-actions">
+              <a class="project-link" href="https://huggingface.co/spaces/Diegovch18/PROYECTO_CERTUS" target="_blank" rel="noopener noreferrer">App ML</a>
+              <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Portafolio tecnico</a>
+              <a class="project-link" href="proyectos/academic-performance-prediction.html">Ficha del proyecto</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-body">
+            <span class="project-tag">Business Intelligence</span>
+            <h3 class="project-name">Customer Experience and Loyalty Dashboard</h3>
+            <p class="project-desc">Dashboard ejecutivo con CSAT, NPS y riesgo de churn para decisiones de servicio y retencion, usando Data Storytelling y modelo de indicadores.</p>
+            <div class="project-actions">
+              <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Ver caso</a>
+              <a class="project-link" href="proyectos/customer-experience-loyalty-dashboard.html">Ficha del proyecto</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-body">
+            <span class="project-tag">Automatizacion de reportes</span>
+            <h3 class="project-name">Sistema automatizado para MIBANCO</h3>
+            <p class="project-desc">Integracion de Excel VBA, Power Query y Apps Script para consolidacion mensual, dashboards de productividad y reportes de desempeno por agencia.</p>
+            <div class="project-actions">
+              <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Ver referencia</a>
+              <a class="project-link" href="proyectos/automatizacion-reportes-mibanco.html">Ficha del proyecto</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div style="margin-top:1rem;">
+        <a href="projects.html" class="btn btn-secondary">Explorar pagina completa de proyectos</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="services">
+      <p class="section-label reveal">Areas de especializacion</p>
+      <h2 class="section-title reveal">Servicios de consultoria y formacion</h2>
+      <p class="section-sub reveal">Acompano organizaciones y equipos para pasar de datos sin contexto a un sistema de decisiones basado en evidencia.</p>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon">BI</div>
+          <h3 class="service-title">Business Intelligence y dashboards ejecutivos</h3>
+          <p class="service-desc">Diseno de tableros en Power BI con KPIs, DAX, modelado de datos y narrativas visuales para direccion y gerencia.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">ETL</div>
+          <h3 class="service-title">Data Management, ETL y calidad de datos</h3>
+          <p class="service-desc">Estructuracion de procesos ETL con Power Query y SQL para integrar, limpiar y transformar datos con trazabilidad.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">SQL</div>
+          <h3 class="service-title">Analitica con SQL y Python</h3>
+          <p class="service-desc">Analisis descriptivo y predictivo con pandas y scikit-learn para detectar riesgos, patrones y oportunidades de mejora.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">AUTO</div>
+          <h3 class="service-title">Automatizacion de reportes y procesos</h3>
+          <p class="service-desc">Automatizacion con VBA, Apps Script y flujos de datos para reducir tiempos, errores y dependencia manual.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">ML</div>
+          <h3 class="service-title">Machine Learning aplicado</h3>
+          <p class="service-desc">Modelos de prediccion para permanencia, desempeno y churn con enfoque practico de negocio y despliegue funcional.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">TRAIN</div>
+          <h3 class="service-title">Capacitacion y transferencia de capacidades</h3>
+          <p class="service-desc">Programas formativos en BI y Data Analytics para equipos corporativos y academicos orientados a resultados.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="skills">
+      <p class="section-label reveal">Stack tecnologico</p>
+      <h2 class="section-title reveal">Herramientas que utilizo para generar valor</h2>
+      <p class="section-sub reveal">Combinacion de herramientas para Business Intelligence, ETL, Data Analytics, automatizacion de reportes y Machine Learning.</p>
+      <div class="skills-container reveal" id="skillsContainer">
+        <div class="skill-row">
+          <span class="skill-name">Power BI Desktop y Service</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          <span class="skill-pct">95%</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">DAX y Power Query (M)</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="93"></div></div>
+          <span class="skill-pct">93%</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">SQL y modelado relacional</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          <span class="skill-pct">88%</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Python (pandas y scikit-learn)</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          <span class="skill-pct">90%</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Excel VBA y Apps Script</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
+          <span class="skill-pct">87%</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name">Looker Studio y Tableau</span>
+          <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          <span class="skill-pct">78%</span>
         </div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-thumb">🏦</div>
-        <div class="project-body">
-          <span class="project-tag">Automatizacion</span>
-          <h3 class="project-name">Automatizacion de Reportes - MIBANCO</h3>
-          <p class="project-desc">Sistema automatizado de gestion de datos con Power Query y VBA, reduciendo mas del 60% el tiempo de consolidacion mensual.</p>
-          <div class="project-actions">
-            <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank">Casos similares ↗</a>
-          </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="contact">
+      <div class="contact-wrapper reveal">
+        <p class="section-label">Contacto profesional</p>
+        <h2 class="section-title">Listo para impulsar tus decisiones con datos</h2>
+        <p style="color:var(--muted); margin-bottom:0.4rem;">Si buscas un consultor de datos para BI, dashboards ejecutivos, ETL, SQL, Python o automatizacion de reportes, conversemos.</p>
+        <a href="mailto:diegovch@gmail.com" class="contact-email">diegovch@gmail.com</a>
+
+        <div class="contact-links">
+          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="contact-link">WhatsApp</a>
+          <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+          <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
+          <a href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer" class="contact-link">Portfolio de proyectos</a>
+          <a href="assets/CV_Diego_Vasquez.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">CV en PDF</a>
         </div>
+
+        <form id="briefForm" class="briefing-form">
+          <p class="section-label" style="margin-bottom:0.2rem;">Mini briefing</p>
+          <div class="briefing-grid">
+            <div class="briefing-field">
+              <label for="briefType">Tipo de servicio</label>
+              <select id="briefType" required>
+                <option value="">Selecciona...</option>
+                <option>Business Intelligence</option>
+                <option>Data Analytics</option>
+                <option>Power BI y dashboards ejecutivos</option>
+                <option>ETL y Data Management</option>
+                <option>SQL y Python aplicado</option>
+                <option>Automatizacion de reportes</option>
+                <option>Machine Learning aplicado</option>
+                <option>Consultoria y formacion</option>
+              </select>
+            </div>
+            <div class="briefing-field">
+              <label for="briefSector">Sector</label>
+              <input id="briefSector" type="text" placeholder="Ej: Educacion, banca, industria" required />
+            </div>
+            <div class="briefing-field">
+              <label for="briefDeadline">Plazo estimado</label>
+              <select id="briefDeadline" required>
+                <option value="">Selecciona...</option>
+                <option>Urgente (1-2 semanas)</option>
+                <option>Corto (1 mes)</option>
+                <option>Medio (2-3 meses)</option>
+                <option>Largo (4+ meses)</option>
+              </select>
+            </div>
+            <div class="briefing-field">
+              <label for="briefGoal">Objetivo principal</label>
+              <textarea id="briefGoal" placeholder="Describe el resultado que necesitas lograr" required></textarea>
+            </div>
+          </div>
+          <div class="briefing-actions">
+            <button type="submit" class="btn btn-primary">Enviar briefing por correo</button>
+            <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Continuar por WhatsApp</a>
+          </div>
+          <p class="briefing-note">Recibiras respuesta para evaluar alcance, prioridad y propuesta de trabajo.</p>
+        </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <div class="divider"></div>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-wrapper reveal">
-      <p class="section-label">¿Trabajamos juntos?</p>
-      <h2 class="section-title">Contáctame</h2>
-      <p style="color:var(--muted); margin-bottom:0.5rem;">¿Tienes un proyecto en mente? Me encantaría escucharte.</p>
-      <a href="mailto:diegovch@gmail.com" class="contact-email">diegovch@gmail.com</a>
-      <div class="contact-links">
-        <a href="https://wa.me/51974205217" target="_blank" class="contact-link">📲 WhatsApp</a>
-        <a href="https://linktr.ee/diegovch18" target="_blank" class="contact-link">🌿 Linktree</a>
-        <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" class="contact-link">💼 LinkedIn</a>
-        <a href="https://github.com/DiegoVCH18" target="_blank" class="contact-link">💻 GitHub</a>
-        <a href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" class="contact-link">📊 BI Portfolio</a>
-        <a href="assets/cv-diego-vasquez.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">📄 Ver CV</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <span>© 2026 Diego VCH — Todos los derechos reservados.</span>
-    <a href="https://linktr.ee/diegovch18" target="_blank">linktr.ee/diegovch18</a>
+    <span>© 2026 Diego Armando Vasquez Chavez. Todos los derechos reservados.</span>
+    <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">linktr.ee/diegovch18</a>
   </footer>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Diego Armando Vasquez Chavez",
+    "jobTitle": "Consultor de Datos y Business Intelligence",
+    "url": "https://diego-vasquez-chavez-site.vercel.app/",
+    "email": "mailto:diegovch@gmail.com",
+    "telephone": "+51-974-205217",
+    "sameAs": [
+      "https://www.linkedin.com/in/diego-armando-vasquez",
+      "https://github.com/DiegoVCH18",
+      "https://linktr.ee/diegovch18"
+    ],
+    "knowsAbout": [
+      "Business Intelligence",
+      "Data Analytics",
+      "Power BI",
+      "ETL",
+      "SQL",
+      "Python",
+      "Machine Learning",
+      "Automatizacion de reportes"
+    ]
+  }
+  </script>
+
   <script>
-    // Intersection Observer for reveal animations
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a[href^="#"]') : [];
+
+    function setMenuState(isOpen) {
+      if (!mobileMenu || !navToggle) return;
+      mobileMenu.classList.toggle('open', isOpen);
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+        setMenuState(!isOpen);
+      });
+    }
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => setMenuState(false));
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
         if (el.isIntersecting) {
           el.target.classList.add('visible');
-          // Animate skill bars when visible
           if (el.target.id === 'skillsContainer' || el.target.closest('#skillsContainer')) {
             animateSkills();
           }
@@ -935,7 +1214,6 @@
       });
     }
 
-    // Observe skills container separately
     const skillsContainer = document.getElementById('skillsContainer');
     if (skillsContainer) {
       const skillObserver = new IntersectionObserver((entries) => {
@@ -945,6 +1223,52 @@
       }, { threshold: 0.3 });
       skillObserver.observe(skillsContainer);
     }
+
+    const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"], .mobile-nav-links a[href^="#"]')];
+    const sections = [...document.querySelectorAll('header[id], main section[id]')];
+
+    function setActiveSection() {
+      const y = window.scrollY + 120;
+      let currentId = '';
+
+      sections.forEach((section) => {
+        if (y >= section.offsetTop && y < section.offsetTop + section.offsetHeight) {
+          currentId = section.id;
+        }
+      });
+
+      sectionLinks.forEach((link) => {
+        const target = link.getAttribute('href').replace('#', '');
+        link.classList.toggle('active', target === currentId);
+      });
+    }
+
+    window.addEventListener('scroll', setActiveSection, { passive: true });
+    window.addEventListener('load', setActiveSection);
+
+    const briefForm = document.getElementById('briefForm');
+    if (briefForm) {
+      briefForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const type = document.getElementById('briefType').value.trim();
+        const sector = document.getElementById('briefSector').value.trim();
+        const deadline = document.getElementById('briefDeadline').value.trim();
+        const goal = document.getElementById('briefGoal').value.trim();
+
+        const subject = encodeURIComponent('Briefing de consultoria de datos');
+        const body = encodeURIComponent(
+          `Hola Diego,%0D%0A%0D%0ATe comparto mi mini briefing:%0D%0A` +
+          `- Tipo de servicio: ${type}%0D%0A` +
+          `- Sector: ${sector}%0D%0A` +
+          `- Plazo estimado: ${deadline}%0D%0A` +
+          `- Objetivo principal: ${goal}%0D%0A%0D%0A` +
+          `Gracias.`
+        );
+
+        window.location.href = `mailto:diegovch@gmail.com?subject=${subject}&body=${body}`;
+      });
+    }
   </script>
 </body>
 </html>
+

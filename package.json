@@ -1,0 +1,15 @@
+{
+  "name": "diego-vch-portfolio-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-dist.mjs",
+    "release": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/release.ps1",
+    "release:open": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/release-and-open.ps1",
+    "go": "npm run release:open"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}
