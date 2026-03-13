@@ -11,31 +11,31 @@
   <meta property="og:title" content="Diego Vasquez Chavez | Consultor de Datos y Business Intelligence" />
   <meta property="og:description" content="Especialista en Business Intelligence, Data Analytics, Power BI y automatizacion de reportes para organizaciones de impacto social, educacion y banca." />
   <meta property="og:url" content="https://diego-vasquez-chavez-site.vercel.app/" />
-  <meta property="og:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <meta property="og:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego-hero.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Diego Vasquez Chavez | Data Analytics y Power BI" />
   <meta name="twitter:description" content="Consultor de datos con foco en BI, ETL, SQL, Python y dashboards ejecutivos para toma de decisiones." />
-  <meta name="twitter:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego-hero-alt.jpg" />
-  <link rel="preload" as="image" href="assets/diego-hero-alt.avif" imagesrcset="assets/diego-hero-alt.avif 1x, assets/diego-hero-alt.webp 1x, assets/diego-hero-alt.jpg 1x" imagesizes="(max-width: 940px) 320px, 420px" fetchpriority="high" />
+  <meta name="twitter:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego-hero.png" />
+  <link rel="preload" as="image" href="assets/diego-hero.png" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #09121c;
-      --surface: #101f2b;
-      --surface2: #152836;
-      --accent: #41d6a7;
-      --accent2: #ffc857;
-      --text: #f2f6fb;
-      --muted: #9eb1c0;
-      --border: rgba(65, 214, 167, 0.2);
-      --glow: rgba(65, 214, 167, 0.1);
+      --bg: #070f1f;
+      --surface: #0f1c32;
+      --surface2: #142744;
+      --accent: #00e0ff;
+      --accent2: #ffb703;
+      --text: #f7fbff;
+      --muted: #a7bdd4;
+      --border: rgba(0, 224, 255, 0.28);
+      --glow: rgba(0, 224, 255, 0.15);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: radial-gradient(circle at 0% 0%, rgba(65,214,167,0.12), transparent 35%), var(--bg);
+      background: radial-gradient(circle at 0% 0%, rgba(0,224,255,0.14), transparent 35%), var(--bg);
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
@@ -72,6 +72,16 @@
       letter-spacing: 0.05em;
       color: var(--accent);
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .nav-logo img {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
     .nav-links { display: flex; gap: 1.7rem; list-style: none; }
     .nav-links a {
@@ -164,13 +174,13 @@
     }
     .orb1 {
       width: 540px; height: 540px;
-      background: radial-gradient(circle, rgba(65,214,167,0.2), transparent 70%);
+      background: radial-gradient(circle, rgba(0,224,255,0.22), transparent 70%);
       top: -120px; right: -80px;
       animation: float 9s ease-in-out infinite;
     }
     .orb2 {
       width: 360px; height: 360px;
-      background: radial-gradient(circle, rgba(255,200,87,0.14), transparent 70%);
+      background: radial-gradient(circle, rgba(255,183,3,0.2), transparent 70%);
       bottom: 0; left: -90px;
       animation: float 12s ease-in-out infinite reverse;
     }
@@ -262,7 +272,7 @@
       background: linear-gradient(135deg, var(--accent), #6be3bd);
       color: #092015;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(65,214,167,0.26); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,224,255,0.3); }
     .btn-secondary {
       background: transparent;
       color: var(--text);
@@ -295,7 +305,6 @@
       position: relative;
       z-index: 1;
     }
-    #trusted,
     #timeline,
     #achievements,
     #projects,
@@ -381,7 +390,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg, var(--accent), rgba(65,214,167,0.12));
+      background: linear-gradient(180deg, var(--accent), rgba(0,224,255,0.15));
       opacity: 0.45;
     }
     .timeline-item {
@@ -401,7 +410,7 @@
       height: 12px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(65,214,167,0.2);
+      box-shadow: 0 0 0 4px rgba(0,224,255,0.24);
     }
     .timeline-role {
       font-family: 'Syne', sans-serif;
@@ -451,7 +460,7 @@
     .service-card:hover,
     .project-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(65,214,167,0.4);
+      border-color: rgba(0,224,255,0.46);
       background: var(--surface2);
     }
 
@@ -493,6 +502,12 @@
       justify-content: center;
       font-size: 1.2rem;
       margin-bottom: 1rem;
+    }
+    .service-icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      border-radius: 6px;
     }
 
     .skills-container { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; }
@@ -571,11 +586,66 @@
       filter: saturate(1.05);
     }
 
+    /* LinkedIn posts section */
+    #linkedin-posts { scroll-margin-top: 4.5rem; }
+    .linkedin-intro {
+      max-width: 680px;
+      margin-bottom: 2.4rem;
+    }
+    .linkedin-posts-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .linkedin-post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+      max-width: 524px;
+      width: 100%;
+    }
+    .linkedin-post-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+    .linkedin-post-card iframe {
+      border-radius: 10px;
+      max-width: 100%;
+      display: block;
+    }
+    .linkedin-post-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+    .linkedin-post-link:hover {
+      border-color: var(--accent);
+      background: var(--glow);
+    }
+    @media (max-width: 560px) {
+      .linkedin-post-card iframe { width: 100% !important; }
+    }
+
     .contact-wrapper {
       max-width: 740px;
       margin: 0 auto;
       text-align: center;
-      background: linear-gradient(135deg, rgba(65,214,167,0.1), rgba(255,200,87,0.08));
+      background: linear-gradient(135deg, rgba(0,224,255,0.12), rgba(255,183,3,0.12));
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 2.2rem 1.4rem;
@@ -716,7 +786,7 @@
 <body>
 
   <nav>
-    <a class="nav-logo" href="#home">DIEGO VCH</a>
+    <a class="nav-logo" href="#home"><img src="assets/logo.jpg" alt="Logo Diego Vasquez" loading="eager" /> DIEGO VCH</a>
     <ul class="nav-links">
       <li><a href="#about">Sobre mi</a></li>
       <li><a href="#timeline">Experiencia</a></li>
@@ -758,7 +828,6 @@
           <span class="proof-pill">10+ anos de experiencia</span>
           <span class="proof-pill">1.er lugar SBS 2025</span>
           <span class="proof-pill">Modelos ML +90% precision</span>
-          <span class="proof-pill">Reduccion de 60% en tiempos de reporte</span>
         </div>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">Ver proyectos clave</a>
@@ -768,11 +837,7 @@
         </div>
       </div>
       <div class="hero-photo-wrap reveal">
-        <picture>
-          <source srcset="assets/diego-hero-alt.avif" type="image/avif" />
-          <source srcset="assets/diego-hero-alt.webp" type="image/webp" />
-          <img src="assets/diego-hero-alt.jpg" alt="Foto profesional de Diego Armando Vasquez Chavez" class="hero-photo" loading="eager" decoding="async" fetchpriority="high" width="800" height="800" />
-        </picture>
+        <img src="assets/diego-hero.png" alt="Foto profesional de Diego Armando Vasquez Chavez" class="hero-photo" loading="eager" decoding="async" fetchpriority="high" width="800" height="800" />
       </div>
     </div>
   </header>
@@ -804,45 +869,12 @@
             <div class="stat-label">registros por ciclo analizados en modelos academicos</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">60%</div>
-            <div class="stat-label">reduccion en tiempo de consolidacion mensual (MIBANCO)</div>
+            <div class="stat-number">4+</div>
+            <div class="stat-label">sectores con implementaciones: educacion, banca, mineria e impacto social</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">90%+</div>
             <div class="stat-label">precision en prediccion academica con ML</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section id="trusted" class="reveal">
-      <p class="section-label">Marca personal y confianza</p>
-      <h2 class="section-title">Identidad visual para consultoria profesional</h2>
-      <p class="section-sub">Integro mi identidad visual para reforzar consistencia de marca y presencia profesional en servicios de consultoria de datos.</p>
-      <div class="logos-trust">
-        <div class="logos-grid">
-          <div class="logo-card">
-            <picture>
-              <source srcset="assets/logo-personal.avif" type="image/avif" />
-              <source srcset="assets/logo-personal.webp" type="image/webp" />
-              <img src="assets/logo-personal.jpg" alt="Logo personal Diego Vasquez" loading="lazy" decoding="async" width="1024" height="1024" />
-            </picture>
-          </div>
-          <div class="logo-card">
-            <picture>
-              <source srcset="assets/logo.avif" type="image/avif" />
-              <source srcset="assets/logo.webp" type="image/webp" />
-              <img src="assets/logo.jpg" alt="Logo de marca profesional" loading="lazy" decoding="async" width="800" height="800" />
-            </picture>
-          </div>
-          <div class="logo-card">
-            <picture>
-              <source srcset="assets/logos.avif" type="image/avif" />
-              <source srcset="assets/logos.webp" type="image/webp" />
-              <img src="assets/logos.jpg" alt="Variaciones de logos de marca" loading="lazy" decoding="async" width="1200" height="800" />
-            </picture>
           </div>
         </div>
       </div>
@@ -881,7 +913,7 @@
           <h3 class="timeline-role">Consultor Especializado en Automatizacion, Datos y Evaluacion</h3>
           <p class="timeline-org">MIBANCO | Escuela de Negocios y Escuela de Formacion</p>
           <p class="timeline-date">Sept. 2023 - Jul. 2025</p>
-          <p class="timeline-desc">Implementacion de sistema automatizado con Power Query, VBA y Apps Script para reporteria de desempeno, logrando mas del 60% de reduccion de tiempo en consolidaciones y mejor visibilidad de KPIs.</p>
+          <p class="timeline-desc">Implementacion de sistema automatizado con Power Query, VBA y Apps Script para reporteria de desempeno, con mejoras sostenidas en tiempos de consolidacion y visibilidad de KPIs.</p>
         </article>
 
         <article class="timeline-item">
@@ -916,7 +948,7 @@
         <article class="achievement-card reveal">
           <p class="achievement-org">MIBANCO | Gestion de Aprendizaje</p>
           <h3 class="achievement-title">Automatizacion de reportes validada por gerencia</h3>
-          <p class="achievement-desc">Sistema automatizado con Power Query y VBA que redujo mas del 60% el tiempo mensual de consolidacion y mejoro la trazabilidad de indicadores.</p>
+          <p class="achievement-desc">Sistema automatizado con Power Query y VBA que mejoro la trazabilidad de indicadores y estandarizo la consolidacion mensual de reportes.</p>
         </article>
 
         <article class="achievement-card reveal">
@@ -999,37 +1031,37 @@
 
       <div class="services-grid">
         <article class="service-card reveal">
-          <div class="service-icon">BI</div>
+          <div class="service-icon"><img src="assets/logo.jpg" alt="Icono BI" loading="lazy" decoding="async" /></div>
           <h3 class="service-title">Business Intelligence y dashboards ejecutivos</h3>
           <p class="service-desc">Diseno de tableros en Power BI con KPIs, DAX, modelado de datos y narrativas visuales para direccion y gerencia.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">ETL</div>
+          <div class="service-icon"><img src="assets/logo-personal.jpg" alt="Icono ETL" loading="lazy" decoding="async" /></div>
           <h3 class="service-title">Data Management, ETL y calidad de datos</h3>
           <p class="service-desc">Estructuracion de procesos ETL con Power Query y SQL para integrar, limpiar y transformar datos con trazabilidad.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">SQL</div>
+          <div class="service-icon"><img src="assets/logos.jpg" alt="Icono SQL" loading="lazy" decoding="async" /></div>
           <h3 class="service-title">Analitica con SQL y Python</h3>
           <p class="service-desc">Analisis descriptivo y predictivo con pandas y scikit-learn para detectar riesgos, patrones y oportunidades de mejora.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">AUTO</div>
+          <div class="service-icon"><img src="assets/logo.jpg" alt="Icono automatizacion" loading="lazy" decoding="async" /></div>
           <h3 class="service-title">Automatizacion de reportes y procesos</h3>
           <p class="service-desc">Automatizacion con VBA, Apps Script y flujos de datos para reducir tiempos, errores y dependencia manual.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">ML</div>
+          <div class="service-icon"><img src="assets/logo-personal.jpg" alt="Icono machine learning" loading="lazy" decoding="async" /></div>
           <h3 class="service-title">Machine Learning aplicado</h3>
           <p class="service-desc">Modelos de prediccion para permanencia, desempeno y churn con enfoque practico de negocio y despliegue funcional.</p>
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">TRAIN</div>
+          <div class="service-icon"><img src="assets/logos.jpg" alt="Icono formacion" loading="lazy" decoding="async" /></div>
           <h3 class="service-title">Capacitacion y transferencia de capacidades</h3>
           <p class="service-desc">Programas formativos en BI y Data Analytics para equipos corporativos y academicos orientados a resultados.</p>
         </article>
@@ -1073,6 +1105,50 @@
           <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
           <span class="skill-pct">78%</span>
         </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="linkedin-posts">
+      <p class="section-label reveal">Actividad reciente</p>
+      <h2 class="section-title reveal">Publicaciones en LinkedIn</h2>
+      <div class="linkedin-intro reveal">
+        <p style="color:var(--muted);">Comparto aprendizajes, proyectos en curso y reflexiones sobre datos, BI y tecnologia aplicada al negocio.</p>
+      </div>
+
+      <div class="linkedin-posts-grid">
+
+        <div class="linkedin-post-card reveal">
+          <iframe
+            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7346996469561802753"
+            height="940" width="504"
+            frameborder="0" allowfullscreen
+            title="Publicacion LinkedIn 1"
+            loading="lazy"
+          ></iframe>
+          <a
+            href="https://www.linkedin.com/posts/diego-armando-vasquez_ingenieraedaindustrial-programaciaejn-automatizaciaejn-activity-7332887294179258369-GOig"
+            target="_blank" rel="noopener noreferrer"
+            class="linkedin-post-link"
+          >Ver en LinkedIn ↗</a>
+        </div>
+
+        <div class="linkedin-post-card reveal">
+          <iframe
+            src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7349655242969366528"
+            height="1210" width="504"
+            frameborder="0" allowfullscreen
+            title="Publicacion LinkedIn 2"
+            loading="lazy"
+          ></iframe>
+          <a
+            href="https://www.linkedin.com/in/diego-armando-vasquez"
+            target="_blank" rel="noopener noreferrer"
+            class="linkedin-post-link"
+          >Ver en LinkedIn ↗</a>
+        </div>
+
       </div>
     </section>
 
@@ -1130,7 +1206,7 @@
             </div>
           </div>
           <div class="briefing-actions">
-            <button type="submit" class="btn btn-primary">Enviar briefing por correo</button>
+            <a href="https://mail.google.com/mail/u/0/?fs=1&to=diegovch@gmail.com&su=Hola&tf=cm" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Enviar briefing por correo</a>
             <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Continuar por WhatsApp</a>
           </div>
           <p class="briefing-note">Recibiras respuesta para evaluar alcance, prioridad y propuesta de trabajo.</p>
@@ -1246,28 +1322,7 @@
     window.addEventListener('scroll', setActiveSection, { passive: true });
     window.addEventListener('load', setActiveSection);
 
-    const briefForm = document.getElementById('briefForm');
-    if (briefForm) {
-      briefForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const type = document.getElementById('briefType').value.trim();
-        const sector = document.getElementById('briefSector').value.trim();
-        const deadline = document.getElementById('briefDeadline').value.trim();
-        const goal = document.getElementById('briefGoal').value.trim();
-
-        const subject = encodeURIComponent('Briefing de consultoria de datos');
-        const body = encodeURIComponent(
-          `Hola Diego,%0D%0A%0D%0ATe comparto mi mini briefing:%0D%0A` +
-          `- Tipo de servicio: ${type}%0D%0A` +
-          `- Sector: ${sector}%0D%0A` +
-          `- Plazo estimado: ${deadline}%0D%0A` +
-          `- Objetivo principal: ${goal}%0D%0A%0D%0A` +
-          `Gracias.`
-        );
-
-        window.location.href = `mailto:diegovch@gmail.com?subject=${subject}&body=${body}`;
-      });
-    }
+    // El envio de briefing usa enlace directo de Gmail Compose solicitado.
   </script>
 </body>
 </html>
