@@ -187,12 +187,28 @@
       .footer-brand-logo { height: 52px; max-width: 210px; margin: 0 auto; }
       footer { flex-direction: column; gap: 0.85rem; text-align: center; padding: 1.8rem 1rem; }
     }
+
+    #scrollProgress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #ffb703);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <div id="scrollProgress" aria-hidden="true"></div>
   <nav>
     <a class="nav-logo" href="index.html"><img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" loading="eager" /></a>
-    <a class="back" href="index.html">Volver al inicio</a>
+    <div style="display:flex; gap:0.7rem; align-items:center; flex-wrap:wrap;">
+      <a class="back" href="index.html">Volver al inicio</a>
+      <a class="back" href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer">Agendar llamada</a>
+    </div>
   </nav>
 
   <main class="wrap">
@@ -299,7 +315,21 @@
       <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
-    <p>© 2026 Diego Armando Vasquez Chavez</p>
+    <p>© <span id="footerYear"></span> Diego Armando Vasquez Chavez</p>
   </footer>
+
+  <script>
+    const footerYear = document.getElementById('footerYear');
+    if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+    const scrollBar = document.getElementById('scrollProgress');
+    if (scrollBar) {
+      window.addEventListener('scroll', function () {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        scrollBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+      }, { passive: true });
+    }
+  </script>
 </body>
 </html>

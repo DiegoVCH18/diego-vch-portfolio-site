@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -784,6 +784,69 @@
       background: var(--glow);
     }
 
+    /* Voluntariado section */
+    #voluntariado { scroll-margin-top: 4.5rem; }
+    .voluntariado-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      max-width: 820px;
+    }
+    .vol-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+    .vol-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+    .vol-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .vol-org {
+      font-size: 0.84rem;
+      color: var(--accent);
+      margin-bottom: 0.15rem;
+    }
+    .vol-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .vol-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .vol-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .vol-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.38rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+    .vol-link:hover {
+      border-color: var(--accent);
+      background: var(--glow);
+    }
 
     /* LinkedIn posts section */
     #linkedin-posts { scroll-margin-top: 4.5rem; }
@@ -1156,11 +1219,11 @@
   <nav>
     <a class="nav-logo" href="#home"><img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" loading="eager" /></a>
     <ul class="nav-links">
-      <li><a href="#about">Sobre m├¡</a></li>
+      <li><a href="#about">Sobre mí</a></li>
       <li><a href="#timeline">Experiencia</a></li>
       <li><a href="#achievements">Logros</a></li>
       <li><a href="#projects">Proyectos</a></li>
-      <li><a href="#services">Especializaci├│n</a></li>
+      <li><a href="#services">Especialización</a></li>
       <li><a href="#skills">Stack</a></li>
       <li><a href="#voluntariado">Voluntariado</a></li>
       <li><a href="#contact">Contacto</a></li>
@@ -1173,16 +1236,16 @@
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul class="mobile-nav-links">
-      <li><a href="#about">Sobre m├¡</a></li>
+      <li><a href="#about">Sobre mí</a></li>
       <li><a href="#timeline">Experiencia</a></li>
       <li><a href="#achievements">Logros</a></li>
       <li><a href="#projects">Proyectos</a></li>
-      <li><a href="#services">Especializaci├│n</a></li>
+      <li><a href="#services">Especialización</a></li>
       <li><a href="#skills">Stack</a></li>
       <li><a href="#voluntariado">Voluntariado</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
-    <a href="projects.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Ver p├ígina de proyectos</a>
+    <a href="projects.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Ver página de proyectos</a>
   </div>
 
   <header class="hero" id="home">
@@ -1191,11 +1254,11 @@
     <div class="hero-orb orb2"></div>
     <div class="hero-layout">
       <div>
-        <span class="hero-tag">Business Intelligence ┬À Data Analytics ┬À Power BI ┬À Python</span>
+        <span class="hero-tag">Business Intelligence · Data Analytics · Power BI · Python</span>
         <h1 class="hero-name">Consultor de Datos<br/><span>que transforma decisiones</span></h1>
         <p class="hero-name-sub">Diego Vasquez Chavez</p>
-        <p class="hero-value">Dise├▒o sistemas de datos que tu equipo entiende, usa y que generan valor desde el primer sprint. De la fuente de datos al dashboard ejecutivo, sin rodeos.</p>
-        <p class="hero-desc">10 a├▒os en proyectos reales con CERTUS, MIBANCO, Asociaci├│n UNACEM y PROAVANCE. Premio SBS 2025. Experto en Power BI, Python y automatizaci├│n con resultados medibles.</p>
+        <p class="hero-value">Diseño sistemas de datos que tu equipo entiende, usa y que generan valor desde el primer sprint. De la fuente de datos al dashboard ejecutivo, sin rodeos.</p>
+        <p class="hero-desc">10 años en proyectos reales con CERTUS, MIBANCO, Asociación UNACEM y PROAVANCE. Premio SBS 2025. Experto en Power BI, Python y automatización con resultados medibles.</p>
         <div class="hero-proof">
           <span class="proof-pill proof-pill--gold">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V4Z"></path><path d="M8 20h8"></path><path d="M12 11v9"></path><path d="M6 7H4a3 3 0 0 0 3 3"></path><path d="M18 7h2a3 3 0 0 1-3 3"></path></svg>
@@ -1212,9 +1275,9 @@
         </div>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Cuéntame tu reto</a>
-          <a href="projects.html" class="btn btn-secondary">P├ígina de proyectos</a>
+          <a href="projects.html" class="btn btn-secondary">Página de proyectos</a>
           <a href="assets/CV_Diego_Vasquez.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Descargar CV</a>
-          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Agendar conversaci├│n ÔåÆ</a>
+          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Agendar conversación →</a>
         </div>
       </div>
       <div class="hero-photo-wrap reveal">
@@ -1224,11 +1287,11 @@
   </header>
 
   <section class="trust-bar" aria-label="Empresas con las que he trabajado">
-    <p class="trust-bar-label">Trabaj├® con</p>
+    <p class="trust-bar-label">Trabajé con</p>
     <div class="trust-bar-logos">
       <span class="trust-logo-slot"><img src="assets/certus-logo.png" alt="CERTUS" class="trust-logo trust-logo--certus" loading="lazy" /></span>
       <span class="trust-logo-slot"><img src="assets/mibanco-logo.png" alt="MIBANCO" class="trust-logo" loading="lazy" /></span>
-      <span class="trust-logo-slot"><img src="assets/unacem-logo.png" alt="Asociaci├│n UNACEM" class="trust-logo" loading="lazy" /></span>
+      <span class="trust-logo-slot"><img src="assets/unacem-logo.png" alt="Asociación UNACEM" class="trust-logo" loading="lazy" /></span>
       <span class="trust-logo-slot"><img src="assets/proavance-logo.png" alt="PROAVANCE" class="trust-logo" loading="lazy" /></span>
       <span class="trust-logo-slot"><img src="assets/inlearning-logo.png" alt="inLearning" class="trust-logo" loading="lazy" /></span>
     </div>
@@ -1239,14 +1302,14 @@
 
     <section id="about">
       <p class="section-label reveal">Propuesta de valor</p>
-      <h2 class="section-title reveal">Datos, estrategia y ejecuci├│n para decisiones con impacto</h2>
-      <p class="section-sub reveal">Ingeniero Industrial colegiado, especialista en Data Management, Business Intelligence y Data Analytics. Desarrollo ecosistemas de datos que mejoran el control de gesti├│n, la trazabilidad de indicadores y la velocidad de decisi├│n.</p>
+      <h2 class="section-title reveal">Datos, estrategia y ejecución para decisiones con impacto</h2>
+      <p class="section-sub reveal">Ingeniero Industrial colegiado, especialista en Data Management, Business Intelligence y Data Analytics. Desarrollo ecosistemas de datos que mejoran el control de gestión, la trazabilidad de indicadores y la velocidad de decisión.</p>
 
       <div class="about-grid">
         <div class="about-text reveal">
-          <p><strong>Mi trabajo empieza donde tus datos est├ín dispersos</strong> y termina cuando tu equipo toma mejores decisiones ÔÇö con un sistema que funciona solo, sin dependencias permanentes.</p>
-          <p><strong>Construyo ecosistemas de datos completos:</strong> dise├▒o el modelo, automatizo los flujos, creo los dashboards ejecutivos y entreno a tu equipo para que los use de forma aut├│noma.</p>
-          <p><strong>Experiencia multisectorial real:</strong> proyectos con CERTUS, MIBANCO, Asociaci├│n UNACEM y PROAVANCE, traduciendo necesidades de gerencia en soluciones t├®cnicas con resultados medibles.</p>
+          <p><strong>Mi trabajo empieza donde tus datos están dispersos</strong> y termina cuando tu equipo toma mejores decisiones — con un sistema que funciona solo, sin dependencias permanentes.</p>
+          <p><strong>Construyo ecosistemas de datos completos:</strong> diseño el modelo, automatizo los flujos, creo los dashboards ejecutivos y entreno a tu equipo para que los use de forma autónoma.</p>
+          <p><strong>Experiencia multisectorial real:</strong> proyectos con CERTUS, MIBANCO, Asociación UNACEM y PROAVANCE, traduciendo necesidades de gerencia en soluciones técnicas con resultados medibles.</p>
           <div style="margin-top:1.4rem;">
             <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ver perfil en LinkedIn</a>
           </div>
@@ -1254,7 +1317,7 @@
         <div class="stats-grid reveal">
           <div class="stat-card">
             <div class="stat-number" data-countup="10" data-suffix="+">10+</div>
-            <div class="stat-label">a├▒os impulsando BI, Data Analytics y automatizaci├│n</div>
+            <div class="stat-label">años impulsando BI, Data Analytics y automatización</div>
           </div>
           <div class="stat-card">
             <div class="stat-number" style="color:var(--accent2); font-size:2.4rem;">1.º</div>
@@ -1262,11 +1325,11 @@
           </div>
           <div class="stat-card">
             <div class="stat-number" data-countup="4" data-suffix="+">4+</div>
-            <div class="stat-label">sectores con implementaciones: educaci├│n, banca, miner├¡a e impacto social</div>
+            <div class="stat-label">sectores con implementaciones: educación, banca, minería e impacto social</div>
           </div>
           <div class="stat-card">
             <div class="stat-number" data-countup="90" data-suffix="%+">90%+</div>
-            <div class="stat-label">precisi├│n en predicci├│n acad├®mica con ML</div>
+            <div class="stat-label">precisión en predicción académica con ML</div>
           </div>
         </div>
       </div>
@@ -1274,10 +1337,10 @@
 
     <div class="divider"></div>
 
-<section id="services">
-      <p class="section-label reveal">├üreas de especializaci├│n</p>
-      <h2 class="section-title reveal">Servicios de consultor├¡a y formaci├│n</h2>
-      <p class="section-sub reveal">Acompa├▒o a organizaciones y equipos a pasar de datos dispersos a decisiones respaldadas por evidencia ÔÇö con sistemas que funcionan de forma aut├│noma una vez entregados.</p>
+    <section id="services">
+      <p class="section-label reveal">Áreas de especialización</p>
+      <h2 class="section-title reveal">Servicios de consultoría y formación</h2>
+      <p class="section-sub reveal">Acompaño a organizaciones y equipos a pasar de datos dispersos a decisiones respaldadas por evidencia — con sistemas que funcionan de forma autónoma una vez entregados.</p>
 
       <div class="services-grid">
         <article class="service-card reveal">
@@ -1285,8 +1348,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="8" width="4" height="10"></rect><rect x="10" y="5" width="4" height="13"></rect><rect x="16" y="3" width="4" height="15"></rect></svg>
           </div>
           <h3 class="service-title">Dashboards ejecutivos en Power BI</h3>
-          <p class="service-desc">Convierto tus datos en tableros claros, con KPIs accionables que la direcci├│n realmente usa para tomar decisiones.</p>
-          <a href="#contact" class="service-cta" data-service="Business Intelligence">Consultar servicio ÔåÆ</a>
+          <p class="service-desc">Convierto tus datos en tableros claros, con KPIs accionables que la dirección realmente usa para tomar decisiones.</p>
+          <a href="#contact" class="service-cta" data-service="Business Intelligence">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
@@ -1295,25 +1358,25 @@
           </div>
           <h3 class="service-title">ETL y arquitectura de datos limpia</h3>
           <p class="service-desc">Estructuro tus flujos de datos de principio a fin: sin duplicados, sin errores manuales, con trazabilidad completa.</p>
-          <a href="#contact" class="service-cta" data-service="ETL y Data Management">Consultar servicio ÔåÆ</a>
+          <a href="#contact" class="service-cta" data-service="ETL y Data Management">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 10h16M4 14h8"></path><circle cx="17" cy="17" r="3"></circle><path d="m21 21-1.5-1.5"></path></svg>
           </div>
-          <h3 class="service-title">Anal├¡tica avanzada con SQL y Python</h3>
+          <h3 class="service-title">Analítica avanzada con SQL y Python</h3>
           <p class="service-desc">Detecto patrones, riesgos y oportunidades antes de que sean evidentes para tu competencia, usando datos que ya tienes.</p>
-          <a href="#contact" class="service-cta" data-service="SQL y Python aplicado">Consultar servicio ÔåÆ</a>
+          <a href="#contact" class="service-cta" data-service="SQL y Python aplicado">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
           </div>
-          <h3 class="service-title">Automatizaci├│n de reportes</h3>
+          <h3 class="service-title">Automatización de reportes</h3>
           <p class="service-desc">Elimino el tiempo que tu equipo pierde consolidando datos manualmente. Los reportes se generan solos, sin errores y a tiempo.</p>
-          <a href="#contact" class="service-cta" data-service="Automatizaci├│n de reportes">Consultar servicio ÔåÆ</a>
+          <a href="#contact" class="service-cta" data-service="Automatización de reportes">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
@@ -1321,22 +1384,21 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"></path></svg>
           </div>
           <h3 class="service-title">Modelos predictivos aplicados al negocio</h3>
-          <p class="service-desc">Predigo deserci├│n, churn o rendimiento con modelos explicables que puedes presentar a tu directorio con confianza.</p>
-          <a href="#contact" class="service-cta" data-service="Machine Learning aplicado">Consultar servicio ÔåÆ</a>
+          <p class="service-desc">Predigo deserción, churn o rendimiento con modelos explicables que puedes presentar a tu directorio con confianza.</p>
+          <a href="#contact" class="service-cta" data-service="Machine Learning aplicado">Consultar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
-          <h3 class="service-title">Formaci├│n en BI y Data Analytics</h3>
-          <p class="service-desc">Entreno a tu equipo para que interprete y actualice sus propios dashboards. Autonom├¡a real, sin dependencia permanente de consultor.</p>
-          <a href="#contact" class="service-cta" data-service="Consultor├¡a y formaci├│n">Consultar servicio ÔåÆ</a>
+          <h3 class="service-title">Formación en BI y Data Analytics</h3>
+          <p class="service-desc">Entreno a tu equipo para que interprete y actualice sus propios dashboards. Autonomía real, sin dependencia permanente de consultor.</p>
+          <a href="#contact" class="service-cta" data-service="Consultoría y formación">Consultar servicio →</a>
         </article>
       </div>
     </section>
 
-    <div class="divider"></div>
     <div class="divider"></div>
 
     <section id="proceso">
@@ -1371,8 +1433,8 @@
 
     <section id="timeline">
       <p class="section-label reveal">Experiencia profesional</p>
-      <h2 class="section-title reveal">Trayectoria en consultor├¡a de datos y anal├¡tica aplicada</h2>
-      <p class="section-sub reveal">Experiencia en Business Intelligence, ETL, SQL, Python, dashboards ejecutivos, automatizaci├│n de reportes, Machine Learning y consultor├¡a en gesti├│n estrat├®gica aplicada a educaci├│n, banca y programas sociales.</p>
+      <h2 class="section-title reveal">Trayectoria en consultoría de datos y analítica aplicada</h2>
+      <p class="section-sub reveal">Experiencia en Business Intelligence, ETL, SQL, Python, dashboards ejecutivos, automatización de reportes, Machine Learning y consultoría en gestión estratégica aplicada a educación, banca y programas sociales.</p>
 
       <div class="timeline reveal">
         <article class="timeline-item strategic">
@@ -1381,40 +1443,40 @@
             <h3 class="timeline-role">Docente Innovador y EdFinTech Developer</h3>
             <img src="assets/certus-logo.png" alt="Logo CERTUS" class="timeline-logo timeline-logo--certus" loading="lazy" decoding="async" />
           </div>
-          <p class="timeline-org">CERTUS | Administraci├│n Financiera y Banca Digital</p>
+          <p class="timeline-org">CERTUS | Administración Financiera y Banca Digital</p>
           <p class="timeline-date">Mar. 2021 - Presente</p>
-          <p class="timeline-desc">L├¡der de l├¡nea curricular, creador de IAhorra CERTUS y de soluciones anal├¡ticas para direcci├│n acad├®mica. Desarrollo de modelos predictivos, pipelines con Python y automatizaci├│n de dashboards para permanencia estudiantil.</p>
+          <p class="timeline-desc">Líder de línea curricular, creador de IAhorra CERTUS y de soluciones analíticas para dirección académica. Desarrollo de modelos predictivos, pipelines con Python y automatización de dashboards para permanencia estudiantil.</p>
         </article>
 
         <article class="timeline-item strategic">
           <span class="timeline-badge">Destacado</span>
           <div class="timeline-item-header">
-            <h3 class="timeline-role">Consultor en Gesti├│n y An├ílisis de Data</h3>
-            <img src="assets/unacem-logo.png" alt="Logo Asociaci├│n UNACEM" class="timeline-logo timeline-logo--unacem" loading="lazy" decoding="async" />
+            <h3 class="timeline-role">Consultor en Gestión y Análisis de Data</h3>
+            <img src="assets/unacem-logo.png" alt="Logo Asociación UNACEM" class="timeline-logo timeline-logo--unacem" loading="lazy" decoding="async" />
           </div>
-          <p class="timeline-org">Asociaci├│n UNACEM | Laboratorio Social</p>
+          <p class="timeline-org">Asociación UNACEM | Laboratorio Social</p>
           <p class="timeline-date">Mar. 2026 - Oct. 2026</p>
-          <p class="timeline-desc">Soporte integral de datos institucionales, dashboards ejecutivos en Power BI, optimizaci├│n de reporter├¡a y cumplimiento de lineamientos de protecci├│n de datos para toma de decisiones estrat├®gicas.</p>
+          <p class="timeline-desc">Soporte integral de datos institucionales, dashboards ejecutivos en Power BI, optimización de reportería y cumplimiento de lineamientos de protección de datos para toma de decisiones estratégicas.</p>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-item-header">
-            <h3 class="timeline-role">Consultor en Asistencia T├®cnica Power BI</h3>
-            <img src="assets/unacem-logo.png" alt="Logo Asociaci├│n UNACEM" class="timeline-logo timeline-logo--unacem" loading="lazy" decoding="async" />
+            <h3 class="timeline-role">Consultor en Asistencia Técnica Power BI</h3>
+            <img src="assets/unacem-logo.png" alt="Logo Asociación UNACEM" class="timeline-logo timeline-logo--unacem" loading="lazy" decoding="async" />
           </div>
-          <p class="timeline-org">Asociaci├│n UNACEM | Contrato CONT-AU112-2025</p>
+          <p class="timeline-org">Asociación UNACEM | Contrato CONT-AU112-2025</p>
           <p class="timeline-date">Sept. 2025 - Dic. 2025</p>
-          <p class="timeline-desc">Dise├▒o y optimizaci├│n de tableros para ejecuci├│n presupuestal y cobertura de proyectos sociales. Implementaci├│n ETL, modelado relacional/dimensional y capacitaci├│n para uso operativo en Power BI Service.</p>
+          <p class="timeline-desc">Diseño y optimización de tableros para ejecución presupuestal y cobertura de proyectos sociales. Implementación ETL, modelado relacional/dimensional y capacitación para uso operativo en Power BI Service.</p>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-item-header">
-            <h3 class="timeline-role">Consultor Especializado en Automatizaci├│n, Datos y Evaluaci├│n</h3>
+            <h3 class="timeline-role">Consultor Especializado en Automatización, Datos y Evaluación</h3>
             <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo timeline-logo--mibanco" loading="lazy" decoding="async" />
           </div>
-          <p class="timeline-org">MIBANCO | Escuela de Negocios y Escuela de Formaci├│n</p>
+          <p class="timeline-org">MIBANCO | Escuela de Negocios y Escuela de Formación</p>
           <p class="timeline-date">Sept. 2023 - Jul. 2025</p>
-          <p class="timeline-desc">Implementaci├│n de sistema automatizado con Power Query, VBA y Apps Script para reporter├¡a de desempe├▒o, con mejoras sostenidas en tiempos de consolidaci├│n y visibilidad de KPIs.</p>
+          <p class="timeline-desc">Implementación de sistema automatizado con Power Query, VBA y Apps Script para reportería de desempeño, con mejoras sostenidas en tiempos de consolidación y visibilidad de KPIs.</p>
         </article>
 
         <article class="timeline-item">
@@ -1424,24 +1486,24 @@
           </div>
           <p class="timeline-org">Proavance | Profesional independiente</p>
           <p class="timeline-date">May. 2025 - Jul. 2025</p>
-          <p class="timeline-desc">Dictado de cursos as├¡ncronos en Tableau Public y Data Governance, adem├ís de programa Power BI para Cerro Verde con sesiones pr├ícticas y evaluaciones.</p>
+          <p class="timeline-desc">Dictado de cursos asíncronos en Tableau Public y Data Governance, además de programa Power BI para Cerro Verde con sesiones prácticas y evaluaciones.</p>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-item-header">
-            <h3 class="timeline-role">Consultor en Automatizaci├│n de Reporter├¡as Acad├®micas</h3>
+            <h3 class="timeline-role">Consultor en Automatización de Reporterías Académicas</h3>
             <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo timeline-logo--mibanco" loading="lazy" decoding="async" />
           </div>
-          <p class="timeline-org">MIBANCO | Escuela de Formaci├│n (Profesional independiente)</p>
+          <p class="timeline-org">MIBANCO | Escuela de Formación (Profesional independiente)</p>
           <p class="timeline-date">Ago. 2024 - Sept. 2024</p>
-          <p class="timeline-desc">Dise├▒o de sistema automatizado de reporter├¡a con Excel VBA y Power Query para seguimiento acad├®mico, productividad y consolidado mensual. Visualizaci├│n de KPIs por facilitador, agencia y programa, validado por Gerencia de Experiencia y Desarrollo Humano.</p>
+          <p class="timeline-desc">Diseño de sistema automatizado de reportería con Excel VBA y Power Query para seguimiento académico, productividad y consolidado mensual. Visualización de KPIs por facilitador, agencia y programa, validado por Gerencia de Experiencia y Desarrollo Humano.</p>
         </article>
 
         <article class="timeline-item">
           <h3 class="timeline-role">Docente</h3>
           <p class="timeline-org">Instituto ILS | Jornada parcial</p>
           <p class="timeline-date">Abr. 2019 - May. 2024</p>
-          <p class="timeline-desc">Docente de Marketing, Estad├¡stica, Investigaci├│n de Mercados y Procesos Administrativos, con tutor├¡a de proyectos de aplicaci├│n profesional en contextos reales.</p>
+          <p class="timeline-desc">Docente de Marketing, Estadística, Investigación de Mercados y Procesos Administrativos, con tutoría de proyectos de aplicación profesional en contextos reales.</p>
         </article>
 
         <article class="timeline-item">
@@ -1449,40 +1511,40 @@
             <h3 class="timeline-role">Consultor Especializado en Simuladores Educativos para Banca</h3>
             <img src="assets/inlearning-logo.png" alt="Logo inLearning" class="timeline-logo timeline-logo--inlearning" loading="lazy" decoding="async" />
           </div>
-          <p class="timeline-org">inLearning Escuelas de Educaci├│n Superior | Profesional independiente</p>
+          <p class="timeline-org">inLearning Escuelas de Educación Superior | Profesional independiente</p>
           <p class="timeline-date">Mar. 2024 - Abr. 2024</p>
-          <p class="timeline-desc">Desarrollo de macro personalizada en Excel VBA para simular operaciones de caja, integrando fichas, formularios y m├│dulos curriculares, con medidas de seguridad y sesiones de inducci├│n para docentes y estudiantes.</p>
+          <p class="timeline-desc">Desarrollo de macro personalizada en Excel VBA para simular operaciones de caja, integrando fichas, formularios y módulos curriculares, con medidas de seguridad y sesiones de inducción para docentes y estudiantes.</p>
         </article>
 
         <article class="timeline-item">
           <div class="timeline-item-header">
-            <h3 class="timeline-role">Especialista en Reporter├¡as Automatizadas y Capacitaci├│n Digital</h3>
+            <h3 class="timeline-role">Especialista en Reporterías Automatizadas y Capacitación Digital</h3>
             <img src="assets/mibanco-logo.png" alt="Logo MIBANCO" class="timeline-logo timeline-logo--mibanco" loading="lazy" decoding="async" />
           </div>
           <p class="timeline-org">MIBANCO | Profesional independiente</p>
           <p class="timeline-date">Sept. 2023 - Ene. 2024</p>
-          <p class="timeline-desc">Desarrollo de sistema de reporter├¡a para capacitaciones y avances individuales, automatizaci├│n de env├¡os por correo y repositorio auditable de dashboards de productividad con Excel, Power Query y Power Pivot.</p>
+          <p class="timeline-desc">Desarrollo de sistema de reportería para capacitaciones y avances individuales, automatización de envíos por correo y repositorio auditable de dashboards de productividad con Excel, Power Query y Power Pivot.</p>
         </article>
 
         <article class="timeline-item">
           <h3 class="timeline-role">Fundador, Consultor y Formador en Data Analytics</h3>
           <p class="timeline-org">TECZONE AQP</p>
           <p class="timeline-date">Ene. 2015 - Mar. 2024</p>
-          <p class="timeline-desc">Formaci├│n avanzada en Power BI, Excel VBA y automatizaci├│n para profesionales y empresas, desarrollando competencias anal├¡ticas aplicadas al negocio.</p>
+          <p class="timeline-desc">Formación avanzada en Power BI, Excel VBA y automatización para profesionales y empresas, desarrollando competencias analíticas aplicadas al negocio.</p>
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Consultor en Implementaci├│n de SST (Ley 29783)</h3>
+          <h3 class="timeline-role">Consultor en Implementación de SST (Ley 29783)</h3>
           <p class="timeline-org">San Marcos EIRL</p>
           <p class="timeline-date">2018</p>
-          <p class="timeline-desc">Consultor├¡a para la implementaci├│n del Sistema de Seguridad y Salud en el Trabajo conforme a la Ley 29783, con enfoque en ordenamiento documental, lineamientos de cumplimiento y soporte para la gesti├│n preventiva en la organizaci├│n.</p>
+          <p class="timeline-desc">Consultoría para la implementación del Sistema de Seguridad y Salud en el Trabajo conforme a la Ley 29783, con enfoque en ordenamiento documental, lineamientos de cumplimiento y soporte para la gestión preventiva en la organización.</p>
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Consultor├¡a en Gesti├│n Estrat├®gica basada en Investigaci├│n</h3>
-          <p class="timeline-org">UNSA | Aplicaci├│n profesional de tesis</p>
+          <h3 class="timeline-role">Consultoría en Gestión Estratégica basada en Investigación</h3>
+          <p class="timeline-org">UNSA | Aplicación profesional de tesis</p>
           <p class="timeline-date">2017</p>
-          <p class="timeline-desc">Dise├▒o de propuestas de mejora y an├ílisis para la toma de decisiones estrat├®gicas, sustentadas en metodolog├¡a de investigaci├│n aplicada y evidencia acad├®mica desarrollada en tesis de ingenier├¡a. <a href="https://repositorio.unsa.edu.pe/server/api/core/bitstreams/d158f04c-f7e9-448f-9bd5-44a15c14501b/content" target="_blank" rel="noopener noreferrer" class="project-link">Ver tesis UNSA</a></p>
+          <p class="timeline-desc">Diseño de propuestas de mejora y análisis para la toma de decisiones estratégicas, sustentadas en metodología de investigación aplicada y evidencia académica desarrollada en tesis de ingeniería. <a href="https://repositorio.unsa.edu.pe/server/api/core/bitstreams/d158f04c-f7e9-448f-9bd5-44a15c14501b/content" target="_blank" rel="noopener noreferrer" class="project-link">Ver tesis UNSA</a></p>
         </article>
       </div>
     </section>
@@ -1492,31 +1554,31 @@
     <section id="achievements">
       <p class="section-label reveal">Credenciales y resultados</p>
       <h2 class="section-title reveal">Logros que respaldan mi impacto profesional</h2>
-      <p class="section-sub reveal">Reconocimientos, iniciativas y resultados concretos obtenidos en proyectos de Data Analytics, BI y educaci├│n financiera digital.</p>
+      <p class="section-sub reveal">Reconocimientos, iniciativas y resultados concretos obtenidos en proyectos de Data Analytics, BI y educación financiera digital.</p>
 
       <div class="achievements-grid">
         <article class="achievement-card reveal">
           <p class="achievement-org" style="color:var(--accent2);">★ SBS | Semana Mundial del Ahorro 2025</p>
-          <h3 class="achievement-title">1.er lugar en Propuesta Innovadora de Educaci├│n Financiera</h3>
-          <p class="achievement-desc">Premio nacional otorgado por la SBS a IAhorra CERTUS, soluci├│n EdFinTech seleccionada por su impacto pr├íctico, escalabilidad y enfoque en formaci├│n financiera para j├│venes.</p>
+          <h3 class="achievement-title">1.er lugar en Propuesta Innovadora de Educación Financiera</h3>
+          <p class="achievement-desc">Premio nacional otorgado por la SBS a IAhorra CERTUS, solución EdFinTech seleccionada por su impacto práctico, escalabilidad y enfoque en formación financiera para jóvenes.</p>
         </article>
 
         <article class="achievement-card reveal">
           <p class="achievement-org">CERTUS | 2024 y 2026</p>
           <h3 class="achievement-title">Docente Everest y Docente Milla Extra</h3>
-          <p class="achievement-desc">Reconocimientos por excelencia acad├®mica y contribuci├│n destacada en an├ílisis de data para direcci├│n acad├®mica.</p>
+          <p class="achievement-desc">Reconocimientos por excelencia académica y contribución destacada en análisis de data para dirección académica.</p>
         </article>
 
         <article class="achievement-card reveal">
-          <p class="achievement-org">MIBANCO | Gesti├│n de Aprendizaje</p>
-          <h3 class="achievement-title">Automatizaci├│n de reportes validada por gerencia</h3>
-          <p class="achievement-desc">Sistema automatizado con Power Query y VBA que mejor├│ la trazabilidad de indicadores y estandariz├│ la consolidaci├│n mensual de reportes.</p>
+          <p class="achievement-org">MIBANCO | Gestión de Aprendizaje</p>
+          <h3 class="achievement-title">Automatización de reportes validada por gerencia</h3>
+          <p class="achievement-desc">Sistema automatizado con Power Query y VBA que mejoró la trazabilidad de indicadores y estandarizó la consolidación mensual de reportes.</p>
         </article>
 
         <article class="achievement-card reveal">
-          <p class="achievement-org">CERTUS | Anal├¡tica Predictiva</p>
-          <h3 class="achievement-title">Modelo de permanencia con precisi├│n superior al 90%</h3>
-          <p class="achievement-desc">Modelo con Random Forest, XGBoost y CatBoost para predecir riesgo de desaprobaci├│n o deserci├│n desde la Evaluaci├│n 1.</p>
+          <p class="achievement-org">CERTUS | Analítica Predictiva</p>
+          <h3 class="achievement-title">Modelo de permanencia con precisión superior al 90%</h3>
+          <p class="achievement-desc">Modelo con Random Forest, XGBoost y CatBoost para predecir riesgo de desaprobación o deserción desde la Evaluación 1.</p>
         </article>
       </div>
     </section>
@@ -1525,15 +1587,15 @@
 
     <section id="projects">
       <p class="section-label reveal">Portafolio</p>
-      <h2 class="section-title reveal">Proyectos relevantes en BI, automatizaci├│n y Machine Learning</h2>
-      <p class="section-sub reveal">Selecci├│n de proyectos reales alineados a consultor├¡a de datos, dashboards ejecutivos y productos de anal├¡tica aplicada.</p>
+      <h2 class="section-title reveal">Proyectos relevantes en BI, automatización y Machine Learning</h2>
+      <p class="section-sub reveal">Selección de proyectos reales alineados a consultoría de datos, dashboards ejecutivos y productos de analítica aplicada.</p>
 
       <div class="projects-grid">
         <article class="project-card reveal">
           <div class="project-body">
             <span class="project-tag">EdFinTech + IA</span>
             <h3 class="project-name">IAhorra CERTUS</h3>
-            <p class="project-desc">Asistente web de educaci├│n financiera (React/Next.js + Vercel), evolucionado desde una versi├│n conversacional y ganador del 1.er lugar SBS 2025.</p>
+            <p class="project-desc">Asistente web de educación financiera (React/Next.js + Vercel), evolucionado desde una versión conversacional y ganador del 1.er lugar SBS 2025.</p>
             <div class="project-actions">
               <a class="project-link" href="https://iahorra-certus.vercel.app" target="_blank" rel="noopener noreferrer">Ver demo</a>
               <a class="project-link" href="https://github.com/DiegoVCH18/iahorra-certus" target="_blank" rel="noopener noreferrer">Repositorio</a>
@@ -1569,9 +1631,9 @@
 
         <article class="project-card reveal">
           <div class="project-body">
-            <span class="project-tag">Automatizaci├│n de reportes</span>
+            <span class="project-tag">Automatización de reportes</span>
             <h3 class="project-name">Sistema automatizado para MIBANCO</h3>
-            <p class="project-desc">Integraci├│n de Excel VBA, Power Query y Apps Script para consolidaci├│n mensual, dashboards de productividad y reportes de desempe├▒o por agencia.</p>
+            <p class="project-desc">Integración de Excel VBA, Power Query y Apps Script para consolidación mensual, dashboards de productividad y reportes de desempeño por agencia.</p>
             <div class="project-actions">
               <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Ver referencia</a>
               <a class="project-link" href="proyectos/automatizacion-reportes-mibanco.html">Ficha del proyecto</a>
@@ -1580,16 +1642,14 @@
         </article>
       </div>
       <div style="margin-top:1rem;">
-        <a href="projects.html" class="btn btn-secondary">Explorar p├ígina completa de proyectos</a>
+        <a href="projects.html" class="btn btn-secondary">Explorar página completa de proyectos</a>
       </div>
     </section>
-
-    <div class="divider"></div>
 
     <section id="skills">
       <p class="section-label reveal">Stack tecnologico</p>
       <h2 class="section-title reveal">Herramientas que utilizo para generar valor</h2>
-      <p class="section-sub reveal">Combinaci├│n de herramientas para Business Intelligence, ETL, Data Analytics, automatizaci├│n de reportes y Machine Learning.</p>
+      <p class="section-sub reveal">Combinación de herramientas para Business Intelligence, ETL, Data Analytics, automatización de reportes y Machine Learning.</p>
       <div class="skills-container reveal" id="skillsContainer">
         <div class="tech-chip">
           <div class="tech-main">
@@ -1641,10 +1701,10 @@
     <section id="linkedin-posts">
       <p class="section-label reveal">Pensamiento y comunidad</p>
       <h2 class="section-title reveal">Contenido en LinkedIn</h2>
-      <p class="section-sub reveal">Comparto aprendizajes sobre datos, BI y tecnolog├¡a aplicada al negocio. Automatizaci├│n, Power BI, Python y transformaci├│n digital en organizaciones reales.</p>
+      <p class="section-sub reveal">Comparto aprendizajes sobre datos, BI y tecnología aplicada al negocio. Automatización, Power BI, Python y transformación digital en organizaciones reales.</p>
       <div style="display:flex; gap:0.9rem; flex-wrap:wrap;">
         <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          Ver perfil y publicaciones en LinkedIn Ôåù
+          Ver perfil y publicaciones en LinkedIn ↗
         </a>
       </div>
     </section>
@@ -1653,38 +1713,38 @@
 
     <section id="voluntariado">
       <p class="section-label reveal">Impacto social</p>
-      <h2 class="section-title reveal">Voluntariado y participaci├│n</h2>
-      <p class="section-sub reveal">Aporte a comunidades acad├®micas y profesionales a trav├®s de mentor├¡a, docencia y difusi├│n de conocimiento en an├ílisis de datos e innovaci├│n.</p>
+      <h2 class="section-title reveal">Voluntariado y participación</h2>
+      <p class="section-sub reveal">Aporte a comunidades académicas y profesionales a través de mentoría, docencia y difusión de conocimiento en análisis de datos e innovación.</p>
 
       <div class="voluntariado-grid">
 
         <article class="vol-card reveal">
           <p class="vol-org">Universidad Nacional de San Agustin de Arequipa</p>
-          <h3 class="vol-title">Mentor ÔÇö Innova Tech Week 2026</h3>
-          <p class="vol-date">Mar. 2026 ┬À actualidad &nbsp;┬À&nbsp; Ciencia y tecnologia</p>
+          <h3 class="vol-title">Mentor — Innova Tech Week 2026</h3>
+          <p class="vol-date">Mar. 2026 · actualidad &nbsp;·&nbsp; Ciencia y tecnologia</p>
           <p class="vol-desc">Participe como mentor en Innova Tech Week 2026, guiando a equipos multidisciplinarios en la formulacion y mejora de proyectos de innovacion. Mi aporte estuvo enfocado en el analisis de datos, estructuracion de ideas, validacion de propuestas y orientacion hacia soluciones factibles, sostenibles y con impacto.</p>
           <div class="vol-links">
-            <a href="https://www.facebook.com/photo.php?fbid=122110810563246869&set=a.122106089331246869&id=61587406093265" target="_blank" rel="noopener noreferrer" class="vol-link">Ver en Facebook Ôåù</a>
+            <a href="https://www.facebook.com/photo.php?fbid=122110810563246869&set=a.122106089331246869&id=61587406093265" target="_blank" rel="noopener noreferrer" class="vol-link">Ver en Facebook ↗</a>
           </div>
         </article>
 
         <article class="vol-card reveal">
           <p class="vol-org">Universidad Nacional de San Agustin de Arequipa</p>
-          <h3 class="vol-title">Ponente invitado ÔÇö CI CONECTA 2025</h3>
-          <p class="vol-date">May. 2025 ┬À 1 mes &nbsp;┬À&nbsp; Educacion</p>
+          <h3 class="vol-title">Ponente invitado — CI CONECTA 2025</h3>
+          <p class="vol-date">May. 2025 · 1 mes &nbsp;·&nbsp; Educacion</p>
           <p class="vol-desc">Participe como ponente invitado en el ciclo de entrevistas de la sexta edicion de CI CONECTA, organizado por el Centro de Computo de Ingenieria Industrial de la Universidad Nacional de San Agustin. Comparte experiencias sobre automatizacion, analisis de datos y el impacto de la tecnologia en el mundo profesional.</p>
           <div class="vol-links">
-            <a href="https://www.youtube.com/watch?v=DlcppkyOjPQ" target="_blank" rel="noopener noreferrer" class="vol-link">Ver en YouTube Ôåù</a>
+            <a href="https://www.youtube.com/watch?v=DlcppkyOjPQ" target="_blank" rel="noopener noreferrer" class="vol-link">Ver en YouTube ↗</a>
           </div>
         </article>
 
         <article class="vol-card reveal">
-          <p class="vol-org">ATV Sur ÔÇö Nuevo Dia Magazine (Arequipa)</p>
-          <h3 class="vol-title">Entrevista en TV ÔÇö Finanzas para jovenes y 1.er lugar SBS 2025</h3>
-          <p class="vol-date">Jun. 2025 &nbsp;┬À&nbsp; Medios de comunicacion</p>
-          <p class="vol-desc">Fui entrevistado en el programa Nuevo Dia Magazine de ATV Sur, donde aborde la importancia de que los jovenes desarrollen habilidades de planificacion financiera desde temprana edad. En CERTUS, lideramos el proyecto IAHORRA ÔÇö asistente virtual de educacion financiera ÔÇö que obtuvo el 1.er lugar en la categoria &laquo;Innovacion en educacion financiera&raquo; en la Semana Mundial del Ahorro de la Superintendencia de Banca, Seguros y AFP del Peru (SBS), en colaboracion con la Asociacion de Bancos del Peru (Asbanc).</p>
+          <p class="vol-org">ATV Sur — Nuevo Dia Magazine (Arequipa)</p>
+          <h3 class="vol-title">Entrevista en TV — Finanzas para jovenes y 1.er lugar SBS 2025</h3>
+          <p class="vol-date">Jun. 2025 &nbsp;·&nbsp; Medios de comunicacion</p>
+          <p class="vol-desc">Fui entrevistado en el programa Nuevo Dia Magazine de ATV Sur, donde aborde la importancia de que los jovenes desarrollen habilidades de planificacion financiera desde temprana edad. En CERTUS, lideramos el proyecto IAHORRA — asistente virtual de educacion financiera — que obtuvo el 1.er lugar en la categoria &laquo;Innovacion en educacion financiera&raquo; en la Semana Mundial del Ahorro de la Superintendencia de Banca, Seguros y AFP del Peru (SBS), en colaboracion con la Asociacion de Bancos del Peru (Asbanc).</p>
           <div class="vol-video">
-            <video controls preload="none" poster="" aria-label="Entrevista ATV Sur ÔÇö Finanzas para jovenes">
+            <video controls preload="none" poster="" aria-label="Entrevista ATV Sur — Finanzas para jovenes">
               <source src="https://fileserver.ipnoticias.com/Multimedia/TV/2025/06/21/38228622660.mp4" type="video/mp4" />
               Tu navegador no soporta la reproduccion de video.
             </video>
@@ -1693,15 +1753,15 @@
 
         <article class="vol-card reveal">
           <p class="vol-org">CERTUS | Equipo de Administracion Financiera y Banca Digital</p>
-          <h3 class="vol-title">Ponente ÔÇö Taller &laquo;IA aplicada a los estudios&raquo;</h3>
-          <p class="vol-date">Feb. 2026 &nbsp;┬À&nbsp; Educacion superior / Empleabilidad</p>
-          <p class="vol-desc">Dicte el taller virtual &laquo;IA aplicada a los estudios: Potencia tus Clases y tu Empleabilidad&raquo; como parte de las actividades certificadas de CERTUS. Compart├¡ 3 aprendizajes clave con los participantes: la IA como copiloto que razona (no como buscador); la importancia del pensamiento critico para verificar sus resultados; y la tecnica de prompting efectivo (rol + contexto + tarea + formato) para mejorar el rendimiento academico y profesional.</p>
+          <h3 class="vol-title">Ponente — Taller &laquo;IA aplicada a los estudios&raquo;</h3>
+          <p class="vol-date">Feb. 2026 &nbsp;·&nbsp; Educacion superior / Empleabilidad</p>
+          <p class="vol-desc">Dicte el taller virtual &laquo;IA aplicada a los estudios: Potencia tus Clases y tu Empleabilidad&raquo; como parte de las actividades certificadas de CERTUS. Compartí 3 aprendizajes clave con los participantes: la IA como copiloto que razona (no como buscador); la importancia del pensamiento critico para verificar sus resultados; y la tecnica de prompting efectivo (rol + contexto + tarea + formato) para mejorar el rendimiento academico y profesional.</p>
         </article>
 
         <article class="vol-card reveal">
           <p class="vol-org">MIBANCO | Voluntariado corporativo</p>
-          <h3 class="vol-title">Facilitador ÔÇö Taller de IA para emprendedores</h3>
-          <p class="vol-date">2025 &nbsp;┬À&nbsp; Inclusion financiera y digital</p>
+          <h3 class="vol-title">Facilitador — Taller de IA para emprendedores</h3>
+          <p class="vol-date">2025 &nbsp;·&nbsp; Inclusion financiera y digital</p>
           <p class="vol-desc">Dicte un taller sobre el uso practico de la inteligencia artificial para emprendedores, en el marco del programa de voluntariado corporativo de MIBANCO. El taller estuvo orientado a mostrar como herramientas de IA pueden apoyar la gestion, comunicacion y toma de decisiones en negocios de pequena escala, acercando la tecnologia a audiencias no tecnicas.</p>
         </article>
 
@@ -1713,9 +1773,9 @@
     <section id="contact">
       <div class="contact-wrapper reveal">
         <p class="section-label">Contacto profesional</p>
-        <h2 class="section-title">┬┐Tienes datos que no est├ís aprovechando?</h2>
-        <p class="availability-pill">Ô£ô Disponible para nuevos proyectos ÔÇö Respondo en menos de 24h</p>
-        <p style="color:var(--muted); margin-bottom:0.4rem;">Cu├®ntame brevemente qu├® necesitas resolver. En menos de 24 horas te respondo con un diagn├│stico inicial y los siguientes pasos concretos.</p>
+        <h2 class="section-title">¿Tienes datos que no estás aprovechando?</h2>
+        <p class="availability-pill">✓ Disponible para nuevos proyectos — Respondo en menos de 24h</p>
+        <p style="color:var(--muted); margin-bottom:0.4rem;">Cuéntame brevemente qué necesitas resolver. En menos de 24 horas te respondo con un diagnóstico inicial y los siguientes pasos concretos.</p>
         <a href="mailto:diegovch@gmail.com" class="contact-email" id="contactEmail">diegovch@gmail.com</a>
 
         <div class="contact-links">
@@ -1738,9 +1798,9 @@
                 <option>Power BI y dashboards ejecutivos</option>
                 <option>ETL y Data Management</option>
                 <option>SQL y Python aplicado</option>
-                <option>Automatizaci├│n de reportes</option>
+                <option>Automatización de reportes</option>
                 <option>Machine Learning aplicado</option>
-                <option>Consultor├¡a y formaci├│n</option>
+                <option>Consultoría y formación</option>
               </select>
             </div>
             <div class="briefing-field">
@@ -1767,7 +1827,7 @@
             <button type="button" id="btnBriefWA" class="btn btn-secondary">Continuar por WhatsApp</button>
           </div>
           <div id="briefStatus" class="briefing-status" role="status" aria-live="polite"></div>
-          <p class="briefing-note">Recibir├ís respuesta para evaluar alcance, prioridad y propuesta de trabajo.</p>
+          <p class="briefing-note">Recibirás respuesta para evaluar alcance, prioridad y propuesta de trabajo.</p>
         </form>
       </div>
     </section>
@@ -1776,7 +1836,7 @@
   <footer>
     <div class="footer-brand">
       <img src="assets/diego_logo_assets/logo-sin-fondo.png" alt="Diego VCH" class="footer-brand-logo" loading="lazy" decoding="async" />
-      <p style="color:var(--muted); font-size:0.78rem;">Consultor de Datos ┬À Business Intelligence ┬À Power BI ┬À Python</p>
+      <p style="color:var(--muted); font-size:0.78rem;">Consultor de Datos · Business Intelligence · Power BI · Python</p>
     </div>
     <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; justify-content:center;">
       <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">Linktree</a>
@@ -1808,7 +1868,7 @@
       "SQL",
       "Python",
       "Machine Learning",
-      "Automatizaci├│n de reportes"
+      "Automatización de reportes"
     ]
   }
   </script>
@@ -2044,7 +2104,7 @@
           const d = getBriefData();
           if (!validarBrief(d)) return;
 
-          showStatus('Ô£ô Briefing listo. Se abrir├í tu correo para enviarlo sin recargar la p├ígina.');
+          showStatus('✓ Briefing listo. Se abrirá tu correo para enviarlo sin recargar la página.');
 
           const subject = encodeURIComponent('Briefing de proyecto: ' + d.tipo);
           const body = encodeURIComponent(
@@ -2076,16 +2136,15 @@
             '\u2022 Plazo estimado: ' + d.plazo + '\n' +
             '\u2022 Objetivo: ' + d.objetivo
           );
-          showStatus('Ô£ô Briefing listo. Abriremos WhatsApp para continuar la conversaci├│n.');
+          showStatus('✓ Briefing listo. Abriremos WhatsApp para continuar la conversación.');
           window.open('https://wa.me/' + CONTACT_CONFIG.whatsapp + '?text=' + text, '_blank', 'noopener,noreferrer');
         });
       }
     })();
-    // Dynamic copyright year
+
     const footerYear = document.getElementById('footerYear');
     if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-    // Scroll progress bar
     const scrollBar = document.getElementById('scrollProgress');
     if (scrollBar) {
       window.addEventListener('scroll', function () {
@@ -2097,3 +2156,4 @@
   </script>
 </body>
 </html>
+
