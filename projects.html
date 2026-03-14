@@ -21,24 +21,51 @@
   <meta name="twitter:title" content="Proyectos | Diego Vasquez Chavez" />
   <meta name="twitter:description" content="Portafolio de proyectos de consultoria en BI, Data Analytics y Machine Learning aplicado." />
   <meta name="twitter:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego_logo_assets/logo-personal.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #09121c;
-      --surface: #101f2b;
-      --accent: #41d6a7;
-      --text: #f2f6fb;
-      --muted: #9eb1c0;
-      --border: rgba(65, 214, 167, 0.2);
+      --bg: #070f1f;
+      --surface: #0f1c32;
+      --surface2: #142744;
+      --accent: #00e0ff;
+      --text: #f7fbff;
+      --muted: #a7bdd4;
+      --border: rgba(0, 224, 255, 0.28);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "DM Sans", Arial, sans-serif;
-      background: var(--bg);
+      font-family: "DM Sans", sans-serif;
+      background: radial-gradient(circle at 0% 0%, rgba(0,224,255,0.14), transparent 35%), var(--bg);
       color: var(--text);
       line-height: 1.65;
-      padding: 2.2rem 1rem 3rem;
     }
-    .wrap { max-width: 980px; margin: 0 auto; }
+    nav {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 18, 28, 0.78);
+    }
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      width: auto;
+      height: 42px;
+      max-width: 170px;
+      object-fit: contain;
+      filter: none;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 2.2rem 1rem 3rem; }
     .top {
       display: flex;
       justify-content: space-between;
@@ -47,7 +74,7 @@
       margin-bottom: 1.4rem;
     }
     .title {
-      font-family: "Syne", Arial, sans-serif;
+      font-family: "Syne", sans-serif;
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       line-height: 1.2;
     }
@@ -56,13 +83,18 @@
       color: var(--accent);
       border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 0.5rem 0.9rem;
+      padding: 0.5rem 1rem;
       font-size: 0.9rem;
+      transition: all 0.25s ease;
+    }
+    .back:hover {
+      background: rgba(0,224,255,0.12);
+      transform: translateY(-1px);
     }
     .intro {
       color: var(--muted);
       max-width: 760px;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.5rem;
     }
     .grid {
       display: grid;
@@ -78,6 +110,11 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0,224,255,0.42);
     }
     .tag {
       color: var(--accent);
@@ -88,7 +125,7 @@
       display: inline-block;
     }
     .card h2 {
-      font-family: "Syne", Arial, sans-serif;
+      font-family: "Syne", sans-serif;
       font-size: 1.05rem;
       margin-bottom: 0.45rem;
     }
@@ -111,14 +148,55 @@
       border-radius: 999px;
       padding: 0.38rem 0.72rem;
       font-size: 0.8rem;
+      transition: all 0.22s ease;
+    }
+    .link:hover {
+      border-color: rgba(0,224,255,0.52);
+      color: var(--accent);
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .footer-brand-logo {
+      display: block;
+      width: auto;
+      height: 42px;
+      max-width: 170px;
+      object-fit: contain;
+      filter: none;
+      opacity: 1;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    @media (max-width: 940px) {
+      nav { padding: 0.9rem 1rem; }
+      .wrap { padding: 1.6rem 1rem 2.2rem; }
+      .top { flex-direction: column; align-items: flex-start; }
+      .footer-brand-logo { height: 42px; max-width: 170px; margin: 0 auto; }
+      footer { flex-direction: column; gap: 0.85rem; text-align: center; padding: 1.8rem 1rem; }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" loading="eager" /></a>
+    <a class="back" href="index.html">Volver al inicio</a>
+  </nav>
+
   <main class="wrap">
     <div class="top">
       <h1 class="title">Proyectos de Consultoria de Datos</h1>
-      <a class="back" href="index.html">Volver al inicio</a>
     </div>
     <p class="intro">Esta pagina centraliza casos de Business Intelligence, Data Analytics, ETL, SQL, Python, automatizacion de reportes y Machine Learning aplicado desarrollados por Diego Vasquez Chavez.</p>
 
@@ -162,7 +240,6 @@
           <a class="link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Portafolio</a>
         </div>
       </article>
-    </section>
 
       <article class="card">
         <span class="tag">Simulador VBA</span>
@@ -211,5 +288,17 @@
 
     </section>
   </main>
+  <footer>
+    <div class="footer-brand">
+      <img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" class="footer-brand-logo" loading="lazy" decoding="async" />
+      <p>Consultor de Datos · Business Intelligence · Power BI · Python</p>
+    </div>
+    <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; justify-content:center;">
+      <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">Linktree</a>
+      <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p>© 2026 Diego Armando Vasquez Chavez</p>
+  </footer>
 </body>
 </html>
