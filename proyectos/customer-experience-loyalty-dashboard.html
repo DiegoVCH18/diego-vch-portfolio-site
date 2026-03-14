@@ -14,23 +14,71 @@
   <meta property="og:title" content="Customer Experience and Loyalty Dashboard | BI" />
   <meta property="og:description" content="Dashboard con CSAT, NPS y riesgo de churn para decisiones de servicio y retencion." />
   <meta property="og:url" content="https://diego-vasquez-chavez-site.vercel.app/proyectos/customer-experience-loyalty-dashboard.html" />
-  <meta property="og:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/logo.jpg" />
+  <meta property="og:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego_logo_assets/logo-personal.jpg" />
   <meta property="og:image:alt" content="Dashboard ejecutivo de experiencia de cliente y lealtad" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Customer Experience and Loyalty Dashboard" />
   <meta name="twitter:description" content="Caso de Business Intelligence orientado a experiencia de cliente y decisiones ejecutivas." />
-  <meta name="twitter:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/logo.jpg" />
-  <style>body{font-family:Arial,sans-serif;background:#09121c;color:#f2f6fb;line-height:1.65;padding:2rem 1rem}main{max-width:760px;margin:0 auto}a{color:#41d6a7}h1{font-size:2rem;margin-bottom:.5rem}p{color:#b5c7d7;margin-bottom:.8rem}</style>
+  <meta name="twitter:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego_logo_assets/logo-personal.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --bg:#070f1f; --surface:#0f1c32; --accent:#00e0ff; --text:#f7fbff; --muted:#a7bdd4; --border:rgba(0,224,255,.28); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"DM Sans",sans-serif; background:radial-gradient(circle at 0% 0%,rgba(0,224,255,.14),transparent 35%),var(--bg); color:var(--text); line-height:1.65; }
+    nav { width:100%; position:sticky; top:0; z-index:20; display:flex; justify-content:space-between; align-items:center; padding:1rem 3rem; backdrop-filter:blur(16px); border-bottom:1px solid var(--border); background:rgba(9,18,28,.78); }
+    .nav-logo img { width:auto; height:42px; max-width:170px; object-fit:contain; }
+    .back { text-decoration:none; color:var(--accent); border:1px solid var(--border); border-radius:999px; padding:.5rem 1rem; font-size:.9rem; }
+    .wrap { max-width:860px; margin:0 auto; padding:2.2rem 1rem 3rem; }
+    .project { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.3rem; }
+    .kicker { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; font-size:.74rem; margin-bottom:.45rem; display:inline-block; }
+    h1 { font-family:"Syne",sans-serif; font-size:clamp(1.7rem,4vw,2.3rem); line-height:1.2; margin-bottom:.8rem; }
+    .lead { color:var(--muted); margin-bottom:1rem; }
+    .meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.65rem; margin-bottom:1rem; }
+    .item { border:1px solid var(--border); border-radius:12px; padding:.72rem; background:rgba(9,18,28,.45); }
+    .item b { color:var(--text); }
+    .item span { color:var(--muted); }
+    .actions { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.25rem; }
+    .btn { text-decoration:none; color:var(--text); border:1px solid var(--border); border-radius:999px; padding:.42rem .82rem; font-size:.84rem; }
+    .btn:hover { color:var(--accent); }
+    footer { border-top:1px solid var(--border); padding:2rem 3rem; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:.82rem; }
+    .footer-brand { display:flex; flex-direction:column; gap:.7rem; }
+    .footer-brand-logo { display:block; width:auto; height:42px; max-width:170px; object-fit:contain; }
+    footer a { color:var(--muted); text-decoration:none; }
+    footer a:hover { color:var(--accent); }
+    @media (max-width:940px) { nav{padding:.9rem 1rem} footer{flex-direction:column; gap:.85rem; text-align:center; padding:1.8rem 1rem} .footer-brand-logo{margin:0 auto} }
+  </style>
 </head>
 <body>
-  <main>
-    <a href="../projects.html">Volver a proyectos</a>
-    <h1>Customer Experience and Loyalty Dashboard</h1>
-    <p><strong>Tipo:</strong> Business Intelligence</p>
-    <p><strong>Descripcion:</strong> Dashboard ejecutivo con indicadores de experiencia de cliente y lealtad para identificar brechas de servicio y priorizar acciones de retencion.</p>
-    <p><strong>Indicadores:</strong> CSAT, NPS, permanencia y riesgo de churn.</p>
-    <p><strong>Tecnologias:</strong> Power BI, DAX, Data Storytelling.</p>
-      <p><a href="https://app.powerbi.com/view?r=eyJrIjoiMGE4YTQ0MTctOTcyOS00ZWIwLTk5YTctYTMwNGYzYWIzZGFlIiwidCI6IjVjZTc1OWViLWYzNDYtNDljOC1hNTA2LWY4ODM5MTA3ZWMzOCIsImMiOjR9" target="_blank" rel="noopener noreferrer">Abrir dashboard en Power BI</a></p>
+  <nav>
+    <a class="nav-logo" href="../index.html"><img src="../assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" loading="eager" /></a>
+    <a class="back" href="../projects.html">Volver a proyectos</a>
+  </nav>
+  <main class="wrap">
+    <article class="project">
+      <span class="kicker">Business Intelligence</span>
+      <h1>Customer Experience and Loyalty Dashboard</h1>
+      <p class="lead">Dashboard ejecutivo con indicadores de experiencia de cliente y lealtad para identificar brechas de servicio y priorizar acciones de retencion.</p>
+      <div class="meta">
+        <div class="item"><b>Tipo:</b> <span>Business Intelligence</span></div>
+        <div class="item"><b>Indicadores:</b> <span>CSAT, NPS, permanencia y riesgo de churn</span></div>
+        <div class="item"><b>Tecnologias:</b> <span>Power BI, DAX, Data Storytelling</span></div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://app.powerbi.com/view?r=eyJrIjoiMGE4YTQ0MTctOTcyOS00ZWIwLTk5YTctYTMwNGYzYWIzZGFlIiwidCI6IjVjZTc1OWViLWYzNDYtNDljOC1hNTA2LWY4ODM5MTA3ZWMzOCIsImMiOjR9" target="_blank" rel="noopener noreferrer">Abrir dashboard</a>
+      </div>
+    </article>
   </main>
+  <footer>
+    <div class="footer-brand">
+      <img src="../assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" class="footer-brand-logo" loading="lazy" decoding="async" />
+      <p>Consultor de Datos · Business Intelligence · Power BI · Python</p>
+    </div>
+    <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; justify-content:center;">
+      <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">Linktree</a>
+      <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p>© 2026 Diego Armando Vasquez Chavez</p>
+  </footer>
 </body>
 </html>
