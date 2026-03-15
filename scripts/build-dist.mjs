@@ -11,7 +11,8 @@ const htmlEntries = [
   "proyectos/iahorra-certus.html",
   "proyectos/academic-performance-prediction.html",
   "proyectos/customer-experience-loyalty-dashboard.html",
-  "proyectos/automatizacion-reportes-mibanco.html"
+  "proyectos/automatizacion-reportes-mibanco.html",
+  "proyectos/minimarket-aurelion.html"
 ];
 
 const minifyOptions = {
