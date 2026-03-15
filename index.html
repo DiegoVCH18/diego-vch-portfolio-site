@@ -99,7 +99,7 @@
       visibility: hidden;
       pointer-events: none;
     }
-    html.intro-force-open .intro-overlay {
+    html.intro-force-open .intro-overlay:not(.hidden) {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -2506,11 +2506,22 @@
       introOverlay.classList.add('hidden');
       introOverlay.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('intro-open');
+      document.documentElement.classList.remove('intro-force-open');
       document.documentElement.classList.add('intro-dismissed-session');
       try {
         window.sessionStorage.setItem('introDismissed', 'true');
       } catch (_) {
         // Ignore storage access issues.
+      }
+      try {
+        const currentUrl = new URL(window.location.href);
+        if (currentUrl.searchParams.get('intro') === '1') {
+          currentUrl.searchParams.delete('intro');
+          const nextPath = currentUrl.pathname + (currentUrl.search ? currentUrl.search : '') + currentUrl.hash;
+          window.history.replaceState(null, '', nextPath);
+        }
+      } catch (_) {
+        // Ignore URL parsing issues.
       }
     }
 
