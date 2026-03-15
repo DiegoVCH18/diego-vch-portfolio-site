@@ -22,6 +22,7 @@ $requiredFiles = @(
   "dist/proyectos/academic-performance-prediction.html",
   "dist/proyectos/customer-experience-loyalty-dashboard.html",
   "dist/proyectos/automatizacion-reportes-mibanco.html",
+  "dist/proyectos/minimarket-aurelion.html",
   "dist/assets/diego-hero-alt.avif",
   "dist/assets/diego-hero-alt.webp",
   "dist/assets/CV_Diego_Vasquez.pdf"
