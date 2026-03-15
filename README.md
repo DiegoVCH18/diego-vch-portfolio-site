@@ -53,9 +53,11 @@ diego-vch-portfolio-site/
 
 ## 📁 Proyectos destacados
 
-### 🥇 IAhorra CERTUS — Asistente de Educación Financiera
-`React · Next.js · Vercel · IA Conversacional`  
-App web ganadora del **1.er lugar nacional en Propuesta Innovadora de Educación Financiera** (Semana Mundial del Ahorro 2025, SBS). Educación financiera socrática para niños, jóvenes y emprendedores citando fuentes SBS y ASBANC.  
+### 🥇 IAhorra CERTUS — Evolución 2025 a 2.0
+`React · Next.js · Vercel · IA Conversacional · EdFinTech`  
+**IAhorra 2025:** asistente de IA conversacional ganador del **1.er lugar nacional en Propuesta Innovadora de Educación Financiera** (Semana Mundial del Ahorro 2025, SBS).  
+**IAhorra 2.0:** solución EdFinTech completa, actualmente presentada como Propuesta Innovadora de Educación Financiera para la Semana Mundial del Ahorro 2026 (SBS).  
+Educación financiera socrática para niños, jóvenes y emprendedores citando fuentes SBS y ASBANC.  
 🔗 [iahorra-certus.vercel.app](https://iahorra-certus.vercel.app) · [Código](https://github.com/DiegoVCH18/iahorra-certus)
 
 ---
@@ -99,6 +101,7 @@ Automatización             → Excel VBA/Macros · Apps Script · Scrum · Desi
 ## 🏆 Reconocimientos
 
 - 🥇 **1.er lugar nacional** — Premio SBS · Propuesta Innovadora de Educación Financiera (Semana Mundial del Ahorro 2025)
+- 🚀 **IAhorra 2.0 en presentación** — Propuesta Innovadora de Educación Financiera (Semana Mundial del Ahorro 2026, SBS)
 - ⭐ **Docente Everest 2024** — Excelencia Académica · CERTUS
 - ⭐ **Docente Milla Extra** — Análisis de Data de Dirección Académica · CERTUS (Mar. 2026)
 
