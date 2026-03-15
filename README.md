@@ -58,7 +58,7 @@ diego-vch-portfolio-site/
 **IAhorra 2025:** asistente de IA conversacional ganador del **1.er lugar nacional en Propuesta Innovadora de Educación Financiera** (Semana Mundial del Ahorro 2025, SBS).  
 **IAhorra 2.0:** solución EdFinTech completa, actualmente presentada como Propuesta Innovadora de Educación Financiera para la Semana Mundial del Ahorro 2026 (SBS).  
 Educación financiera socrática para niños, jóvenes y emprendedores citando fuentes SBS y ASBANC.  
-🔗 [iahorra-certus.vercel.app](https://iahorra-certus.vercel.app) · [Código](https://github.com/DiegoVCH18/iahorra-certus)
+🔗 [IAhorra 2.0 Demo](https://iahorra-certus.vercel.app) · [IAhorra 2025 GPT](https://chatgpt.com/g/g-67aba26880108191b0e99b100eeb3632-iahorra-certus-educacion-financiera-del-futuro) · [Código](https://github.com/DiegoVCH18/iahorra-certus)
 
 ---
 
