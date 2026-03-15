@@ -23,6 +23,15 @@
   <meta name="twitter:image" content="https://diego-vasquez-chavez-site.vercel.app/assets/diego_logo_assets/logo-personal.jpg" />
   <link rel="preload" as="image" href="assets/diego-hero.png" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <script>
+    try {
+      if (window.sessionStorage.getItem('introDismissed') === 'true') {
+        document.documentElement.classList.add('intro-dismissed-session');
+      }
+    } catch (_) {
+      // Ignore storage access issues.
+    }
+  </script>
   <style>
     :root {
       --bg: #070f1f;
@@ -56,6 +65,341 @@
       pointer-events: none;
       z-index: 0;
       opacity: 0.35;
+    }
+
+    body.intro-open {
+      overflow: hidden;
+    }
+
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1400;
+      display: grid;
+      place-items: center;
+      padding: 1.1rem;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(0, 224, 255, 0.2), transparent 42%),
+        radial-gradient(circle at 88% 85%, rgba(255, 183, 3, 0.11), transparent 46%),
+        linear-gradient(170deg, #071227 0%, #0a2040 52%, #081731 100%);
+      backdrop-filter: blur(3px);
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .intro-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    html.intro-dismissed-session .intro-overlay {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-card {
+      width: min(100%, 540px);
+      border: 1px solid rgba(186, 223, 255, 0.26);
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(36, 83, 135, 0.92), rgba(10, 30, 75, 0.95));
+      box-shadow: 0 36px 70px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+      padding: 1.1rem 1.1rem 1.2rem;
+      position: relative;
+      overflow: hidden;
+      animation: introCardIn 0.6s cubic-bezier(0.2, 0.74, 0.21, 1) both;
+    }
+    .intro-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(197, 228, 255, 0.28) 1px, transparent 1px);
+      background-size: 3px 3px;
+      opacity: 0.1;
+    }
+
+    .intro-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+    .intro-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(219, 238, 255, 0.42);
+      background: rgba(236, 245, 255, 0.9);
+      color: #17253a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .intro-icon-btn svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+    }
+    .intro-icon-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(8, 24, 46, 0.28);
+    }
+
+    .intro-avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      object-fit: cover;
+      margin: 0 auto 0.85rem;
+      position: relative;
+      z-index: 1;
+      display: block;
+      box-shadow: 0 12px 24px rgba(10, 24, 52, 0.35);
+    }
+    .intro-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.48rem, 4.1vw, 1.82rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 0.55rem;
+      position: relative;
+      z-index: 1;
+    }
+    .intro-eyebrow {
+      text-align: center;
+      color: #8fe9ff;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.48rem;
+      position: relative;
+      z-index: 1;
+    }
+    .intro-subheadline {
+      text-align: center;
+      color: #ecf4ff;
+      font-size: 0.96rem;
+      line-height: 1.45;
+      margin-bottom: 0.62rem;
+      position: relative;
+      z-index: 1;
+    }
+    .intro-proof {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #cce1f9;
+      border: 1px solid rgba(222, 238, 255, 0.24);
+      background: rgba(12, 29, 58, 0.42);
+      border-radius: 999px;
+      padding: 0.4rem 0.68rem;
+      margin: 0 auto 1rem;
+      width: fit-content;
+      max-width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-links {
+      list-style: none;
+      display: grid;
+      gap: 0.68rem;
+      position: relative;
+      z-index: 1;
+    }
+    .intro-links li {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: introLinkIn 0.46s ease forwards;
+    }
+    .intro-links li:nth-child(1) { animation-delay: 0.2s; }
+    .intro-links li:nth-child(2) { animation-delay: 0.26s; }
+    .intro-links li:nth-child(3) { animation-delay: 0.32s; }
+    .intro-links li:nth-child(4) { animation-delay: 0.38s; }
+    .intro-links li:nth-child(5) { animation-delay: 0.44s; }
+    .intro-links li:nth-child(6) { animation-delay: 0.5s; }
+
+    .intro-link {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(227, 241, 255, 0.18);
+      background: rgba(3, 8, 19, 0.88);
+      color: #f8fbff;
+      text-decoration: none;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0.84rem 0.88rem;
+      font-weight: 500;
+      line-height: 1.2;
+      min-height: 62px;
+      transition: transform 0.18s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .intro-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(0, 224, 255, 0.6);
+    }
+    .intro-link--primary {
+      background: linear-gradient(135deg, #00e0ff, #6be3bd);
+      color: #081426;
+      border-color: rgba(0, 224, 255, 0.6);
+      font-weight: 700;
+      box-shadow: 0 12px 28px rgba(0, 224, 255, 0.27);
+    }
+    .intro-link--primary:hover {
+      background: linear-gradient(135deg, #2be8ff, #86ebca);
+      border-color: rgba(2, 195, 220, 0.7);
+    }
+    .intro-link-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.66rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .intro-link-copy {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      gap: 0.12rem;
+    }
+    .intro-link-icon,
+    .intro-link-more {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .intro-link-icon {
+      stroke: currentColor;
+    }
+    .intro-link-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .intro-link-meta {
+      font-size: 0.73rem;
+      color: #bfd4ec;
+      line-height: 1.35;
+      white-space: normal;
+    }
+    .intro-link--primary .intro-link-meta {
+      color: rgba(8, 20, 38, 0.8);
+    }
+
+    .intro-footer {
+      margin-top: 0.88rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .intro-close {
+      border: 0;
+      background: transparent;
+      color: #bfd4ec;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      padding: 0.2rem;
+    }
+
+    .intro-link:focus-visible,
+    .intro-icon-btn:focus-visible,
+    .intro-close:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    .intro-debug-panel {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1500;
+      width: min(92vw, 320px);
+      border: 1px solid rgba(0, 224, 255, 0.28);
+      border-radius: 16px;
+      background: rgba(5, 13, 27, 0.92);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+      padding: 0.9rem;
+      display: none;
+    }
+    body.intro-debug-visible .intro-debug-panel {
+      display: block;
+    }
+    .intro-debug-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .intro-debug-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+    .intro-debug-actions {
+      display: flex;
+      gap: 0.4rem;
+    }
+    .intro-debug-btn {
+      border: 1px solid rgba(0, 224, 255, 0.24);
+      background: rgba(15, 28, 50, 0.82);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 0.32rem 0.62rem;
+      font-size: 0.72rem;
+      cursor: pointer;
+    }
+    .intro-debug-btn:hover,
+    .intro-debug-btn:focus-visible {
+      color: var(--text);
+      border-color: rgba(0, 224, 255, 0.48);
+      outline: none;
+    }
+    .intro-debug-meta {
+      color: var(--muted);
+      font-size: 0.72rem;
+      line-height: 1.45;
+      margin-bottom: 0.7rem;
+    }
+    .intro-debug-list {
+      list-style: none;
+      display: grid;
+      gap: 0.42rem;
+    }
+    .intro-debug-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 0.48rem 0.55rem;
+      color: #dbe8f5;
+      font-size: 0.76rem;
+    }
+    .intro-debug-key {
+      color: var(--muted);
+    }
+    .intro-debug-value {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    @keyframes introCardIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes introLinkIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     nav {
@@ -1197,6 +1541,38 @@
         width: 92px;
         height: 28px;
       }
+
+      .intro-card {
+        border-radius: 24px;
+        padding: 0.95rem 0.84rem 1.05rem;
+      }
+      .intro-name {
+        font-size: 1.36rem;
+      }
+      .intro-subheadline {
+        font-size: 0.88rem;
+      }
+      .intro-proof {
+        font-size: 0.74rem;
+      }
+      .intro-link-text {
+        font-size: 0.89rem;
+      }
+      .intro-link-meta {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .intro-card,
+      .intro-links li {
+        animation: none;
+      }
+      .intro-overlay,
+      .intro-link,
+      .intro-icon-btn {
+        transition: none;
+      }
     }
 
     /* Scroll progress bar */
@@ -1214,6 +1590,116 @@
   </style>
 </head>
 <body>
+  <section class="intro-overlay" id="introOverlay" aria-label="Ventana inicial de acceso rápido" aria-modal="true" role="dialog">
+    <article class="intro-card">
+      <div class="intro-top">
+        <button class="intro-icon-btn" type="button" aria-label="Identidad de marca">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 4.7L18 9.4l-4 2.8L15.3 17 12 14.3 8.7 17 10 12.2 6 9.4l4.3-1.7L12 3z"></path></svg>
+        </button>
+        <button class="intro-icon-btn" id="introShareBtn" type="button" aria-label="Compartir este perfil">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"></path><path d="M8 8l4-4 4 4"></path><path d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"></path></svg>
+        </button>
+      </div>
+
+      <img src="assets/diego-hero.png" alt="Retrato profesional de Diego Armando Vasquez Chavez" class="intro-avatar" width="184" height="184" loading="eager" decoding="async" />
+      <p class="intro-eyebrow">Consultoría orientada a resultados</p>
+      <h1 class="intro-name">Diego Armando Vasquez Chavez</h1>
+      <p class="intro-subheadline">Consultor de Datos y Business Intelligence<br />Power BI | Data Analytics | Machine Learning | Automatización</p>
+      <p class="intro-proof">+10 años de experiencia | Premio SBS 2025 | Respuesta en menos de 24h</p>
+
+      <ul class="intro-links" aria-label="Accesos principales">
+        <li>
+          <a href="#home" class="intro-link intro-link--primary intro-dismiss" id="introEnterBtn" aria-label="Entrar al sitio completo de consultoría" data-intro-action="enter_site">
+            <span class="intro-link-inner">
+              <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"></path><path d="M9 21V9h6v12"></path></svg>
+              <span class="intro-link-copy">
+                <span class="intro-link-text">Entrar al sitio completo</span>
+                <span class="intro-link-meta">Servicios, casos reales y propuesta de valor completa</span>
+              </span>
+            </span>
+            <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="intro-link intro-dismiss" aria-label="Agendar llamada por WhatsApp" data-intro-action="whatsapp_call">
+            <span class="intro-link-inner">
+              <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l.9-4.2A8 8 0 1 1 20 12Z"></path><path d="M8.4 9.6c.2-.5.4-.5.7-.5h.6c.2 0 .4 0 .5.4.2.5.6 1.7.7 1.8.1.2.1.4 0 .6-.1.1-.2.3-.4.4-.2.2-.3.3-.1.6.2.3.8 1.2 1.8 1.9 1.2.8 2.1 1.1 2.4 1.2.3.1.5.1.7-.1.2-.2.8-1 .9-1.3.1-.3.3-.2.6-.1.2.1 1.5.7 1.8.9.3.1.4.2.5.4.1.2.1 1.2-.3 1.7-.4.4-1.2 1-2.1 1-1 0-2.6-.3-4.7-1.9-2.5-2-3.2-4-3.4-4.8-.2-.8 0-1.7.4-2.2Z"></path></svg>
+              <span class="intro-link-copy">
+                <span class="intro-link-text">Agendar llamada por WhatsApp</span>
+                <span class="intro-link-meta">Cuéntame tu reto y te respondo en menos de 24h</span>
+              </span>
+            </span>
+            <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
+          </a>
+        </li>
+        <li>
+          <a href="projects.html" class="intro-link intro-dismiss" aria-label="Ver página de proyectos" data-intro-action="view_projects">
+            <span class="intro-link-inner">
+              <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18"></path><path d="M8 14h3"></path></svg>
+              <span class="intro-link-copy">
+                <span class="intro-link-text">Ver página de proyectos</span>
+                <span class="intro-link-meta">BI, automatización y Machine Learning aplicados</span>
+              </span>
+            </span>
+            <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="intro-link intro-dismiss" aria-label="Abrir LinkedIn profesional" data-intro-action="linkedin_profile">
+            <span class="intro-link-inner">
+              <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span class="intro-link-copy">
+                <span class="intro-link-text">LinkedIn profesional</span>
+                <span class="intro-link-meta">Trayectoria, logros y validación profesional</span>
+              </span>
+            </span>
+            <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:diegovch@gmail.com" class="intro-link intro-dismiss" aria-label="Enviar correo profesional" data-intro-action="email_contact">
+            <span class="intro-link-inner">
+              <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+              <span class="intro-link-copy">
+                <span class="intro-link-text">Enviar correo profesional</span>
+                <span class="intro-link-meta">Para requerimientos formales o solicitudes de propuesta</span>
+              </span>
+            </span>
+            <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer" class="intro-link intro-dismiss" aria-label="Ver GitHub de consultoría" data-intro-action="github_consulting">
+            <span class="intro-link-inner">
+              <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-4a3.4 3.4 0 0 0-.9-2.6c3-.3 6-1.5 6-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.1 3.6c0 5.5 3 6.7 6 7A3.4 3.4 0 0 0 9 18v4"></path></svg>
+              <span class="intro-link-copy">
+                <span class="intro-link-text">Ver GitHub de consultoría</span>
+                <span class="intro-link-meta">Portafolio técnico y entregables públicos relacionados</span>
+              </span>
+            </span>
+            <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
+          </a>
+        </li>
+      </ul>
+
+      <div class="intro-footer">
+        <button type="button" class="intro-close" id="introCloseBtn" aria-label="Cerrar ventana inicial">Cerrar intro</button>
+      </div>
+    </article>
+  </section>
+
+  <aside class="intro-debug-panel" id="introDebugPanel" aria-label="Diagnóstico de clics de intro">
+    <div class="intro-debug-head">
+      <p class="intro-debug-title">Debug intro</p>
+      <div class="intro-debug-actions">
+        <button type="button" class="intro-debug-btn" id="introDebugReset">Reset</button>
+        <button type="button" class="intro-debug-btn" id="introDebugHide">Ocultar</button>
+      </div>
+    </div>
+    <p class="intro-debug-meta" id="introDebugMeta">Sin eventos registrados todavía.</p>
+    <ul class="intro-debug-list" id="introDebugList"></ul>
+  </aside>
+
   <div id="scrollProgress" aria-hidden="true"></div>
 
   <nav>
@@ -1878,6 +2364,192 @@
       email: 'diegovch@gmail.com',
       whatsapp: '51974205217'
     };
+
+    const introOverlay = document.getElementById('introOverlay');
+    const introCloseBtn = document.getElementById('introCloseBtn');
+    const introShareBtn = document.getElementById('introShareBtn');
+    const introDismissLinks = document.querySelectorAll('.intro-dismiss');
+    const introFocusableSelectors = 'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])';
+    const introWasDismissed = document.documentElement.classList.contains('intro-dismissed-session');
+    const introDebugPanel = document.getElementById('introDebugPanel');
+    const introDebugMeta = document.getElementById('introDebugMeta');
+    const introDebugList = document.getElementById('introDebugList');
+    const introDebugReset = document.getElementById('introDebugReset');
+    const introDebugHide = document.getElementById('introDebugHide');
+    const introDebugEnabled = new URLSearchParams(window.location.search).get('debugIntro') === '1';
+
+    function getIntroStats() {
+      try {
+        return JSON.parse(window.localStorage.getItem('introClickStats') || '{}');
+      } catch (_) {
+        return {};
+      }
+    }
+
+    function renderIntroDebugPanel() {
+      if (!introDebugEnabled || !introDebugPanel || !introDebugList || !introDebugMeta) return;
+
+      const stats = getIntroStats();
+      const entries = Object.entries(stats)
+        .filter(([key]) => key !== 'lastAction' && key !== 'lastTimestamp')
+        .sort((a, b) => b[1] - a[1]);
+
+      introDebugList.innerHTML = entries.length > 0
+        ? entries.map(([key, value]) => '<li class="intro-debug-item"><span class="intro-debug-key">' + key + '</span><span class="intro-debug-value">' + value + '</span></li>').join('')
+        : '<li class="intro-debug-item"><span class="intro-debug-key">sin datos</span><span class="intro-debug-value">0</span></li>';
+
+      if (stats.lastAction && stats.lastTimestamp) {
+        introDebugMeta.textContent = 'Último evento: ' + stats.lastAction + ' · ' + new Date(stats.lastTimestamp).toLocaleString('es-PE');
+      } else {
+        introDebugMeta.textContent = 'Sin eventos registrados todavía.';
+      }
+    }
+
+    if (introDebugEnabled) {
+      document.body.classList.add('intro-debug-visible');
+      renderIntroDebugPanel();
+    }
+
+    function trackIntroEvent(action) {
+      if (!action) return;
+
+      const payload = {
+        event: 'intro_click',
+        category: 'intro_overlay',
+        action,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        const existingStats = getIntroStats();
+        existingStats[action] = (existingStats[action] || 0) + 1;
+        existingStats.lastAction = action;
+        existingStats.lastTimestamp = payload.timestamp;
+        window.localStorage.setItem('introClickStats', JSON.stringify(existingStats));
+        renderIntroDebugPanel();
+      } catch (_) {
+        // Ignore storage access issues.
+      }
+
+      try {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'intro_click', {
+            event_category: 'intro_overlay',
+            event_label: action
+          });
+        }
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push(payload);
+        }
+        if (window.plausible) {
+          window.plausible('Intro Click', { props: { action } });
+        }
+        window.dispatchEvent(new CustomEvent('intro:click', { detail: payload }));
+      } catch (_) {
+        // Ignore analytics provider errors.
+      }
+    }
+
+    if (introDebugReset) {
+      introDebugReset.addEventListener('click', () => {
+        try {
+          window.localStorage.removeItem('introClickStats');
+        } catch (_) {
+          // Ignore storage access issues.
+        }
+        renderIntroDebugPanel();
+      });
+    }
+
+    if (introDebugHide) {
+      introDebugHide.addEventListener('click', () => {
+        document.body.classList.remove('intro-debug-visible');
+      });
+    }
+
+    if (introOverlay && !introWasDismissed) {
+      document.body.classList.add('intro-open');
+      const firstFocusable = introOverlay.querySelector(introFocusableSelectors);
+      if (firstFocusable) {
+        window.requestAnimationFrame(() => firstFocusable.focus());
+      }
+    } else if (introOverlay) {
+      introOverlay.classList.add('hidden');
+      introOverlay.setAttribute('aria-hidden', 'true');
+    }
+
+    function closeIntroOverlay() {
+      if (!introOverlay) return;
+      introOverlay.classList.add('hidden');
+      introOverlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('intro-open');
+      document.documentElement.classList.add('intro-dismissed-session');
+      try {
+        window.sessionStorage.setItem('introDismissed', 'true');
+      } catch (_) {
+        // Ignore storage access issues.
+      }
+    }
+
+    if (introCloseBtn) {
+      introCloseBtn.addEventListener('click', () => {
+        trackIntroEvent('close_intro');
+        closeIntroOverlay();
+      });
+    }
+
+    introDismissLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        trackIntroEvent(link.dataset.introAction || 'intro_link');
+        closeIntroOverlay();
+      });
+    });
+
+    if (introShareBtn) {
+      introShareBtn.addEventListener('click', async () => {
+        trackIntroEvent('share_profile');
+        const shareData = {
+          title: 'Diego Armando Vasquez Chavez | Consultoría de Datos',
+          text: 'Consultor de Datos y Business Intelligence',
+          url: window.location.href
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+            return;
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(window.location.href);
+            introShareBtn.setAttribute('aria-label', 'Enlace copiado al portapapeles');
+          }
+        } catch (_) {
+          // Ignore share cancellation or clipboard errors.
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (introOverlay && !introOverlay.classList.contains('hidden') && event.key === 'Tab') {
+        const focusable = [...introOverlay.querySelectorAll(introFocusableSelectors)].filter((node) => node.offsetParent !== null);
+        if (focusable.length > 0) {
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      }
+
+      if (event.key === 'Escape') {
+        closeIntroOverlay();
+      }
+    });
 
     const navToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
