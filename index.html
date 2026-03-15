@@ -82,6 +82,9 @@
       display: grid;
       place-items: center;
       padding: 1.1rem;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
       background:
         radial-gradient(circle at 12% 10%, rgba(0, 224, 255, 0.2), transparent 42%),
         radial-gradient(circle at 88% 85%, rgba(255, 183, 3, 0.11), transparent 46%),
@@ -133,6 +136,19 @@
       margin-bottom: 0.6rem;
       position: relative;
       z-index: 1;
+    }
+    .intro-brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .intro-brand-logo {
+      width: auto;
+      height: 40px;
+      max-width: 160px;
+      object-fit: contain;
+      filter: none;
+      opacity: 0.98;
     }
     .intro-icon-btn {
       width: 36px;
@@ -439,8 +455,8 @@
     }
     .nav-logo img {
       width: auto;
-      height: 63px;
-      max-width: 255px;
+      height: 50px;
+      max-width: 204px;
       border-radius: 0;
       object-fit: contain;
       border: 0;
@@ -1416,7 +1432,7 @@
 
     @media (max-width: 940px) {
       nav { padding: 0.9rem 1rem; }
-      .nav-logo img { height: 52px; max-width: 210px; }
+      .nav-logo img { height: 42px; max-width: 168px; }
       .nav-links { display: none; }
       .nav-toggle { display: inline-flex; }
       .hero, section { padding: 5rem 1rem 2.8rem; }
@@ -1546,6 +1562,16 @@
       }
     }
     @media (max-width: 560px) {
+      .intro-overlay {
+        display: block;
+        padding: calc(env(safe-area-inset-top, 0px) + 0.8rem) 0.72rem calc(env(safe-area-inset-bottom, 0px) + 0.9rem);
+      }
+
+      .intro-brand-logo {
+        height: 34px;
+        max-width: 138px;
+      }
+
       .trust-bar-logos {
         gap: 0.8rem 0.9rem;
       }
@@ -1555,6 +1581,7 @@
       }
 
       .intro-card {
+        margin: 0 auto;
         border-radius: 24px;
         padding: 0.95rem 0.84rem 1.05rem;
       }
@@ -1609,9 +1636,9 @@
   <section class="intro-overlay" id="introOverlay" aria-label="Ventana inicial de acceso rápido" aria-modal="true" role="dialog">
     <article class="intro-card">
       <div class="intro-top">
-        <button class="intro-icon-btn" type="button" aria-label="Identidad de marca">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.7 4.7L18 9.4l-4 2.8L15.3 17 12 14.3 8.7 17 10 12.2 6 9.4l4.3-1.7L12 3z"></path></svg>
-        </button>
+        <a class="intro-brand" href="#home" aria-label="Inicio del sitio completo">
+          <img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" class="intro-brand-logo" loading="eager" />
+        </a>
         <button class="intro-icon-btn" id="introShareBtn" type="button" aria-label="Compartir este perfil">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"></path><path d="M8 8l4-4 4 4"></path><path d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"></path></svg>
         </button>
