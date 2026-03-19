@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M&oacute;dulo Evaluador MYPE CERTUS | Simulador Acad&eacute;mico EdFinTech | Diego Vasquez Chavez</title>
+  <meta name="description" content="Aplicaci&oacute;n web para simulaci&oacute;n acad&eacute;mica de evaluaci&oacute;n crediticia MYPE con scoring, revisi&oacute;n docente, persistencia y reporte final en PDF." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/diego_logo_assets/favicon-32.png?v=5" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/diego_logo_assets/favicon-16.png?v=5" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/diego_logo_assets/apple-touch-icon.png?v=5" />
+  <link rel="canonical" href="https://diego-vch-portfolio-site.vercel.app/proyectos/modulo-evaluador-mype.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="M&oacute;dulo Evaluador MYPE CERTUS | Simulador Acad&eacute;mico EdFinTech" />
+  <meta property="og:description" content="Aplicaci&oacute;n web para simulaci&oacute;n acad&eacute;mica de evaluaci&oacute;n crediticia MYPE con scoring, flujo docente y reporte final." />
+  <meta property="og:url" content="https://diego-vch-portfolio-site.vercel.app/proyectos/modulo-evaluador-mype.html" />
+  <meta property="og:image" content="https://diego-vch-portfolio-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <meta property="og:image:alt" content="M&oacute;dulo Evaluador MYPE CERTUS - simulador acad&eacute;mico de evaluaci&oacute;n crediticia" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="M&oacute;dulo Evaluador MYPE CERTUS | Simulador Acad&eacute;mico EdFinTech" />
+  <meta name="twitter:description" content="Aplicaci&oacute;n web para simulaci&oacute;n acad&eacute;mica de evaluaci&oacute;n crediticia MYPE con scoring, revisi&oacute;n docente y reporte final en PDF." />
+  <meta name="twitter:image" content="https://diego-vch-portfolio-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --bg:#070f1f; --surface:#0f1c32; --accent:#00e0ff; --text:#f7fbff; --muted:#a7bdd4; --border:rgba(0,224,255,.28); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:"DM Sans",sans-serif; background:radial-gradient(circle at 0% 0%,rgba(0,224,255,.14),transparent 35%),var(--bg); color:var(--text); line-height:1.65; }
+    nav { width:100%; position:sticky; top:0; z-index:20; display:flex; justify-content:space-between; align-items:center; padding:1rem 3rem; backdrop-filter:blur(16px); border-bottom:1px solid var(--border); background:rgba(9,18,28,.78); }
+    .nav-logo img { width:auto; height:63px; max-width:255px; object-fit:contain; }
+    .back { text-decoration:none; color:var(--accent); border:1px solid var(--border); border-radius:999px; padding:.5rem 1rem; font-size:.9rem; }
+    .wrap { max-width:860px; margin:0 auto; padding:2.2rem 1rem 3rem; }
+    .project { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.3rem; }
+    .kicker { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; font-size:.74rem; margin-bottom:.45rem; display:inline-block; }
+    h1 { font-family:"Syne",sans-serif; font-size:clamp(1.7rem,4vw,2.3rem); line-height:1.2; margin-bottom:.8rem; }
+    .lead { color:var(--muted); margin-bottom:1rem; }
+    .meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.65rem; margin-bottom:1rem; }
+    .item { border:1px solid var(--border); border-radius:12px; padding:.72rem; background:rgba(9,18,28,.45); }
+    .item b { color:var(--text); }
+    .item span { color:var(--muted); }
+    .section-title { font-family:"Syne",sans-serif; font-size:1.05rem; margin:1.2rem 0 .6rem; color:var(--text); }
+    .list { padding-left:1.2rem; color:var(--muted); display:flex; flex-direction:column; gap:.35rem; font-size:.94rem; }
+    .actions { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem; }
+    .btn { text-decoration:none; color:var(--text); border:1px solid var(--border); border-radius:999px; padding:.42rem .82rem; font-size:.84rem; }
+    .btn:hover { color:var(--accent); }
+    footer { border-top:1px solid var(--border); padding:2rem 3rem; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:.82rem; }
+    .footer-brand { display:flex; flex-direction:column; gap:.7rem; }
+    .footer-brand-logo { display:block; width:auto; height:63px; max-width:255px; object-fit:contain; }
+    footer a { color:var(--muted); text-decoration:none; }
+    footer a:hover { color:var(--accent); }
+    @media (max-width:940px) { nav{padding:.9rem 1rem} .nav-logo img{height:52px; max-width:210px} footer{flex-direction:column; gap:.85rem; text-align:center; padding:1.8rem 1rem} .footer-brand-logo{height:52px; max-width:210px; margin:0 auto} }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="../index.html"><img src="../assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" loading="eager" /></a>
+    <a class="back" href="../projects.html">Volver a proyectos</a>
+  </nav>
+  <main class="wrap">
+    <article class="project">
+      <span class="kicker">EdFinTech + Data Management</span>
+      <h1>M&oacute;dulo Evaluador MYPE CERTUS</h1>
+      <p class="lead">Aplicaci&oacute;n web para simulaci&oacute;n acad&eacute;mica de evaluaci&oacute;n crediticia MYPE que traslada el flujo hist&oacute;rico en Excel/VBA a una plataforma moderna con autenticaci&oacute;n, persistencia, scoring, revisi&oacute;n docente y reporte final en PDF.</p>
+      <div class="meta">
+        <div class="item"><b>Tipo:</b> <span>Simulador acad&eacute;mico EdFinTech y flujo digital de evaluaci&oacute;n crediticia</span></div>
+        <div class="item"><b>Sector:</b> <span>Educaci&oacute;n superior · Banca · Microfinanzas · MYPE</span></div>
+        <div class="item"><b>Tecnolog&iacute;as:</b> <span>React 19, TypeScript, Vite, Firebase, Firestore, Storage, Zustand, jsPDF</span></div>
+        <div class="item"><b>Resultado:</b> <span>Expediente digital de 5 m&oacute;dulos con scoring, trazabilidad docente y exportaci&oacute;n PDF</span></div>
+      </div>
+      <h2 class="section-title">Funcionalidades principales</h2>
+      <ul class="list">
+        <li>Flujo acad&eacute;mico de 5 m&oacute;dulos: solicitud, evaluaci&oacute;n cualitativa, cuantitativa, propuesta y reporte final</li>
+        <li>Autenticaci&oacute;n con correo, Google y modo invitado con persistencia local</li>
+        <li>Scoring cualitativo y cuantitativo con reglas alineadas a la pol&iacute;tica de cr&eacute;dito MYPE 2026</li>
+        <li>Panel docente para revisar, observar, aprobar o denegar expedientes enviados</li>
+        <li>Generaci&oacute;n de reporte final en PDF y checklist documentario por expediente</li>
+      </ul>
+      <h2 class="section-title">Contexto</h2>
+      <p style="color:var(--muted); font-size:.94rem;">Desarrollado para CERTUS como soluci&oacute;n EdFinTech aplicada a cursos de finanzas, banca y evaluaci&oacute;n crediticia. El sistema estandariza la captura de informaci&oacute;n, reduce dependencia de archivos Excel, mejora trazabilidad acad&eacute;mica y conecta simulaci&oacute;n operativa con anal&iacute;tica aplicada a decisiones de riesgo y formaci&oacute;n.</p>
+      <h2 class="section-title">Valor en Data Management, BI y anal&iacute;tica aplicada</h2>
+      <ul class="list">
+        <li>Digitaliza un proceso antes disperso en archivos, centralizando expedientes, estados y evidencias en una arquitectura web mantenible</li>
+        <li>Convierte reglas de negocio y evaluaci&oacute;n crediticia en l&oacute;gica reproducible, trazable y auditable</li>
+        <li>Habilita anal&iacute;tica posterior sobre avance de estudiantes, calidad de expedientes, tiempos de revisi&oacute;n y patrones de riesgo</li>
+        <li>Demuestra capacidad para construir productos EdFinTech completos, no solo dashboards o automatizaciones aisladas</li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="https://modulo-evaluador-web.vercel.app/reporte" target="_blank" rel="noopener noreferrer">Ver demo</a>
+        <a class="btn" href="https://github.com/DiegoVCH18/modulo-evaluador-mype" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="footer-brand">
+      <img src="../assets/diego_logo_assets/logo-sin-fondo.png" alt="Diego VCH" class="footer-brand-logo" loading="lazy" decoding="async" />
+      <p>Consultor de Datos · Business Intelligence · Power BI · Python</p>
+    </div>
+    <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; justify-content:center;">
+      <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">Linktree</a>
+      <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p>&copy; 2026 Diego Armando Vasquez Chavez</p>
+  </footer>
+</body>
+</html>
