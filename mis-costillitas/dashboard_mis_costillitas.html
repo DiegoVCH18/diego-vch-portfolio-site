@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard KPI – Mis Costillitas RE-05</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --panel: #141414;
+      --card: #1a1a1a;
+      --accent: #FFD700;
+      --accent2: #FFC200;
+      --accent3: #27ae60;
+      --accent4: #e0a800;
+      --text: #ffffff;
+      --text-muted: #888888;
+      --border: #2a2a2a;
+      --green: #2ecc71;
+      --yellow: #FFD700;
+      --red: #e74c3c;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 15px;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: #0d0d0d;
+      border-bottom: 3px solid #FFD700;
+      padding: 0;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.9);
+    }
+    .header-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+    .header-brand {
+      background: #FFD700;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 280px;
+    }
+    .header-brand .logo-text {
+      font-family: Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #0d0d0d;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .header-brand .logo-sub {
+      font-size: 0.76rem;
+      color: #333;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .header-logo-icon {
+      font-size: 2.2rem;
+    }
+    .header-center {
+      flex: 1;
+      padding: 12px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .header-center h1 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #FFD700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .header-center p {
+      font-size: 0.82rem;
+      color: #888;
+      margin-top: 4px;
+    }
+    .header-right {
+      background: #1a1a1a;
+      padding: 12px 22px;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid #2a2a2a;
+    }
+    .header-right .roi-label {
+      font-size: 0.76rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .header-right .roi-value {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1;
+    }
+    .header-right .roi-sub {
+      font-size: 0.76rem;
+      color: #666;
+      margin-top: 3px;
+    }
+    .badge-roi {
+      background: #FFD700;
+      color: #0d0d0d;
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      margin-top: 6px;
+      display: inline-block;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── TABS ── */
+    .tabs {
+      background: #111111;
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #2a2a2a;
+      overflow-x: auto;
+    }
+    .tab {
+      padding: 13px 22px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #666;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .tab:hover { color: #ccc; background: rgba(255,215,0,0.04); }
+    .tab.active { color: #FFD700; border-bottom-color: #FFD700; background: rgba(255,215,0,0.06); }
+    .tab-icon { margin-right: 6px; }
+
+    /* ── CONTENT ── */
+    .content { padding: 20px 24px; }
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── GRID ── */
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 18px; }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-bottom: 18px; }
+    .grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 14px; margin-bottom: 18px; }
+    @media (max-width: 1100px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* ── KPI CARD ── */
+    .kpi-card {
+      background: #1a1a1a;
+      border-radius: 8px;
+      padding: 16px 18px;
+      border-left: 4px solid #FFD700;
+      border-top: 1px solid #2a2a2a;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 60px; height: 60px;
+      background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 70%);
+    }
+    .kpi-card.green { border-left-color: var(--green); }
+    .kpi-card.yellow { border-left-color: var(--yellow); }
+    .kpi-card.blue { border-left-color: #3498db; }
+    .kpi-card.orange { border-left-color: #e67e22; }
+    .kpi-label { font-size: 0.78rem; color: #777; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 7px; font-weight: 700; }
+    .kpi-value { font-size: 2rem; font-weight: 900; line-height: 1; }
+    .kpi-sub { font-size: 0.8rem; color: #666; margin-top: 7px; }
+    .kpi-meta { font-size: 0.8rem; margin-top: 5px; font-weight: 600; }
+    .kpi-meta.good { color: var(--green); }
+    .kpi-meta.warn { color: #FFD700; }
+    .kpi-meta.bad { color: var(--red); }
+    .kpi-icon { font-size: 1.6rem; position: absolute; top: 14px; right: 16px; opacity: 0.15; }
+
+    /* ── CHART PANEL ── */
+    .chart-panel {
+      background: #141414;
+      border-radius: 8px;
+      padding: 18px;
+      border: 1px solid #222;
+      border-top: 2px solid #252525;
+    }
+    .chart-panel h3 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFD700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+    .chart-panel p.sub { font-size: 0.8rem; color: #666; margin-bottom: 14px; }
+    .chart-wrap { position: relative; width: 100%; }
+    .chart-wrap canvas { max-width: 100%; }
+
+    /* ── TABLE ── */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .data-table th {
+      background: rgba(255,215,0,0.07);
+      padding: 10px 13px;
+      text-align: left;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #FFD700;
+      border-bottom: 1px solid #2a2a2a;
+      font-weight: 800;
+    }
+    .data-table td {
+      padding: 11px 13px;
+      border-bottom: 1px solid #1e1e1e;
+      color: #ddd;
+    }
+    .data-table tr:hover td { background: rgba(255,215,0,0.03); }
+    .pill {
+      display: inline-block;
+      padding: 3px 11px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .pill-red { background: rgba(231,76,60,0.2); color: #e74c3c; }
+    .pill-yellow { background: rgba(241,196,15,0.2); color: #f1c40f; }
+    .pill-green { background: rgba(46,204,113,0.2); color: #2ecc71; }
+    .pill-blue { background: rgba(41,128,185,0.2); color: #3498db; }
+
+    /* ── PROGRESS BAR ── */
+    .progress-row { margin-bottom: 14px; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.86rem; margin-bottom: 6px; }
+    .progress-bar-bg { background: rgba(255,255,255,0.06); border-radius: 6px; height: 12px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; border-radius: 6px; transition: width 1s ease; }
+
+    /* ── FUNNEL / PHASE BOXES ── */
+    .phase-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+    .phase-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 8px;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+    .phase-box .phase-num { font-size: 1.4rem; font-weight: 800; color: var(--accent2); }
+    .phase-box .phase-name { color: var(--text-muted); margin-top: 4px; line-height: 1.3; }
+
+    /* ── ALERTS ── */
+    .alert-box {
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .alert-red { background: rgba(231,76,60,0.1); border-left: 3px solid #e74c3c; }
+    .alert-yellow { background: rgba(255,215,0,0.07); border-left: 3px solid #FFD700; }
+    .alert-green { background: rgba(46,204,113,0.08); border-left: 3px solid #2ecc71; }
+    .alert-icon { font-size: 1rem; flex-shrink: 0; }
+
+    /* ── GAUGE ── */
+    .gauge-container { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0; }
+    .gauge-value { font-size: 2.4rem; font-weight: 800; }
+    .gauge-label { font-size: 0.72rem; color: var(--text-muted); }
+    .gauge-meta { font-size: 0.76rem; margin-top: 4px; }
+
+    /* ── DIVIDER ── */
+    .section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #FFD700;
+      border-bottom: 1px solid #2a2a2a;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+      margin-top: 4px;
+      font-weight: 800;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 14px;
+      font-size: 0.78rem;
+      color: #555;
+      border-top: 2px solid #FFD700;
+      margin-top: 10px;
+      background: #0d0d0d;
+      letter-spacing: 0.4px;
+    }
+
+    .content { padding: 20px 24px; background: #0d0d0d; min-height: calc(100vh - 140px); }
+
+    /* ── BALANCED SCORECARD MAP ── */
+    .bsc-map {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 16px;
+    }
+    .bsc-perspective {
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #111;
+    }
+    .bsc-persp-label {
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .bsc-objectives-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 12px;
+    }
+    .bsc-obj {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-top: 3px solid #444;
+      border-radius: 6px;
+      padding: 12px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .bsc-obj:hover { background: #222; }
+    .bsc-obj-icon { font-size: 1.5rem; margin-bottom: 6px; }
+    .bsc-obj-title { font-size: 0.82rem; font-weight: 700; color: #eee; line-height: 1.35; }
+    .bsc-obj-kpi { font-size: 0.76rem; color: #888; margin-top: 5px; }
+    .bsc-arrow-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 12px;
+      gap: 10px;
+    }
+    .bsc-arrow-up {
+      text-align: center;
+      color: #444;
+      font-size: 1.2rem;
+      line-height: 1;
+      padding: 4px 0;
+    }
+    .bsc-persp-cell {
+      text-align: center;
+      vertical-align: middle;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .bsc-table tbody tr:nth-child(1) td,
+    .bsc-table tbody tr:nth-child(2) td,
+    .bsc-table tbody tr:nth-child(3) td { background: rgba(255,215,0,0.02); }
+
+    .highlight-number { color: #FFD700; font-weight: 700; }
+    .col-good { color: var(--green); font-weight: 600; }
+    .col-warn { color: #FFD700; font-weight: 600; }
+    .col-bad { color: var(--red); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header>
+  <div class="header-inner">
+    <div class="header-brand">
+      <span class="header-logo-icon">🥩</span>
+      <div>
+        <div class="logo-text">Mis Costillitas</div>
+        <div class="logo-sub">Local RE-05 · Mall Aventura Arequipa</div>
+      </div>
+    </div>
+    <div class="header-center">
+      <h1>Dashboard de Optimización de Cadena Productiva</h1>
+      <p>MAYCAS/BMAFER · Sistema Logbar · Lean Manufacturing + Six Sigma + IoT · MBA Cadenas Productivas · UNSA 2026</p>
+    </div>
+    <div class="header-right">
+      <div class="roi-label">ROI Proyectado 18m</div>
+      <div class="roi-value">460%</div>
+      <div class="roi-sub">Inversión: S/ 12,800 · Ahorro: S/ 3,985/mes</div>
+      <span class="badge-roi">🚀 Payback: 3.2 meses prom.</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════ TABS ══════════════ -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('resumen')"><span class="tab-icon">📊</span>Resumen Ejecutivo</div>
+  <div class="tab" onclick="switchTab('mermas')"><span class="tab-icon">🥩</span>Mermas · Lean</div>
+  <div class="tab" onclick="switchTab('servicio')"><span class="tab-icon">⏱️</span>Servicio · Six Sigma</div>
+  <div class="tab" onclick="switchTab('financiero')"><span class="tab-icon">💰</span>Financiero · ROI</div>
+  <div class="tab" onclick="switchTab('sostenibilidad')"><span class="tab-icon">🌿</span>Sostenibilidad</div>
+  <div class="tab" onclick="switchTab('implementacion')"><span class="tab-icon">🗓️</span>Implementación</div>
+  <div class="tab" onclick="switchTab('bsc')"><span class="tab-icon">🎯</span>Balanced Scorecard</div>
+</div>
+
+<!-- ══════════════ SECTIONS ══════════════ -->
+<div class="content">
+
+  <!-- ▸ RESUMEN EJECUTIVO -->
+  <div id="tab-resumen" class="section active">
+
+    <div class="grid-4">
+      <div class="kpi-card" style="border-left-color:#e74c3c">
+        <span class="kpi-icon">📉</span>
+        <div class="kpi-label">Merma Promedio Actual</div>
+        <div class="kpi-value col-bad">37.3%</div>
+        <div class="kpi-sub">Línea base Q1 2026 · S/31,254 compras cárnicas</div>
+        <div class="kpi-meta bad">▼ Meta 18m: 22% · Brecha: 15.3 pp</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#f1c40f">
+        <span class="kpi-icon">⏱️</span>
+        <div class="kpi-label">Tiempo Ciclo Servicio Pico</div>
+        <div class="kpi-value col-warn">18–27 min</div>
+        <div class="kpi-sub">Estándar franquicia: ≤ 15 min</div>
+        <div class="kpi-meta warn">▼ Meta 18m: ≤ 15 min</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#3498db">
+        <span class="kpi-icon">⭐</span>
+        <div class="kpi-label">NPS Satisfacción Cliente</div>
+        <div class="kpi-value" style="color:#3498db">Sin KPI</div>
+        <div class="kpi-sub">Actualmente: medición informal</div>
+        <div class="kpi-meta" style="color:#3498db">▲ Meta 6m: &gt;30 · Meta 18m: &gt;50</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#27ae60">
+        <span class="kpi-icon">💰</span>
+        <div class="kpi-label">Ahorro Mensual Proyectado</div>
+        <div class="kpi-value col-good">S/ 3,985</div>
+        <div class="kpi-sub">Total 5 propuestas implementadas</div>
+        <div class="kpi-meta good">▲ Payback promedio: 3.2 meses</div>
+      </div>
+    </div>
+
+    <div class="grid-4">
+      <div class="kpi-card orange">
+        <span class="kpi-icon">🏭</span>
+        <div class="kpi-label">Costo No Calidad (Q1)</div>
+        <div class="kpi-value" style="color:var(--accent2)">18–22%</div>
+        <div class="kpi-sub">De ingresos operativos · S/1,805/mes en mermas</div>
+        <div class="kpi-meta warn">Incluye compras diarias retail ineficientes</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#9b59b6">
+        <span class="kpi-icon">♻️</span>
+        <div class="kpi-label">Residuos Orgánicos</div>
+        <div class="kpi-value" style="color:#9b59b6">~200 kg</div>
+        <div class="kpi-sub">Mensuales actuales · sin gestión</div>
+        <div class="kpi-meta" style="color:#9b59b6">▼ Meta 18m: 140 kg (−30%)</div>
+      </div>
+      <div class="kpi-card green">
+        <span class="kpi-icon">📦</span>
+        <div class="kpi-label">Pedidos Conformes Recepción</div>
+        <div class="kpi-value col-bad">Sin KPI</div>
+        <div class="kpi-sub">No existe medición formal</div>
+        <div class="kpi-meta good">▲ Meta 18m: ≥ 98%</div>
+      </div>
+      <div class="kpi-card blue">
+        <span class="kpi-icon">🔄</span>
+        <div class="kpi-label">Rotación Personal Anual</div>
+        <div class="kpi-value" style="color:var(--accent4)">Sin KPI</div>
+        <div class="kpi-sub">Alta rotación observada · sin medir</div>
+        <div class="kpi-meta" style="color:var(--accent4)">▼ Meta 18m: &lt; 40%</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Proyección de Reducción de Mermas – 18 meses</h3>
+        <p class="sub">Lean Manufacturing · Fichas técnicas de despiece estandarizadas</p>
+        <div class="chart-wrap"><canvas id="chartMermaLinea" height="200"></canvas></div>
+      </div>
+      <div class="chart-panel">
+        <h3>Ahorro Acumulado Proyectado (S/)</h3>
+        <p class="sub">Suma de los 5 pilares de optimización · 18 meses</p>
+        <div class="chart-wrap"><canvas id="chartAhorroAcumulado" height="200"></canvas></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Ineficiencias Críticas Identificadas</h3>
+        <p class="sub">Cuellos de botella que generan el costo de no calidad</p>
+        <div style="margin-top:10px">
+          <div class="alert-box alert-red">
+            <span class="alert-icon">🔴</span>
+            <div><strong>CB-1 · Mermas en transformación cárnica</strong><br>Alitas 45%, Panceta 38%, Costillas 35% · Impacto: S/1,805/mes</div>
+          </div>
+          <div class="alert-box alert-red">
+            <span class="alert-icon">🔴</span>
+            <div><strong>CB-2 · Tiempos de ciclo no estandarizados</strong><br>18–27 min vs 12–15 min estándar en horas pico · Viernes y sábados</div>
+          </div>
+          <div class="alert-box alert-yellow">
+            <span class="alert-icon">🟡</span>
+            <div><strong>CB-3 · Gestión empírica sin KPIs integrados</strong><br>Logbar registra movimientos pero no genera reportes automáticos</div>
+          </div>
+          <div class="alert-box alert-yellow">
+            <span class="alert-icon">🟡</span>
+            <div><strong>CB-4 · Compras diarias en retail</strong><br>Tottus/Metro: 15–25% sobreprecio · 45–90 min desplazamiento</div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <h3>Distribución de Inversión por Propuesta</h3>
+        <p class="sub">Inversión total: S/ 12,800 · 18 meses</p>
+        <div class="chart-wrap"><canvas id="chartInversion" height="220"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ▸ MERMAS · LEAN MANUFACTURING -->
+  <div id="tab-mermas" class="section">
+    <div class="grid-4">
+      <div class="kpi-card" style="border-left-color:#e74c3c">
+        <span class="kpi-icon">🥓</span>
+        <div class="kpi-label">Alitas de Pollo</div>
+        <div class="kpi-value col-bad">45%</div>
+        <div class="kpi-sub">Merma actual · Meta: 28%</div>
+        <div class="kpi-meta bad">Brecha: 17 pp · Impacto: S/610/mes</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#e67e22">
+        <span class="kpi-icon">🐷</span>
+        <div class="kpi-label">Panceta de Cerdo</div>
+        <div class="kpi-value col-warn">38%</div>
+        <div class="kpi-sub">Merma actual · Meta: 22%</div>
+        <div class="kpi-meta warn">Brecha: 16 pp · Impacto: S/390/mes</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#f1c40f">
+        <span class="kpi-icon">🍖</span>
+        <div class="kpi-label">Costillas de Cerdo</div>
+        <div class="kpi-value col-warn">35%</div>
+        <div class="kpi-sub">Merma actual · Meta: 20%</div>
+        <div class="kpi-meta warn">Brecha: 15 pp · Impacto: S/520/mes</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#27ae60">
+        <span class="kpi-icon">🥩</span>
+        <div class="kpi-label">Otras Carnes (prom.)</div>
+        <div class="kpi-value" style="color:#f1c40f">31%</div>
+        <div class="kpi-sub">Merma actual · Meta: 18%</div>
+        <div class="kpi-meta warn">Brecha: 13 pp · Impacto: S/285/mes</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Merma por Producto – Actual vs. Meta Lean</h3>
+        <p class="sub">Estandarización mediante fichas técnicas de despiece · Metodología nose-to-tail BBQ</p>
+        <div class="chart-wrap"><canvas id="chartMermaProducto" height="220"></canvas></div>
+      </div>
+      <div class="chart-panel">
+        <h3>Impacto Económico Mensual por Producto (S/)</h3>
+        <p class="sub">Costo de no calidad por merma excesiva · Total actual: S/1,805/mes</p>
+        <div class="chart-wrap"><canvas id="chartImpactoMerma" height="220"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-panel" style="margin-bottom:14px">
+      <h3>Trayectoria de Reducción de Merma Promedio – Modelo PHVA</h3>
+      <p class="sub">Línea base: 37.3% · Meta 6m: 30% · Meta 12m: 25% · Meta 18m: 22% · Ahorro acumulado proyectado: S/21,660</p>
+      <div class="chart-wrap"><canvas id="chartMermaTrayectoria" height="160"></canvas></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Propuesta P1 – Lean Manufacturing</h3>
+        <p class="sub">Inversión: S/1,200 · Ahorro proyectado: S/1,805/mes · Payback: &lt;1 mes</p>
+        <div style="margin-top:12px">
+          <div class="progress-row">
+            <div class="progress-label"><span>Costillas · 35% → 20%</span><span class="col-bad">Reducción: 15 pp</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:65%;background:linear-gradient(90deg,#e74c3c,#e67e22)"></div></div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label"><span>Panceta · 38% → 22%</span><span class="col-warn">Reducción: 16 pp</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:63%;background:linear-gradient(90deg,#e67e22,#f1c40f)"></div></div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label"><span>Alitas · 45% → 28%</span><span class="col-bad">Reducción: 17 pp</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:60%;background:linear-gradient(90deg,#c0392b,#e74c3c)"></div></div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label"><span>Otras · 31% → 18%</span><span class="col-warn">Reducción: 13 pp</span></div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:71%;background:linear-gradient(90deg,#f1c40f,#27ae60)"></div></div>
+          </div>
+          <div class="progress-row" style="margin-top:18px">
+            <div class="progress-label"><span><strong>PROMEDIO TOTAL: 37.3% → 22%</strong></span><span class="col-good">−40.5% de mejora</span></div>
+            <div class="progress-bar-bg" style="height:16px"><div class="progress-bar-fill" style="width:59%;background:linear-gradient(90deg,#27ae60,#2ecc71)"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <h3>Proceso Optimizado de Producción BBQ · Control PHVA</h3>
+        <p class="sub">7 etapas estandarizadas con puntos de control</p>
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>Etapa</th><th>Tiempo Estándar</th><th>Control PHVA</th></tr></thead>
+          <tbody>
+            <tr><td>1. Recepción insumos</td><td>15 min/entrega</td><td><span class="pill pill-blue">V – KPI ≥98%</span></td></tr>
+            <tr><td>2. Despiece / Preparación</td><td>30 min/batch</td><td><span class="pill pill-red">P – Merma ≤20%</span></td></tr>
+            <tr><td>3. Marinado</td><td>8h mínimo (0–4°C)</td><td><span class="pill pill-yellow">H – Temp. control</span></td></tr>
+            <tr><td>4. Cocción BBQ</td><td>12–25 min/corte</td><td><span class="pill pill-blue">V – Termómetro</span></td></tr>
+            <tr><td>5. Emplatado</td><td>2–3 min/plato</td><td><span class="pill pill-blue">V – Check visual</span></td></tr>
+            <tr><td>6. Servicio al cliente</td><td>≤ 15 min total</td><td><span class="pill pill-green">A – Alerta &gt;15min</span></td></tr>
+            <tr><td>7. Retroalimentación</td><td>Post-servicio</td><td><span class="pill pill-green">A – NPS semanal</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ▸ SERVICIO · SIX SIGMA -->
+  <div id="tab-servicio" class="section">
+    <div class="grid-4">
+      <div class="kpi-card" style="border-left-color:#e74c3c">
+        <span class="kpi-icon">⏱️</span>
+        <div class="kpi-label">Tiempo Ciclo Actual (Pico)</div>
+        <div class="kpi-value col-bad">18–27 min</div>
+        <div class="kpi-sub">Ingreso cliente → primer servicio</div>
+        <div class="kpi-meta bad">Horas pico: Vi 12–14h, 19–21h · Sá 13–15h</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#f1c40f">
+        <span class="kpi-icon">🎯</span>
+        <div class="kpi-label">Estándar Franquicia</div>
+        <div class="kpi-value col-warn">12–15 min</div>
+        <div class="kpi-sub">Protocolo 15 pasos · meta operativa</div>
+        <div class="kpi-meta warn">Exceso actual: +3 a +12 min sobre estándar</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#27ae60">
+        <span class="kpi-icon">📐</span>
+        <div class="kpi-label">Nivel Sigma Meta (P2)</div>
+        <div class="kpi-value col-good">≥ 3σ</div>
+        <div class="kpi-sub">Variabilidad &lt; 10% fuera del estándar</div>
+        <div class="kpi-meta good">Ciclo DMAIC · Sistema tickets digitales</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#3498db">
+        <span class="kpi-icon">💵</span>
+        <div class="kpi-label">Inversión P2 · Six Sigma</div>
+        <div class="kpi-value" style="color:var(--accent4)">S/ 2,400</div>
+        <div class="kpi-sub">Sistema tickets digitales + capacitación</div>
+        <div class="kpi-meta" style="color:var(--accent4)">Ahorro: S/650/mes · Payback: 4 meses</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Reducción de Tiempo de Ciclo de Servicio – 18 meses</h3>
+        <p class="sub">Six Sigma DMAIC · Meta: ≤15 min en horas pico</p>
+        <div class="chart-wrap"><canvas id="chartServicioLinea" height="210"></canvas></div>
+      </div>
+      <div class="chart-panel">
+        <h3>Ciclo DMAIC – Hoja de Ruta Six Sigma</h3>
+        <p class="sub">Propuesta P2 · Sistema de tickets digitales con alertas de tiempo</p>
+        <div style="margin-top:14px">
+          <div class="alert-box alert-red">
+            <span class="alert-icon">📋</span>
+            <div><strong>D – Definir:</strong> Tiempo crítico pedido → servicio ≤ 15 min. Protocolo 15 pasos como unidad de medida.</div>
+          </div>
+          <div class="alert-box alert-yellow">
+            <span class="alert-icon">📏</span>
+            <div><strong>M – Medir:</strong> 4 semanas de línea base · tiempos reales por etapa del protocolo.</div>
+          </div>
+          <div class="alert-box alert-yellow">
+            <span class="alert-icon">🔍</span>
+            <div><strong>A – Analizar:</strong> Puntos de variabilidad en cocción y emplatado como cuellos de botella principales.</div>
+          </div>
+          <div class="alert-box alert-green">
+            <span class="alert-icon">🛠️</span>
+            <div><strong>M – Mejorar:</strong> Tickets digitales con alertas de tiempo. Comandas con semáforo visual.</div>
+          </div>
+          <div class="alert-box alert-green">
+            <span class="alert-icon">📊</span>
+            <div><strong>C – Controlar:</strong> Monitoreo semanal KPI tiempo ciclo. Auditoría mensual resultados sigma.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-panel">
+      <h3>Evaluación de Calidad del Servicio – 10 Dimensiones SERVQUAL</h3>
+      <p class="sub">Estado actual vs. oportunidad de mejora con el modelo optimizado</p>
+      <div class="chart-wrap" style="margin-top:12px"><canvas id="chartServqual" height="180"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ▸ FINANCIERO · ROI -->
+  <div id="tab-financiero" class="section">
+    <div class="grid-4">
+      <div class="kpi-card" style="border-left-color:#27ae60">
+        <span class="kpi-icon">📈</span>
+        <div class="kpi-label">ROI a 18 Meses</div>
+        <div class="kpi-value col-good">460%</div>
+        <div class="kpi-sub">S/71,730 beneficio – S/12,800 inversión</div>
+        <div class="kpi-meta good">▲ Retorno excepcional en 18 meses</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#e67e22">
+        <span class="kpi-icon">💸</span>
+        <div class="kpi-label">Inversión Total</div>
+        <div class="kpi-value" style="color:var(--accent2)">S/ 12,800</div>
+        <div class="kpi-sub">5 propuestas · distribuido en 18 meses</div>
+        <div class="kpi-meta warn">Payback promedio: 3.2 meses</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#3498db">
+        <span class="kpi-icon">🏦</span>
+        <div class="kpi-label">Ahorro Mensual Total</div>
+        <div class="kpi-value" style="color:var(--accent4)">S/ 3,985</div>
+        <div class="kpi-sub">Suma de ahorros de P1 a P5</div>
+        <div class="kpi-meta" style="color:var(--accent4)">Más S/650 por mejora de satisfacción</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#9b59b6">
+        <span class="kpi-icon">⚡</span>
+        <div class="kpi-label">Mayor Retorno (P1)</div>
+        <div class="kpi-value" style="color:#9b59b6">&lt;1 mes</div>
+        <div class="kpi-sub">Fichas técnicas despiece · S/1,200 inversión</div>
+        <div class="kpi-meta" style="color:#9b59b6">S/1,805/mes de ahorro inmediato</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Análisis Costo–Beneficio por Propuesta</h3>
+        <p class="sub">Inversión vs. ahorro mensual proyectado (S/)</p>
+        <div class="chart-wrap"><canvas id="chartCostoBeneficio" height="220"></canvas></div>
+      </div>
+      <div class="chart-panel">
+        <h3>Detalle de Propuestas · Inversión y Payback</h3>
+        <p class="sub">Las 5 propuestas ordenadas por retorno</p>
+        <table class="data-table" style="margin-top:10px">
+          <thead>
+            <tr>
+              <th>Propuesta</th>
+              <th>Inversión (S/)</th>
+              <th>Ahorro/mes (S/)</th>
+              <th>Payback</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>P1 – Lean / Fichas despiece</td>
+              <td class="highlight-number">1,200</td>
+              <td class="col-good">1,805</td>
+              <td><span class="pill pill-green">&lt;1 mes</span></td>
+            </tr>
+            <tr>
+              <td>P4 – Abastecimiento consolidado</td>
+              <td class="highlight-number">600</td>
+              <td class="col-good">800</td>
+              <td><span class="pill pill-green">&lt;1 mes</span></td>
+            </tr>
+            <tr>
+              <td>P2 – Six Sigma / Tickets digitales</td>
+              <td class="highlight-number">2,400</td>
+              <td class="col-good">650</td>
+              <td><span class="pill pill-blue">4 meses</span></td>
+            </tr>
+            <tr>
+              <td>P3 – IoT + Dashboard KPIs Logbar</td>
+              <td class="highlight-number">4,300</td>
+              <td class="col-good">420</td>
+              <td><span class="pill pill-yellow">10 meses</span></td>
+            </tr>
+            <tr>
+              <td>P5 – Plan Sostenibilidad</td>
+              <td class="highlight-number">4,300</td>
+              <td class="col-good">310</td>
+              <td><span class="pill pill-yellow">14 meses</span></td>
+            </tr>
+            <tr style="background:rgba(255,255,255,0.05)">
+              <td><strong>TOTAL</strong></td>
+              <td><strong class="highlight-number">12,800</strong></td>
+              <td><strong class="col-good">3,985</strong></td>
+              <td><span class="pill pill-green">3.2 prom.</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Proyección de Ahorro Acumulado vs. Inversión (S/)</h3>
+        <p class="sub">Punto de equilibrio esperado a los 3.2 meses promedio</p>
+        <div class="chart-wrap"><canvas id="chartROIAcumulado" height="200"></canvas></div>
+      </div>
+      <div class="chart-panel">
+        <h3>Proyección de Resultados Económicos – 6, 12 y 18 meses</h3>
+        <p class="sub">Indicadores clave de rentabilidad y eficiencia</p>
+        <table class="data-table" style="margin-top:10px">
+          <thead>
+            <tr><th>Indicador</th><th>6 meses</th><th>12 meses</th><th>18 meses</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Merma promedio (%)</td>
+              <td class="col-warn">30%</td>
+              <td class="col-warn">25%</td>
+              <td class="col-good">22%</td>
+            </tr>
+            <tr>
+              <td>Ahorro acumulado mermas (S/)</td>
+              <td>5,415</td>
+              <td>12,660</td>
+              <td class="col-good">21,660</td>
+            </tr>
+            <tr>
+              <td>Tiempo ciclo servicio pico</td>
+              <td class="col-warn">22 min</td>
+              <td class="col-warn">18 min</td>
+              <td class="col-good">≤15 min</td>
+            </tr>
+            <tr>
+              <td>Ahorro no cárnicos acum. (S/)</td>
+              <td>2,400</td>
+              <td>4,800</td>
+              <td class="col-good">7,200</td>
+            </tr>
+            <tr>
+              <td>NPS estimado (pp sobre base)</td>
+              <td class="col-warn">+12 pp</td>
+              <td class="col-warn">+22 pp</td>
+              <td class="col-good">+35 pp</td>
+            </tr>
+            <tr>
+              <td>Reducción CO₂ equivalente</td>
+              <td>−8%</td>
+              <td>−18%</td>
+              <td class="col-good">−28%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ▸ SOSTENIBILIDAD -->
+  <div id="tab-sostenibilidad" class="section">
+    <div class="grid-3">
+      <div class="kpi-card" style="border-left-color:#27ae60">
+        <span class="kpi-icon">♻️</span>
+        <div class="kpi-label">Reducción Residuos Meta</div>
+        <div class="kpi-value col-good">−30%</div>
+        <div class="kpi-sub">200 kg → 140 kg/mes a 18 meses</div>
+        <div class="kpi-meta good">Convenio compostaje / biogás Arequipa</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#3498db">
+        <span class="kpi-icon">🌡️</span>
+        <div class="kpi-label">Reducción CO₂ Equivalente</div>
+        <div class="kpi-value" style="color:var(--accent4)">−28%</div>
+        <div class="kpi-sub">A 18 meses · base residuos orgánicos</div>
+        <div class="kpi-meta" style="color:var(--accent4)">−8% (6m) → −18% (12m) → −28% (18m)</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#e67e22">
+        <span class="kpi-icon">📦</span>
+        <div class="kpi-label">Empaques Sostenibles</div>
+        <div class="kpi-value" style="color:var(--accent2)">100%</div>
+        <div class="kpi-sub">Meta: migración a cartón kraft / papel</div>
+        <div class="kpi-meta warn">Eliminar plástico de un solo uso en delivery</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Trayectoria de Residuos Orgánicos (kg/mes)</h3>
+        <p class="sub">Plan de sostenibilidad P5 · 3 ejes: residuos, energía, empaques</p>
+        <div class="chart-wrap"><canvas id="chartResiduos" height="220"></canvas></div>
+      </div>
+      <div class="chart-panel">
+        <h3>Emisiones CO₂ Equivalente – Reducción Proyectada</h3>
+        <p class="sub">Base estimada en generación de residuos orgánicos no gestionados</p>
+        <div class="chart-wrap"><canvas id="chartCO2" height="220"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-panel" style="margin-bottom:14px">
+      <h3>Plan de Sostenibilidad Operativa P5 – Tres Dimensiones</h3>
+      <p class="sub">Inversión P5: S/4,300 · Ahorro proyectado: S/310/mes · Impacto ambiental, imagen y competitividad</p>
+      <div class="grid-3" style="margin-top:14px;margin-bottom:0">
+        <div style="background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.3);border-radius:8px;padding:16px">
+          <div style="font-size:1.8rem;margin-bottom:8px">♻️</div>
+          <div style="font-weight:700;margin-bottom:6px;color:#2ecc71">Eje 1 · Residuos Sólidos</div>
+          <div style="font-size:0.78rem;color:var(--text-muted);line-height:1.6">
+            • Separación de residuos en cocina<br>
+            • Convenio compostaje / biogás Arequipa<br>
+            • Meta: −30% a vertedero<br>
+            • 200 kg → 140 kg/mes
+          </div>
+        </div>
+        <div style="background:rgba(41,128,185,0.1);border:1px solid rgba(41,128,185,0.3);border-radius:8px;padding:16px">
+          <div style="font-size:1.8rem;margin-bottom:8px">⚡</div>
+          <div style="font-weight:700;margin-bottom:6px;color:#3498db">Eje 2 · Eficiencia Energética</div>
+          <div style="font-size:0.78rem;color:var(--text-muted);line-height:1.6">
+            • Mantenimiento preventivo trimestral<br>
+            • Equipos cocción y refrigeración<br>
+            • Apagado automático bajo consumo<br>
+            • Monitoreo IoT temperatura
+          </div>
+        </div>
+        <div style="background:rgba(230,126,34,0.1);border:1px solid rgba(230,126,34,0.3);border-radius:8px;padding:16px">
+          <div style="font-size:1.8rem;margin-bottom:8px">📦</div>
+          <div style="font-weight:700;margin-bottom:6px;color:#e67e22">Eje 3 · Empaques Sostenibles</div>
+          <div style="font-size:0.78rem;color:var(--text-muted);line-height:1.6">
+            • Migración a cartón kraft y papel<br>
+            • Eliminar plástico un solo uso<br>
+            • Delivery: bolsas biodegradables<br>
+            • Diferenciación competitiva mall
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ▸ IMPLEMENTACIÓN -->
+  <div id="tab-implementacion" class="section">
+    <div class="grid-4">
+      <div class="kpi-card orange">
+        <span class="kpi-icon">📅</span>
+        <div class="kpi-label">Plazo Total</div>
+        <div class="kpi-value" style="color:var(--accent2)">18 meses</div>
+        <div class="kpi-sub">4 fases · Marco PHVA como rector</div>
+        <div class="kpi-meta warn">Inicio: mes 1 · Cierre: mes 18</div>
+      </div>
+      <div class="kpi-card green">
+        <span class="kpi-icon">🏆</span>
+        <div class="kpi-label">Prioridad Alta – P1</div>
+        <div class="kpi-value col-good">Mes 1</div>
+        <div class="kpi-sub">Fichas técnicas despiece · Payback inmediato</div>
+        <div class="kpi-meta good">Mayor impacto / menor inversión</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#3498db">
+        <span class="kpi-icon">⚠️</span>
+        <div class="kpi-label">Riesgo Principal</div>
+        <div class="kpi-value" style="color:var(--accent4);font-size:1.3rem">Resistencia</div>
+        <div class="kpi-sub">Personal a nuevas fichas técnicas</div>
+        <div class="kpi-meta" style="color:var(--accent4)">Mitigación: bonos productividad</div>
+      </div>
+      <div class="kpi-card" style="border-left-color:#9b59b6">
+        <span class="kpi-icon">📡</span>
+        <div class="kpi-label">Inversión IoT + Software</div>
+        <div class="kpi-value" style="color:#9b59b6">S/ 4,300</div>
+        <div class="kpi-sub">Hardware IoT + S/800/mes SaaS Logbar</div>
+        <div class="kpi-meta" style="color:#9b59b6">Payback: 10 meses · Escalable</div>
+      </div>
+    </div>
+
+    <div class="chart-panel" style="margin-bottom:14px">
+      <h3>Cronograma de Implementación – 18 Meses (Gantt simplificado)</h3>
+      <p class="sub">5 propuestas · 4 fases PHVA · actividades por período</p>
+      <div class="chart-wrap" style="margin-top:14px"><canvas id="chartGantt" height="200"></canvas></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-panel">
+        <h3>Análisis de Riesgos</h3>
+        <p class="sub">Probabilidad × Impacto · Estrategias de mitigación</p>
+        <table class="data-table" style="margin-top:10px">
+          <thead>
+            <tr><th>Riesgo</th><th>Prob.</th><th>Impacto</th><th>Mitigación</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Resistencia personal a fichas de despiece</td>
+              <td><span class="pill pill-red">ALTA</span></td>
+              <td><span class="pill pill-red">ALTO</span></td>
+              <td>Bonos productividad</td>
+            </tr>
+            <tr>
+              <td>Volatilidad precios cárnicos</td>
+              <td><span class="pill pill-red">ALTA</span></td>
+              <td><span class="pill pill-red">ALTO</span></td>
+              <td>Contratos precio referencial</td>
+            </tr>
+            <tr>
+              <td>Falla integración IoT–Logbar</td>
+              <td><span class="pill pill-yellow">MEDIA</span></td>
+              <td><span class="pill pill-red">ALTO</span></td>
+              <td>Soporte técnico + plan manual</td>
+            </tr>
+            <tr>
+              <td>Incumplimiento proveedor insumos</td>
+              <td><span class="pill pill-yellow">MEDIA</span></td>
+              <td><span class="pill pill-yellow">MEDIO</span></td>
+              <td>2 proveedores alternativos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="chart-panel">
+        <h3>Dashboard KPI Operativo – Seguimiento Logbar (P3)</h3>
+        <p class="sub">Indicadores en tiempo real para jefe de cocina y administradora</p>
+        <table class="data-table" style="margin-top:10px">
+          <thead>
+            <tr><th>KPI</th><th>Línea Base</th><th>Meta 6m</th><th>Meta 18m</th><th>Frec.</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Merma promedio (%)</td>
+              <td class="col-bad">37.3%</td>
+              <td class="col-warn">30%</td>
+              <td class="col-good">22%</td>
+              <td>Diario</td>
+            </tr>
+            <tr>
+              <td>Tiempo ciclo pico (min)</td>
+              <td class="col-bad">18–27</td>
+              <td class="col-warn">≤20</td>
+              <td class="col-good">≤15</td>
+              <td>Turno</td>
+            </tr>
+            <tr>
+              <td>% Pedidos conformes</td>
+              <td class="col-bad">Sin KPI</td>
+              <td class="col-warn">≥95%</td>
+              <td class="col-good">≥98%</td>
+              <td>Entrega</td>
+            </tr>
+            <tr>
+              <td>Costo no cárnicos/venta</td>
+              <td class="col-bad">Sin KPI</td>
+              <td class="col-warn">Medición</td>
+              <td class="col-good">−20%</td>
+              <td>Semanal</td>
+            </tr>
+            <tr>
+              <td>NPS satisfacción</td>
+              <td class="col-bad">Sin KPI</td>
+              <td class="col-warn">&gt;30</td>
+              <td class="col-good">&gt;50</td>
+              <td>Semanal</td>
+            </tr>
+            <tr>
+              <td>Residuos orgánicos (kg)</td>
+              <td class="col-warn">~200</td>
+              <td class="col-warn">175</td>
+              <td class="col-good">140</td>
+              <td>Mensual</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ▸ BALANCED SCORECARD -->
+  <div id="tab-bsc" class="section">
+
+    <!-- MAPA ESTRATÉGICO -->
+    <div class="chart-panel" style="margin-bottom:18px">
+      <h3>🗺️ Mapa Estratégico – Mis Costillitas RE-05</h3>
+      <p class="sub">Relaciones causa-efecto entre las 4 perspectivas del Balanced Scorecard · Modelo optimizado 2026–2027</p>
+
+      <div class="bsc-map">
+
+        <!-- PERSPECTIVA FINANCIERA -->
+        <div class="bsc-perspective" style="--pcolor:#FFD700">
+          <div class="bsc-persp-label" style="background:#FFD700;color:#0d0d0d">💰 FINANCIERA</div>
+          <div class="bsc-objectives-row">
+            <div class="bsc-obj" style="border-color:#FFD700">
+              <div class="bsc-obj-icon">📈</div>
+              <div class="bsc-obj-title">Maximizar ROI</div>
+              <div class="bsc-obj-kpi">460% a 18 meses</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#FFD700">
+              <div class="bsc-obj-icon">💸</div>
+              <div class="bsc-obj-title">Reducir Costo No Calidad</div>
+              <div class="bsc-obj-kpi">18–22% → &lt;10%</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#FFD700">
+              <div class="bsc-obj-icon">🏦</div>
+              <div class="bsc-obj-title">Incrementar Ahorro Operativo</div>
+              <div class="bsc-obj-kpi">S/ 3,985/mes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bsc-arrow-row">
+          <div class="bsc-arrow-up">▲</div>
+          <div class="bsc-arrow-up">▲</div>
+          <div class="bsc-arrow-up">▲</div>
+        </div>
+
+        <!-- PERSPECTIVA CLIENTES -->
+        <div class="bsc-perspective" style="--pcolor:#e74c3c">
+          <div class="bsc-persp-label" style="background:#e74c3c;color:#fff">⭐ CLIENTES</div>
+          <div class="bsc-objectives-row">
+            <div class="bsc-obj" style="border-color:#e74c3c">
+              <div class="bsc-obj-icon">😊</div>
+              <div class="bsc-obj-title">Mejorar Satisfacción</div>
+              <div class="bsc-obj-kpi">NPS &gt; 50 (+35pp)</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#e74c3c">
+              <div class="bsc-obj-icon">⏱️</div>
+              <div class="bsc-obj-title">Reducir Tiempo de Servicio</div>
+              <div class="bsc-obj-kpi">18–27 min → ≤15 min</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#e74c3c">
+              <div class="bsc-obj-icon">🔁</div>
+              <div class="bsc-obj-title">Aumentar Fidelización</div>
+              <div class="bsc-obj-kpi">Delivery + presencial</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bsc-arrow-row">
+          <div class="bsc-arrow-up">▲</div>
+          <div class="bsc-arrow-up">▲</div>
+          <div class="bsc-arrow-up">▲</div>
+        </div>
+
+        <!-- PERSPECTIVA PROCESOS INTERNOS -->
+        <div class="bsc-perspective" style="--pcolor:#e67e22">
+          <div class="bsc-persp-label" style="background:#e67e22;color:#fff">⚙️ PROCESOS INTERNOS</div>
+          <div class="bsc-objectives-row" style="grid-template-columns:repeat(4,1fr)">
+            <div class="bsc-obj" style="border-color:#e67e22">
+              <div class="bsc-obj-icon">🥩</div>
+              <div class="bsc-obj-title">Reducir Mermas Cárnicas</div>
+              <div class="bsc-obj-kpi">37.3% → 22% (P1)</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#e67e22">
+              <div class="bsc-obj-icon">📐</div>
+              <div class="bsc-obj-title">Estandarizar Producción</div>
+              <div class="bsc-obj-kpi">Six Sigma ≥3σ (P2)</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#e67e22">
+              <div class="bsc-obj-icon">📦</div>
+              <div class="bsc-obj-title">Optimizar Abastecimiento</div>
+              <div class="bsc-obj-kpi">−20% costo (P4)</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#e67e22">
+              <div class="bsc-obj-icon">📡</div>
+              <div class="bsc-obj-title">Integrar KPIs Logbar</div>
+              <div class="bsc-obj-kpi">Dashboard IoT (P3)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bsc-arrow-row">
+          <div class="bsc-arrow-up">▲</div>
+          <div class="bsc-arrow-up">▲</div>
+          <div class="bsc-arrow-up">▲</div>
+        </div>
+
+        <!-- PERSPECTIVA APRENDIZAJE -->
+        <div class="bsc-perspective" style="--pcolor:#27ae60">
+          <div class="bsc-persp-label" style="background:#27ae60;color:#fff">🎓 APRENDIZAJE Y CRECIMIENTO</div>
+          <div class="bsc-objectives-row" style="grid-template-columns:repeat(4,1fr)">
+            <div class="bsc-obj" style="border-color:#27ae60">
+              <div class="bsc-obj-icon">📋</div>
+              <div class="bsc-obj-title">Capacitar en Lean / Fichas</div>
+              <div class="bsc-obj-kpi">100% equipo cocina</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#27ae60">
+              <div class="bsc-obj-icon">🖥️</div>
+              <div class="bsc-obj-title">Implementar Dashboard IoT</div>
+              <div class="bsc-obj-kpi">S/4,300 inversión</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#27ae60">
+              <div class="bsc-obj-icon">👥</div>
+              <div class="bsc-obj-title">Reducir Rotación Personal</div>
+              <div class="bsc-obj-kpi">Sin KPI → &lt;40%</div>
+            </div>
+            <div class="bsc-obj" style="border-color:#27ae60">
+              <div class="bsc-obj-icon">🔄</div>
+              <div class="bsc-obj-title">Cultura Mejora Continua</div>
+              <div class="bsc-obj-kpi">Ciclo PHVA semanal</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /bsc-map -->
+    </div>
+
+    <!-- SCORECARD TABLE -->
+    <div class="chart-panel" style="margin-bottom:18px">
+      <h3>📋 Cuadro de Mando Integral – Scorecard Completo</h3>
+      <p class="sub">Objetivos estratégicos, KPIs, líneas base, metas e iniciativas por perspectiva</p>
+      <table class="data-table bsc-table" style="margin-top:12px">
+        <thead>
+          <tr>
+            <th style="width:13%">Perspectiva</th>
+            <th style="width:20%">Objetivo Estratégico</th>
+            <th style="width:14%">KPI / Indicador</th>
+            <th style="width:10%">Línea Base</th>
+            <th style="width:9%">Meta 6m</th>
+            <th style="width:9%">Meta 18m</th>
+            <th style="width:8%">Frec.</th>
+            <th style="width:17%">Iniciativa / Propuesta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- FINANCIERA -->
+          <tr>
+            <td rowspan="3" class="bsc-persp-cell" style="border-left:4px solid #FFD700;background:rgba(255,215,0,0.05)">
+              <span style="color:#FFD700;font-weight:800">💰 FINANCIERA</span>
+            </td>
+            <td>Maximizar retorno sobre la inversión</td>
+            <td>ROI acumulado (%)</td>
+            <td class="col-bad">0%</td>
+            <td class="col-warn">~180%</td>
+            <td class="col-good">460%</td>
+            <td>Mensual</td>
+            <td>P1 + P2 + P3 + P4 + P5</td>
+          </tr>
+          <tr>
+            <td>Reducir costo de no calidad</td>
+            <td>% costo NC / ingresos</td>
+            <td class="col-bad">18–22%</td>
+            <td class="col-warn">14%</td>
+            <td class="col-good">&lt;10%</td>
+            <td>Mensual</td>
+            <td>P1 Lean + P4 Abastecimiento</td>
+          </tr>
+          <tr>
+            <td>Incrementar ahorro operativo</td>
+            <td>Ahorro mensual acum. (S/)</td>
+            <td class="col-bad">S/ 0</td>
+            <td class="col-warn">S/ 2,400</td>
+            <td class="col-good">S/ 3,985</td>
+            <td>Mensual</td>
+            <td>Todas las propuestas</td>
+          </tr>
+
+          <!-- CLIENTES -->
+          <tr>
+            <td rowspan="4" class="bsc-persp-cell" style="border-left:4px solid #e74c3c;background:rgba(231,76,60,0.05)">
+              <span style="color:#e74c3c;font-weight:800">⭐ CLIENTES</span>
+            </td>
+            <td>Mejorar satisfacción del cliente</td>
+            <td>NPS (Net Promoter Score)</td>
+            <td class="col-bad">Sin KPI</td>
+            <td class="col-warn">&gt; 30</td>
+            <td class="col-good">&gt; 50</td>
+            <td>Semanal</td>
+            <td>P2 Six Sigma + QR post-servicio</td>
+          </tr>
+          <tr>
+            <td>Reducir tiempo de ciclo de servicio</td>
+            <td>Tiempo pedido → plato (min)</td>
+            <td class="col-bad">18–27 min</td>
+            <td class="col-warn">≤ 20 min</td>
+            <td class="col-good">≤ 15 min</td>
+            <td>Por turno</td>
+            <td>P2 Six Sigma DMAIC</td>
+          </tr>
+          <tr>
+            <td>Incrementar reseñas positivas digitales</td>
+            <td>Rating Rappi / PedidosYa (★)</td>
+            <td class="col-warn">Base actual</td>
+            <td class="col-warn">+0.2 ★</td>
+            <td class="col-good">+0.5 ★</td>
+            <td>Mensual</td>
+            <td>P2 + protocolo 15 pasos</td>
+          </tr>
+          <tr>
+            <td>Estandarizar consistencia del producto</td>
+            <td>% platos conformes (visual)</td>
+            <td class="col-bad">Sin KPI</td>
+            <td class="col-warn">≥ 90%</td>
+            <td class="col-good">≥ 98%</td>
+            <td>Diario</td>
+            <td>P1 Lean + ficha técnica emplatado</td>
+          </tr>
+
+          <!-- PROCESOS INTERNOS -->
+          <tr>
+            <td rowspan="4" class="bsc-persp-cell" style="border-left:4px solid #e67e22;background:rgba(230,126,34,0.05)">
+              <span style="color:#e67e22;font-weight:800">⚙️ PROCESOS</span>
+            </td>
+            <td>Reducir mermas en transformación cárnica</td>
+            <td>% merma promedio total</td>
+            <td class="col-bad">37.3%</td>
+            <td class="col-warn">30%</td>
+            <td class="col-good">22%</td>
+            <td>Diario</td>
+            <td>P1 Lean – Fichas técnicas despiece</td>
+          </tr>
+          <tr>
+            <td>Estandarizar proceso de servicio BBQ</td>
+            <td>Nivel sigma tiempos servicio</td>
+            <td class="col-bad">&lt; 2σ</td>
+            <td class="col-warn">2.5σ</td>
+            <td class="col-good">≥ 3σ</td>
+            <td>Semanal</td>
+            <td>P2 Six Sigma DMAIC</td>
+          </tr>
+          <tr>
+            <td>Optimizar abastecimiento no cárnico</td>
+            <td>% ahorro sobre compras no cárnicas</td>
+            <td class="col-bad">0%</td>
+            <td class="col-warn">−15%</td>
+            <td class="col-good">−20%</td>
+            <td>Semanal</td>
+            <td>P4 – Pedido consolidado semanal</td>
+          </tr>
+          <tr>
+            <td>Integrar KPIs operativos en Logbar</td>
+            <td>% KPIs registrados automáticos</td>
+            <td class="col-bad">0%</td>
+            <td class="col-warn">60%</td>
+            <td class="col-good">100%</td>
+            <td>Diario</td>
+            <td>P3 IoT + Dashboard KPIs</td>
+          </tr>
+
+          <!-- APRENDIZAJE Y CRECIMIENTO -->
+          <tr>
+            <td rowspan="4" class="bsc-persp-cell" style="border-left:4px solid #27ae60;background:rgba(39,174,96,0.05)">
+              <span style="color:#27ae60;font-weight:800">🎓 APREND. Y CREC.</span>
+            </td>
+            <td>Capacitar equipo en técnicas Lean BBQ</td>
+            <td>% personal capacitado fichas</td>
+            <td class="col-bad">0%</td>
+            <td class="col-warn">80%</td>
+            <td class="col-good">100%</td>
+            <td>Trimestral</td>
+            <td>P1 – Talleres nose-to-tail BBQ</td>
+          </tr>
+          <tr>
+            <td>Reducir rotación de personal de cocina</td>
+            <td>Tasa rotación anual (%)</td>
+            <td class="col-bad">Sin KPI</td>
+            <td class="col-warn">Medición</td>
+            <td class="col-good">&lt; 40%</td>
+            <td>Trimestral</td>
+            <td>Plan retención + bonos productividad</td>
+          </tr>
+          <tr>
+            <td>Implementar cultura de mejora continua</td>
+            <td>N° ciclos PHVA completados</td>
+            <td class="col-bad">0</td>
+            <td class="col-warn">2</td>
+            <td class="col-good">6+</td>
+            <td>Trimestral</td>
+            <td>Dashboard KPI + revisión semanal</td>
+          </tr>
+          <tr>
+            <td>Desplegar plataforma IoT-Logbar</td>
+            <td>% módulos IoT operativos</td>
+            <td class="col-bad">0%</td>
+            <td class="col-warn">50%</td>
+            <td class="col-good">100%</td>
+            <td>Mensual</td>
+            <td>P3 – Hardware IoT + SaaS S/800/mes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEMÁFORO BSC -->
+    <div class="grid-2" style="margin-bottom:0">
+      <div class="chart-panel">
+        <h3>🚦 Semáforo de Estado Actual por Perspectiva</h3>
+        <p class="sub">Diagnóstico inicial · Línea base Q1 2026 antes de implementar las propuestas</p>
+        <div style="margin-top:14px">
+
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;background:rgba(255,215,0,0.06);border-radius:8px;margin-bottom:10px;border:1px solid #2a2a2a">
+            <div style="width:18px;height:18px;border-radius:50%;background:#e74c3c;flex-shrink:0;box-shadow:0 0 8px rgba(231,76,60,0.6)"></div>
+            <div>
+              <div style="font-weight:800;font-size:0.9rem;color:#FFD700">💰 FINANCIERA</div>
+              <div style="font-size:0.82rem;color:#888;margin-top:3px">Costo NC 18–22% · ROI sin medir · Sin KPIs financieros integrados al sistema</div>
+            </div>
+            <div style="margin-left:auto;font-size:0.78rem;font-weight:700;color:#e74c3c;background:rgba(231,76,60,0.15);padding:4px 12px;border-radius:12px">CRÍTICO</div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;background:rgba(255,215,0,0.06);border-radius:8px;margin-bottom:10px;border:1px solid #2a2a2a">
+            <div style="width:18px;height:18px;border-radius:50%;background:#f1c40f;flex-shrink:0;box-shadow:0 0 8px rgba(241,196,15,0.5)"></div>
+            <div>
+              <div style="font-weight:800;font-size:0.9rem;color:#FFD700">⭐ CLIENTES</div>
+              <div style="font-size:0.82rem;color:#888;margin-top:3px">Tiempo 18–27 min vs 15 min meta · Sin NPS formal · Reseñas informales Rappi</div>
+            </div>
+            <div style="margin-left:auto;font-size:0.78rem;font-weight:700;color:#f1c40f;background:rgba(241,196,15,0.12);padding:4px 12px;border-radius:12px">ALERTA</div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;background:rgba(255,215,0,0.06);border-radius:8px;margin-bottom:10px;border:1px solid #2a2a2a">
+            <div style="width:18px;height:18px;border-radius:50%;background:#e74c3c;flex-shrink:0;box-shadow:0 0 8px rgba(231,76,60,0.6)"></div>
+            <div>
+              <div style="font-weight:800;font-size:0.9rem;color:#FFD700">⚙️ PROCESOS INTERNOS</div>
+              <div style="font-size:0.82rem;color:#888;margin-top:3px">Mermas 37.3% · Compras retail diarias · Sin estandarización técnica de despiece</div>
+            </div>
+            <div style="margin-left:auto;font-size:0.78rem;font-weight:700;color:#e74c3c;background:rgba(231,76,60,0.15);padding:4px 12px;border-radius:12px">CRÍTICO</div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;background:rgba(255,215,0,0.06);border-radius:8px;border:1px solid #2a2a2a">
+            <div style="width:18px;height:18px;border-radius:50%;background:#f1c40f;flex-shrink:0;box-shadow:0 0 8px rgba(241,196,15,0.5)"></div>
+            <div>
+              <div style="font-weight:800;font-size:0.9rem;color:#FFD700">🎓 APRENDIZAJE Y CRECIMIENTO</div>
+              <div style="font-size:0.82rem;color:#888;margin-top:3px">Inducción 15 días existente · Alta rotación · Sin cultura PHVA ni KPIs formales</div>
+            </div>
+            <div style="margin-left:auto;font-size:0.78rem;font-weight:700;color:#f1c40f;background:rgba(241,196,15,0.12);padding:4px 12px;border-radius:12px">ALERTA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-panel">
+        <h3>📊 Puntaje BSC por Perspectiva – Actual vs. Meta 18m</h3>
+        <p class="sub">Escala 0–100 · Estimación basada en cumplimiento de KPIs del modelo optimizado</p>
+        <div class="chart-wrap" style="margin-top:10px"><canvas id="chartBSCRadar" height="260"></canvas></div>
+      </div>
+    </div>
+
+  </div><!-- /tab-bsc -->
+
+</div><!-- /content -->
+
+<footer>
+  Dashboard de Optimización · Restaurante Mis Costillitas RE-05 · Mall Aventura Arequipa ·
+  Trabajo Final – Cadenas Productivas · MBA Gerencia de Marketing y Ventas · UNSA 2026 ·
+  Grupo 1: Beltran · Diaz · Mayorga · Rivera · Valdez · Vásquez
+</footer>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script>
+/* ── HELPERS ── */
+const C = (id) => document.getElementById(id).getContext('2d');
+const MONTHS = ['Base','Mes 3','Mes 6','Mes 9','Mes 12','Mes 15','Mes 18'];
+
+const DEF_OPT = {
+  responsive: true,
+  plugins: {
+    legend: { labels: { color: '#cccccc', font: { size: 13 }, padding: 14 } },
+    tooltip: { backgroundColor: '#1a1a1a', borderColor: '#FFD700', borderWidth: 1, titleColor: '#FFD700', titleFont: { size: 13 }, bodyColor: '#aaaaaa', bodyFont: { size: 12 }, padding: 10 }
+  },
+  scales: {
+    x: { ticks: { color: '#888', font: { size: 12 } }, grid: { color: 'rgba(255,255,255,0.03)' } },
+    y: { ticks: { color: '#888', font: { size: 12 } }, grid: { color: 'rgba(255,255,255,0.05)' } }
+  }
+};
+
+/* ── 1. Merma Línea (Resumen) ── */
+new Chart(C('chartMermaLinea'), {
+  type: 'line',
+  data: {
+    labels: MONTHS,
+    datasets: [
+      { label: 'Merma Real/Proyectada (%)', data: [37.3, 34, 30, 27, 25, 23, 22],
+        borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.1)', tension: 0.4, fill: true, pointRadius: 5, pointBackgroundColor: '#e74c3c' },
+      { label: 'Meta Lean (%)', data: [22, 22, 22, 22, 22, 22, 22],
+        borderColor: '#27ae60', borderDash: [6,4], tension: 0, pointRadius: 0, fill: false }
+    ]
+  },
+  options: { ...DEF_OPT, scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, min: 0, max: 50, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => v + '%' } } } }
+});
+
+/* ── 2. Ahorro Acumulado (Resumen) ── */
+new Chart(C('chartAhorroAcumulado'), {
+  type: 'bar',
+  data: {
+    labels: ['Mes 3', 'Mes 6', 'Mes 9', 'Mes 12', 'Mes 15', 'Mes 18'],
+    datasets: [
+      { label: 'Ahorro Acumulado (S/)', data: [6000, 12000, 24000, 38000, 55000, 71730],
+        backgroundColor: ['rgba(255,215,0,0.4)','rgba(255,215,0,0.5)','rgba(255,215,0,0.6)','rgba(255,215,0,0.7)','rgba(255,215,0,0.8)','rgba(255,215,0,0.95)'],
+        borderColor: '#FFD700', borderWidth: 1, borderRadius: 5 },
+      { label: 'Inversión acumulada (S/)', data: [3200, 6400, 9600, 10400, 12000, 12800],
+        backgroundColor: 'rgba(231,76,60,0.25)', borderColor: '#e74c3c', borderWidth: 1, borderRadius: 5, type: 'bar' }
+    ]
+  },
+  options: { ...DEF_OPT, scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => 'S/' + v.toLocaleString() } } } }
+});
+
+/* ── 3. Inversión Donut (Resumen) ── */
+new Chart(C('chartInversion'), {
+  type: 'doughnut',
+  data: {
+    labels: ['P1 Lean Despiece (S/1,200)', 'P4 Abastecimiento (S/600)', 'P2 Six Sigma (S/2,400)', 'P3 IoT+Dashboard (S/4,300)', 'P5 Sostenibilidad (S/4,300)'],
+    datasets: [{ data: [1200, 600, 2400, 4300, 4300],
+      backgroundColor: ['#FFD700','#FFA500','#e74c3c','#888','#555'],
+      borderColor: '#0d0d0d', borderWidth: 3 }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#cccccc', font: { size: 10 }, padding: 12 } },
+      tooltip: { backgroundColor: '#1a1a1a', borderColor: '#FFD700', borderWidth: 1, titleColor: '#FFD700', bodyColor: '#aaa', callbacks: { label: ctx => ` ${ctx.label}: S/${ctx.raw.toLocaleString()} (${Math.round(ctx.raw/128)}%)` } }
+    },
+    cutout: '62%'
+  }
+});
+
+/* ── 4. Merma por producto (Mermas tab) ── */
+new Chart(C('chartMermaProducto'), {
+  type: 'bar',
+  data: {
+    labels: ['Alitas de Pollo', 'Panceta de Cerdo', 'Costillas de Cerdo', 'Otras Carnes'],
+    datasets: [
+      { label: 'Merma Actual (%)', data: [45, 38, 35, 31],
+        backgroundColor: 'rgba(231,76,60,0.75)', borderColor: '#e74c3c', borderWidth: 1, borderRadius: 4 },
+      { label: 'Meta Lean (%)', data: [28, 22, 20, 18],
+        backgroundColor: 'rgba(39,174,96,0.65)', borderColor: '#27ae60', borderWidth: 1, borderRadius: 4 }
+    ]
+  },
+  options: { ...DEF_OPT, scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, max: 55, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => v + '%' } } } }
+});
+
+/* ── 5. Impacto económico merma ── */
+new Chart(C('chartImpactoMerma'), {
+  type: 'bar',
+  data: {
+    labels: ['Alitas', 'Panceta', 'Costillas', 'Otras'],
+    datasets: [
+      { label: 'Impacto mensual actual (S/)', data: [610, 390, 520, 285],
+        backgroundColor: ['rgba(231,76,60,0.8)','rgba(230,126,34,0.8)','rgba(241,196,15,0.7)','rgba(189,195,199,0.7)'],
+        borderWidth: 1, borderRadius: 5 }
+    ]
+  },
+  options: { ...DEF_OPT, scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => 'S/' + v } } },
+    plugins: { ...DEF_OPT.plugins, legend: { display: false } } }
+});
+
+/* ── 6. Merma Trayectoria completa ── */
+new Chart(C('chartMermaTrayectoria'), {
+  type: 'line',
+  data: {
+    labels: ['Base (Q1)', 'Mes 3', 'Mes 6', 'Mes 9', 'Mes 12', 'Mes 15', 'Mes 18'],
+    datasets: [
+      { label: 'Merma Promedio (%)', data: [37.3, 34, 30, 27, 25, 23, 22],
+        borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.12)', tension: 0.4, fill: true, pointRadius: 6, pointBackgroundColor: '#e74c3c', pointBorderColor: '#fff', pointBorderWidth: 2 },
+      { label: 'Meta Lean 22%', data: [22,22,22,22,22,22,22], borderColor: '#27ae60', borderDash: [8,4], pointRadius: 0, fill: false },
+      { label: 'Ahorro acum. S/ (÷100)', data: [0, 18, 54, 105, 127, 159, 217],
+        borderColor: '#f1c40f', backgroundColor: 'rgba(241,196,15,0.08)', tension: 0.4, fill: false, pointRadius: 4, pointBackgroundColor: '#f1c40f', yAxisID: 'y2' }
+    ]
+  },
+  options: {
+    ...DEF_OPT,
+    scales: {
+      x: DEF_OPT.scales.x,
+      y: { ...DEF_OPT.scales.y, min:0, max:50, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => v + '%' }, title: { display: true, text: 'Merma (%)', color: '#95a5a6', font: { size: 10 } } },
+      y2: { position: 'right', min:0, ticks: { color: '#f1c40f', font: { size: 9 }, callback: v => 'S/' + (v*100).toLocaleString() }, grid: { display: false }, title: { display: true, text: 'Ahorro acum. S/', color: '#f1c40f', font: { size: 9 } } }
+    }
+  }
+});
+
+/* ── 7. Servicio Línea ── */
+new Chart(C('chartServicioLinea'), {
+  type: 'line',
+  data: {
+    labels: ['Base', 'Mes 3', 'Mes 6', 'Mes 9', 'Mes 12', 'Mes 15', 'Mes 18'],
+    datasets: [
+      { label: 'Tiempo Ciclo Máximo (min)', data: [27, 25, 22, 20, 18, 16, 15],
+        borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.12)', tension: 0.4, fill: false, pointRadius: 5, pointBackgroundColor: '#e74c3c' },
+      { label: 'Tiempo Ciclo Promedio (min)', data: [22, 20, 19, 17, 16, 15.5, 15],
+        borderColor: '#f1c40f', tension: 0.4, fill: false, pointRadius: 5, pointBackgroundColor: '#f1c40f' },
+      { label: 'Meta Franquicia 15 min', data: [15,15,15,15,15,15,15],
+        borderColor: '#27ae60', borderDash: [8,4], pointRadius: 0, fill: false }
+    ]
+  },
+  options: { ...DEF_OPT, scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, min:10, max:30, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => v + ' min' } } } }
+});
+
+/* ── 8. SERVQUAL Radar ── */
+new Chart(C('chartServqual'), {
+  type: 'radar',
+  data: {
+    labels: ['Fiabilidad', 'Cap. Respuesta', 'Accesibilidad', 'Cortesía', 'Comunicación', 'Credibilidad', 'Seguridad', 'Profesionalidad', 'Tangibles', 'Comprensión'],
+    datasets: [
+      { label: 'Estado Actual', data: [3, 2, 5, 4, 4, 4, 4, 3, 5, 3],
+        borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.12)', pointBackgroundColor: '#e74c3c', pointRadius: 4 },
+      { label: 'Meta Modelo Optimizado', data: [5, 5, 5, 5, 5, 5, 5, 4, 5, 5],
+        borderColor: '#FFD700', backgroundColor: 'rgba(255,215,0,0.08)', pointBackgroundColor: '#FFD700', pointRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { labels: { color: '#cccccc', font: { size: 13 }, padding: 14 } },
+      tooltip: { backgroundColor: '#1a1a1a', borderColor: '#FFD700', borderWidth: 1, titleColor: '#FFD700', titleFont: { size: 13 }, bodyColor: '#aaa', bodyFont: { size: 12 } } },
+    scales: {
+      r: {
+        min: 0, max: 5,
+        ticks: { stepSize: 1, color: '#666', backdropColor: 'transparent', font: { size: 11 } },
+        grid: { color: 'rgba(255,255,255,0.06)' },
+        pointLabels: { color: '#ddd', font: { size: 12 } },
+        angleLines: { color: 'rgba(255,255,255,0.05)' }
+      }
+    }
+  }
+});
+
+/* ── 9. Costo-Beneficio (Financiero) ── */
+new Chart(C('chartCostoBeneficio'), {
+  type: 'bar',
+  data: {
+    labels: ['P1 – Lean', 'P2 – Six Sigma', 'P3 – IoT/KPI', 'P4 – Abastech.', 'P5 – Sostenib.'],
+    datasets: [
+      { label: 'Inversión (S/)', data: [1200, 2400, 4300, 600, 4300],
+        backgroundColor: 'rgba(231,76,60,0.7)', borderColor: '#e74c3c', borderWidth: 1, borderRadius: 4 },
+      { label: 'Ahorro mensual (S/)', data: [1805, 650, 420, 800, 310],
+        backgroundColor: 'rgba(39,174,96,0.7)', borderColor: '#27ae60', borderWidth: 1, borderRadius: 4 }
+    ]
+  },
+  options: { ...DEF_OPT, scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => 'S/' + v.toLocaleString() } } } }
+});
+
+/* ── 10. ROI Acumulado ── */
+new Chart(C('chartROIAcumulado'), {
+  type: 'line',
+  data: {
+    labels: ['Mes 0','Mes 3','Mes 6','Mes 9','Mes 12','Mes 15','Mes 18'],
+    datasets: [
+      { label: 'Ahorro Acumulado (S/)', data: [0, 11955, 23910, 35865, 47820, 59775, 71730],
+        borderColor: '#FFD700', backgroundColor: 'rgba(255,215,0,0.08)', tension: 0.4, fill: true, pointRadius: 5, pointBackgroundColor: '#FFD700', pointBorderColor: '#0d0d0d', pointBorderWidth: 2 },
+      { label: 'Inversión Acumulada (S/)', data: [0, 3200, 6400, 9600, 10400, 12000, 12800],
+        borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.07)', tension: 0.3, fill: true, pointRadius: 5, pointBackgroundColor: '#e74c3c' }
+    ]
+  },
+  options: { ...DEF_OPT, scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => 'S/' + v.toLocaleString() } } } }
+});
+
+/* ── 11. Residuos Orgánicos ── */
+new Chart(C('chartResiduos'), {
+  type: 'bar',
+  data: {
+    labels: ['Base', '6 meses', '12 meses', '18 meses'],
+    datasets: [
+      { label: 'Residuos orgánicos (kg/mes)', data: [200, 175, 155, 140],
+        backgroundColor: ['rgba(231,76,60,0.8)','rgba(241,196,15,0.7)','rgba(46,163,72,0.65)','rgba(39,174,96,0.85)'],
+        borderWidth: 1, borderRadius: 6 }
+    ]
+  },
+  options: { ...DEF_OPT,
+    plugins: { ...DEF_OPT.plugins, legend: { display: false } },
+    scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, min: 100, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => v + ' kg' } } }
+  }
+});
+
+/* ── 12. CO₂ ── */
+new Chart(C('chartCO2'), {
+  type: 'line',
+  data: {
+    labels: ['Base', '6 meses', '12 meses', '18 meses'],
+    datasets: [
+      { label: 'Reducción CO₂ equivalente (%)', data: [0, -8, -18, -28],
+        borderColor: '#3498db', backgroundColor: 'rgba(52,152,219,0.15)', tension: 0.4, fill: true, pointRadius: 7, pointBackgroundColor: '#3498db', pointBorderColor: '#fff', pointBorderWidth: 2 }
+    ]
+  },
+  options: { ...DEF_OPT, scales: { ...DEF_OPT.scales, y: { ...DEF_OPT.scales.y, ticks: { ...DEF_OPT.scales.y.ticks, callback: v => v + '%' } } } }
+});
+
+/* ── 13. GANTT simplificado ── */
+new Chart(C('chartGantt'), {
+  type: 'bar',
+  data: {
+    labels: ['P1 – Lean Despiece', 'P2 – Six Sigma', 'P3 – IoT + Dashboard', 'P4 – Abastecimiento', 'P5 – Sostenibilidad'],
+    datasets: [
+      { label: 'Inicio (mes)', data: [0,0,0,0,0], backgroundColor: 'transparent', barThickness: 18 },
+      { label: 'Duración', data: [9,15,18,9,18],
+        backgroundColor: ['rgba(255,215,0,0.85)','rgba(255,165,0,0.75)','rgba(231,76,60,0.7)','rgba(255,215,0,0.5)','rgba(136,136,136,0.6)'],
+        borderRadius: 4, barThickness: 18,
+        borderColor: ['#FFD700','#FFA500','#e74c3c','#FFD700','#888'], borderWidth: 1
+      }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#ecf0f1', font: { size: 11 }, filter: (item) => item.text !== 'Inicio (mes)' } },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => {
+            if (ctx.datasetIndex === 1) return ` Meses 1–${ctx.raw} de implementación`;
+            return null;
+          }
+        }
+      }
+    },
+    scales: {
+      x: { stacked: true, ticks: { color: '#888', font: { size: 12 }, callback: v => 'Mes ' + v }, grid: { color: 'rgba(255,255,255,0.04)' }, max: 18 },
+      y: { stacked: true, ticks: { color: '#ddd', font: { size: 12 } }, grid: { display: false } }
+    }
+  }
+});
+
+/* ── 14. BSC Radar ── */
+new Chart(C('chartBSCRadar'), {
+  type: 'radar',
+  data: {
+    labels: ['Financiera', 'Clientes', 'Procesos\nInternos', 'Aprendizaje\ny Crecimiento'],
+    datasets: [
+      {
+        label: 'Estado Actual (Línea base Q1 2026)',
+        data: [12, 38, 22, 30],
+        borderColor: '#e74c3c',
+        backgroundColor: 'rgba(231,76,60,0.15)',
+        pointBackgroundColor: '#e74c3c',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 6,
+        borderWidth: 2
+      },
+      {
+        label: 'Meta 6 meses',
+        data: [45, 60, 55, 55],
+        borderColor: '#f1c40f',
+        backgroundColor: 'rgba(241,196,15,0.08)',
+        pointBackgroundColor: '#f1c40f',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        borderDash: [5,3],
+        borderWidth: 2
+      },
+      {
+        label: 'Meta 18 meses (modelo optimizado)',
+        data: [90, 88, 85, 82],
+        borderColor: '#FFD700',
+        backgroundColor: 'rgba(255,215,0,0.1)',
+        pointBackgroundColor: '#FFD700',
+        pointBorderColor: '#0d0d0d',
+        pointBorderWidth: 2,
+        pointRadius: 6,
+        borderWidth: 2.5
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#ccc', font: { size: 12 }, padding: 16 } },
+      tooltip: {
+        backgroundColor: '#1a1a1a', borderColor: '#FFD700', borderWidth: 1,
+        titleColor: '#FFD700', titleFont: { size: 13 },
+        bodyColor: '#aaa', bodyFont: { size: 12 }, padding: 10,
+        callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}/100` }
+      }
+    },
+    scales: {
+      r: {
+        min: 0, max: 100,
+        ticks: { stepSize: 20, color: '#555', backdropColor: 'transparent', font: { size: 11 } },
+        grid: { color: 'rgba(255,255,255,0.07)' },
+        pointLabels: { color: '#FFD700', font: { size: 13, weight: 'bold' } },
+        angleLines: { color: 'rgba(255,255,255,0.06)' }
+      }
+    }
+  }
+});
+
+/* ── TAB SWITCH ── */
+function switchTab(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
+
+</body>
+</html>
