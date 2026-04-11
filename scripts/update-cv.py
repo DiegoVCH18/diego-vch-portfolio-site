@@ -27,12 +27,21 @@ def build_cover_pdf(work_dir: Path) -> Path:
 \begin{document}
 
 {\Huge\bfseries Diego Armando Vasquez Chavez\par}
-{\Large Consultor de Datos \& Business Intelligence \textbar{} Power BI \textbar{} Data Analytics \textbar{} Desarrollador Web Full Stack\par}
+{\Large Consultor de Datos \& Business Intelligence \textbar{} Automatizaci\'on \textbar{} Desarrollo Web Full Stack\par}
 
 \vspace{0.4cm}
 
-{\large Perfil comercial}\par
-Transformo datos, procesos y necesidades de negocio en soluciones listas para operar. Combino gesti\'on y an\'alisis de datos en Microsoft 365, dashboards ejecutivos en Power BI, automatizaci\'on de reportes y desarrollo web para entregar productos claros, escalables y enfocados en resultados.
+{\large Propuesta de valor}\par
+Ayudo a empresas e instituciones a convertir procesos manuales en soluciones digitales que ahorran tiempo, reducen errores y mejoran la toma de decisiones. Combino gesti\'on y an\'alisis de datos en Microsoft 365, dashboards ejecutivos en Power BI, automatizaci\'on de reportes y desarrollo web a medida para entregar resultados visibles y medibles.
+
+\vspace{0.15cm}
+
+{\large Servicios de consultor\'ia}\par
+\begin{itemize}
+  \item \textbf{Business Intelligence}: tableros ejecutivos, KPIs y seguimiento de gesti\'on para direcciones y equipos operativos.
+  \item \textbf{Automatizaci\'on de reportes}: flujos con Excel, Power Query, VBA y Apps Script para bajar tiempos de consolidaci\'on y error manual.
+  \item \textbf{Desarrollo Web Full Stack}: aplicaciones web, PWA y portales internos con frontend, l\'ogica de negocio, persistencia y despliegue en Vercel.
+\end{itemize}
 
 \vspace{0.2cm}
 
@@ -46,7 +55,7 @@ Transformo datos, procesos y necesidades de negocio en soluciones listas para op
 \vspace{0.1cm}
 
 {\large Enfoque de trabajo}\par
-Construyo experiencias web completas que ayudan a vender, operar y escalar: interfaz, l\'ogica de negocio, persistencia de datos, integraciones y despliegue.
+Diagn\'ostico r\'apido, propuesta clara, implementaci\'on ordenada y acompa\~namiento hasta que la soluci\'on quede operativa y adoptada por el equipo.
 
 \vfill
 
