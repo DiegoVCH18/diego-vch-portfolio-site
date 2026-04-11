@@ -1059,6 +1059,23 @@
       transition: all 0.2s ease;
     }
     .project-link:hover { border-color: var(--accent); color: var(--accent); }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.2rem;
+    }
+    .tech-tag {
+      font-size: 0.68rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--accent2);
+      border: 1px solid rgba(255,183,3,0.35);
+      border-radius: 999px;
+      padding: 0.18rem 0.55rem;
+      background: rgba(255,183,3,0.07);
+      letter-spacing: 0.04em;
+    }
 
     .logos-trust {
       background: rgba(16, 31, 43, 0.45);
@@ -2134,7 +2151,14 @@
           <div class="project-body">
             <span class="project-tag">EdFinTech + IA</span>
             <h3 class="project-name">IAhorra CERTUS</h3>
-            <p class="project-desc">IAhorra 2.0: solución EdFinTech completa (web app) presentada para la Semana Mundial del Ahorro 2026 (SBS), evolucionada desde IAhorra 2025, asistente de IA conversacional ganador del 1.er lugar SBS.</p>
+            <p class="project-desc">Plataforma web EdFinTech de orientación financiera juvenil &mdash; ganadora del 1.er lugar SBS 2025 y evolucionada a IAhorra 2.0 para la Semana Mundial del Ahorro 2026. Asistente de IA conversacional + simuladores interactivos.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Gemini AI</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
             <div class="project-actions">
               <a class="project-link" href="https://iahorra-certus.vercel.app" target="_blank" rel="noopener noreferrer">Ver demo</a>
               <a class="project-link" href="https://github.com/DiegoVCH18/iahorra-certus" target="_blank" rel="noopener noreferrer">Repositorio</a>
@@ -2145,9 +2169,36 @@
 
         <article class="project-card reveal">
           <div class="project-body">
+            <span class="project-tag">EdFinTech + Data Management</span>
+            <h3 class="project-name">Módulo Evaluador MYPE CERTUS</h3>
+            <p class="project-desc">Aplicación web multi-rol para simulación académica de evaluación crediticia MYPE. Incluye autenticación, scoring cualitativo y cuantitativo, revisión docente, auditoría externa y reporte final en PDF.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Vercel</span>
+              <span class="tech-tag">PDF.js</span>
+            </div>
+            <div class="project-actions">
+              <a class="project-link" href="https://modulo-evaluador-web.vercel.app/reporte" target="_blank" rel="noopener noreferrer">Ver demo</a>
+              <a class="project-link" href="https://github.com/DiegoVCH18/modulo-evaluador-mype" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              <a class="project-link" href="proyectos/modulo-evaluador-mype.html">Ficha del proyecto</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-body">
             <span class="project-tag">BI + ML + Automatización</span>
             <h3 class="project-name">Minimarket Aurelion | Data &amp; AI Retail Intelligence</h3>
-            <p class="project-desc">Proyecto integral para retail con pipeline reproducible: simulación y limpieza de datos, EDA, segmentación ABC y scoring de churn para priorización comercial y fidelización basada en valor y riesgo.</p>
+            <p class="project-desc">Pipeline reproducible de analítica retail: simulación y limpieza de datos, EDA, segmentación ABC y scoring de churn para priorizar clientes, campañas y decisiones comerciales con evidencia.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">ETL</span>
+            </div>
             <div class="project-actions">
               <a class="project-link" href="proyectos/minimarket-aurelion.html">Ficha del proyecto</a>
               <a class="project-link" href="https://app.powerbi.com/view?r=eyJrIjoiODUxMThiNjMtNzY3NC00MzEwLWFiN2MtZTUxOTRmZTBhZDNhIiwidCI6IjVjZTc1OWViLWYzNDYtNDljOC1hNTA2LWY4ODM5MTA3ZWMzOCIsImMiOjR9" target="_blank" rel="noopener noreferrer">Dashboard</a>
@@ -2158,13 +2209,17 @@
 
         <article class="project-card reveal">
           <div class="project-body">
-            <span class="project-tag">Machine Learning</span>
-            <h3 class="project-name">Academic Performance Prediction - CERTUS</h3>
-            <p class="project-desc">Prediccion de rendimiento y permanencia sobre ~7,000 registros por ciclo con Random Forest, XGBoost y CatBoost; app desplegada en HuggingFace.</p>
+            <span class="project-tag">EdTech + Simulación</span>
+            <h3 class="project-name">Simulador SIAF Comercial</h3>
+            <p class="project-desc">Simulador académico de procesos operativos y comerciales que replica las transacciones financieras del SIAF y genera reportes automáticos. Usado para formación práctica en banca y finanzas en CERTUS.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">VBA</span>
+              <span class="tech-tag">Excel</span>
+              <span class="tech-tag">Power Query</span>
+            </div>
             <div class="project-actions">
-              <a class="project-link" href="https://huggingface.co/spaces/Diegovch18/PROYECTO_CERTUS" target="_blank" rel="noopener noreferrer">App ML</a>
-              <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Portafolio tecnico</a>
-              <a class="project-link" href="proyectos/academic-performance-prediction.html">Ficha del proyecto</a>
+              <a class="project-link" href="https://github.com/DiegoVCH18/SIMULADOR-DE-CAJA-SIAF" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              <a class="project-link" href="proyectos/simulador-siaf-comercial.html">Ficha del proyecto</a>
             </div>
           </div>
         </article>
@@ -2172,35 +2227,36 @@
         <article class="project-card reveal">
           <div class="project-body">
             <span class="project-tag">Business Intelligence</span>
-            <h3 class="project-name">Customer Experience and Loyalty Dashboard</h3>
-            <p class="project-desc">Dashboard ejecutivo con CSAT, NPS y riesgo de churn para decisiones de servicio y retencion, usando Data Storytelling y modelo de indicadores.</p>
+            <h3 class="project-name">Customer Experience &amp; Loyalty Dashboard</h3>
+            <p class="project-desc">Dashboard ejecutivo con CSAT, NPS y riesgo de churn para priorizar decisiones de servicio, experiencia y retención. Modelo de indicadores con Data Storytelling orientado a gerencia.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">DAX</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Data Storytelling</span>
+            </div>
             <div class="project-actions">
-                <a class="project-link" href="https://app.powerbi.com/view?r=eyJrIjoiMGE4YTQ0MTctOTcyOS00ZWIwLTk5YTctYTMwNGYzYWIzZGFlIiwidCI6IjVjZTc1OWViLWYzNDYtNDljOC1hNTA2LWY4ODM5MTA3ZWMzOCIsImMiOjR9" target="_blank" rel="noopener noreferrer">Ver caso</a>
+              <a class="project-link" href="https://app.powerbi.com/view?r=eyJrIjoiMGE4YTQ0MTctOTcyOS00ZWIwLTk5YTctYTMwNGYzYWIzZGFlIiwidCI6IjVjZTc1OWViLWYzNDYtNDljOC1hNTA2LWY4ODM5MTA3ZWMzOCIsImMiOjR9" target="_blank" rel="noopener noreferrer">Ver dashboard</a>
               <a class="project-link" href="proyectos/customer-experience-loyalty-dashboard.html">Ficha del proyecto</a>
             </div>
           </div>
         </article>
-
         <article class="project-card reveal">
           <div class="project-body">
-            <span class="project-tag">Automatización de reportes</span>
-            <h3 class="project-name">Sistema automatizado para MIBANCO</h3>
-            <p class="project-desc">Integración de Excel VBA, Power Query y Apps Script para consolidación mensual, dashboards de productividad y reportes de desempeño por agencia.</p>
-            <div class="project-actions">
-              <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Ver referencia</a>
-              <a class="project-link" href="proyectos/automatizacion-reportes-mibanco.html">Ficha del proyecto</a>
+            <span class="project-tag">Machine Learning</span>
+            <h3 class="project-name">Academic Performance Prediction &mdash; CERTUS</h3>
+            <p class="project-desc">Modelo predictivo sobre ~7,000 registros por ciclo para anticipar riesgo académico y activar intervenciones tempranas. Pipeline completo: limpieza, EDA, Random Forest, XGBoost y CatBoost; app desplegada en HuggingFace.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">XGBoost</span>
+              <span class="tech-tag">Random Forest</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">HuggingFace</span>
             </div>
-          </div>
-        </article>
-        <article class="project-card reveal">
-          <div class="project-body">
-            <span class="project-tag">EdFinTech + Data Management</span>
-            <h3 class="project-name">Módulo Evaluador MYPE CERTUS</h3>
-            <p class="project-desc">Aplicación web para simulación académica de evaluación crediticia MYPE con autenticación, persistencia, scoring cualitativo y cuantitativo, revisión docente y reporte final en PDF.</p>
             <div class="project-actions">
-              <a class="project-link" href="https://modulo-evaluador-web.vercel.app/reporte" target="_blank" rel="noopener noreferrer">Ver demo</a>
-              <a class="project-link" href="https://github.com/DiegoVCH18/modulo-evaluador-mype" target="_blank" rel="noopener noreferrer">Repositorio</a>
-              <a class="project-link" href="proyectos/modulo-evaluador-mype.html">Ficha del proyecto</a>
+              <a class="project-link" href="https://huggingface.co/spaces/Diegovch18/PROYECTO_CERTUS" target="_blank" rel="noopener noreferrer">App ML</a>
+              <a class="project-link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              <a class="project-link" href="proyectos/academic-performance-prediction.html">Ficha del proyecto</a>
             </div>
           </div>
         </article>
