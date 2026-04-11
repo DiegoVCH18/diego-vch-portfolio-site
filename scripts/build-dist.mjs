@@ -13,7 +13,8 @@ const htmlEntries = [
   "proyectos/customer-experience-loyalty-dashboard.html",
   "proyectos/automatizacion-reportes-mibanco.html",
   "proyectos/minimarket-aurelion.html",
-  "proyectos/modulo-evaluador-mype.html"
+  "proyectos/modulo-evaluador-mype.html",
+  "proyectos/simulador-siaf-comercial.html"
 ];
 
 const minifyOptions = {

@@ -31,6 +31,7 @@
       --surface: #0f1c32;
       --surface2: #142744;
       --accent: #00e0ff;
+      --accent2: #ffb703;
       --text: #f7fbff;
       --muted: #a7bdd4;
       --border: rgba(0, 224, 255, 0.28);
@@ -156,6 +157,23 @@
     .link:hover {
       border-color: rgba(0,224,255,0.52);
       color: var(--accent);
+    }
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.2rem;
+    }
+    .tech-tag {
+      font-size: 0.68rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--accent2);
+      border: 1px solid rgba(255,183,3,0.35);
+      border-radius: 999px;
+      padding: 0.18rem 0.55rem;
+      background: rgba(255,183,3,0.07);
+      letter-spacing: 0.04em;
     }
     footer {
       border-top: 1px solid var(--border);
@@ -293,10 +311,16 @@
       </article>
 
       <article class="card">
-        <span class="tag">Simulador VBA</span>
+        <span class="tag">EdTech + Simulación</span>
         <h2>Simulador SIAF Comercial</h2>
-        <p>Simulador acad&eacute;mico de procesos operativos y comerciales que replica transacciones financieras y genera reportes autom&aacute;ticos para entrenamiento pr&aacute;ctico.</p>
+        <p>Simulador acad&eacute;mico de procesos operativos y comerciales que replica las transacciones financieras del SIAF y genera reportes autom&aacute;ticos. Usado para formaci&oacute;n pr&aacute;ctica en banca y finanzas en CERTUS.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">VBA</span>
+          <span class="tech-tag">Excel</span>
+          <span class="tech-tag">Power Query</span>
+        </div>
         <div class="actions">
+          <a class="link" href="proyectos/simulador-siaf-comercial.html">Ver ficha</a>
           <a class="link" href="https://github.com/DiegoVCH18/SIMULADOR-DE-CAJA-SIAF" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </article>
