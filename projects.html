@@ -1,30 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyectos de Data Management, BI y Analytics | Diego Vasquez Chavez</title>
-  <meta name="description" content="Portafolio ejecutivo con casos de Data Management, BI, Data Analytics, automatizaci&oacute;n y Machine Learning aplicados a decisiones de negocio." />
-  <meta name="keywords" content="Proyectos de datos, Business Intelligence, Power BI, ETL, SQL, Python, Machine Learning" />
+  <title>Resultados | Diego Vasquez</title>
+  <meta name="description" content="Resultados de Diego Vasquez en Data Management, Business Intelligence, Data Analytics, automatización y Machine Learning aplicados a decisiones de negocio." />
+  <meta name="keywords" content="Diego Vasquez, resultados, Business Intelligence, Power BI, ETL, SQL, Python, Machine Learning" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/diego_logo_assets/favicon-32.png?v=5" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/diego_logo_assets/favicon-16.png?v=5" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/diego_logo_assets/apple-touch-icon.png?v=5" />
-  <link rel="canonical" href="https://diego-vch-portfolio-site.vercel.app/projects" />
+  <link rel="canonical" href="https://diegovch-site.vercel.app/projects.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Proyectos de Data Management, BI y Analytics | Diego Vasquez Chavez" />
-  <meta property="og:description" content="Casos ejecutivos en BI, anal&iacute;tica, automatizaci&oacute;n y Machine Learning para productividad, retenci&oacute;n y control de gesti&oacute;n." />
-  <meta property="og:url" content="https://diego-vch-portfolio-site.vercel.app/projects" />
-  <meta property="og:image" content="https://diego-vch-portfolio-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <meta property="og:title" content="Resultados | Diego Vasquez" />
+  <meta property="og:description" content="Resultados en BI, analítica, automatización y Machine Learning para productividad, retención y control de gestión." />
+  <meta property="og:url" content="https://diegovch-site.vercel.app/projects.html" />
+  <meta property="og:image" content="https://diegovch-site.vercel.app/assets/diego-hero-alt.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Identidad visual profesional de Diego Vasquez Chavez" />
+  <meta property="og:image:alt" content="Resultados de Diego Vasquez" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Proyectos de Data Management, BI y Analytics | Diego Vasquez Chavez" />
-  <meta name="twitter:description" content="Casos aplicados para acelerar decisiones con BI, Data Analytics, automatizaci&oacute;n y Machine Learning." />
-  <meta name="twitter:image" content="https://diego-vch-portfolio-site.vercel.app/assets/diego-hero-alt.jpg" />
-  <meta name="twitter:image:alt" content="Portafolio profesional de proyectos de datos y BI" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <meta name="twitter:title" content="Resultados | Diego Vasquez" />
+  <meta name="twitter:description" content="Resultados aplicados para acelerar decisiones con BI, Data Analytics, automatización y Machine Learning." />
+  <meta name="twitter:image" content="https://diegovch-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <meta name="twitter:image:alt" content="Resultados de Diego Vasquez" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --bg: #070f1f;
@@ -35,14 +37,19 @@
       --text: #f7fbff;
       --muted: #a7bdd4;
       --border: rgba(0, 224, 255, 0.28);
+      --font-display: "Space Grotesk", sans-serif;
+      --font-body: "Manrope", sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: "DM Sans", sans-serif;
+      font-family: var(--font-body);
+      font-size: 1rem;
       background: radial-gradient(circle at 0% 0%, rgba(0,224,255,0.14), transparent 35%), var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.76;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
     nav {
       width: 100%;
@@ -78,9 +85,11 @@
       margin-bottom: 1.4rem;
     }
     .title {
-      font-family: "Syne", sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(1.8rem, 4vw, 2.5rem);
       line-height: 1.2;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
     }
     .back {
       text-decoration: none;
@@ -109,16 +118,17 @@
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1rem;
+      border-radius: 18px;
+      padding: 1.05rem;
       display: flex;
       flex-direction: column;
       height: 100%;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
     .card:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       border-color: rgba(0,224,255,0.42);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.22);
     }
     .tag {
       color: var(--accent);
@@ -129,13 +139,15 @@
       display: inline-block;
     }
     .card h2 {
-      font-family: "Syne", sans-serif;
+      font-family: var(--font-display);
       font-size: 1.05rem;
       margin-bottom: 0.45rem;
+      letter-spacing: -0.02em;
     }
     .card p {
       color: var(--muted);
       font-size: 0.92rem;
+      line-height: 1.7;
       flex: 1;
     }
     .actions {
@@ -167,7 +179,7 @@
     }
     .tech-tag {
       font-size: 0.68rem;
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--font-body);
       color: var(--accent2);
       border: 1px solid rgba(255,183,3,0.35);
       border-radius: 999px;
@@ -220,12 +232,131 @@
       transition: width 0.1s linear;
       pointer-events: none;
     }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 1.15rem;
+      bottom: 1.15rem;
+      z-index: 90;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.72rem;
+      text-decoration: none;
+      color: inherit;
+      isolation: isolate;
+    }
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      inset: auto 8px 8px auto;
+      width: 78px;
+      height: 78px;
+      border-radius: 999px;
+      background: rgba(37, 211, 102, 0.16);
+      filter: blur(1px);
+      animation: whatsappPulse 2.2s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .whatsapp-float__bubble,
+    .whatsapp-float__button {
+      position: relative;
+      z-index: 1;
+    }
+    .whatsapp-float__bubble {
+      max-width: min(50vw, 320px);
+      padding: 0.78rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(235, 243, 250, 0.92);
+      background: rgba(255, 255, 255, 0.96);
+      color: #2f3d4b;
+      font-size: 0.92rem;
+      line-height: 1.2;
+      white-space: nowrap;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .whatsapp-float__button {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      box-shadow: 0 16px 34px rgba(37, 211, 102, 0.34);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+    .whatsapp-float__button svg {
+      width: 28px;
+      height: 28px;
+      fill: #ffffff;
+    }
+    .whatsapp-float:hover .whatsapp-float__bubble,
+    .whatsapp-float:focus-visible .whatsapp-float__bubble {
+      transform: translateY(-2px);
+      border-color: rgba(37, 211, 102, 0.35);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+    }
+    .whatsapp-float:hover .whatsapp-float__button,
+    .whatsapp-float:focus-visible .whatsapp-float__button {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 18px 38px rgba(37, 211, 102, 0.42);
+      filter: saturate(1.05);
+    }
+    .whatsapp-float:focus-visible {
+      outline: none;
+    }
+    @keyframes whatsappPulse {
+      0%, 100% { transform: scale(0.96); opacity: 0.55; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    @media (max-width: 720px) {
+      .whatsapp-float {
+        right: 0.85rem;
+        bottom: 0.85rem;
+      }
+      .whatsapp-float__bubble {
+        display: none;
+      }
+      .whatsapp-float__button {
+        width: 58px;
+        height: 58px;
+      }
+      .whatsapp-float__button svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .whatsapp-float::before {
+        animation: none;
+      }
+      .whatsapp-float__bubble,
+      .whatsapp-float__button {
+        transition: none;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="scrollProgress" aria-hidden="true"></div>
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/51974205217?text=Hola%20Diego%2C%20quisiera%20agendar%20una%20conversaci%C3%B3n%20sobre%20mis%20datos%20y%20automatizaci%C3%B3n."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir WhatsApp para coordinar una conversacion"
+  >
+    <span class="whatsapp-float__bubble" aria-hidden="true">&iquest;Agendamos por WhatsApp?</span>
+    <span class="whatsapp-float__button" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M12 2C6.49 2 2 6.06 2 11.06c0 2.82 1.4 5.35 3.6 7.01L4.7 22l4.1-1.34c1.02.28 2.1.43 3.2.43 5.51 0 10-4.06 10-10.03C22 6.06 17.51 2 12 2Zm0 17.2c-1 0-1.96-.16-2.86-.47l-.2-.07-2.44.8.78-2.33-.13-.24a7.18 7.18 0 0 1-1.08-3.83C6.07 8.45 8.82 6 12 6s5.93 2.45 5.93 5.1S15.18 19.2 12 19.2Zm3.45-4.61c-.19-.1-1.1-.54-1.27-.6-.17-.06-.29-.1-.41.1-.12.19-.47.6-.57.72-.1.12-.21.13-.39.03-.19-.1-.8-.28-1.52-.88-.56-.47-.94-1.05-1.05-1.23-.11-.19-.01-.29.09-.39.09-.09.19-.24.29-.36.1-.12.13-.2.2-.33.07-.12.03-.24-.02-.33-.05-.1-.41-.98-.56-1.34-.15-.35-.3-.3-.41-.31h-.35c-.12 0-.33.05-.5.24-.17.19-.64.62-.64 1.5 0 .88.65 1.73.74 1.85.09.12 1.28 1.96 3.11 2.75.44.19.78.31 1.05.4.44.14.84.12 1.16.07.35-.05 1.1-.45 1.25-.89.15-.44.15-.82.1-.89-.04-.07-.17-.12-.36-.22Z"></path>
+      </svg>
+    </span>
+  </a>
   <nav>
-    <a class="nav-logo" href="index.html?intro=1#home"><img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" loading="eager" /></a>
+    <a class="nav-logo" href="index.html?intro=1#home"><img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego Vasquez" loading="eager" /></a>
     <div style="display:flex; gap:0.7rem; align-items:center; flex-wrap:wrap;">
       <a class="back" href="index.html?intro=1#home">Volver al inicio</a>
       <a class="back" href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer">Agendar llamada</a>
@@ -234,9 +365,9 @@
 
   <main class="wrap">
     <div class="top">
-      <h1 class="title">Proyectos de Data Management, BI y Analytics</h1>
+      <h1 class="title">Proyectos y productos desarrollados</h1>
     </div>
-    <p class="intro">Esta p&aacute;gina re&uacute;ne casos aplicados de Data Management, Business Intelligence, Data Analytics, ETL, SQL, Python, automatizaci&oacute;n y Machine Learning, orientados a mejorar control de gesti&oacute;n, trazabilidad de indicadores y velocidad de decisi&oacute;n.</p>
+    <p class="intro">Esta página reúne implementaciones aplicadas de Data Management, Business Intelligence, Data Analytics, ETL, SQL, Python, automatización y Machine Learning, orientadas a mejorar control de gestión, trazabilidad de indicadores y velocidad de decisión.</p>
 
     <section class="grid">
       <article class="card">
@@ -246,6 +377,16 @@
         <div class="actions">
           <a class="link" href="proyectos/iahorra-certus.html">Ver ficha</a>
           <a class="link" href="https://iahorra-certus.vercel.app" target="_blank" rel="noopener noreferrer">Demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="tag">KoboToolbox / XLSForm &middot; Sector Social</span>
+        <h2>Herramienta Digital de Evaluaci&oacute;n SGP</h2>
+        <p>Formulario bil ing&uuml;e (ES/QU) para el Sistema de Garant&iacute;a Participativa de agricultura org&aacute;nica en Per&uacute;. Desplegado en KoboToolbox con l&oacute;gica condicional avanzada, <code>begin_repeat</code>, validaciones y cobertura de 6 regiones.</p>
+        <div class="actions">
+          <a class="link" href="proyectos/xlsform-sgp-evaluacion-productores.html">Ver ficha</a>
+          <a class="link" href="https://ee.kobotoolbox.org/x/vUJguKim" target="_blank" rel="noopener noreferrer">Formulario en vivo</a>
         </div>
       </article>
 
@@ -286,7 +427,7 @@
         <p>Sistema de automatizaci&oacute;n de consolidaci&oacute;n y visualizaci&oacute;n con Power Query, VBA y Apps Script para reducir tiempos de ciclo operativo.</p>
         <div class="actions">
           <a class="link" href="proyectos/automatizacion-reportes-mibanco.html">Ver ficha</a>
-          <a class="link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Portafolio</a>
+          <a class="link" href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer">Repositorio</a>
         </div>
       </article>
 
@@ -347,15 +488,15 @@
   </main>
   <footer>
     <div class="footer-brand">
-      <img src="assets/diego_logo_assets/logo-sin-fondo.png" alt="Diego VCH" class="footer-brand-logo" loading="lazy" decoding="async" />
-      <p>Consultor de Datos · Business Intelligence · Power BI · Python</p>
+      <img src="assets/diego_logo_assets/logo-sin-fondo.png" alt="Diego Vasquez" class="footer-brand-logo" loading="lazy" decoding="async" />
+      <p>Data Analytics · BI · Strategy</p>
     </div>
     <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; justify-content:center;">
       <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">Linktree</a>
       <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
-    <p>© <span id="footerYear"></span> Diego Armando Vasquez Chavez</p>
+    <p>© <span id="footerYear"></span> Diego Vasquez · Data Analytics · BI · Strategy</p>
   </footer>
 
   <script>
@@ -373,3 +514,5 @@
   </script>
 </body>
 </html>
+
+
