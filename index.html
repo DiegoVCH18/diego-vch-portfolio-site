@@ -1,38 +1,41 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Especialista en Data Management, BI y Analytics | Diego Vasquez Chavez</title>
+  <link rel="canonical" href="https://diegovch-site.vercel.app/" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/diego_logo_assets/favicon-32.png?v=5" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/diego_logo_assets/favicon-16.png?v=5" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/diego_logo_assets/apple-touch-icon.png?v=5" />
-  <meta name="description" content="Especialista en Data Management, Business Intelligence y Data Analytics. Dise&ntilde;o ecosistemas de datos para control de gesti&oacute;n, trazabilidad y velocidad de decisi&oacute;n." />
+  <meta name="description" content="Diego Vasquez dise&ntilde;a soluciones de data analytics, BI y estrategia para convertir datos en decisiones y procesos m&aacute;s trazables." />
   <meta name="keywords" content="consultor&iacute;a de datos, consultor de datos, Business Intelligence, Power BI, Data Analytics, automatizaci&oacute;n de reportes, ETL, SQL, Python, dashboards ejecutivos, machine learning aplicado" />
-  <meta name="author" content="Diego Armando Vasquez Chavez" />
+  <meta name="author" content="Diego Vasquez" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Especialista en Data Management, BI y Analytics | Diego Vasquez Chavez" />
-  <meta property="og:description" content="10+ a&ntilde;os en proyectos de datos y BI. M&aacute;s de 8 a&ntilde;os liderando docencia superior en Banca Digital y CX en CERTUS." />
-  <meta property="og:url" content="https://diego-vch-portfolio-site.vercel.app/" />
-  <meta property="og:image" content="https://diego-vch-portfolio-site.vercel.app/assets/diego-hero-alt.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Identidad visual profesional de Diego Vasquez Chavez" />
+  <meta property="og:description" content="Dise&ntilde;o ecosistemas de datos que mejoran el control de gesti&oacute;n, la trazabilidad de indicadores y la velocidad de decisi&oacute;n. 10+ a&ntilde;os en BI, Analytics y automatizaci&oacute;n. 1.er lugar SBS 2025." />
+  <meta property="og:url" content="https://diegovch-site.vercel.app/" />
+  <meta property="og:image" content="https://diegovch-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:image:alt" content="Diego Vasquez Chavez — Especialista en Data Management, BI y Analytics" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Especialista en Data Management, BI y Analytics | Diego Vasquez Chavez" />
-  <meta name="twitter:description" content="Ecosistemas de datos para control de gesti&oacute;n, trazabilidad de indicadores y decisiones m&aacute;s r&aacute;pidas." />
-  <meta name="twitter:image" content="https://diego-vch-portfolio-site.vercel.app/assets/diego-hero-alt.jpg" />
-  <meta name="twitter:image:alt" content="Retrato profesional de Diego Armando Vasquez Chavez" />
-  <link rel="preload" as="image" href="assets/diego-hero.png" fetchpriority="high" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <meta name="twitter:description" content="Ecosistemas de datos para control de gesti&oacute;n, trazabilidad de indicadores y decisiones m&aacute;s r&aacute;pidas. 1.er lugar SBS 2025 &mdash; IAhorra." />
+  <meta name="twitter:image" content="https://diegovch-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <meta name="twitter:image:alt" content="Diego Vasquez Chavez — consultor de Data Management, BI y Analytics" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="assets/diego-hero-alt.avif" type="image/avif" fetchpriority="high" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet"/>
   <script>
     try {
       const forceIntro = new URLSearchParams(window.location.search).get('intro') === '1';
       if (forceIntro) {
         window.sessionStorage.removeItem('introDismissed');
         document.documentElement.classList.add('intro-force-open');
-      } else if (window.sessionStorage.getItem('introDismissed') === 'true') {
+      } else {
         document.documentElement.classList.add('intro-dismissed-session');
       }
     } catch (_) {
@@ -50,6 +53,8 @@
       --muted: #a7bdd4;
       --border: rgba(0, 224, 255, 0.28);
       --glow: rgba(0, 224, 255, 0.15);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Manrope', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,9 +63,12 @@
     body {
       background: radial-gradient(circle at 0% 0%, rgba(0,224,255,0.14), transparent 35%), var(--bg);
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.76;
+      font-size: 1rem;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
@@ -113,6 +121,9 @@
 
     .intro-card {
       width: min(100%, 540px);
+      max-height: min(92dvh, 780px);
+      display: flex;
+      flex-direction: column;
       border: 1px solid rgba(186, 223, 255, 0.26);
       border-radius: 30px;
       background: linear-gradient(180deg, rgba(36, 83, 135, 0.92), rgba(10, 30, 75, 0.95));
@@ -120,6 +131,8 @@
       padding: 1.1rem 1.1rem 1.2rem;
       position: relative;
       overflow: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       animation: introCardIn 0.6s cubic-bezier(0.2, 0.74, 0.21, 1) both;
     }
     .intro-card::before {
@@ -193,7 +206,7 @@
       box-shadow: 0 0 0 2px rgba(0, 224, 255, 0.2), 0 14px 28px rgba(10, 24, 52, 0.44);
     }
     .intro-name {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(1.48rem, 4.1vw, 1.82rem);
       font-weight: 700;
       line-height: 1.2;
@@ -242,6 +255,8 @@
       gap: 0.68rem;
       position: relative;
       z-index: 1;
+      flex: 1;
+      overflow: visible;
     }
     .intro-links li {
       opacity: 0;
@@ -347,83 +362,6 @@
       outline-offset: 2px;
     }
 
-    .intro-debug-panel {
-      position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      z-index: 1500;
-      width: min(92vw, 320px);
-      border: 1px solid rgba(0, 224, 255, 0.28);
-      border-radius: 16px;
-      background: rgba(5, 13, 27, 0.92);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
-      padding: 0.9rem;
-      display: none;
-    }
-    body.intro-debug-visible .intro-debug-panel {
-      display: block;
-    }
-    .intro-debug-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-    .intro-debug-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.88rem;
-      color: var(--text);
-    }
-    .intro-debug-actions {
-      display: flex;
-      gap: 0.4rem;
-    }
-    .intro-debug-btn {
-      border: 1px solid rgba(0, 224, 255, 0.24);
-      background: rgba(15, 28, 50, 0.82);
-      color: var(--muted);
-      border-radius: 999px;
-      padding: 0.32rem 0.62rem;
-      font-size: 0.72rem;
-      cursor: pointer;
-    }
-    .intro-debug-btn:hover,
-    .intro-debug-btn:focus-visible {
-      color: var(--text);
-      border-color: rgba(0, 224, 255, 0.48);
-      outline: none;
-    }
-    .intro-debug-meta {
-      color: var(--muted);
-      font-size: 0.72rem;
-      line-height: 1.45;
-      margin-bottom: 0.7rem;
-    }
-    .intro-debug-list {
-      list-style: none;
-      display: grid;
-      gap: 0.42rem;
-    }
-    .intro-debug-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.7rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 10px;
-      padding: 0.48rem 0.55rem;
-      color: #dbe8f5;
-      font-size: 0.76rem;
-    }
-    .intro-debug-key {
-      color: var(--muted);
-    }
-    .intro-debug-value {
-      color: var(--text);
-      font-weight: 600;
-    }
 
     @keyframes introCardIn {
       from { opacity: 0; transform: translateY(16px); }
@@ -438,16 +376,17 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
-      padding: 1rem 3rem;
+      gap: 1rem;
+      padding: 0.9rem 2rem;
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       background: rgba(9, 18, 28, 0.78);
     }
     .nav-logo {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 800;
       font-size: 1.05rem;
       letter-spacing: 0.05em;
@@ -457,23 +396,53 @@
       align-items: center;
       gap: 0.55rem;
     }
+    .brand-wordmark {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.08rem;
+      text-decoration: none;
+      color: var(--text);
+      line-height: 1;
+    }
+    .brand-wordmark-main {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .brand-wordmark-sub {
+      font-size: 0.55rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transform: translateY(0.02rem);
+    }
     .nav-logo img {
       width: auto;
-      height: 50px;
-      max-width: 204px;
+      height: 44px;
+      max-width: 172px;
       border-radius: 0;
       object-fit: contain;
       border: 0;
       filter: none;
     }
-    .nav-links { display: flex; gap: 1.7rem; list-style: none; }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 0.95rem;
+      list-style: none;
+      min-width: 0;
+    }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       transition: color 0.25s;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: var(--accent); }
     .nav-links a.active,
@@ -576,8 +545,8 @@
       pointer-events: none;
     }
     .orb1 {
-      width: 540px; height: 540px;
-      background: radial-gradient(circle, rgba(0,224,255,0.22), transparent 70%);
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(0,224,255,0.14), transparent 70%);
       top: -120px; right: -80px;
       animation: float 9s ease-in-out infinite;
     }
@@ -597,8 +566,8 @@
       z-index: 1;
       width: 100%;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2.8rem;
+      grid-template-columns: minmax(0, 1.45fr) minmax(160px, 0.55fr);
+      gap: 2.4rem;
       align-items: center;
     }
     .hero-tag {
@@ -614,25 +583,30 @@
       animation: fadeUp 0.8s ease both;
     }
     .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.7rem, 6vw, 4.8rem);
-      line-height: 1.02;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.35rem, 4.9vw, 4.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      text-wrap: balance;
       margin-bottom: 1rem;
       animation: fadeUp 0.8s 0.1s ease both;
     }
     .hero-name span { color: var(--accent); }
     .hero-value {
-      font-size: 1.15rem;
+      font-size: clamp(1.03rem, 1.2vw, 1.16rem);
       color: #dbe6ef;
-      max-width: 650px;
+      max-width: 54ch;
+      font-weight: 500;
+      line-height: 1.65;
       margin-bottom: 1rem;
       animation: fadeUp 0.8s 0.2s ease both;
     }
     .hero-desc {
-      font-size: 1rem;
+      font-size: 0.98rem;
       color: var(--muted);
-      max-width: 640px;
+      max-width: 54ch;
+      line-height: 1.72;
       margin-bottom: 1.8rem;
       animation: fadeUp 0.8s 0.25s ease both;
     }
@@ -696,14 +670,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      width: min(100%, 190px);
+      justify-self: end;
+      align-self: center;
+      margin-top: 0;
+    }
+    .hero-photo-wrap picture {
+      display: block;
+      width: 100%;
     }
     .hero-photo {
-      width: min(100%, 420px);
+      display: block;
+      width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 50%;
-      border: 2px solid #00B4D8;
-      box-shadow: 0 0 20px rgba(0, 180, 216, 0.75), 0 22px 60px rgba(0, 0, 0, 0.46);
+      border: 1.5px solid #00B4D8;
+      object-position: center 18%;
+      box-shadow: 0 0 0 4px rgba(0, 224, 255, 0.08), 0 14px 34px rgba(0, 0, 0, 0.38);
       background: var(--surface2);
     }
 
@@ -734,11 +718,13 @@
       margin-bottom: 0.75rem;
     }
     .section-title {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: clamp(1.9rem, 3.8vw, 2.8rem);
       margin-bottom: 0.9rem;
       line-height: 1.15;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
     }
     .section-sub {
       color: var(--muted);
@@ -779,7 +765,7 @@
       padding: 1.4rem;
     }
     .stat-number {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 800;
       font-size: 2rem;
       color: var(--accent);
@@ -870,7 +856,7 @@
       box-shadow: 0 0 0 4px rgba(0,224,255,0.24);
     }
     .timeline-role {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: 1rem;
       font-weight: 700;
       margin-bottom: 0.2rem;
@@ -940,7 +926,7 @@
     .achievement-title,
     .service-title,
     .project-name {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 0.55rem;
@@ -986,6 +972,168 @@
     .service-cta:hover {
       border-color: rgba(0, 224, 255, 0.45);
       transform: translateX(2px);
+    }
+
+    #proceso {
+      scroll-margin-top: 4.5rem;
+    }
+    .proceso-shell {
+      position: relative;
+      margin-top: 1.8rem;
+      padding: 1.35rem 0 0;
+    }
+    .proceso-shell::before {
+      content: '';
+      position: absolute;
+      left: 6.8%;
+      right: 6.8%;
+      top: 78px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(0,224,255,0.05), rgba(0,224,255,0.82), rgba(255,183,3,0.82), rgba(0,224,255,0.05));
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    .proceso-timeline {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .proceso-step {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.85rem;
+      min-width: 0;
+    }
+    .proceso-node {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 0.34rem 0.72rem 0.34rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,224,255,0.3);
+      background: rgba(8, 20, 38, 0.92);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      backdrop-filter: blur(10px);
+    }
+    .proceso-node-number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #7cf4ff);
+      color: #06101f;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      box-shadow: 0 8px 18px rgba(0,224,255,0.22);
+    }
+    .proceso-node-icon {
+      width: 18px;
+      height: 18px;
+      color: #b9f5ff;
+      flex-shrink: 0;
+    }
+    .proceso-card {
+      position: relative;
+      min-height: 100%;
+      padding: 1.2rem 1.15rem 1.25rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top right, rgba(0,224,255,0.11), transparent 32%),
+        linear-gradient(180deg, rgba(17, 33, 59, 0.96), rgba(11, 22, 39, 0.96));
+      box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+    .proceso-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(0,224,255,0.24), rgba(255,183,3,0.14), transparent 72%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.45;
+    }
+    .proceso-step:hover .proceso-card {
+      transform: translateY(-4px);
+      border-color: rgba(0,224,255,0.45);
+      box-shadow: 0 20px 42px rgba(0,0,0,0.28);
+    }
+    .proceso-phase {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.34rem;
+      padding: 0.26rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 183, 3, 0.28);
+      background: rgba(255, 183, 3, 0.1);
+      color: #ffd66f;
+      font-size: 0.7rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      margin-bottom: 0.72rem;
+    }
+    .proceso-title {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      line-height: 1.22;
+      margin-bottom: 0.55rem;
+      letter-spacing: -0.02em;
+    }
+    .proceso-desc {
+      color: var(--muted);
+      font-size: 0.91rem;
+      line-height: 1.62;
+    }
+    @media (max-width: 1100px) {
+      .proceso-shell::before {
+        left: 5%;
+        right: 5%;
+      }
+      .proceso-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 720px) {
+      .proceso-shell {
+        padding-top: 0.6rem;
+      }
+      .proceso-shell::before {
+        left: 1.1rem;
+        right: auto;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(180deg, rgba(0,224,255,0.05), rgba(0,224,255,0.82), rgba(255,183,3,0.82), rgba(0,224,255,0.05));
+      }
+      .proceso-timeline {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+      .proceso-step {
+        padding-left: 2rem;
+      }
+      .proceso-node {
+        margin: 0 0 0.3rem;
+      }
+      .proceso-card {
+        padding: 1rem 1rem 1.05rem;
+      }
     }
 
     .skills-container {
@@ -1068,7 +1216,7 @@
     }
     .tech-tag {
       font-size: 0.68rem;
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--font-body);
       color: var(--accent2);
       border: 1px solid rgba(255,183,3,0.35);
       border-radius: 999px;
@@ -1134,7 +1282,7 @@
       margin-bottom: 0.6rem;
     }
     .vol-title {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 1.05rem;
       color: var(--text);
@@ -1197,7 +1345,7 @@
       border-color: var(--accent);
     }
     .vol-title {
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 1.05rem;
       color: var(--text);
@@ -1328,7 +1476,7 @@
     .contact-link:hover { border-color: var(--accent); color: var(--accent); }
     .contact-email {
       display: block;
-      font-family: 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: clamp(1.2rem, 3vw, 1.9rem);
       color: var(--accent);
@@ -1459,11 +1607,11 @@
       .hero, section { padding: 5rem 1rem 2.8rem; }
       .hero-layout { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
-      .hero-photo { max-width: 320px; }
-      .hero-name { font-size: clamp(2rem, 10vw, 2.7rem); letter-spacing: -0.01em; }
-      .hero-value { font-size: 1.02rem; line-height: 1.48; }
-      .hero-desc { font-size: 0.95rem; line-height: 1.62; }
-      .section-title { font-size: clamp(1.5rem, 8vw, 2rem); line-height: 1.2; }
+      .hero-photo-wrap { justify-self: center; width: min(100%, 150px); margin-inline: auto; margin-top: 0; }
+      .hero-name { font-size: clamp(2rem, 9vw, 2.85rem); letter-spacing: -0.03em; }
+      .hero-value { font-size: 1rem; line-height: 1.58; }
+      .hero-desc { font-size: 0.93rem; line-height: 1.68; }
+      .section-title { font-size: clamp(1.5rem, 8vw, 2rem); line-height: 1.15; }
       .section-sub,
       .about-text p,
       .timeline-desc,
@@ -1493,11 +1641,14 @@
     }
     @media (max-width: 560px) {
       .hero-cta { grid-template-columns: 1fr; }
+      .hero-photo-wrap { width: min(100%, 130px); margin-inline: auto; }
+      nav { padding: 0.8rem 1rem; gap: 0.7rem; }
+      .nav-logo img { height: 40px; max-width: 150px; }
     }
 
     /* Hero name subtitle */
     .hero-name-sub {
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--font-body);
       font-weight: 400;
       font-size: 1rem;
       color: var(--muted);
@@ -1605,6 +1756,7 @@
         margin: 0 auto;
         border-radius: 24px;
         padding: 0.95rem 0.84rem 1.05rem;
+        max-height: min(92dvh, 760px);
       }
       .intro-name {
         font-size: 1.36rem;
@@ -1624,6 +1776,61 @@
       }
       .intro-link-meta {
         font-size: 0.7rem;
+      }
+    }
+    @media (max-height: 860px) and (min-width: 561px) {
+      .intro-overlay {
+        padding: 0.7rem;
+      }
+      .intro-card {
+        max-height: 90dvh;
+        padding: 0.9rem 0.95rem 0.95rem;
+        border-radius: 24px;
+      }
+      .intro-top {
+        margin-bottom: 0.45rem;
+      }
+      .intro-brand-logo {
+        height: 34px;
+        max-width: 140px;
+      }
+      .intro-avatar {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 0.55rem;
+      }
+      .intro-eyebrow {
+        font-size: 0.66rem;
+        margin-bottom: 0.34rem;
+      }
+      .intro-name {
+        font-size: clamp(1.22rem, 2.4vw, 1.55rem);
+        margin-bottom: 0.35rem;
+      }
+      .intro-subheadline {
+        font-size: 0.86rem;
+        margin-bottom: 0.42rem;
+      }
+      .intro-proof {
+        font-size: 0.72rem;
+        margin-bottom: 0.7rem;
+      }
+      .intro-links {
+        gap: 0.52rem;
+      }
+      .intro-link {
+        min-height: 56px;
+        padding: 0.72rem 0.78rem;
+      }
+      .intro-link-text {
+        font-size: 0.88rem;
+      }
+      .intro-link-meta {
+        font-size: 0.68rem;
+        line-height: 1.25;
+      }
+      .intro-footer {
+        margin-top: 0.58rem;
       }
     }
 
@@ -1651,6 +1858,110 @@
       transition: width 0.1s linear;
       pointer-events: none;
     }
+    .whatsapp-float {
+      position: fixed;
+      right: 1.15rem;
+      bottom: 1.15rem;
+      z-index: 90;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.72rem;
+      text-decoration: none;
+      color: inherit;
+      isolation: isolate;
+    }
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      inset: auto 8px 8px auto;
+      width: 78px;
+      height: 78px;
+      border-radius: 999px;
+      background: rgba(37, 211, 102, 0.16);
+      filter: blur(1px);
+      animation: whatsappPulse 2.2s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .whatsapp-float__bubble,
+    .whatsapp-float__button {
+      position: relative;
+      z-index: 1;
+    }
+    .whatsapp-float__bubble {
+      max-width: min(50vw, 320px);
+      padding: 0.78rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(235, 243, 250, 0.92);
+      background: rgba(255, 255, 255, 0.96);
+      color: #2f3d4b;
+      font-size: 0.92rem;
+      line-height: 1.2;
+      white-space: nowrap;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .whatsapp-float__button {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      box-shadow: 0 16px 34px rgba(37, 211, 102, 0.34);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+    .whatsapp-float__button svg {
+      width: 28px;
+      height: 28px;
+      fill: #ffffff;
+    }
+    .whatsapp-float:hover .whatsapp-float__bubble,
+    .whatsapp-float:focus-visible .whatsapp-float__bubble {
+      transform: translateY(-2px);
+      border-color: rgba(37, 211, 102, 0.35);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+    }
+    .whatsapp-float:hover .whatsapp-float__button,
+    .whatsapp-float:focus-visible .whatsapp-float__button {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 18px 38px rgba(37, 211, 102, 0.42);
+      filter: saturate(1.05);
+    }
+    .whatsapp-float:focus-visible {
+      outline: none;
+    }
+    @keyframes whatsappPulse {
+      0%, 100% { transform: scale(0.96); opacity: 0.55; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    @media (max-width: 720px) {
+      .whatsapp-float {
+        right: 0.85rem;
+        bottom: 0.85rem;
+      }
+      .whatsapp-float__bubble {
+        display: none;
+      }
+      .whatsapp-float__button {
+        width: 58px;
+        height: 58px;
+      }
+      .whatsapp-float__button svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .whatsapp-float::before {
+        animation: none;
+      }
+      .whatsapp-float__bubble,
+      .whatsapp-float__button {
+        transition: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1658,7 +1969,7 @@
     <article class="intro-card">
       <div class="intro-top">
         <a class="intro-brand" href="#home" aria-label="Inicio del sitio completo">
-          <img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" class="intro-brand-logo" loading="eager" />
+          <img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego Vasquez" class="intro-brand-logo" loading="eager" />
         </a>
         <button class="intro-icon-btn" id="introShareBtn" type="button" aria-label="Compartir este perfil">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"></path><path d="M8 8l4-4 4 4"></path><path d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"></path></svg>
@@ -1668,32 +1979,32 @@
       <picture>
         <source srcset="assets/diego-hero-alt.avif" type="image/avif" />
         <source srcset="assets/diego-hero-alt.webp" type="image/webp" />
-        <img src="assets/diego-hero-alt.jpg" alt="Retrato profesional de Diego Armando Vasquez Chavez" class="intro-avatar" width="216" height="216" loading="eager" decoding="async" />
+        <img src="assets/diego-hero-alt.jpg" alt="Retrato profesional de Diego Vasquez" class="intro-avatar" width="216" height="216" loading="eager" decoding="async" />
       </picture>
-      <p class="intro-eyebrow">Data & BI</p>
-      <h1 class="intro-name">Diego Armando Vasquez Chavez</h1>
-      <p class="intro-subheadline">Consultor de Datos y BI<br />Power BI · Analytics · ML · Automatización</p>
-      <p class="intro-proof">Ing. Industrial colegiado · Docente PTC CERTUS · Creador de IAhorra</p>
+      <p class="intro-eyebrow">Data Analytics · BI · Strategy · Automatización</p>
+      <h1 class="intro-name">Diego Vasquez</h1>
+      <p class="intro-subheadline">Datos que actúan.<br />Tecnología que enseña.</p>
+      <p class="intro-proof">Consultor&iacute;a en Data Analytics, BI y Strategy</p>
 
       <ul class="intro-links" aria-label="Accesos principales">
         <li>
-          <a href="#home" class="intro-link intro-link--primary intro-dismiss" id="introEnterBtn" aria-label="Entrar al sitio completo de consultoría" data-intro-action="enter_site">
+          <a href="#home" class="intro-link intro-link--primary intro-dismiss" id="introEnterBtn" aria-label="Entrar al sitio profesional" data-intro-action="enter_site">
             <span class="intro-link-inner">
               <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"></path><path d="M9 21V9h6v12"></path></svg>
               <span class="intro-link-copy">
                 <span class="intro-link-text">Entrar al sitio completo</span>
-                <span class="intro-link-meta">Servicios, casos reales y propuesta de valor completa</span>
+                <span class="intro-link-meta">Soluciones, resultados reales y enfoque de consultoría</span>
               </span>
             </span>
             <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
           </a>
         </li>
         <li>
-          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="intro-link intro-dismiss" aria-label="Agendar llamada por WhatsApp" data-intro-action="whatsapp_call">
+          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="intro-link intro-dismiss" aria-label="Solicitar diagnóstico por WhatsApp" data-intro-action="whatsapp_call">
             <span class="intro-link-inner">
               <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l.9-4.2A8 8 0 1 1 20 12Z"></path><path d="M8.4 9.6c.2-.5.4-.5.7-.5h.6c.2 0 .4 0 .5.4.2.5.6 1.7.7 1.8.1.2.1.4 0 .6-.1.1-.2.3-.4.4-.2.2-.3.3-.1.6.2.3.8 1.2 1.8 1.9 1.2.8 2.1 1.1 2.4 1.2.3.1.5.1.7-.1.2-.2.8-1 .9-1.3.1-.3.3-.2.6-.1.2.1 1.5.7 1.8.9.3.1.4.2.5.4.1.2.1 1.2-.3 1.7-.4.4-1.2 1-2.1 1-1 0-2.6-.3-4.7-1.9-2.5-2-3.2-4-3.4-4.8-.2-.8 0-1.7.4-2.2Z"></path></svg>
               <span class="intro-link-copy">
-                <span class="intro-link-text">Agendar llamada por WhatsApp</span>
+                <span class="intro-link-text">Solicitar diagnóstico por WhatsApp</span>
                 <span class="intro-link-meta">Cuéntame tu reto y te respondo en menos de 24h</span>
               </span>
             </span>
@@ -1701,12 +2012,12 @@
           </a>
         </li>
         <li>
-          <a href="projects.html" class="intro-link intro-dismiss" aria-label="Ver página de proyectos" data-intro-action="view_projects">
+          <a href="projects.html" class="intro-link intro-dismiss" aria-label="Ver página de resultados" data-intro-action="view_projects">
             <span class="intro-link-inner">
               <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18"></path><path d="M8 14h3"></path></svg>
               <span class="intro-link-copy">
-                <span class="intro-link-text">Ver página de proyectos</span>
-                <span class="intro-link-meta">BI, automatización y Machine Learning aplicados</span>
+                <span class="intro-link-text">Ver resultados</span>
+                <span class="intro-link-meta">BI, automatización, EdTech y Machine Learning aplicados</span>
               </span>
             </span>
             <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
@@ -1718,7 +2029,7 @@
               <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               <span class="intro-link-copy">
                 <span class="intro-link-text">LinkedIn profesional</span>
-                <span class="intro-link-meta">Trayectoria, logros y validación profesional</span>
+                <span class="intro-link-meta">Trayectoria profesional y resultados destacados</span>
               </span>
             </span>
             <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
@@ -1730,19 +2041,19 @@
               <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
               <span class="intro-link-copy">
                 <span class="intro-link-text">Enviar correo profesional</span>
-                <span class="intro-link-meta">Para requerimientos formales o solicitudes de propuesta</span>
+                <span class="intro-link-meta">Para alianzas, propuestas o requerimientos formales</span>
               </span>
             </span>
             <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
           </a>
         </li>
         <li>
-          <a href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer" class="intro-link intro-dismiss" aria-label="Ver GitHub de consultoría" data-intro-action="github_consulting" data-keep-intro-open="true">
+          <a href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer" class="intro-link intro-dismiss" aria-label="Ver GitHub profesional" data-intro-action="github_consulting" data-keep-intro-open="true">
             <span class="intro-link-inner">
               <svg class="intro-link-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-4a3.4 3.4 0 0 0-.9-2.6c3-.3 6-1.5 6-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.1 3.6c0 5.5 3 6.7 6 7A3.4 3.4 0 0 0 9 18v4"></path></svg>
               <span class="intro-link-copy">
-                <span class="intro-link-text">Ver GitHub de consultoría</span>
-                <span class="intro-link-meta">Portafolio técnico y entregables públicos relacionados</span>
+                <span class="intro-link-text">Ver GitHub de soluciones</span>
+                <span class="intro-link-meta">Implementaciones técnicas y entregables públicos relacionados</span>
               </span>
             </span>
             <svg class="intro-link-more" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
@@ -1756,34 +2067,34 @@
     </article>
   </section>
 
-  <aside class="intro-debug-panel" id="introDebugPanel" aria-label="Diagnóstico de clics de intro">
-    <div class="intro-debug-head">
-      <p class="intro-debug-title">Debug intro</p>
-      <div class="intro-debug-actions">
-        <button type="button" class="intro-debug-btn" id="introDebugReset">Reset</button>
-        <button type="button" class="intro-debug-btn" id="introDebugHide">Ocultar</button>
-      </div>
-    </div>
-    <p class="intro-debug-meta" id="introDebugMeta">Sin eventos registrados todavía.</p>
-    <ul class="intro-debug-list" id="introDebugList"></ul>
-  </aside>
-
   <div id="scrollProgress" aria-hidden="true"></div>
 
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/51974205217?text=Hola%20Diego%2C%20quisiera%20agendar%20una%20conversaci%C3%B3n%20sobre%20mis%20datos%20y%20automatizaci%C3%B3n."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir WhatsApp para coordinar una conversacion"
+  >
+    <span class="whatsapp-float__bubble" aria-hidden="true">&iquest;Agendamos por WhatsApp?</span>
+    <span class="whatsapp-float__button" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M12 2C6.49 2 2 6.06 2 11.06c0 2.82 1.4 5.35 3.6 7.01L4.7 22l4.1-1.34c1.02.28 2.1.43 3.2.43 5.51 0 10-4.06 10-10.03C22 6.06 17.51 2 12 2Zm0 17.2c-1 0-1.96-.16-2.86-.47l-.2-.07-2.44.8.78-2.33-.13-.24a7.18 7.18 0 0 1-1.08-3.83C6.07 8.45 8.82 6 12 6s5.93 2.45 5.93 5.1S15.18 19.2 12 19.2Zm3.45-4.61c-.19-.1-1.1-.54-1.27-.6-.17-.06-.29-.1-.41.1-.12.19-.47.6-.57.72-.1.12-.21.13-.39.03-.19-.1-.8-.28-1.52-.88-.56-.47-.94-1.05-1.05-1.23-.11-.19-.01-.29.09-.39.09-.09.19-.24.29-.36.1-.12.13-.2.2-.33.07-.12.03-.24-.02-.33-.05-.1-.41-.98-.56-1.34-.15-.35-.3-.3-.41-.31h-.35c-.12 0-.33.05-.5.24-.17.19-.64.62-.64 1.5 0 .88.65 1.73.74 1.85.09.12 1.28 1.96 3.11 2.75.44.19.78.31 1.05.4.44.14.84.12 1.16.07.35-.05 1.1-.45 1.25-.89.15-.44.15-.82.1-.89-.04-.07-.17-.12-.36-.22Z"></path>
+      </svg>
+    </span>
+  </a>
+
   <nav>
-    <a class="nav-logo" href="#home"><img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego VCH" loading="eager" /></a>
+    <a class="nav-logo" href="#home"><img src="assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego Vasquez" loading="eager" /></a>
     <ul class="nav-links">
-      <li><a href="?intro=1#home">Ventana inicial</a></li>
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#timeline">Experiencia</a></li>
-      <li><a href="#achievements">Logros</a></li>
-      <li><a href="#projects">Proyectos</a></li>
-      <li><a href="#services">Especialización</a></li>
-      <li><a href="#skills">Stack</a></li>
-      <li><a href="#voluntariado">Voluntariado</a></li>
-      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="#services">Soluciones</a></li>
+      <li><a href="#projects">Resultados</a></li>
+      <li><a href="#timeline">Trayectoria</a></li>
+      <li><a href="#achievements">Credenciales</a></li>
+      <li><a href="#contact">Diagnóstico</a></li>
     </ul>
-    <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:0.55rem 1rem; font-size:0.78rem;">Agendar llamada</a>
+    <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:0.55rem 1rem; font-size:0.78rem;">Solicitar diagnóstico</a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1791,17 +2102,17 @@
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul class="mobile-nav-links">
-      <li><a href="?intro=1#home">Ventana inicial</a></li>
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#timeline">Experiencia</a></li>
-      <li><a href="#achievements">Logros</a></li>
-      <li><a href="#projects">Proyectos</a></li>
-      <li><a href="#services">Especialización</a></li>
-      <li><a href="#skills">Stack</a></li>
-      <li><a href="#voluntariado">Voluntariado</a></li>
-      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="#services">Soluciones</a></li>
+      <li><a href="#projects">Resultados</a></li>
+      <li><a href="#timeline">Trayectoria</a></li>
+      <li><a href="#achievements">Credenciales</a></li>
+      <li><a href="#contact">Diagnóstico</a></li>
+      <li><a href="#about">Servicios</a></li>
+      <li><a href="#skills">Tecnología</a></li>
+      <li><a href="#voluntariado">Impacto</a></li>
     </ul>
-    <a href="projects.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Ver página de proyectos</a>
+    <a href="projects.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Ver resultados</a>
   </div>
 
   <header class="hero" id="home">
@@ -1810,11 +2121,11 @@
     <div class="hero-orb orb2"></div>
     <div class="hero-layout">
       <div>
-        <span class="hero-tag">Especialista en Data Management · Business Intelligence · Data Analytics</span>
-        <h1 class="hero-name">Consultor de Datos y BI<br/><span>que acelera decisiones con evidencia</span></h1>
-        <p class="hero-name-sub">Diego Armando Vasquez Chavez</p>
-        <p class="hero-value">Diseño ecosistemas de datos que mejoran el control de gestión, la trazabilidad de indicadores y la velocidad de decisión, desde la integración de fuentes hasta el dashboard ejecutivo.</p>
-        <p class="hero-desc">10+ años en proyectos de datos y BI para CERTUS, MIBANCO, Asociación UNACEM y PROAVANCE. Más de 8 años en docencia superior, liderando en CERTUS la línea de Banca Digital y la UD transversal de Experiencia del Cliente (CX).</p>
+        <span class="hero-tag">Data Analytics · BI · Strategy</span>
+        <h1 class="hero-name">Diego Vasquez<br/><span>Consultor de Datos, BI y Automatización</span></h1>
+        <p class="hero-name-sub">Convierto datos dispersos en ecosistemas de decisión — desde la integración de fuentes hasta el dashboard ejecutivo que la dirección realmente usa.</p>
+        <p class="hero-value">Diseño ecosistemas de datos, automatización y productos digitales que mejoran el control de gestión, la trazabilidad y la velocidad de decisión.</p>
+        <p class="hero-desc">Aplico este enfoque en educación, banca, industria e impacto social para convertir procesos manuales en tableros, simuladores y flujos confiables que el negocio realmente usa.</p>
         <div class="hero-proof">
           <span class="proof-pill proof-pill--gold">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V4Z"></path><path d="M8 20h8"></path><path d="M12 11v9"></path><path d="M6 7H4a3 3 0 0 0 3 3"></path><path d="M18 7h2a3 3 0 0 1-3 3"></path></svg>
@@ -1830,20 +2141,22 @@
           </span>
         </div>
         <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Agendar diagnóstico de datos</a>
-          <a href="projects.html" class="btn btn-secondary">Ver casos aplicados</a>
-          <a href="assets/CV_Diego_Vasquez.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Descargar CV ejecutivo</a>
-          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Agendar conversación →</a>
+          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar diagnóstico →</a>
+          <a href="projects.html" class="btn btn-secondary">Ver resultados</a>
         </div>
       </div>
       <div class="hero-photo-wrap reveal">
-        <img src="assets/diego-hero.png" alt="Foto profesional de Diego Armando Vasquez Chavez" class="hero-photo" loading="eager" decoding="async" fetchpriority="high" width="800" height="800" />
+        <picture>
+          <source srcset="assets/diego-hero-alt.avif" type="image/avif" />
+          <source srcset="assets/diego-hero-alt.webp" type="image/webp" />
+          <img src="assets/diego-hero-alt.jpg" alt="Foto profesional de Diego Vasquez" class="hero-photo" loading="eager" decoding="async" fetchpriority="high" width="190" height="190" />
+        </picture>
       </div>
     </div>
   </header>
 
-  <section class="trust-bar" aria-label="Empresas con las que he trabajado">
-    <p class="trust-bar-label">Trabajé con</p>
+  <section class="trust-bar" aria-label="Organizaciones con las que he colaborado">
+    <p class="trust-bar-label">He colaborado con</p>
     <div class="trust-bar-logos">
       <span class="trust-logo-slot"><img src="assets/certus-logo.png" alt="CERTUS" class="trust-logo trust-logo--certus" loading="lazy" /></span>
       <span class="trust-logo-slot"><img src="assets/mibanco-logo.png" alt="MIBANCO" class="trust-logo" loading="lazy" /></span>
@@ -1857,17 +2170,17 @@
     <div class="divider"></div>
 
     <section id="about">
-      <p class="section-label reveal">Perfil ejecutivo</p>
-      <h2 class="section-title reveal">Ecosistemas de datos para decisiones de negocio más rápidas y trazables</h2>
-      <p class="section-sub reveal">Ingeniero Industrial colegiado y especialista en Data Management, Business Intelligence y Data Analytics. Construyo sistemas de datos que conectan estrategia, operación y analítica para mejorar resultados de gestión.</p>
+      <p class="section-label reveal">Soluciones para negocio</p>
+      <h2 class="section-title reveal">Soluciones de consultoría para decisiones más rápidas y trazables</h2>
+      <p class="section-sub reveal">Ayudo a empresas y organizaciones a convertir datos, procesos y operación en decisiones claras, automatización y productos digitales que mejoran control, eficiencia y ejecución.</p>
 
       <div class="about-grid">
         <div class="about-text reveal">
           <p><strong>Convierto datos dispersos en información confiable</strong> para la toma de decisiones: defino métricas, ordeno fuentes, diseño modelos y entrego tableros que la dirección realmente usa.</p>
-          <p><strong>Integro Data Management, BI y analítica avanzada con enfoque de adopción:</strong> no solo implemento soluciones técnicas, también entreno equipos para que operen con autonomía y continuidad.</p>
-          <p><strong>Aporto una combinación diferencial de consultoría y liderazgo académico:</strong> más de 8 años de docencia superior, a cargo de la línea de Banca Digital y de la UD transversal de Experiencia del Cliente (CX) en CERTUS.</p>
+          <p><strong>Integro Data Management, BI y analítica avanzada con enfoque de adopción:</strong> no solo implemento soluciones técnicas, también entreno equipos para operar con autonomía y continuidad.</p>
+          <p><strong>Mi experiencia en consultoría y docencia superior respalda la propuesta:</strong> más de 8 años enseñando y ejecutando proyectos en sectores clave sostienen una metodología práctica y orientada a resultados.</p>
           <div style="margin-top:1.4rem;">
-            <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ver perfil en LinkedIn</a>
+            <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Conocer trayectoria profesional</a>
           </div>
         </div>
         <div class="stats-grid reveal">
@@ -1894,63 +2207,63 @@
     <div class="divider"></div>
 
     <section id="services">
-      <p class="section-label reveal">Áreas de especialización</p>
-      <h2 class="section-title reveal">Servicios de consultoría orientados a resultados de gestión</h2>
-      <p class="section-sub reveal">Acompaño a organizaciones a pasar de reportes manuales a ecosistemas de datos confiables y accionables, integrando implementación técnica, adopción por negocio y transferencia de capacidades al equipo.</p>
+      <p class="section-label reveal">Soluciones</p>
+      <h2 class="section-title reveal">Soluciones de negocio para ejecutar y escalar</h2>
+      <p class="section-sub reveal">Ayudo a empresas y organizaciones a pasar de reportes manuales a productos digitales confiables, reduciendo retrabajo, mejorando trazabilidad y priorizando adopción, mantenimiento y transferencia de conocimiento.</p>
 
       <div class="services-grid">
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="8" width="4" height="10"></rect><rect x="10" y="5" width="4" height="13"></rect><rect x="16" y="3" width="4" height="15"></rect></svg>
           </div>
-          <h3 class="service-title">Dashboards ejecutivos en Power BI</h3>
-          <p class="service-desc">Convierto tus datos en tableros claros, con KPIs accionables que la dirección realmente usa para tomar decisiones.</p>
-          <a href="#contact" class="service-cta" data-service="Business Intelligence">Consultar servicio →</a>
+          <h3 class="service-title">Dashboards ejecutivos y BI</h3>
+          <p class="service-desc">Convierto datos en tableros claros con KPIs accionables para acelerar decisiones, priorizar recursos y seguir resultados reales.</p>
+          <a href="#contact" class="service-cta" data-service="Business Intelligence">Solicitar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"></ellipse><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"></path><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg>
           </div>
-          <h3 class="service-title">ETL y arquitectura de datos limpia</h3>
-          <p class="service-desc">Estructuro tus flujos de datos de principio a fin: sin duplicados, sin errores manuales, con trazabilidad completa.</p>
-          <a href="#contact" class="service-cta" data-service="ETL y Data Management">Consultar servicio →</a>
+          <h3 class="service-title">Arquitectura y gobierno de datos</h3>
+          <p class="service-desc">Estructuro flujos de datos de principio a fin para eliminar duplicados, reducir errores manuales y asegurar trazabilidad completa.</p>
+          <a href="#contact" class="service-cta" data-service="ETL y Data Management">Solicitar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 10h16M4 14h8"></path><circle cx="17" cy="17" r="3"></circle><path d="m21 21-1.5-1.5"></path></svg>
           </div>
-          <h3 class="service-title">Analítica avanzada con SQL y Python</h3>
-          <p class="service-desc">Detecto patrones, riesgos y oportunidades antes de que sean evidentes para tu competencia, usando datos que ya tienes.</p>
-          <a href="#contact" class="service-cta" data-service="SQL y Python aplicado">Consultar servicio →</a>
+          <h3 class="service-title">Analítica avanzada y ML</h3>
+          <p class="service-desc">Detecto patrones, riesgos y oportunidades antes de que se vuelvan visibles en operación, usando datos que ya tienes.</p>
+          <a href="#contact" class="service-cta" data-service="SQL y Python aplicado">Solicitar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5M9 19v-8M14 19V9M19 19V7"></path><path d="M3 19h18"></path><path d="m16 5 3 2-3 2"></path><path d="M5 9h5"></path></svg>
           </div>
-          <h3 class="service-title">Desarrollo Web Full Stack</h3>
-          <p class="service-desc">Diseño y despliego aplicaciones web completas con frontend, lógica de negocio, persistencia de datos y despliegue en Vercel. Ideal para PWA, portafolios, herramientas internas y productos educativos como IAhorra, Módulo Evaluador y SIAF.</p>
-          <a href="#contact" class="service-cta" data-service="Desarrollo Web Full Stack">Consultar servicio →</a>
+          <h3 class="service-title">Productos digitales y plataformas EdTech</h3>
+          <p class="service-desc">Diseño y despliego aplicaciones web completas que digitalizan procesos y conectan frontend, lógica de negocio, datos y despliegue en Vercel.</p>
+          <a href="#contact" class="service-cta" data-service="Desarrollo Web Full Stack">Solicitar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"></path></svg>
           </div>
-          <h3 class="service-title">Modelos predictivos aplicados al negocio</h3>
-          <p class="service-desc">Predigo deserción, churn o rendimiento con modelos explicables que puedes presentar a tu directorio con confianza.</p>
-          <a href="#contact" class="service-cta" data-service="Machine Learning aplicado">Consultar servicio →</a>
+          <h3 class="service-title">Automatización de procesos y reportes</h3>
+          <p class="service-desc">Predigo, segmento y automatizo con modelos explicables y flujos que reducen trabajo manual y tiempos operativos.</p>
+          <a href="#contact" class="service-cta" data-service="Machine Learning aplicado">Solicitar servicio →</a>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
-          <h3 class="service-title">Formación en BI y Data Analytics</h3>
-          <p class="service-desc">Entreno a tu equipo para que interprete y actualice sus propios dashboards. Autonomía real, sin dependencia permanente de consultor.</p>
-          <a href="#contact" class="service-cta" data-service="Consultoría y formación">Consultar servicio →</a>
+          <h3 class="service-title">Formación y acompañamiento</h3>
+          <p class="service-desc">Capacito a tu equipo para que interprete y actualice sus propios dashboards, asegurando autonomía real y menos dependencia externa.</p>
+          <a href="#contact" class="service-cta" data-service="Consultoría y formación">Solicitar servicio →</a>
         </article>
       </div>
     </section>
@@ -1958,39 +2271,85 @@
     <div class="divider"></div>
 
     <section id="proceso">
-      <p class="section-label reveal">Metodología de trabajo</p>
-      <h2 class="section-title reveal">Cómo trabajo contigo</h2>
-      <p class="section-sub reveal">Un proceso claro y colaborativo: de la situación actual a un sistema de datos que funciona solo, en sprints acotados y sin sorpresas.</p>
-      <div class="proceso-grid">
-        <div class="proceso-step reveal">
-          <div class="proceso-num">01</div>
-          <h3 class="proceso-title">Diagnóstico inicial</h3>
-          <p class="proceso-desc">Revisamos juntos tus fuentes, procesos actuales y el problema de negocio real que necesitas resolver.</p>
-        </div>
-        <div class="proceso-step reveal">
-          <div class="proceso-num">02</div>
-          <h3 class="proceso-title">Diseño de la solución</h3>
-          <p class="proceso-desc">Defino la arquitectura de datos, las métricas clave y el entregable concreto alineado a tus decisiones.</p>
-        </div>
-        <div class="proceso-step reveal">
-          <div class="proceso-num">03</div>
-          <h3 class="proceso-title">Implementación y validación</h3>
-          <p class="proceso-desc">Construyo el modelo, los pipelines y los dashboards. Tú validas en cada sprint que el resultado sea el correcto.</p>
-        </div>
-        <div class="proceso-step reveal">
-          <div class="proceso-num">04</div>
-          <h3 class="proceso-title">Entrega con documentación</h3>
-          <p class="proceso-desc">Entrego el sistema documentado y capacito a tu equipo para operar de forma autónoma sin depender de mí.</p>
-        </div>
+      <p class="section-label reveal">Metodología</p>
+      <h2 class="section-title reveal">Cómo trabajo en consultoría</h2>
+      <p class="section-sub reveal">Te acompaño con un proceso claro y colaborativo: de la situación actual a un sistema digital que funciona solo, en sprints acotados y sin sorpresas.</p>
+      <div class="proceso-shell reveal">
+        <ol class="proceso-timeline">
+          <li class="proceso-step">
+            <div class="proceso-node" aria-hidden="true">
+              <span class="proceso-node-number">01</span>
+              <svg class="proceso-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19V5"></path>
+                <path d="M8 17l2-2 2 2 4-4"></path>
+                <circle cx="18" cy="7" r="2"></circle>
+              </svg>
+            </div>
+            <article class="proceso-card">
+              <div class="proceso-phase">Descubrir</div>
+              <h3 class="proceso-title">Diagnóstico inicial</h3>
+              <p class="proceso-desc">Revisamos fuentes, procesos actuales y el problema de negocio real que necesitas resolver.</p>
+            </article>
+          </li>
+
+          <li class="proceso-step">
+            <div class="proceso-node" aria-hidden="true">
+              <span class="proceso-node-number">02</span>
+              <svg class="proceso-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 7h16"></path>
+                <path d="M7 4v6"></path>
+                <path d="M17 4v6"></path>
+                <path d="M6 10h12l-1 10H7L6 10Z"></path>
+              </svg>
+            </div>
+            <article class="proceso-card">
+              <div class="proceso-phase">Diseñar</div>
+              <h3 class="proceso-title">Diseño de la solución</h3>
+              <p class="proceso-desc">Definimos la arquitectura de datos, las métricas clave y el entregable concreto alineado a tus decisiones.</p>
+            </article>
+          </li>
+
+          <li class="proceso-step">
+            <div class="proceso-node" aria-hidden="true">
+              <span class="proceso-node-number">03</span>
+              <svg class="proceso-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18"></path>
+                <path d="M7 8l5-5 5 5"></path>
+                <path d="M7 16l5 5 5-5"></path>
+              </svg>
+            </div>
+            <article class="proceso-card">
+              <div class="proceso-phase">Construir</div>
+              <h3 class="proceso-title">Implementación y validación</h3>
+              <p class="proceso-desc">Construimos el modelo, los pipelines y los dashboards. El cliente valida en cada sprint que el resultado sea el correcto.</p>
+            </article>
+          </li>
+
+          <li class="proceso-step">
+            <div class="proceso-node" aria-hidden="true">
+              <span class="proceso-node-number">04</span>
+              <svg class="proceso-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 4h8a2 2 0 0 1 2 2v12l-4-2-4 2-4-2-4 2V6a2 2 0 0 1 2-2Z"></path>
+                <path d="M9 8h6"></path>
+                <path d="M9 12h6"></path>
+              </svg>
+            </div>
+            <article class="proceso-card">
+              <div class="proceso-phase">Entregar</div>
+              <h3 class="proceso-title">Entrega con documentación</h3>
+              <p class="proceso-desc">Entregamos el sistema documentado y capacitamos a tu equipo para operar de forma autónoma.</p>
+            </article>
+          </li>
+        </ol>
       </div>
     </section>
 
     <div class="divider"></div>
 
     <section id="timeline">
-      <p class="section-label reveal">Experiencia profesional</p>
-      <h2 class="section-title reveal">Trayectoria en consultoría de datos y analítica aplicada</h2>
-      <p class="section-sub reveal">Experiencia en Business Intelligence, ETL, SQL, Python, dashboards ejecutivos, automatización de reportes, Machine Learning y consultoría en gestión estratégica aplicada a educación, banca y programas sociales.</p>
+      <p class="section-label reveal">Trayectoria</p>
+      <h2 class="section-title reveal">Resultados y trayectoria en consultoría</h2>
+      <p class="section-sub reveal">He desarrollado proyectos de consultoría en Business Intelligence, ETL, SQL, Python, dashboards ejecutivos, automatización de reportes, Machine Learning y gestión estratégica aplicada a educación, banca y programas sociales.</p>
 
       <div class="timeline reveal">
         <article class="timeline-item strategic">
@@ -2083,10 +2442,10 @@
         </article>
 
         <article class="timeline-item">
-          <h3 class="timeline-role">Fundador, Consultor y Formador en Data Analytics</h3>
+          <h3 class="timeline-role">Consultor y Formador en Data Analytics</h3>
           <p class="timeline-org">TECZONE AQP</p>
           <p class="timeline-date">Ene. 2015 - Mar. 2024</p>
-          <p class="timeline-desc">Formación avanzada en Power BI, Excel VBA y automatización para profesionales y empresas, desarrollando competencias analíticas aplicadas al negocio.</p>
+          <p class="timeline-desc">Formación avanzada en Power BI, Excel VBA y automatización para profesionales y organizaciones, desarrollando competencias analíticas aplicadas al negocio.</p>
         </article>
 
         <article class="timeline-item">
@@ -2108,15 +2467,15 @@
     <div class="divider"></div>
 
     <section id="achievements">
-      <p class="section-label reveal">Credenciales y resultados</p>
-      <h2 class="section-title reveal">Logros que respaldan mi impacto profesional</h2>
-      <p class="section-sub reveal">Reconocimientos, iniciativas y resultados concretos obtenidos en proyectos de Data Analytics, BI y educación financiera digital.</p>
+      <p class="section-label reveal">Credenciales</p>
+      <h2 class="section-title reveal">Credenciales y resultados que respaldan la propuesta de valor</h2>
+      <p class="section-sub reveal">Reconocimientos, iniciativas y resultados concretos que evidencian impacto en productividad, automatización y toma de decisiones.</p>
 
       <div class="achievements-grid">
         <article class="achievement-card reveal">
           <p class="achievement-org" style="color:var(--accent2);">★ SBS | Semana Mundial del Ahorro 2025</p>
           <h3 class="achievement-title">1.er lugar en Propuesta Innovadora de Educación Financiera</h3>
-          <p class="achievement-desc">Premio nacional otorgado por la SBS a IAhorra 2025 (asistente de IA conversacional). Actualmente, IAhorra 2.0 se presenta como solución EdFinTech completa para la Semana Mundial del Ahorro 2026.</p>
+          <p class="achievement-desc">Mi proyecto IAhorra 2025 recibió el premio nacional otorgado por la SBS al asistente de IA conversacional. Actualmente, IAhorra 2.0 se presenta como solución EdFinTech completa para la Semana Mundial del Ahorro 2026.</p>
         </article>
 
         <article class="achievement-card reveal">
@@ -2142,9 +2501,9 @@
     <div class="divider"></div>
 
     <section id="projects">
-      <p class="section-label reveal">Portafolio</p>
-      <h2 class="section-title reveal">Proyectos relevantes en Data Management, BI y analítica aplicada</h2>
-      <p class="section-sub reveal">Casos aplicados de Data Management, Business Intelligence, Data Analytics y Machine Learning orientados a resultados medibles en productividad, retención, control y toma de decisión.</p>
+      <p class="section-label reveal">Proyectos</p>
+      <h2 class="section-title reveal">Resultados aplicados en Data Management, BI y analítica</h2>
+      <p class="section-sub reveal">Resultados aplicados de Data Management, Business Intelligence, Data Analytics y Machine Learning orientados a productividad, retención, control y toma de decisión.</p>
 
       <div class="projects-grid">
         <article class="project-card reveal">
@@ -2267,9 +2626,9 @@
     </section>
 
     <section id="skills">
-      <p class="section-label reveal">Stack tecnologico</p>
-      <h2 class="section-title reveal">Herramientas que utilizo para generar valor</h2>
-      <p class="section-sub reveal">Combinación de herramientas para Business Intelligence, Data Management, analítica aplicada, automatización y desarrollo de productos web y simuladores EdFinTech.</p>
+      <p class="section-label reveal">Capacidades</p>
+      <h2 class="section-title reveal">Tecnología y stack de trabajo</h2>
+      <p class="section-sub reveal">Herramientas y plataformas que usamos para entregar soluciones robustas, mantenibles y orientadas a negocio.</p>
       <div class="skills-container reveal" id="skillsContainer">
         <div class="tech-chip">
           <div class="tech-main">
@@ -2340,9 +2699,9 @@
     <div class="divider"></div>
 
     <section id="linkedin-posts">
-      <p class="section-label reveal">Pensamiento y comunidad</p>
-      <h2 class="section-title reveal">Contenido en LinkedIn</h2>
-      <p class="section-sub reveal">Comparto aprendizajes sobre datos, BI y tecnología aplicada al negocio. Automatización, Power BI, Python y transformación digital en organizaciones reales.</p>
+      <p class="section-label reveal">Contenido y comunidad</p>
+      <h2 class="section-title reveal">Perspectiva y aprendizajes</h2>
+      <p class="section-sub reveal">Compartimos aprendizajes sobre datos, BI y tecnología aplicada al negocio. Automatización, Power BI, Python y transformación digital en organizaciones reales.</p>
       <div style="display:flex; gap:0.9rem; flex-wrap:wrap;">
         <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
           Ver perfil y publicaciones en LinkedIn ↗
@@ -2354,7 +2713,7 @@
 
     <section id="voluntariado">
       <p class="section-label reveal">Impacto social</p>
-      <h2 class="section-title reveal">Voluntariado y participación</h2>
+      <h2 class="section-title reveal">Iniciativas de comunidad y participación</h2>
       <p class="section-sub reveal">Aporte a comunidades académicas y profesionales a través de mentoría, docencia y difusión de conocimiento en análisis de datos e innovación.</p>
 
       <div class="voluntariado-grid">
@@ -2383,7 +2742,7 @@
           <p class="vol-org">ATV Sur — Nuevo Dia Magazine (Arequipa)</p>
           <h3 class="vol-title">Entrevista en TV — Finanzas para jovenes y 1.er lugar SBS 2025</h3>
           <p class="vol-date">Jun. 2025 &nbsp;·&nbsp; Medios de comunicacion</p>
-          <p class="vol-desc">Fui entrevistado en el programa Nuevo Dia Magazine de ATV Sur, donde aborde la importancia de que los jovenes desarrollen habilidades de planificacion financiera desde temprana edad. En CERTUS, lideramos el proyecto IAHORRA — asistente virtual de educacion financiera — que obtuvo el 1.er lugar en la categoria &laquo;Innovacion en educacion financiera&raquo; en la Semana Mundial del Ahorro de la Superintendencia de Banca, Seguros y AFP del Peru (SBS), en colaboracion con la Asociacion de Bancos del Peru (Asbanc).</p>
+          <p class="vol-desc">Fui entrevistado en el programa Nuevo Dia Magazine de ATV Sur, donde abordé la importancia de que los jóvenes desarrollen habilidades de planificación financiera desde temprana edad. En CERTUS, lideré el proyecto IAHORRA — asistente virtual de educación financiera — que obtuvo el 1.er lugar en la categoría &laquo;Innovación en educación financiera&raquo; en la Semana Mundial del Ahorro de la Superintendencia de Banca, Seguros y AFP del Perú (SBS), en colaboración con la Asociación de Bancos del Perú (Asbanc).</p>
           <div class="vol-video">
             <video controls preload="none" poster="" aria-label="Entrevista ATV Sur — Finanzas para jovenes">
               <source src="https://fileserver.ipnoticias.com/Multimedia/TV/2025/06/21/38228622660.mp4" type="video/mp4" />
@@ -2413,25 +2772,24 @@
 
     <section id="contact">
       <div class="contact-wrapper reveal">
-        <p class="section-label">Contacto profesional</p>
-        <h2 class="section-title">¿Tienes datos que no estás aprovechando?</h2>
-        <p class="availability-pill">✓ Disponible para nuevos proyectos — Respondo en menos de 24h</p>
-        <p style="color:var(--muted); margin-bottom:0.4rem;">Cuéntame brevemente qué necesitas resolver. En menos de 24 horas te respondo con un diagnóstico inicial y los siguientes pasos concretos.</p>
+        <p class="section-label">Diagnóstico inicial</p>
+        <h2 class="section-title">Cuéntame el problema de negocio que quieres resolver</h2>
+        <p class="availability-pill">✓ Disponible para nuevos proyectos y alianzas estratégicas — Respuesta inicial en menos de 24h</p>
+        <p style="color:var(--muted); margin-bottom:0.4rem;">Comparte el contexto, el plazo y el resultado que esperas. Te respondo con un diagnóstico inicial y la mejor forma de abordarlo.</p>
         <a href="mailto:diegovch@gmail.com" class="contact-email" id="contactEmail">diegovch@gmail.com</a>
 
         <div class="contact-links">
-          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="contact-link">WhatsApp</a>
-          <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
-          <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
-          <a href="https://github.com/DiegoVCH18/analytics-bi-ml-portfolio" target="_blank" rel="noopener noreferrer" class="contact-link">Portfolio de proyectos</a>
-          <a href="assets/CV_Diego_Vasquez.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">CV en PDF</a>
+          <a href="https://wa.me/51974205217" target="_blank" rel="noopener noreferrer" class="contact-link">Escribir por WhatsApp</a>
+          <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer" class="contact-link">Ver LinkedIn</a>
+          <a href="projects.html" target="_blank" rel="noopener noreferrer" class="contact-link">Ver resultados</a>
+          <a href="assets/CV_Diego_Vasquez.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">Dossier de servicios</a>
         </div>
 
         <form id="briefForm" class="briefing-form" action="https://formspree.io/f/TU_ID" method="POST" novalidate>
-          <p class="section-label" style="margin-bottom:0.2rem;">Mini briefing</p>
+          <p class="section-label" style="margin-bottom:0.2rem;">Resumen del proyecto</p>
           <div class="briefing-grid">
             <div class="briefing-field">
-              <label for="briefType">Tipo de servicio</label>
+              <label for="briefType">Solución requerida</label>
               <select id="briefType" name="tipo_servicio" required>
                 <option value="">Selecciona...</option>
                 <option>Business Intelligence</option>
@@ -2446,11 +2804,11 @@
               </select>
             </div>
             <div class="briefing-field">
-              <label for="briefSector">Sector</label>
-              <input id="briefSector" name="sector" type="text" placeholder="Ej: Educacion, banca, industria" required />
+              <label for="briefSector">Área o sector</label>
+              <input id="briefSector" name="sector" type="text" placeholder="Ej: educación, banca, industria" required />
             </div>
             <div class="briefing-field">
-              <label for="briefDeadline">Plazo estimado</label>
+              <label for="briefDeadline">Horizonte del proyecto</label>
               <select id="briefDeadline" name="plazo" required>
                 <option value="">Selecciona...</option>
                 <option>Urgente (1-2 semanas)</option>
@@ -2460,16 +2818,16 @@
               </select>
             </div>
             <div class="briefing-field">
-              <label for="briefGoal">Objetivo principal</label>
-              <textarea id="briefGoal" name="objetivo" placeholder="Describe el resultado que necesitas lograr" required></textarea>
+              <label for="briefGoal">Problema y resultado esperado</label>
+              <textarea id="briefGoal" name="objetivo" placeholder="Describe el problema, el impacto esperado y cualquier detalle relevante" required></textarea>
             </div>
           </div>
           <div class="briefing-actions">
-            <button type="submit" id="btnBriefEmail" class="btn btn-primary">Enviar briefing por correo</button>
-            <button type="button" id="btnBriefWA" class="btn btn-secondary">Continuar por WhatsApp</button>
+            <button type="submit" id="btnBriefEmail" class="btn btn-primary">Enviar diagnóstico por correo</button>
+            <button type="button" id="btnBriefWA" class="btn btn-secondary">Enviar diagnóstico por WhatsApp</button>
           </div>
           <div id="briefStatus" class="briefing-status" role="status" aria-live="polite"></div>
-          <p class="briefing-note">Recibirás respuesta para evaluar alcance, prioridad y propuesta de trabajo.</p>
+          <p class="briefing-note">Te responderé con alcance, prioridad y próximos pasos recomendados.</p>
         </form>
       </div>
     </section>
@@ -2477,26 +2835,30 @@
 
   <footer>
     <div class="footer-brand">
-      <img src="assets/diego_logo_assets/logo-sin-fondo.png" alt="Diego VCH" class="footer-brand-logo" loading="lazy" decoding="async" />
-      <p style="color:var(--muted); font-size:0.78rem;">Consultor de Datos · Business Intelligence · Power BI · Python</p>
+      <img src="assets/diego_logo_assets/logo-sin-fondo.png" alt="Diego Vasquez" class="footer-brand-logo" loading="lazy" decoding="async" />
+      <p style="color:var(--muted); font-size:0.78rem;">Data Analytics · BI · Strategy</p>
     </div>
     <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; justify-content:center;">
       <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">Linktree</a>
       <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
-    <p>© <span id="footerYear"></span> Diego Armando Vasquez Chavez</p>
+    <p>© <span id="footerYear"></span> Diego Vasquez · Data Analytics · BI · Strategy</p>
   </footer>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Diego Armando Vasquez Chavez",
-    "jobTitle": "Consultor de Datos y Business Intelligence",
-    "url": "https://diego-vch-portfolio-site.vercel.app/",
+    "@type": "Organization",
+    "name": "Diego Vasquez",
+    "url": "https://diegovch-site.vercel.app/",
+    "description": "Servicios de Data Analytics, BI, estrategia y automatización para organizaciones que necesitan claridad operativa y mejor ejecución.",
     "email": "mailto:diegovch@gmail.com",
     "telephone": "+51-974-205217",
+    "founder": {
+      "@type": "Person",
+      "name": "Diego Armando Vasquez Chavez"
+    },
     "sameAs": [
       "https://www.linkedin.com/in/diego-armando-vasquez",
       "https://github.com/DiegoVCH18",
@@ -2528,44 +2890,6 @@
     const introFocusableSelectors = 'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])';
     const introIsForced = document.documentElement.classList.contains('intro-force-open');
     const introWasDismissed = document.documentElement.classList.contains('intro-dismissed-session') && !introIsForced;
-    const introDebugPanel = document.getElementById('introDebugPanel');
-    const introDebugMeta = document.getElementById('introDebugMeta');
-    const introDebugList = document.getElementById('introDebugList');
-    const introDebugReset = document.getElementById('introDebugReset');
-    const introDebugHide = document.getElementById('introDebugHide');
-    const introDebugEnabled = new URLSearchParams(window.location.search).get('debugIntro') === '1';
-
-    function getIntroStats() {
-      try {
-        return JSON.parse(window.localStorage.getItem('introClickStats') || '{}');
-      } catch (_) {
-        return {};
-      }
-    }
-
-    function renderIntroDebugPanel() {
-      if (!introDebugEnabled || !introDebugPanel || !introDebugList || !introDebugMeta) return;
-
-      const stats = getIntroStats();
-      const entries = Object.entries(stats)
-        .filter(([key]) => key !== 'lastAction' && key !== 'lastTimestamp')
-        .sort((a, b) => b[1] - a[1]);
-
-      introDebugList.innerHTML = entries.length > 0
-        ? entries.map(([key, value]) => '<li class="intro-debug-item"><span class="intro-debug-key">' + key + '</span><span class="intro-debug-value">' + value + '</span></li>').join('')
-        : '<li class="intro-debug-item"><span class="intro-debug-key">sin datos</span><span class="intro-debug-value">0</span></li>';
-
-      if (stats.lastAction && stats.lastTimestamp) {
-        introDebugMeta.textContent = 'Último evento: ' + stats.lastAction + ' · ' + new Date(stats.lastTimestamp).toLocaleString('es-PE');
-      } else {
-        introDebugMeta.textContent = 'Sin eventos registrados todavía.';
-      }
-    }
-
-    if (introDebugEnabled) {
-      document.body.classList.add('intro-debug-visible');
-      renderIntroDebugPanel();
-    }
 
     function trackIntroEvent(action) {
       if (!action) return;
@@ -2578,12 +2902,11 @@
       };
 
       try {
-        const existingStats = getIntroStats();
+        const existingStats = JSON.parse(window.localStorage.getItem('introClickStats') || '{}');
         existingStats[action] = (existingStats[action] || 0) + 1;
         existingStats.lastAction = action;
         existingStats.lastTimestamp = payload.timestamp;
         window.localStorage.setItem('introClickStats', JSON.stringify(existingStats));
-        renderIntroDebugPanel();
       } catch (_) {
         // Ignore storage access issues.
       }
@@ -2605,23 +2928,6 @@
       } catch (_) {
         // Ignore analytics provider errors.
       }
-    }
-
-    if (introDebugReset) {
-      introDebugReset.addEventListener('click', () => {
-        try {
-          window.localStorage.removeItem('introClickStats');
-        } catch (_) {
-          // Ignore storage access issues.
-        }
-        renderIntroDebugPanel();
-      });
-    }
-
-    if (introDebugHide) {
-      introDebugHide.addEventListener('click', () => {
-        document.body.classList.remove('intro-debug-visible');
-      });
     }
 
     if (introOverlay && !introWasDismissed) {
@@ -2678,8 +2984,8 @@
       introShareBtn.addEventListener('click', async () => {
         trackIntroEvent('share_profile');
         const shareData = {
-          title: 'Diego Armando Vasquez Chavez | Consultoría de Datos',
-          text: 'Consultor de Datos y Business Intelligence',
+          title: 'Diego Vasquez | Data Analytics · BI · Strategy',
+          text: 'Diego Vasquez · Datos que actúan. Estrategia que enseña.',
           url: window.location.href
         };
 
@@ -2892,7 +3198,7 @@
       });
     });
 
-    // Mini briefing: construye correo y WhatsApp con los datos del formulario
+    // Resumen del proyecto: construye correo y WhatsApp con los datos del formulario
     (function () {
       const contactEmail = document.getElementById('contactEmail');
       if (contactEmail) {
@@ -2922,7 +3228,7 @@
 
       function validarBrief(d) {
         if (!d.tipo || !d.sector || !d.plazo || !d.objetivo) {
-          alert('Por favor completa todos los campos del briefing antes de continuar.');
+          alert('Por favor completa todos los campos del brief antes de continuar.');
           return false;
         }
         return true;
@@ -2945,16 +3251,16 @@
           const d = getBriefData();
           if (!validarBrief(d)) return;
 
-          showStatus('✓ Briefing listo. Se abrirá tu correo para enviarlo sin recargar la página.');
+          showStatus('✓ Diagnóstico listo. Se abrirá tu correo para enviarlo sin recargar la página.');
 
-          const subject = encodeURIComponent('Briefing de proyecto: ' + d.tipo);
+          const subject = encodeURIComponent('Diagnóstico de proyecto: ' + d.tipo);
           const body = encodeURIComponent(
             'Hola Diego,\n\n' +
             'Te comparto los detalles de mi proyecto:\n\n' +
-            '\u2022 Tipo de servicio: ' + d.tipo + '\n' +
+            '\u2022 Solución requerida: ' + d.tipo + '\n' +
             '\u2022 Sector: ' + d.sector + '\n' +
-            '\u2022 Plazo estimado: ' + d.plazo + '\n' +
-            '\u2022 Objetivo principal: ' + d.objetivo + '\n\n' +
+            '\u2022 Horizonte del proyecto: ' + d.plazo + '\n' +
+            '\u2022 Problema y resultado esperado: ' + d.objetivo + '\n\n' +
             'Quedo atento a tu respuesta.'
           );
           setTimeout(() => {
@@ -2972,12 +3278,12 @@
           if (!validarBrief(d)) return;
           const text = encodeURIComponent(
             'Hola Diego, te comparto los detalles de mi proyecto:\n\n' +
-            '\u2022 Tipo de servicio: ' + d.tipo + '\n' +
+            '\u2022 Solución requerida: ' + d.tipo + '\n' +
             '\u2022 Sector: ' + d.sector + '\n' +
-            '\u2022 Plazo estimado: ' + d.plazo + '\n' +
-            '\u2022 Objetivo: ' + d.objetivo
+            '\u2022 Horizonte del proyecto: ' + d.plazo + '\n' +
+            '\u2022 Problema y resultado esperado: ' + d.objetivo
           );
-          showStatus('✓ Briefing listo. Abriremos WhatsApp para continuar la conversación.');
+          showStatus('✓ Diagnóstico listo. Abriremos WhatsApp para continuar.');
           window.open('https://wa.me/' + CONTACT_CONFIG.whatsapp + '?text=' + text, '_blank', 'noopener,noreferrer');
         });
       }
@@ -2998,3 +3304,6 @@
 </body>
 </html>
 
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
