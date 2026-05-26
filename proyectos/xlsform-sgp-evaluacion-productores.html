@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XLSForm SGP – Evaluaci&oacute;n de Productores | Diego Vasquez</title>
+  <meta name="description" content="Herramienta digital de evaluaci&oacute;n para el Sistema de Garant&iacute;a Participativa (SGP) de agricultura org&aacute;nica en Per&uacute;. Formulario KoboToolbox/ODK bil ing&uuml;e (espa&ntilde;ol/quechua) con l&oacute;gica condicional avanzada." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/diego_logo_assets/favicon-32.png?v=5" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/diego_logo_assets/favicon-16.png?v=5" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/diego_logo_assets/apple-touch-icon.png?v=5" />
+  <link rel="canonical" href="https://diegovch-site.vercel.app/proyectos/xlsform-sgp-evaluacion-productores.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="XLSForm SGP – Evaluaci&oacute;n de Productores | Diego Vasquez" />
+  <meta property="og:description" content="Formulario digital para el SGP peruano: bil ing&uuml;e (ES/QU), l&oacute;gica condicional, grupos de repetici&oacute;n y validaciones desplegado en KoboToolbox." />
+  <meta property="og:url" content="https://diegovch-site.vercel.app/proyectos/xlsform-sgp-evaluacion-productores.html" />
+  <meta property="og:image" content="https://diegovch-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <meta property="og:image:alt" content="XLSForm SGP – Evaluaci&oacute;n de Productores" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="XLSForm SGP – Evaluaci&oacute;n de Productores | Diego Vasquez" />
+  <meta name="twitter:description" content="Formulario KoboToolbox bil ing&uuml;e (ES/QU) para el Sistema de Garant&iacute;a Participativa de agricultura org&aacute;nica en Per&uacute;." />
+  <meta name="twitter:image" content="https://diegovch-site.vercel.app/assets/diego-hero-alt.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #070f1f;
+      --surface: #0f1c32;
+      --accent: #00e0ff;
+      --text: #f7fbff;
+      --muted: #a7bdd4;
+      --border: rgba(0, 224, 255, 0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Manrope", sans-serif;
+      background: radial-gradient(circle at 0% 0%, rgba(0,224,255,0.14), transparent 35%), var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    nav {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 18, 28, 0.78);
+    }
+    .nav-logo img {
+      width: auto;
+      height: 63px;
+      max-width: 255px;
+      object-fit: contain;
+    }
+    .back {
+      text-decoration: none;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 2.2rem 1rem 3rem; }
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.3rem;
+    }
+    .kicker {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.74rem;
+      margin-bottom: 0.45rem;
+      display: inline-block;
+    }
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.04em;
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+    h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.6rem;
+      color: var(--accent);
+    }
+    .lead { color: var(--muted); margin-bottom: 1rem; }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+    .item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.72rem;
+      background: rgba(9, 18, 28, 0.45);
+    }
+    .item b { color: var(--text); }
+    .item span { color: var(--muted); }
+    .actions {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .btn {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.42rem 0.82rem;
+      font-size: 0.84rem;
+      transition: color 0.15s;
+    }
+    .btn:hover { color: var(--accent); }
+    .btn-primary {
+      background: var(--accent);
+      color: #070f1f;
+      font-weight: 700;
+      border-color: var(--accent);
+    }
+    .btn-primary:hover { color: #070f1f; opacity: 0.85; }
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.7rem 0 0.5rem;
+    }
+    .tech-tag {
+      background: rgba(0, 224, 255, 0.10);
+      border: 1px solid rgba(0, 224, 255, 0.25);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 0.22rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 1rem;
+    }
+    .feature-list li {
+      color: var(--muted);
+      padding: 0.3rem 0;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+    .feature-list li::before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-size: 0.85rem;
+    }
+    .highlight-box {
+      background: rgba(0, 224, 255, 0.06);
+      border: 1px solid rgba(0, 224, 255, 0.22);
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0;
+      color: var(--muted);
+    }
+    .highlight-box strong { color: var(--text); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .footer-brand-logo {
+      display: block;
+      width: auto;
+      height: 63px;
+      max-width: 255px;
+      object-fit: contain;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    @media (max-width: 940px) {
+      nav { padding: 0.9rem 1rem; }
+      .nav-logo img { height: 52px; max-width: 210px; }
+      footer { flex-direction: column; gap: 0.85rem; text-align: center; padding: 1.8rem 1rem; }
+      .footer-brand-logo { height: 52px; max-width: 210px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="../index.html"><img src="../assets/diego_logo_assets/reference-horizontal-sin-fondo-crop.png" alt="Diego Vasquez" loading="eager" /></a>
+    <a class="back" href="../projects.html">Volver a proyectos</a>
+  </nav>
+
+  <main class="wrap">
+    <article class="project">
+      <span class="kicker">KoboToolbox / XLSForm · Sector Social</span>
+      <h1>Herramienta Digital de Evaluaci&oacute;n SGP</h1>
+      <p class="lead">Formulario digital bil ing&uuml;e (espa&ntilde;ol / quechua) para el Sistema de Garant&iacute;a Participativa de agricultura org&aacute;nica en Per&uacute;, desplegado en KoboToolbox con l&oacute;gica condicional avanzada, grupos de repetici&oacute;n y validaciones en campo.</p>
+
+      <div class="meta">
+        <div class="item"><b>Cliente / Marco:</b> <span>Iles de Paix Per&uacute; (ONG belga) · Consultor&iacute;a SGP/D4D 2026</span></div>
+        <div class="item"><b>Cobertura:</b> <span>6 CR-SGP: Hu&aacute;nuco, Ucayali, Jun&iacute;n, Huancavelica, Ayacucho, Lima</span></div>
+        <div class="item"><b>Estado:</b> <span>Desplegado en producci&oacute;n · 2 respuestas de prueba</span></div>
+        <div class="item"><b>Versi&oacute;n:</b> <span>v3 (XLSForm_SGP_v3_fixed) · Jun 2026</span></div>
+      </div>
+
+      <div class="tech-list">
+        <span class="tech-tag">KoboToolbox</span>
+        <span class="tech-tag">XLSForm / ODK</span>
+        <span class="tech-tag">Excel</span>
+        <span class="tech-tag">Bil ing&uuml;e ES/QU</span>
+        <span class="tech-tag">D4D Framework</span>
+        <span class="tech-tag">Open Standards</span>
+      </div>
+
+      <h2>Contexto</h2>
+      <p style="color:var(--muted); margin-bottom:0.7rem;">El SGP (Sistema de Garant&iacute;a Participativa) es el mecanismo de certificaci&oacute;n org&aacute;nica participativa que usa Iles de Paix Per&uacute; con productores rurales. El objetivo fue digitalizar el proceso de evaluaci&oacute;n de productores, reemplazando fichas en papel con un formulario m&oacute;vil offline-first que los evaluadores del comit&eacute; puedan usar directamente en campo.</p>
+
+      <div class="highlight-box">
+        <strong>Problema resuelto:</strong> Las evaluaciones en papel generaban p&eacute;rdida de datos, demoras en la consolidaci&oacute;n y dificultades para validar cumplimiento de los principios D4D. El formulario digital centraliza la informaci&oacute;n, aplica validaciones autom&aacute;ticas y permite exportar a Excel/CSV para an&aacute;lisis posterior.
+      </div>
+
+      <h2>Caracter&iacute;sticas t&eacute;cnicas del formulario</h2>
+      <ul class="feature-list">
+        <li><strong>Estructura:</strong> 57 preguntas activas en hoja <code>survey</code> + 58 opciones en hoja <code>choices</code> (XLSForm est&aacute;ndar ODK)</li>
+        <li><strong>Bilingüe ES/QU:</strong> Todos los campos tienen etiquetas en espa&ntilde;ol (<code>label::Spanish (es)</code>) y quechua (<code>label::Quechua (qu)</code>), incluyendo hints y mensajes de error</li>
+        <li><strong>Tipos de pregunta:</strong> <code>select_one</code> (evaluadores, tipo_visita, regi&oacute;n), <code>date</code>, <code>text</code>, <code>begin_repeat</code> (grupos de productores), <code>range</code>, <code>rank</code></li>
+        <li><strong>L&oacute;gica condicional:</strong> Expresiones <code>relevant</code> y <code>constraint</code> para mostrar/ocultar preguntas seg&uacute;n respuestas previas</li>
+        <li><strong>Grupos:</strong> <code>begin_group</code> con <code>field-list</code> para agrupaci&oacute;n visual y navegaci&oacute;n por pantallas</li>
+        <li><strong>Validaciones:</strong> Constraints de rango y formato para garantizar integridad de datos en campo</li>
+        <li><strong>Metadatos autom&aacute;ticos:</strong> Captura de hora, fecha y dispositivo en cada env&iacute;o</li>
+      </ul>
+
+      <h2>Despliegue y resultados</h2>
+      <ul class="feature-list">
+        <li>Publicado en KoboToolbox (plataforma oficial OCHA/ACNUR para datos humanitarios)</li>
+        <li>Formulario activo en: <a href="https://ee.kobotoolbox.org/x/vUJguKim" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">ee.kobotoolbox.org/x/vUJguKim</a></li>
+        <li>2 respuestas de prueba recopiladas y validadas exitosamente</li>
+        <li>Compatible con modo offline (aplicaci&oacute;n m&oacute;vil KoboCollect en Android)</li>
+        <li>Exportaci&oacute;n a Excel/CSV habilitada para an&aacute;lisis en Power Query y dashboards</li>
+      </ul>
+
+      <h2>Alineaci&oacute;n con principios D4D</h2>
+      <ul class="feature-list">
+        <li><strong>Design with user:</strong> Formulario dise&ntilde;ado con feedback de evaluadores del comit&eacute; SGP</li>
+        <li><strong>Open standards:</strong> XLSForm es el est&aacute;ndar abierto de ODK; KoboToolbox es software libre</li>
+        <li><strong>Data for development:</strong> Datos exportables para an&aacute;lisis de cumplimiento y mejora continua</li>
+        <li><strong>Build for sustainability:</strong> Bil ing&uuml;e para incluir productores quechuahablantes</li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="https://ee.kobotoolbox.org/x/vUJguKim" target="_blank" rel="noopener noreferrer">Abrir formulario en vivo</a>
+        <a class="btn" href="https://github.com/DiegoVCH18/diego-vch-portfolio-site/blob/main/assets/xlsform/XLSForm_SGP_v3_fixed.xlsx" target="_blank" rel="noopener noreferrer">Ver XLSForm en GitHub</a>
+        <a class="btn" href="../projects.html">Volver a proyectos</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <img src="../assets/diego_logo_assets/logo-sin-fondo.png" alt="Diego Vasquez" class="footer-brand-logo" loading="lazy" decoding="async" />
+      <p>Data Analytics &middot; BI &middot; Strategy</p>
+    </div>
+    <div style="display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap; justify-content:center;">
+      <a href="https://linktr.ee/diegovch18" target="_blank" rel="noopener noreferrer">Linktree</a>
+      <a href="https://www.linkedin.com/in/diego-armando-vasquez" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/DiegoVCH18" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p>&copy; 2026 Diego Vasquez &middot; Data Analytics &middot; BI &middot; Strategy</p>
+  </footer>
+</body>
+</html>
