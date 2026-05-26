@@ -14,7 +14,8 @@ const htmlEntries = [
   "proyectos/automatizacion-reportes-mibanco.html",
   "proyectos/minimarket-aurelion.html",
   "proyectos/modulo-evaluador-mype.html",
-  "proyectos/simulador-siaf-comercial.html"
+  "proyectos/simulador-siaf-comercial.html",
+  "proyectos/xlsform-sgp-evaluacion-productores.html"
 ];
 
 const minifyOptions = {
