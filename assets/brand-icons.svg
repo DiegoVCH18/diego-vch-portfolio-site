@@ -1,0 +1,94 @@
+<svg width="1200" height="900" viewBox="0 0 680 510" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Pack de iconos — Diego Vasquez Brand</title>
+<desc>12 iconos de marca personal: Data Analytics, BI, ML, ETL, EdFinTech, Educacion, Codigo, Base de Datos, Automatizacion, Campo, Premio SBS, Monograma DV</desc>
+<style>
+.bg{fill:#070f1f}
+.t{fill:#0f1c32;stroke-width:.8}
+.tc{stroke:#00e0ff;stroke-opacity:.3}
+.tg{stroke:#ffb703;stroke-opacity:.3}
+.ic{fill:none;stroke:#00e0ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ig{fill:none;stroke:#ffb703;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ifc{fill:#00e0ff1a;stroke:none}
+.ifg{fill:#ffb7031a;stroke:none}
+.dc{fill:#00e0ff}
+.dg{fill:#ffb703}
+.cn{stroke-opacity:.38;stroke-width:1}
+.th{stroke-width:1.2}
+.lc{fill:#00c4e0;font-family:Manrope,sans-serif;font-size:11px;font-weight:700;text-anchor:middle;letter-spacing:.09em}
+.lg{fill:#c8920c;font-family:Manrope,sans-serif;font-size:11px;font-weight:700;text-anchor:middle;letter-spacing:.09em}
+</style>
+<rect class="bg" width="680" height="510"/>
+<rect class="t tc" x="21" y="24" width="152" height="148" rx="14"/>
+<rect class="t tg" x="183" y="24" width="152" height="148" rx="14"/>
+<rect class="t tc" x="345" y="24" width="152" height="148" rx="14"/>
+<rect class="t tg" x="507" y="24" width="152" height="148" rx="14"/>
+<rect class="t tg" x="21" y="182" width="152" height="148" rx="14"/>
+<rect class="t tc" x="183" y="182" width="152" height="148" rx="14"/>
+<rect class="t tg" x="345" y="182" width="152" height="148" rx="14"/>
+<rect class="t tc" x="507" y="182" width="152" height="148" rx="14"/>
+<rect class="t tc" x="21" y="340" width="152" height="148" rx="14"/>
+<rect class="t tg" x="183" y="340" width="152" height="148" rx="14"/>
+<rect class="t tg" x="345" y="340" width="152" height="148" rx="14"/>
+<rect class="t tc" x="507" y="340" width="152" height="148" rx="14"/>
+<rect class="ifc" x="72" y="82" width="10" height="18"/><rect class="ifc" x="86" y="72" width="10" height="28"/><rect class="ifc" x="100" y="77" width="10" height="23"/><rect class="ifc" x="114" y="62" width="10" height="38"/>
+<line class="ic" x1="70" y1="100" x2="128" y2="100"/><polyline class="ic" points="77,82 91,72 105,77 119,62"/><polygon class="dc" points="124,57 119,65 114,60"/>
+<text x="97" y="153" class="lc">DATA ANALYTICS</text>
+<rect class="ifg" x="234" y="57" width="50" height="38" rx="5"/><rect class="ig" x="234" y="57" width="50" height="38" rx="5"/>
+<line class="ig th" x1="238" y1="68" x2="280" y2="68"/>
+<rect class="ifg" x="242" y="75" width="7" height="15"/><rect class="ifg" x="252" y="71" width="7" height="19"/><rect class="ifg" x="262" y="78" width="7" height="12"/>
+<circle class="dg" cx="273" cy="63" r="2.5"/><circle class="dg" cx="279" cy="63" r="2"/>
+<line class="ig" x1="242" y1="90" x2="271" y2="90"/>
+<text x="259" y="153" class="lg">BI DASHBOARD</text>
+<circle class="ic" cx="401" cy="64" r="4.5"/><circle class="ic" cx="401" cy="76" r="4.5"/><circle class="ic" cx="401" cy="88" r="4.5"/>
+<circle class="ic" cx="421" cy="70" r="4.5"/><circle class="ic" cx="421" cy="82" r="4.5"/>
+<circle class="ifc" cx="441" cy="76" r="6"/><circle class="ic" cx="441" cy="76" r="6"/>
+<line class="ic cn" x1="405.5" y1="64" x2="416.5" y2="70"/><line class="ic cn" x1="405.5" y1="64" x2="416.5" y2="82"/>
+<line class="ic cn" x1="405.5" y1="76" x2="416.5" y2="70"/><line class="ic cn" x1="405.5" y1="76" x2="416.5" y2="82"/>
+<line class="ic cn" x1="405.5" y1="88" x2="416.5" y2="70"/><line class="ic cn" x1="405.5" y1="88" x2="416.5" y2="82"/>
+<line class="ic cn" x1="425.5" y1="70" x2="435" y2="76"/><line class="ic cn" x1="425.5" y1="82" x2="435" y2="76"/>
+<text x="421" y="153" class="lc">MACHINE LEARNING</text>
+<path class="ifg" d="M561,58H605L597,73L589,88L577,88L569,73Z"/><path class="ig" d="M561,58H605L597,73L589,88L577,88L569,73Z"/>
+<line class="ig" x1="583" y1="88" x2="583" y2="102"/><circle class="dg" cx="583" cy="105" r="3.5"/>
+<polygon class="dg" points="563,55 566,61 569,55"/><polygon class="dg" points="580,53 583,59 586,53"/><polygon class="dg" points="597,55 600,61 603,55"/>
+<line class="ig th" x1="566" y1="55" x2="566" y2="58"/><line class="ig th" x1="583" y1="53" x2="583" y2="58"/><line class="ig th" x1="600" y1="55" x2="600" y2="58"/>
+<text x="583" y="153" class="lg">ETL PIPELINE</text>
+<circle class="ifg" cx="97" cy="232" r="28"/><circle class="ig" cx="97" cy="232" r="28"/><circle class="ig" cx="97" cy="232" r="17"/>
+<path class="ig" d="M105,224C105,220 101,219 97,219C91,219 88,221 88,225C88,229 91,230 97,232C103,234 106,236 106,240C106,244 103,246 97,246C91,246 88,244 88,240"/>
+<line class="ig" x1="97" y1="216" x2="97" y2="248"/>
+<text x="97" y="311" class="lg">EDFINTECH</text>
+<polygon class="ifc" points="259,210 288,224 259,236 230,224"/><polygon class="ic" points="259,210 288,224 259,236 230,224"/>
+<ellipse class="ic" cx="259" cy="236" rx="28" ry="7"/>
+<line class="ic" x1="288" y1="224" x2="288" y2="241"/><circle class="dc" cx="288" cy="244" r="3.5"/>
+<line class="ic th" x1="248" y1="253" x2="270" y2="253"/><line class="ic th" x1="252" y1="258" x2="266" y2="258"/>
+<text x="259" y="311" class="lc">EDUCACION</text>
+<polyline class="ig" points="405,212 394,222 405,232"/><polyline class="ig" points="437,212 448,222 437,232"/>
+<line class="ig" x1="416" y1="235" x2="426" y2="209"/>
+<text x="421" y="311" class="lg">CODIGO</text>
+<ellipse class="ifc" cx="583" cy="211" rx="23" ry="6.5"/><ellipse class="ic" cx="583" cy="211" rx="23" ry="6.5"/>
+<line class="ic" x1="560" y1="211" x2="560" y2="253"/><line class="ic" x1="606" y1="211" x2="606" y2="253"/>
+<path class="ic th" fill="none" d="M560,226C560,229.6 570.3,232.5 583,232.5C595.7,232.5 606,229.6 606,226"/>
+<path class="ic th" fill="none" d="M560,240C560,243.6 570.3,246.5 583,246.5C595.7,246.5 606,243.6 606,240"/>
+<path class="ic" fill="none" d="M560,253C560,256.6 570.3,259.5 583,259.5C595.7,259.5 606,256.6 606,253"/>
+<text x="583" y="311" class="lc">BASE DE DATOS</text>
+<circle class="ifc" cx="97" cy="392" r="26"/><circle class="ic" cx="97" cy="392" r="26"/>
+<path fill="#00e0ff" fill-opacity=".85" d="M102,370L87,393L98,393L93,415L109,391L98,391Z"/>
+<path class="ic" d="M102,370L87,393L98,393L93,415L109,391L98,391Z"/>
+<text x="97" y="469" class="lc">AUTOMATIZACION</text>
+<path class="ig" fill="none" d="M249,377A14,14 0 0 1 269,377"/><path class="ig" fill="none" d="M243,371A20,20 0 0 1 275,371"/><path class="ig" fill="none" d="M237,365A26,26 0 0 1 281,365"/>
+<path class="ifg" d="M259,421C248,407 238,399 238,389A21,21 0 0 1 280,389C280,399 270,407 259,421Z"/>
+<path class="ig" fill="none" d="M259,421C248,407 238,399 238,389A21,21 0 0 1 280,389C280,399 270,407 259,421Z"/>
+<circle class="dg" cx="259" cy="389" r="6.5"/>
+<text x="259" y="469" class="lg">DATOS DE CAMPO</text>
+<path class="ifg" d="M402,367C402,383 411,398 421,398C431,398 440,383 440,367Z"/>
+<path class="ig" fill="none" d="M402,367C402,383 411,398 421,398C431,398 440,383 440,367Z"/>
+<line class="ig" x1="402" y1="367" x2="440" y2="367"/>
+<path class="ig" fill="none" d="M402,371C396,371 396,383 402,383"/>
+<path class="ig" fill="none" d="M440,371C446,371 446,383 440,383"/>
+<line class="ig" x1="421" y1="398" x2="421" y2="410"/><line class="ig" x1="409" y1="410" x2="433" y2="410"/>
+<path class="dg" d="M421,372L423,378L430,378L424.5,381.5L427,388L421,384.5L415,388L417.5,381.5L412,378L419,378Z"/>
+<text x="421" y="469" class="lg">PREMIO SBS</text>
+<polygon class="ifc" points="611,392 597,368 569,368 555,392 569,416 597,416"/>
+<polygon class="ic" points="611,392 597,368 569,368 555,392 569,416 597,416"/>
+<text x="583" y="400" text-anchor="middle" fill="#00e0ff" font-family="Space Grotesk,Manrope,sans-serif" font-size="22" font-weight="700" letter-spacing="-1">DV</text>
+<text x="583" y="469" class="lc">MONOGRAMA</text>
+</svg>
