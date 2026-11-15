@@ -1,6 +1,6 @@
 param(
-  [int]$WebpQuality = 82,
-  [int]$AvifQuality = 56,
+  [int]$WebpQuality = 88,
+  [int]$AvifQuality = 70,
   [int]$Effort = 6
 )
 
