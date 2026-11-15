@@ -26,8 +26,7 @@ $requiredFiles = @(
   "dist/proyectos/modulo-evaluador-mype.html",
   "dist/proyectos/simulador-siaf-comercial.html",
   "dist/assets/diego-hero-alt.avif",
-  "dist/assets/diego-hero-alt.webp",
-  "dist/assets/CV_Diego_Vasquez.pdf"
+  "dist/assets/diego-hero-alt.webp"
 )
 
 $missing = @()

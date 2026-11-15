@@ -8,7 +8,7 @@
    - dist/index.html
    - dist/projects.html
    - dist/proyectos/*
-   - dist/assets/CV_Diego_Vasquez.pdf
+   - dist/assets/CV_Diego_Vasquez.pdf NO debe existir (CV privado)
 
 ## Push
 
@@ -33,7 +33,7 @@
    - /proyectos/customer-experience-loyalty-dashboard
    - /proyectos/automatizacion-reportes-mibanco
 3. Recursos criticos:
-   - CV descarga
+   - /assets/CV_Diego_Vasquez.pdf responde 404
    - imagenes AVIF/WebP
    - Open Graph en projects y fichas
 

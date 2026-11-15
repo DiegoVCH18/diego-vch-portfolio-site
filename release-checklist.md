@@ -10,8 +10,8 @@
    - proyectos/academic-performance-prediction.html
    - proyectos/customer-experience-loyalty-dashboard.html
    - proyectos/automatizacion-reportes-mibanco.html
-3. Verifica que el CV abra correctamente:
-   - assets/CV_Diego_Vasquez.pdf
+3. Verifica que el CV NO se publique:
+   - dist/assets/CV_Diego_Vasquez.pdf no debe existir
 4. Ejecuta el flujo completo:
    - npm run release
 5. Confirma artefactos en dist:
@@ -60,7 +60,7 @@
 3. Revisa recursos:
    - imagen hero (avif/webp fallback)
    - logos (avif/webp fallback)
-   - descarga de CV
+   - /assets/CV_Diego_Vasquez.pdf responde 404
 4. Revisa previews sociales:
    - Open Graph/Twitter en projects y cada ficha.
 

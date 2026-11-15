@@ -18,6 +18,9 @@ const htmlEntries = [
   "proyectos/xlsform-sgp-evaluacion-productores.html"
 ];
 
+// Archivos de assets/ que no se publican (el CV es privado).
+const excludedAssets = new Set(["CV_Diego_Vasquez.pdf"]);
+
 const minifyOptions = {
   collapseWhitespace: true,
   removeComments: true,
@@ -36,6 +39,7 @@ async function copyDir(src, dest) {
   await ensureDir(dest);
   const entries = await readdir(src, { withFileTypes: true });
   for (const entry of entries) {
+    if (excludedAssets.has(entry.name)) continue;
     const srcPath = join(src, entry.name);
     const destPath = join(dest, entry.name);
     if (entry.isDirectory()) {
