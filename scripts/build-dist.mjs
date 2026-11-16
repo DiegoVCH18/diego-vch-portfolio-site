@@ -15,7 +15,8 @@ const htmlEntries = [
   "proyectos/minimarket-aurelion.html",
   "proyectos/modulo-evaluador-mype.html",
   "proyectos/simulador-siaf-comercial.html",
-  "proyectos/xlsform-sgp-evaluacion-productores.html"
+  "proyectos/xlsform-sgp-evaluacion-productores.html",
+  "proyectos/tablero-mis-costillitas.html"
 ];
 
 // Archivos de assets/ que no se publican (el CV es privado).

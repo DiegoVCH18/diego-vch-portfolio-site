@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tablero Mis Costillitas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Signika:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f5f3ef; --surface: #ffffff; --card-ring: rgba(11,11,11,0.10);
+  --ink-1: #1f1f1f; --ink-2: #555350; --ink-muted: #898781;
+  --grid: #e7e4dc; --axis: #c3c2b7;
+  --brand: #971c30; --brand-soft: #f6e3e6; --gold: #ffc20e;
+  --s-real: #971c30; --s-base: #c9c6bd; --s-meta: #555350;
+  --good: #0ca30c; --warn: #fab219; --crit: #d03b3b; --good-text: #006300;
+  --meter-track: #ece9e2; --wa: #25d366;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --card-ring: rgba(255,255,255,0.10);
+    --ink-1: #f0efec; --ink-2: #c3c2b7; --ink-muted: #898781;
+    --grid: #2c2c2a; --axis: #383835;
+    --brand: #e0647a; --brand-soft: #3a1d23;
+    --s-real: #e0647a; --s-base: #5b5a55; --s-meta: #c3c2b7;
+    --good-text: #0ca30c; --meter-track: #2c2c2a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --card-ring: rgba(255,255,255,0.10);
+  --ink-1: #f0efec; --ink-2: #c3c2b7; --ink-muted: #898781;
+  --grid: #2c2c2a; --axis: #383835;
+  --brand: #e0647a; --brand-soft: #3a1d23;
+  --s-real: #e0647a; --s-base: #5b5a55; --s-meta: #c3c2b7;
+  --good-text: #0ca30c; --meter-track: #2c2c2a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink-1); font: 14px/1.5 Lato, Arial, Helvetica, sans-serif; }
+header { position: sticky; top: 0; z-index: 5; }
+.topbar { background: #222; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.topbar .in { max-width: 1280px; margin: 0 auto; padding: 8px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.topbar .in > span:first-child { margin-right: auto; }
+.badge { font-size: 11px; padding: 3px 10px; border-radius: 999px; background: var(--gold); color: #1f1f1f; font-weight: 900; text-transform: uppercase; }
+.mainbar { background: #000; color: #fff; }
+.bar { max-width: 1280px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.brand { display: flex; gap: 14px; align-items: center; margin-right: auto; }
+.brand img { height: 34px; width: auto; display: block; }
+.brand p { margin: 0; color: #c9c6bd; font-size: 12px; border-left: 1px solid #444; padding-left: 14px; }
+label.ctl { font-size: 12px; color: #ddd; display: flex; gap: 6px; align-items: center; text-transform: uppercase; font-weight: 700; }
+select, button, input { font: inherit; color: var(--ink-1); background: var(--surface); border: 1px solid var(--axis); border-radius: 35px; padding: 6px 12px; }
+select, button { cursor: pointer; }
+.mainbar select, .mainbar button { background: #111; color: #fff; border-color: #555; }
+nav.tabs { max-width: 1280px; margin: 0 auto; padding: 0 16px; display: flex; gap: 2px; overflow-x: auto; }
+nav.tabs button { border: 0; border-bottom: 3px solid transparent; border-radius: 0; background: none; color: #fff; padding: 10px 12px; white-space: nowrap; text-transform: uppercase; font-weight: 700; font-size: 13px; letter-spacing: .02em; opacity: .75; }
+nav.tabs button:hover { opacity: 1; }
+nav.tabs button[aria-selected="true"] { opacity: 1; border-bottom-color: var(--gold); }
+h3, .section-title { font-family: Signika, Lato, Arial, sans-serif; }
+main { max-width: 1280px; margin: 0 auto; padding: 16px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.tile, .card { background: var(--surface); border: 1px solid var(--card-ring); border-radius: 5px; }
+.tile { padding: 14px; border-top: 3px solid var(--brand); }
+.tile .lab { color: var(--ink-2); font-size: 12px; }
+.tile .val { font-family: Signika, Lato, sans-serif; font-size: 27px; font-weight: 600; margin: 4px 0 2px; }
+.tile .cmp { color: var(--ink-2); font-size: 12px; }
+.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; margin-top: 8px; color: var(--ink-1); }
+.chip i { width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 11px; color: #fff; }
+.chip.good i { background: var(--good); } .chip.warn i { background: var(--warn); color: #0b0b0b; } .chip.crit i { background: var(--crit); }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 12px; margin-bottom: 12px; }
+.card { padding: 14px 14px 10px; position: relative; min-width: 0; }
+.card h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.card .sub { margin: 2px 0 8px; color: var(--ink-2); font-size: 12px; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--ink-2); margin-bottom: 4px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.key { width: 18px; height: 0; border-top: 2px solid; display: inline-block; }
+.key.dash { border-top-style: dashed; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { fill: var(--ink-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--card-ring); box-shadow: 0 4px 14px rgba(0,0,0,.12); border-radius: 8px; padding: 8px 10px; font-size: 12px; display: none; z-index: 3; min-width: 150px; }
+.tip b { display: block; margin-bottom: 4px; }
+.tip .row { display: flex; align-items: center; gap: 6px; justify-content: space-between; }
+.tip .row span:first-child { display: inline-flex; gap: 6px; align-items: center; color: var(--ink-2); }
+details { margin-top: 6px; font-size: 12px; color: var(--ink-2); }
+details summary { cursor: pointer; }
+table { border-collapse: collapse; width: 100%; margin-top: 6px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 3px 6px; border-bottom: 1px solid var(--grid); }
+th:first-child, td:first-child { text-align: left; }
+.section-title { font-size: 15px; text-transform: uppercase; letter-spacing: .04em; color: var(--brand); margin: 18px 0 8px; font-weight: 700; }
+.list { list-style: none; margin: 0; padding: 0; }
+.list li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--grid); }
+.list li:last-child { border-bottom: 0; }
+.list .chip { margin: 0; min-width: 120px; }
+.meter { height: 8px; border-radius: 4px; background: var(--meter-track); overflow: hidden; margin: 6px 0 2px; position: relative; }
+.meter > span { display: block; height: 100%; border-radius: 4px; background: var(--s-real); }
+.meter > em { position: absolute; top: -3px; width: 2px; height: 14px; background: var(--ink-1); }
+.note { font-size: 12px; color: var(--ink-2); }
+footer { max-width: 1280px; margin: 0 auto; padding: 8px 16px 28px; color: var(--ink-2); font-size: 12px; }
+.hidden { display: none; }
+@media (max-width: 600px) { .tile .val { font-size: 22px; } .brand h1 { font-size: 14px; } }
+
+.chip.ser i { background: #ec835a; }
+.crm-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 12px; margin-bottom: 12px; }
+@media (max-width: 900px) { .crm-grid { grid-template-columns: 1fr; } }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 10px; }
+.filters input { flex: 1 1 180px; }
+.tbl-wrap { overflow-x: auto; }
+table.crm td, table.crm th { text-align: left; white-space: nowrap; padding: 7px 8px; }
+table.crm td.num, table.crm th.num { text-align: right; }
+table.crm td:last-child { white-space: normal; min-width: 170px; }
+table.crm tbody tr { cursor: pointer; }
+table.crm tbody tr:hover, table.crm tbody tr[aria-selected="true"] { background: var(--brand-soft); }
+table.crm .chip { margin: 0; }
+.det h4 { font-family: Signika, Lato, sans-serif; font-size: 18px; margin: 0; }
+.det dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 10px 0; font-size: 13px; }
+.det dt { color: var(--ink-2); }
+.det dd { margin: 0; }
+.wa { background: #e7f8ee; color: #10301c; border-radius: 10px 10px 10px 2px; padding: 10px 12px; font-size: 13px; margin: 8px 0; border: 1px solid #bfe9cf; }
+:root[data-theme="dark"] .wa { background: #12301f; color: #d7f5e3; border-color: #1f5a37; }
+@media (prefers-color-scheme: dark) { :root:where(:not([data-theme="light"])) .wa { background: #12301f; color: #d7f5e3; border-color: #1f5a37; } }
+.btn { background: var(--brand); color: #fff; border: 0; font-weight: 700; text-transform: uppercase; font-size: 12px; padding: 8px 14px; }
+.btn.wa-btn { background: #1c9e4f; }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: #222; color: #fff; padding: 10px 16px; border-radius: 35px; font-size: 13px; display: none; z-index: 9; max-width: calc(100% - 32px); }
+.vtl { list-style: none; padding: 0; margin: 6px 0; font-size: 12.5px; }
+.vtl li { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; border-bottom: 1px dashed var(--grid); }
+.journey { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
+@media (max-width: 900px) { .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.step { background: var(--surface); border: 1px solid var(--card-ring); border-radius: 5px; padding: 10px; position: relative; }
+.step.pk { border-top: 3px solid var(--gold); }
+.step .n { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; font-weight: 700; }
+.step b { display: block; font-family: Signika, Lato, sans-serif; font-size: 15px; margin: 2px 0 4px; }
+.step .ia { font-size: 12px; color: var(--ink-2); }
+.step .kv { font-size: 12px; margin-top: 6px; }
+.chat { background: #efeae2; border-radius: 8px; padding: 10px; height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+:root[data-theme="dark"] .chat { background: #0f1612; }
+@media (prefers-color-scheme: dark) { :root:where(:not([data-theme="light"])) .chat { background: #0f1612; } }
+.msg { max-width: 82%; padding: 7px 10px; border-radius: 8px; font-size: 13px; line-height: 1.4; }
+.msg.bot { background: #fff; color: #1f1f1f; align-self: flex-start; }
+.msg.usr { background: #d9fdd3; color: #10301c; align-self: flex-end; }
+.quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.quick button { font-size: 12px; padding: 5px 10px; }
+.post { border: 1px solid var(--card-ring); border-radius: 5px; overflow: hidden; }
+.post .ph { background: #000; color: var(--gold); font-family: Signika, Lato, sans-serif; font-size: 22px; font-weight: 700; padding: 22px 14px; text-align: center; }
+.post .ph small { display: block; color: #fff; font-size: 13px; font-weight: 400; margin-top: 4px; }
+.post .tx { padding: 10px 12px; font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar"><div class="in"><span>Mis Costillitas Arequipa · Panel de gestión del local Mall Aventura</span><span class="badge" title="La línea base 2026 es real; los resultados de 2027 y los clientes del CRM son datos de ejemplo">Prototipo · versión pública con datos escalados</span></div></div>
+  <div class="mainbar">
+    <div class="bar">
+      <div class="brand"><img src="data:image/png;base64,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" alt="Mis Costillitas"><p>Tablero de control comercial · Plan de marketing 2027</p></div>
+      <label class="ctl">Corte <select id="corte" aria-label="Mes de corte"></select></label>
+      <button id="tema" aria-label="Cambiar tema claro u oscuro">Tema</button>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Secciones del tablero">
+      <button role="tab" data-tab="resumen" aria-selected="true">Resumen</button>
+      <button role="tab" data-tab="fin" aria-selected="false">Financiera</button>
+      <button role="tab" data-tab="cli" aria-selected="false">Clientes</button>
+      <button role="tab" data-tab="pro" aria-selected="false">Procesos</button>
+      <button role="tab" data-tab="apr" aria-selected="false">Aprendizaje</button>
+      <button role="tab" data-tab="ia" aria-selected="false">IA y experiencia</button>
+      <button role="tab" data-tab="crm" aria-selected="false">CRM clientes</button>
+    </nav>
+  </div>
+</header>
+<main>
+  <section data-panel="resumen">
+    <div class="kpis" id="kpis"></div>
+    <div class="grid2">
+      <div class="card"><h3>Ventas mensuales sin IGV</h3><p class="sub">Real 2027 frente a la meta (+10 % sobre 2026) y a la línea base 2026</p><div id="ch-ventas"></div></div>
+      <div class="card"><h3>Alertas del mes</h3><p class="sub">Regla del plan: una desviación mayor de 10 % frente a la meta parcial activa un ajuste</p><ul class="list" id="alertas"></ul></div>
+    </div>
+  </section>
+  <section data-panel="fin" class="hidden">
+    <p class="section-title">Perspectiva financiera: vender más con rentabilidad</p>
+    <div class="grid2">
+      <div class="card"><h3>Ventas mensuales sin IGV</h3><p class="sub">Meta anual: S/ 2,697,173 (+10 %)</p><div id="ch-ventas2"></div></div>
+      <div class="card"><h3>Avance de las cuatro palancas de crecimiento</h3><p class="sub">Venta adicional acumulada frente al plan a la fecha de corte; la marca vertical es el plan</p><div id="ch-palancas"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Retorno acumulado de la inversión</h3><p class="sub">Margen de contribución de 45 % sobre la venta adicional frente a la inversión ejecutada</p><div id="roi"></div></div>
+      <div class="card"><h3>Costo de insumos sobre la venta</h3><p class="sub">Meta: 33 % o menos; tope por combo: 35 %</p><div id="ch-food"></div></div>
+    </div>
+  </section>
+  <section data-panel="cli" class="hidden">
+    <p class="section-title">Perspectiva del cliente: más frecuencia, valor y recomendación</p>
+    <div class="grid2">
+      <div class="card"><h3>Comensales atendidos por mes</h3><p class="sub">Meta: volver a 2,627 al mes en diciembre (nivel de 2025)</p><div id="ch-cli"></div></div>
+      <div class="card"><h3>NPS en salón (QR en mesa)</h3><p class="sub">Meta: +50 a diciembre; NPS del mercado: +27 en 2026, meta +45</p><div id="ch-nps"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Comensales promedio por día de la semana</h3><p class="sub">Patrón de agosto a octubre de 2026 (cifras escaladas): el fin de semana está cerca de la capacidad; el crecimiento debe venir de lunes a jueves</p><div id="ch-dow"></div></div>
+      <div class="card"><h3>Base de clientes en el CRM</h3><p class="sub">Clientes registrados con consentimiento (Ley 29733); meta: 5,000 a diciembre</p><div id="ch-crm"></div></div>
+    </div>
+  </section>
+  <section data-panel="pro" class="hidden">
+    <p class="section-title">Procesos internos: servicio en horas punta y relación gestionada</p>
+    <div class="grid2">
+      <div class="card"><h3>Tiempo hasta el plato principal en horas punta</h3><p class="sub">Minutos; meta: 15 o menos (línea base: 18 a 27)</p><div id="ch-tiempo"></div></div>
+      <div class="card"><h3>Almuerzos vendidos por mes</h3><p class="sub">Horas valle de lunes a jueves; meta: de 68 a 150 al mes</p><div id="ch-alm"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Relación con el cliente</h3><p class="sub">Indicadores del CRM y de la voz del cliente</p><div id="rel"></div></div>
+    </div>
+  </section>
+  <section data-panel="apr" class="hidden">
+    <p class="section-title">Aprendizaje y crecimiento: personas, datos y responsable</p>
+    <div class="grid2">
+      <div class="card"><h3>Capacidades del plan</h3><p class="sub">Condiciones que sostienen el resto del cuadro de mando</p><ul class="list" id="aprend"></ul></div>
+      <div class="card"><h3>Cómo se lee el tablero</h3><p class="sub">Lógica de causa y efecto del balanced scorecard (Kaplan y Norton, 1996)</p>
+        <ul class="list">
+          <li><span class="chip"><b>1</b></span><span>Aprendizaje: un responsable de marketing, personal capacitado y datos revisados cada mes.</span></li>
+          <li><span class="chip"><b>2</b></span><span>Procesos: servicio en 15 minutos, CRM activo y respuesta a detractores en 24 horas.</span></li>
+          <li><span class="chip"><b>3</b></span><span>Clientes: más frecuencia, mejor valor percibido y más recomendación.</span></li>
+          <li><span class="chip"><b>4</b></span><span>Financiera: ventas +10 % y un ROI de marketing de al menos 100 %.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section data-panel="ia" class="hidden">
+    <p class="section-title">IA aplicada a la experiencia del cliente (marketing 5.0)</p>
+    <div class="journey" id="journey"></div>
+    <div class="grid2">
+      <div class="card"><h3>Pronóstico de demanda: próximos 14 días</h3><p class="sub">Comensales estimados por día a partir del cuadre de caja; define turnos de mozos, producción y compras</p><div id="ch-fore"></div><div id="turnos"></div></div>
+      <div class="card"><h3>Asistente de reservas en WhatsApp</h3><p class="sub">Atiende reservas, pedidos y lista de espera a toda hora; un humano revisa los casos especiales</p><div class="chat" id="chat" aria-live="polite"></div><div class="quick" id="quick"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Voz del cliente: temas de los comentarios del mes</h3><p class="sub">Clasificación automática de comentarios del NPS por QR y de reseñas en Google Maps y apps</p><div id="ch-voz"></div></div>
+      <div class="card"><h3>Contenido asistido</h3><p class="sub">Borrador generado por la IA a partir del calendario de promociones; se publica tras revisión humana</p><div class="post"><div class="ph">Para compartir de lunes a jueves<small>Combo pareja S/ 99 · 2 medias costillas, papas y jarra de limonada</small></div><div class="tx">Lunes a jueves también se comparte. Trae a tu pareja y prueba nuestras costillas BBQ con el combo pareja a S/ 99. Reserva por WhatsApp y tu mesa te espera. #MisCostillitasArequipa #ParaCompartir</div></div><p class="note">Alcance estimado del borrador: público de 25 a 44 años a 5 km del Mall Aventura. Estado: pendiente de aprobación del responsable de marketing.</p></div>
+    </div>
+  </section>
+  <section data-panel="crm" class="hidden">
+    <p class="section-title">CRM de clientes: registro por QR y WhatsApp, con consentimiento (Ley 29733)</p>
+    <div class="kpis" id="crm-kpis"></div>
+    <div class="crm-grid">
+      <div class="card">
+        <h3>Clientes registrados</h3><p class="sub">Muestra de fichas de ejemplo; en operación se alimenta del registro por QR, las reservas y el cuadre de caja</p>
+        <div class="filters">
+          <input id="f-q" type="search" placeholder="Buscar por nombre" aria-label="Buscar cliente por nombre">
+          <select id="f-seg" aria-label="Filtrar por segmento"><option value="">Todos los segmentos</option><option>Activo</option><option>En riesgo</option><option>Por reactivar</option><option>Inactivo</option></select>
+          <select id="f-oc" aria-label="Filtrar por ocasión"><option value="">Todas las ocasiones</option><option>Pareja</option><option>Familia</option><option>Celebración</option><option>Amigos</option><option>Almuerzo</option></select>
+        </div>
+        <div class="tbl-wrap"><table class="crm" id="crm-tbl"><thead><tr><th>Cliente</th><th>Segmento</th><th class="num">Última visita</th><th class="num">Visitas 12 m</th><th class="num">Gasto prom.</th><th>Ocasión</th><th>Siguiente acción</th></tr></thead><tbody></tbody></table></div>
+        <p class="note" id="crm-count"></p>
+      </div>
+      <div class="card det" id="crm-det"></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Campaña sugerida por la IA</h3><p class="sub">Reactivación predictiva: clientes que están por cumplir 60 días sin volver</p><div id="crm-camp"></div></div>
+      <div class="card"><h3>Voz del cliente: detractores por atender</h3><p class="sub">Calificaciones de 0 a 6 en el NPS por QR; respuesta del administrador en menos de 24 horas</p><ul class="list" id="crm-voz"></ul></div>
+    </div>
+  </section>
+</main>
+<footer>
+  Las fichas del CRM, la conversación del asistente y los comentarios clasificados son ejemplos, con nombres ficticios y teléfonos enmascarados. Versión pública: los montos en soles y los comensales están escalados con un factor fijo, así que conservan las tendencias pero no corresponden a las cifras reales del local. Fuentes; NPS del mercado de la encuesta de segmentación (n = 80); metas del objetivo SMART y del balanced scorecard del informe final. <b>Los resultados de 2027 son datos simulados</b> para mostrar cómo funcionaría el tablero; en operación se alimentaría desde el cuadre de caja, el sistema Logbar, el NPS por QR y el CRM, con actualización mensual en Power BI.
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+<script>
+const D = {"base": [202060, 185414, 194488, 192595, 238936, 183670, 211294, 193880, 179929, 198671, 210923, 260114], "meta": [222266, 203956, 213937, 211855, 262830, 202037, 232424, 213268, 197921, 218538, 232016, 286125], "real": [212011, 197651, 210695, 211950, 263069, 185929, 232424, 213462, 198192, 218936, 232543, 286906], "cli26": [3071, 2855, 2861, 2761, 3319, 2478, 2843, 2295, 2048, 2335, null, null], "cmeta": [2259, 2293, 2326, 2359, 2393, 2426, 2460, 2493, 2526, 2560, 2593, 2627], "creal": [2237, 2293, 2349, 2359, 2441, 2208, 2435, 2493, 2552, 2586, 2645, 2679], "nps_salon": [null, 31, 34, 37, 39, 36, 41, 43, 45, 47, 48, 50], "nps_meta": [null, 32, 34, 36, 38, 40, 42, 44, 45, 46, 48, 50], "crm": [320, 680, 1050, 1480, 1890, 2250, 2700, 3150, 3600, 4050, 4500, 5000], "crm_meta": [330, 660, 1000, 1440, 1880, 2320, 2760, 3200, 3640, 4080, 4520, 5000], "reac": [null, null, 6, 8, 10, 9, 12, 13, 14, 15, 15, 16], "det": [null, 70, 78, 82, 85, 84, 88, 90, 91, 92, 92, 93], "tiempo": [24, 23, 21, 19, 18, 19, 17, 16, 16, 15, 15, 15], "food": [28.6, 28.9, 29.4, 29.8, 30.1, 30.4, 30.2, 30.6, 30.9, 31.0, 31.4, 32.1], "alm": [72, 80, 95, 104, 112, 108, 120, 128, 136, 142, 146, 152], "alm_meta": [75, 82, 89, 96, 103, 110, 117, 124, 131, 138, 145, 150], "cap": [40, 75, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100], "dow_cli": [45, 49, 52, 71, 55, 112, 121], "dow_venta": [3524, 3983, 4154, 6033, 4511, 9165, 10461]};
+const MES = ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Set","Oct","Nov","Dic"];
+const MESL = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","setiembre","octubre","noviembre","diciembre"];
+const PAL = [["Frecuencia del cliente registrado",107317,.42],["Celebraciones y grupos con reserva",71545,.33],["Gasto por visita",49039,.19],["Horas valle",14395,.06]];
+const nf = (v, d=0) => v == null ? "s. d." : v.toLocaleString("en-US", {minimumFractionDigits: d, maximumFractionDigits: d});
+const sol = v => "S/ " + nf(Math.round(v));
+const pct = (v, d=0) => nf(v, d) + " %";
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let corte = 5;  // junio
+
+function status(ratio) { // ratio >= 1 es bueno
+  if (ratio >= 1) return ["good", "✓", "En meta"];
+  if (ratio >= 0.9) return ["warn", "!", "Atención"];
+  return ["crit", "×", "Fuera de meta"];
+}
+function chip(ratio) { const [c, i, t] = status(ratio); return `<span class="chip ${c}"><i aria-hidden="true">${i}</i>${t}</span>`; }
+function el(tag, attrs={}, text) { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+const tip = document.getElementById("tip");
+function showTip(card, x, y, title, rows) {
+  tip.replaceChildren(); const b = document.createElement("b"); b.textContent = title; tip.appendChild(b);
+  for (const [color, dash, name, val] of rows) {
+    const r = document.createElement("div"); r.className = "row";
+    const l = document.createElement("span"); const k = document.createElement("i"); k.className = "key" + (dash ? " dash" : ""); k.style.borderTopColor = color; l.append(k, document.createTextNode(name));
+    const v = document.createElement("strong"); v.textContent = val; r.append(l, v); tip.appendChild(r);
+  }
+  tip.style.display = "block";
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  let left = x + 14, top = y - th - 10;
+  if (left + tw > window.innerWidth - 8) left = x - tw - 14;
+  if (top < 8) top = y + 14;
+  tip.style.left = (left + window.scrollX) + "px"; tip.style.top = (top + window.scrollY) + "px";
+}
+function hideTip() { tip.style.display = "none"; }
+function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); for (const m of [1, 1.2, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]) if (m * p >= v) return m * p; return 10 * p; }
+
+/* Gráfico de líneas: series = [{name, data, kind: real|meta|base}] */
+function lineChart(id, series, opt) {
+  const host = document.getElementById(id); host.replaceChildren();
+  const W = 560, H = opt.h || 240, L = opt.left || 56, R = 16, T = 12, B = 26;
+  const vals = series.flatMap(s => s.data.filter(v => v != null));
+  let lo = opt.min != null ? opt.min : Math.min(...vals), hi = opt.max != null ? opt.max : niceMax(Math.max(...vals) * 1.04);
+  if (opt.min == null) lo = Math.max(0, Math.floor(lo * 0.9 / Math.pow(10, Math.floor(Math.log10(lo)))) * Math.pow(10, Math.floor(Math.log10(lo))));
+  const x = i => L + i * (W - L - R) / 11, y = v => T + (hi - v) * (H - T - B) / (hi - lo);
+  const color = k => k === "real" ? css("--s-real") : k === "meta" ? css("--s-meta") : css("--s-base");
+  const lg = document.createElement("div"); lg.className = "legend";
+  for (const s of series) { const sp = document.createElement("span"); const k = document.createElement("i"); k.className = "key" + (s.kind === "meta" ? " dash" : ""); k.style.borderTopColor = color(s.kind); sp.append(k, document.createTextNode(s.name)); lg.appendChild(sp); }
+  host.appendChild(lg);
+  const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": opt.label});
+  for (let i = 0; i <= 4; i++) { const v = lo + (hi - lo) * i / 4, yy = y(v);
+    svg.appendChild(el("line", {x1: L, x2: W - R, y1: yy, y2: yy, stroke: i === 0 ? css("--axis") : css("--grid"), "stroke-width": 1}));
+    svg.appendChild(el("text", {x: L - 8, y: yy + 4, "text-anchor": "end"}, opt.fmtAxis(v))); }
+  MES.forEach((m, i) => svg.appendChild(el("text", {x: x(i), y: H - 8, "text-anchor": "middle"}, m)));
+  if (opt.ref != null) { svg.appendChild(el("line", {x1: L, x2: W - R, y1: y(opt.ref), y2: y(opt.ref), stroke: css("--crit"), "stroke-width": 1, "stroke-dasharray": "2 3"}));
+    svg.appendChild(el("text", {x: W - R, y: y(opt.ref) - 4, "text-anchor": "end"}, opt.refLabel)); }
+  for (const s of series) {
+    const pts = s.data.map((v, i) => v == null ? null : [x(i), y(v)]);
+    let d = "", pen = false; pts.forEach(p => { if (!p) { pen = false; return; } d += (pen ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1); pen = true; });
+    svg.appendChild(el("path", {d, fill: "none", stroke: color(s.kind), "stroke-width": s.kind === "real" ? 2.5 : 2, "stroke-dasharray": s.kind === "meta" ? "5 4" : "0", "stroke-linejoin": "round", "stroke-linecap": "round"}));
+    if (s.kind === "real") pts.forEach((p, i) => { if (p) svg.appendChild(el("circle", {cx: p[0], cy: p[1], r: i === corte ? 5 : 3.5, fill: color(s.kind), stroke: css("--surface"), "stroke-width": 2})); });
+    const last = pts.map((p, i) => [p, i]).filter(a => a[0]).pop();
+    if (last && s.kind === "real") svg.appendChild(el("text", {x: last[0][0], y: last[0][1] - 10, "text-anchor": "middle", style: "fill:" + css("--ink-1") + ";font-weight:600"}, opt.fmt(s.data[last[1]])));
+  }
+  const cross = el("line", {y1: T, y2: H - B, stroke: css("--axis"), "stroke-width": 1, visibility: "hidden"}); svg.appendChild(cross);
+  const hit = el("rect", {x: L, y: T, width: W - L - R, height: H - T - B, fill: "transparent", tabindex: 0, "aria-label": "Recorrer valores por mes"}); svg.appendChild(hit);
+  const move = (i, cx, cy) => { cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i)); cross.setAttribute("visibility", "visible");
+    showTip(host, cx, cy, MESL[i] + (opt.year ? " " + opt.year : ""), series.map(s => [color(s.kind), s.kind === "meta", s.name, s.data[i] == null ? "s. d." : opt.fmt(s.data[i])])); };
+  hit.addEventListener("pointermove", e => { const r = svg.getBoundingClientRect(); const px = (e.clientX - r.left) * W / r.width; const i = Math.max(0, Math.min(11, Math.round((px - L) / ((W - L - R) / 11)))); move(i, e.clientX, e.clientY); });
+  let fi = corte; hit.addEventListener("focus", () => { const r = svg.getBoundingClientRect(); move(fi, r.left + x(fi) * r.width / W, r.top + 40); });
+  hit.addEventListener("keydown", e => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { fi = Math.max(0, Math.min(11, fi + (e.key === "ArrowRight" ? 1 : -1))); hit.dispatchEvent(new Event("focus")); e.preventDefault(); } });
+  const leave = () => { cross.setAttribute("visibility", "hidden"); hideTip(); }; hit.addEventListener("pointerleave", leave); hit.addEventListener("blur", leave);
+  host.appendChild(svg);
+  host.appendChild(tableView(["Mes", ...series.map(s => s.name)], MES.map((m, i) => [m, ...series.map(s => s.data[i] == null ? "s. d." : opt.fmt(s.data[i]))])));
+}
+function tableView(head, rows) {
+  const d = document.createElement("details"); const s = document.createElement("summary"); s.textContent = "Ver tabla"; d.appendChild(s);
+  const t = document.createElement("table"); const tr = t.insertRow(); head.forEach(h => { const th = document.createElement("th"); th.textContent = h; tr.appendChild(th); });
+  rows.forEach(r => { const row = t.insertRow(); r.forEach(c => { row.insertCell().textContent = c; }); }); d.appendChild(t); return d;
+}
+/* Barras horizontales con marca de plan */
+function hbars(id, items, fmt) {
+  const host = document.getElementById(id); host.replaceChildren();
+  const W = 560, rowH = 46, L = 8, R = 90, H = items.length * rowH + 6;
+  const max = niceMax(Math.max(...items.flatMap(it => [it.v, it.plan])) * 1.05);
+  const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Avance por palanca"});
+  const x = v => L + v * (W - L - R) / max;
+  items.forEach((it, k) => { const y0 = k * rowH + 4;
+    svg.appendChild(el("text", {x: L, y: y0 + 11, style: "fill:" + css("--ink-2")}, it.name));
+    svg.appendChild(el("rect", {x: L, y: y0 + 18, width: W - L - R, height: 14, rx: 4, fill: css("--meter-track")}));
+    const bar = el("rect", {x: L, y: y0 + 18, width: Math.max(2, x(it.v) - L), height: 14, rx: 4, fill: css("--s-real"), tabindex: 0});
+    svg.appendChild(bar);
+    svg.appendChild(el("line", {x1: x(it.plan), x2: x(it.plan), y1: y0 + 14, y2: y0 + 36, stroke: css("--ink-1"), "stroke-width": 2}));
+    svg.appendChild(el("text", {x: W - R + 8, y: y0 + 30, style: "fill:" + css("--ink-1") + ";font-weight:600"}, Math.round(100 * it.v / it.plan) + " %"));
+    const show = e => { const r = bar.getBoundingClientRect(); showTip(host, e.clientX || r.right, e.clientY || r.top, it.name, [[css("--s-real"), false, "Real acumulado", fmt(it.v)], [css("--ink-1"), false, "Plan a la fecha", fmt(it.plan)], [css("--ink-muted"), true, "Plan anual", fmt(it.anual)]]); };
+    bar.addEventListener("pointermove", show); bar.addEventListener("focus", show); bar.addEventListener("pointerleave", hideTip); bar.addEventListener("blur", hideTip);
+  });
+  host.appendChild(svg);
+  host.appendChild(tableView(["Palanca", "Real acumulado", "Plan a la fecha", "Plan anual", "Avance"], items.map(it => [it.name, fmt(it.v), fmt(it.plan), fmt(it.anual), Math.round(100 * it.v / it.plan) + " %"])));
+}
+/* Columnas verticales (un solo color) */
+function vbars(id, labels, data, fmt, hl) {
+  const host = document.getElementById(id); host.replaceChildren();
+  const W = 560, H = 220, L = 44, R = 8, T = 12, B = 26, max = niceMax(Math.max(...data) * 1.1);
+  const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Comensales por día"});
+  const bw = (W - L - R) / labels.length, y = v => T + (max - v) * (H - T - B) / max;
+  for (let i = 0; i <= 4; i++) { const v = max * i / 4; svg.appendChild(el("line", {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: i ? css("--grid") : css("--axis")})); svg.appendChild(el("text", {x: L - 6, y: y(v) + 4, "text-anchor": "end"}, nf(v))); }
+  data.forEach((v, i) => { const x0 = L + i * bw + 8, w = bw - 16, top = y(v), base = y(0);
+    const p = el("path", {d: `M${x0} ${base}V${top + 4}Q${x0} ${top} ${x0 + 4} ${top}H${x0 + w - 4}Q${x0 + w} ${top} ${x0 + w} ${top + 4}V${base}Z`, fill: hl[i] ? css("--s-real") : css("--s-base"), tabindex: 0});
+    svg.appendChild(p);
+    svg.appendChild(el("text", {x: x0 + w / 2, y: top - 6, "text-anchor": "middle", style: "fill:" + css("--ink-1")}, fmt(v)));
+    svg.appendChild(el("text", {x: x0 + w / 2, y: H - 8, "text-anchor": "middle"}, labels[i]));
+    const show = e => { const r = p.getBoundingClientRect(); showTip(host, e.clientX || r.right, e.clientY || r.top, labels[i], [[hl[i] ? css("--s-real") : css("--s-base"), false, "Comensales promedio", fmt(v)], [css("--ink-muted"), false, "Venta promedio sin IGV", sol(D.dow_venta[i])]]); };
+    p.addEventListener("pointermove", show); p.addEventListener("focus", show); p.addEventListener("pointerleave", hideTip); p.addEventListener("blur", hideTip);
+  });
+  host.appendChild(svg);
+  host.appendChild(tableView(["Día", "Comensales promedio", "Venta promedio sin IGV"], labels.map((l, i) => [l, fmt(data[i]), sol(D.dow_venta[i])])));
+}
+const upto = arr => arr.map((v, i) => i <= corte ? v : null);
+const sum = (a, n) => a.slice(0, n + 1).reduce((s, v) => s + (v || 0), 0);
+function invAcum(n) { let s = 0; for (let i = 0; i <= n; i++) s += i < 3 ? 3150 : 41486 / 9; return s; }
+
+function render() {
+  const n = corte, ventas = sum(D.real, n), meta = sum(D.meta, n), base = sum(D.base, n);
+  const inc = ventas - base, margen = 0.45 * inc, inv = invAcum(n), roi = (margen - inv) / inv;
+  const roiPlan = (0.45 * (meta - base) - inv) / inv;
+  const k = [
+    ["Ventas acumuladas sin IGV", sol(ventas), `${pct(100 * ventas / meta)} de la meta a ${MESL[n]} (${sol(meta)})`, ventas / meta],
+    ["Comensales del mes", nf(D.creal[n]), `Meta del mes: ${nf(D.cmeta[n])}; ${MESL[n]} 2026: ${nf(D.cli26[n])}`, D.creal[n] / D.cmeta[n]],
+    ["NPS en salón", D.nps_salon[n] == null ? "s. d." : "+" + D.nps_salon[n], `Meta del mes: +${D.nps_meta[n] ?? "s. d."}; meta anual: +50`, D.nps_salon[n] == null ? 1 : D.nps_salon[n] / D.nps_meta[n]],
+    ["ROI acumulado del plan", pct(100 * roi), `Plan a la fecha: ${pct(100 * roiPlan)}; meta anual: 100 % o más`, roi >= roiPlan ? 1 : (1 + roi) / (1 + roiPlan)],
+    ["Clientes en el CRM", nf(D.crm[n]), `Meta del mes: ${nf(D.crm_meta[n])}; meta anual: 5,000`, D.crm[n] / D.crm_meta[n]],
+    ["Costo de insumos", pct(D.food[n], 1), "Meta: 33 % o menos; tope por combo: 35 %", 33 / D.food[n]],
+  ];
+  document.getElementById("kpis").innerHTML = k.map(([l, v, c, r]) => `<div class="tile"><div class="lab">${l}</div><div class="val">${v}</div><div class="cmp">${c}</div>${chip(r)}</div>`).join("");
+  const fmtS = v => sol(v), axS = v => "S/ " + nf(v / 1000) + " k";
+  const vs = [{name: "Base 2026", data: D.base, kind: "base"}, {name: "Meta 2027", data: D.meta, kind: "meta"}, {name: "Real 2027", data: upto(D.real), kind: "real"}];
+  lineChart("ch-ventas", vs, {fmt: fmtS, fmtAxis: axS, label: "Ventas mensuales sin IGV", year: ""});
+  lineChart("ch-ventas2", vs, {fmt: fmtS, fmtAxis: axS, label: "Ventas mensuales sin IGV"});
+  // alertas
+  const al = [
+    ["Ventas del mes", D.real[n] / D.meta[n], `${sol(D.real[n])} frente a ${sol(D.meta[n])}`],
+    ["Comensales del mes", D.creal[n] / D.cmeta[n], `${nf(D.creal[n])} frente a ${nf(D.cmeta[n])}`],
+    ["Tiempo de servicio en horas punta", 15 / D.tiempo[n], `${D.tiempo[n]} minutos frente a 15`],
+    ["Almuerzos del mes", D.alm[n] / D.alm_meta[n], `${nf(D.alm[n])} frente a ${nf(D.alm_meta[n])}`],
+    ["Detractores contactados en 24 horas", D.det[n] == null ? 1 : D.det[n] / 90, D.det[n] == null ? "Aún sin medición" : `${D.det[n]} % frente a 90 %`],
+  ].sort((a, b) => a[1] - b[1]);
+  document.getElementById("alertas").innerHTML = al.map(([t, r, d]) => `<li>${chip(r)}<span><b>${t}</b><br><span class="note">${d}${r < 0.9 ? ". Revisar la acción asociada este mes." : ""}</span></span></li>`).join("");
+  // palancas
+  const share = (inc > 0 ? inc : 0);
+  hbars("ch-palancas", PAL.map(([nm, an, s]) => ({name: nm, anual: an, plan: an * (n + 1) / 12, v: share * s})), sol);
+  document.getElementById("roi").innerHTML = `
+    <div class="kpis" style="margin:0"><div class="tile"><div class="lab">Venta adicional acumulada</div><div class="val">${sol(inc)}</div><div class="cmp">Frente a la base 2026 a ${MESL[n]}</div></div>
+    <div class="tile"><div class="lab">Margen de contribución</div><div class="val">${sol(margen)}</div><div class="cmp">45 % de la venta adicional</div></div>
+    <div class="tile"><div class="lab">Inversión ejecutada</div><div class="val">${sol(inv)}</div><div class="cmp">Piloto de S/ 9,450 en el primer trimestre</div></div>
+    <div class="tile"><div class="lab">ROI acumulado</div><div class="val">${pct(100 * roi)}</div>${chip(roi >= roiPlan ? 1 : (1 + roi) / (1 + roiPlan))}</div></div>
+    <p class="note">ROI = (margen de contribución menos inversión) / inversión, según la fórmula del curso. Meta anual: 100 % o más.</p>`;
+  lineChart("ch-food", [{name: "Meta (33 %)", data: Array(12).fill(33), kind: "meta"}, {name: "Real 2027", data: upto(D.food), kind: "real"}], {fmt: v => pct(v, 1), fmtAxis: v => nf(v) + " %", min: 20, max: 40, ref: 35, refLabel: "Tope por combo: 35 %", label: "Costo de insumos", h: 210, left: 44});
+  lineChart("ch-cli", [{name: "2026", data: D.cli26, kind: "base"}, {name: "Meta 2027", data: D.cmeta, kind: "meta"}, {name: "Real 2027", data: upto(D.creal), kind: "real"}], {fmt: v => nf(v), fmtAxis: v => nf(v), label: "Comensales por mes", min: 1800});
+  lineChart("ch-nps", [{name: "Meta", data: D.nps_meta, kind: "meta"}, {name: "Real 2027", data: upto(D.nps_salon), kind: "real"}], {fmt: v => "+" + v, fmtAxis: v => (v > 0 ? "+" : "") + nf(v), min: 0, max: 60, label: "NPS en salón", h: 210, left: 44});
+  vbars("ch-dow", ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], D.dow_cli, v => nf(v), [1, 1, 1, 1, 0, 0, 0]);
+  lineChart("ch-crm", [{name: "Meta", data: D.crm_meta, kind: "meta"}, {name: "Real 2027", data: upto(D.crm), kind: "real"}], {fmt: v => nf(v), fmtAxis: v => nf(v), min: 0, max: 6000, label: "Clientes en el CRM", h: 210, left: 48});
+  lineChart("ch-tiempo", [{name: "Meta (15 min)", data: Array(12).fill(15), kind: "meta"}, {name: "Real 2027", data: upto(D.tiempo), kind: "real"}], {fmt: v => v + " min", fmtAxis: v => nf(v), min: 0, max: 30, label: "Tiempo de servicio", h: 210, left: 40});
+  lineChart("ch-alm", [{name: "Meta", data: D.alm_meta, kind: "meta"}, {name: "Real 2027", data: upto(D.alm), kind: "real"}], {fmt: v => nf(v), fmtAxis: v => nf(v), min: 0, max: 200, label: "Almuerzos por mes", h: 210, left: 40});
+  const meter = (lab, val, max, goal, txt, ratio) => `<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${lab}</b><span>${txt}</span></div><div class="meter" role="img" aria-label="${lab}: ${txt}"><span style="width:${Math.min(100, 100 * val / max)}%"></span><em style="left:${100 * goal / max}%"></em></div>${chip(ratio)}</div>`;
+  document.getElementById("rel").innerHTML =
+    meter("Tasa de reactivación", D.reac[n] ?? 0, 25, 15, D.reac[n] == null ? "Aún sin medición" : `${D.reac[n]} % (meta 15 %)`, D.reac[n] == null ? 1 : D.reac[n] / 15) +
+    meter("Detractores contactados en 24 horas", D.det[n] ?? 0, 100, 90, D.det[n] == null ? "Aún sin medición" : `${D.det[n]} % (meta 90 %)`, D.det[n] == null ? 1 : D.det[n] / 90) +
+    meter("Clientes en el CRM", D.crm[n], 6000, 5000, `${nf(D.crm[n])} (meta anual 5,000)`, D.crm[n] / D.crm_meta[n]) +
+    `<p class="note">La marca vertical indica la meta. La tasa de reactivación es la proporción de clientes inactivos contactados que vuelven en 90 días.</p>`;
+  const rev = n + 1;
+  document.getElementById("aprend").innerHTML = [
+    ["Responsable de marketing local designado", 1, "Designado en enero de 2027"],
+    ["Personal capacitado en el estándar de servicio", D.cap[n] / 100, `${D.cap[n]} % (meta: 100 % a marzo)`],
+    ["Revisiones mensuales del tablero", 1, `${rev} de ${rev} meses a la fecha`],
+    ["Piloto de tres meses evaluado", n >= 2 ? 1 : 0.95, n >= 2 ? "Evaluado en marzo: se libera el resto del presupuesto" : "En curso"],
+  ].map(([t, r, d]) => `<li>${chip(r)}<span><b>${t}</b><br><span class="note">${d}</span></span></li>`).join("");
+  renderCRM(); renderIA();
+}
+
+/* ---------------- CRM (fichas de ejemplo) ---------------- */
+const CL = [
+ ["Ana Lucía Paredes","Pareja",8,14,128,"Costilla MC","Sí","12 de marzo",10,"Le encantó la costilla; pidió postre"],
+ ["Jorge Valdivia","Familia",22,9,96,"Parrilla MC 1","Sí","4 de agosto",9,""],
+ ["Rocío Zegarra","Celebración",47,4,142,"Combo familiar","Sí","19 de julio",8,""],
+ ["Martín Chávez","Amigos",55,6,74,"Alitas x 20","Sí","2 de octubre",6,"La espera fue larga un sábado"],
+ ["Carla Núñez","Pareja",33,7,118,"Baby Back MC","Sí","27 de mayo",9,""],
+ ["Luis Fernández","Almuerzo",12,11,31,"Almuerzo parrillero","Sí","8 de enero",8,""],
+ ["Patricia Salas","Familia",71,3,104,"Bandeja Mis Costillitas","Sí","15 de noviembre",7,""],
+ ["Diego Ramos","Amigos",95,2,68,"Salchicosti","No","30 de junio",5,"El plato llegó frío"],
+ ["Milagros Tejada","Celebración",18,5,155,"Parrilla MC Extrema","Sí","9 de setiembre",10,"Gran atención en el cumpleaños"],
+ ["Renzo Cáceres","Pareja",62,4,112,"Papi Julio MC","Sí","21 de abril",7,""],
+ ["Sofía Medina","Familia",41,6,99,"Costibandeja 1","Sí","3 de diciembre",8,""],
+ ["Kevin Huamán","Almuerzo",84,3,29,"Almuerzo Pechuga BBQ","Sí","17 de febrero",6,"Me pareció caro para ser almuerzo"],
+ ["Gabriela Rivas","Pareja",5,16,131,"Costilla MC","Sí","25 de octubre",10,""],
+ ["Óscar Villena","Amigos",120,2,81,"Alitas x 10","Sí","6 de mayo",4,"Mucha espera y la mesa sin limpiar"],
+ ["Valeria Pinto","Celebración",58,3,149,"Combo familiar","Sí","11 de agosto",9,""],
+ ["Héctor Quispe","Familia",27,8,102,"Parrilla MC 1","Sí","29 de enero",8,""],
+ ["Lorena Delgado","Pareja",36,5,116,"Combo pareja","Sí","14 de junio",7,""],
+ ["Pablo Arce","Almuerzo",65,4,27,"Almuerzo Churrasco","Sí","22 de marzo",7,""],
+];
+const segOf = d => d <= 30 ? "Activo" : d <= 60 ? "En riesgo" : d <= 90 ? "Por reactivar" : "Inactivo";
+const segChip = s => { const m = {"Activo": ["good","✓"], "En riesgo": ["warn","!"], "Por reactivar": ["ser","↻"], "Inactivo": ["crit","×"]}[s]; return `<span class="chip ${m[0]}"><i aria-hidden="true">${m[1]}</i>${s}</span>`; };
+function accion(c) {
+  const [nom, oc, d, v, g, plato, cons, cumple, nps] = c;
+  if (cons !== "Sí") return "Pedir consentimiento en la próxima visita";
+  if (nps <= 6) return "Responder como detractor (24 h)";
+  if (d > 90) return "Campaña de recuperación";
+  if (d > 45) return oc === "Almuerzo" ? "Invitar al almuerzo de lunes a jueves" : "Oferta de regreso antes de 60 días";
+  if (oc === "Celebración") return "Ofrecer paquete de celebración";
+  return v >= 10 ? "Beneficio por frecuencia" : "Sugerir combo para compartir";
+}
+function mensaje(c) {
+  const [nom, oc, d, v, g, plato] = c, n1 = nom.split(" ")[0];
+  if (oc === "Almuerzo") return `Hola, ${n1}. Te extrañamos en Mis Costillitas Mall Aventura. Esta semana tu almuerzo parrillero viene con chicha y postre de cortesía, de lunes a jueves. Te esperamos.`;
+  if (oc === "Celebración") return `Hola, ${n1}. ¿Se acerca una fecha especial? Reserva tu mesa para grupo con el combo familiar para 4 (S/ 189) y te preparamos el ritual de celebración.`;
+  return `Hola, ${n1}. Tu ${plato} te está esperando. Si vienes de lunes a jueves antes de fin de mes, el combo pareja (S/ 99) incluye una jarra de limonada. Responde RESERVA y te guardamos la mesa.`;
+}
+let selCli = 0;
+function renderCRM() {
+  const n = corte, tot = D.crm[n], sh = [0.38, 0.22, 0.17, 0.23];
+  const lab = ["Activos (hasta 30 días)", "En riesgo (31 a 60 días)", "Por reactivar (61 a 90 días)", "Inactivos (más de 90 días)"];
+  document.getElementById("crm-kpis").innerHTML =
+    `<div class="tile"><div class="lab">Clientes registrados</div><div class="val">${nf(tot)}</div><div class="cmp">Meta del mes: ${nf(D.crm_meta[n])}; 92 % aceptó recibir WhatsApp</div>${chip(tot / D.crm_meta[n])}</div>` +
+    lab.map((l, i) => `<div class="tile"><div class="lab">${l}</div><div class="val">${nf(Math.round(tot * sh[i]))}</div><div class="cmp">${Math.round(100 * sh[i])} % de la base</div></div>`).join("");
+  const q = document.getElementById("f-q").value.trim().toLowerCase(), fs = document.getElementById("f-seg").value, fo = document.getElementById("f-oc").value;
+  const rows = CL.map((c, i) => [c, i]).filter(([c]) => (!q || c[0].toLowerCase().includes(q)) && (!fs || segOf(c[2]) === fs) && (!fo || c[1] === fo)).sort((a, b) => a[0][2] - b[0][2]);
+  const tb = document.querySelector("#crm-tbl tbody"); tb.replaceChildren();
+  rows.forEach(([c, i]) => { const tr = document.createElement("tr"); tr.tabIndex = 0; tr.setAttribute("aria-selected", i === selCli);
+    tr.innerHTML = `<td><b></b></td><td>${segChip(segOf(c[2]))}</td><td class="num">hace ${c[2]} días</td><td class="num">${c[3]}</td><td class="num">${sol(c[4])}</td><td>${c[1]}</td><td></td>`;
+    tr.cells[0].firstChild.textContent = c[0]; tr.cells[6].textContent = accion(c);
+    const pick = () => { selCli = i; renderCRM(); }; tr.addEventListener("click", pick); tr.addEventListener("keydown", e => { if (e.key === "Enter") pick(); });
+    tb.appendChild(tr); });
+  document.getElementById("crm-count").textContent = `${rows.length} de ${CL.length} fichas de ejemplo. Nombres ficticios.`;
+  const c = CL[selCli], [nom, oc, d, v, g, plato, cons, cumple, nps, com] = c;
+  const hist = [0, 1, 2, 3].map(k => [d + k * Math.max(18, Math.round(330 / Math.max(v, 1))), [2, 4, 2, 3][k], Math.round(g * [2, 4, 2, 3][k] * [1, 0.95, 1.05, 0.9][k])]);
+  document.getElementById("crm-det").innerHTML = `<h4></h4><p class="sub">Ficha del cliente</p>${segChip(segOf(d))}
+    <dl><dt>WhatsApp</dt><dd>+51 9** *** ${String(100 + selCli * 37).slice(-3)}</dd><dt>Consentimiento</dt><dd>${cons === "Sí" ? "Sí, para promociones y encuestas" : "Pendiente"}</dd><dt>Cumpleaños</dt><dd>${cumple}</dd>
+    <dt>Plato favorito</dt><dd>${plato}</dd><dt>Ocasión habitual</dt><dd>${oc}</dd><dt>Valor anual estimado</dt><dd>${sol(v * g * 2.4)}</dd><dt>Último NPS</dt><dd>${nps}${com ? ": “" + com + "”" : ""}</dd></dl>
+    <b>Últimas visitas</b><ul class="vtl">${hist.map(([dd, p, m]) => `<li><span>hace ${dd} días</span><span>${p} personas</span><span>${sol(m)}</span></li>`).join("")}</ul>
+    <b>Siguiente acción: </b><span>${accion(c)}</span>${cons === "Sí" ? `<div class="wa">${mensaje(c)}</div><button class="btn wa-btn" id="send1">Simular envío por WhatsApp</button>` : `<p class="note">Sin consentimiento no se envían mensajes: se solicita en la próxima visita mediante el QR de la mesa.</p>`}`;
+  document.querySelector("#crm-det h4").textContent = nom;
+  const s1 = document.getElementById("send1"); if (s1) s1.addEventListener("click", () => toast("Simulación: en operación, el mensaje se envía por WhatsApp Business y queda registrado en la ficha."));
+  const risk = Math.round(tot * 0.22 * 0.4);
+  document.getElementById("crm-camp").innerHTML = `<div class="kpis" style="margin:0 0 6px"><div class="tile"><div class="lab">Clientes objetivo</div><div class="val">${nf(risk)}</div><div class="cmp">Entre 45 y 60 días sin volver, con consentimiento</div></div>
+    <div class="tile"><div class="lab">Retorno esperado</div><div class="val">${nf(Math.round(risk * 0.15))}</div><div class="cmp">Tasa de reactivación meta: 15 %</div></div>
+    <div class="tile"><div class="lab">Venta esperada</div><div class="val">${sol(risk * 0.15 * 2.3 * 82.81)}</div><div class="cmp">2.3 personas por mesa a S/ 82.81 sin IGV</div></div></div>
+    <div class="wa">Hola, {nombre}. Tu {plato favorito} te está esperando. Si vienes de lunes a jueves antes de fin de mes, el combo pareja (S/ 99) incluye una jarra de limonada. Responde RESERVA y te guardamos la mesa.</div>
+    <p class="note">El modelo prioriza a quien está por cumplir 60 días sin volver, cuando la recomendación empieza a caer (NPS de +73 en quien vino el último mes y de -6 en quien no vuelve hace más de tres meses). El combo pareja tiene un costo de insumos de 35.5 %, en el límite de la regla de control.</p>
+    <button class="btn" id="sendc">Simular campaña</button>`;
+  document.getElementById("sendc").addEventListener("click", () => toast(`Simulación: campaña programada para ${nf(risk)} clientes; se medirá el retorno a 30 días.`));
+  const voz = CL.filter(c => c[8] <= 6);
+  document.getElementById("crm-voz").innerHTML = voz.map(c => `<li><span class="chip crit"><i aria-hidden="true">${c[8]}</i>NPS ${c[8]}</span><span><b>${c[0]}</b><br><span class="note">“${c[9]}” · ${accion(c)}</span></span></li>`).join("") +
+    `<li><span class="chip good"><i aria-hidden="true">✓</i>Regla</span><span class="note">Cada detractor recibe una llamada o mensaje del administrador y una invitación a volver; el caso se cierra en la ficha.</span></li>`;
+}
+function toast(t) { const e = document.getElementById("toast"); e.textContent = t; e.style.display = "block"; clearTimeout(toast.h); toast.h = setTimeout(() => e.style.display = "none", 3800); }
+["f-q", "f-seg", "f-oc"].forEach(id => document.getElementById(id).addEventListener("input", renderCRM));
+
+/* ---------------- IA aplicada a la experiencia ---------------- */
+const DIAS = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+function renderIA() {
+  const n = corte;
+  const J = [
+    ["1", "Descubrimiento", "IA generativa para contenido y respuestas a reseñas", "Calificación en Google: 4.6 · reseñas respondidas: 96 %", false],
+    ["2", "Reserva y llegada", "Asistente en WhatsApp: reservas y lista de espera", `Reservas por canal propio en ${MESL[n]}: ${nf(Math.round(180 + n * 22))}`, false],
+    ["3", "Pedido", "Recomendación de combos según el grupo y el historial", "Postres por cliente: 0.17 (2026: 0.15)", false],
+    ["4", "Momento pico", "Pronóstico de demanda para dimensionar cocina y salón", `Plato principal en ${D.tiempo[n]} min (meta: 15)`, true],
+    ["5", "Cierre", "Registro en el CRM por QR y ritual de celebraciones", `Clientes registrados: ${nf(D.crm[n])}`, true],
+    ["6", "Después de la visita", "Alerta de detractores y reactivación predictiva", `Detractores contactados en 24 h: ${D.det[n] == null ? "s. d." : D.det[n] + " %"}`, false],
+  ];
+  document.getElementById("journey").innerHTML = J.map(([k, t, ia, kv, pk]) => `<div class="step${pk ? " pk" : ""}"><span class="n">Etapa ${k}${pk ? " · prioridad" : ""}</span><b>${t}</b><div class="ia">${ia}</div><div class="kv">${kv}</div></div>`).join("");
+  // pronóstico: promedio real por día de la semana (ago a oct 2026) con el crecimiento meta del mes
+  const g = D.cmeta[n] / 2226, start = 0;
+  const fc = Array.from({length: 14}, (_, i) => Math.round(D.dow_cli[i % 7] * g * (1 + (i >= 7 ? 0.01 : 0))));
+  const labs = fc.map((_, i) => DIAS[i % 7] + " " + (i + 1));
+  const peak = fc.map(v => v >= 101);
+  forecastChart("ch-fore", labs, fc, peak);
+  const mozos = v => v >= 108 ? 6 : v >= 72 ? 5 : v >= 54 ? 4 : 3;
+  document.getElementById("turnos").innerHTML = `<p class="note"><b>Turnos sugeridos:</b> ${DIAS.map((d, i) => `${d} ${mozos(fc[i])} mozos`).join(" · ")}. Los días en guinda superan 101 comensales: se activa el refuerzo y la lista de espera por WhatsApp. Los días en gris tienen capacidad libre para el almuerzo parrillero y las campañas de lunes a jueves.</p>`;
+  vozChart();
+}
+function forecastChart(id, labels, data, hl) {
+  const host = document.getElementById(id); host.replaceChildren();
+  const W = 560, H = 210, L = 40, R = 8, T = 16, B = 26, max = niceMax(Math.max(...data) * 1.1);
+  const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Pronóstico de comensales por día"});
+  const bw = (W - L - R) / labels.length, y = v => T + (max - v) * (H - T - B) / max;
+  for (let i = 0; i <= 4; i++) { const v = max * i / 4; svg.appendChild(el("line", {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: i ? css("--grid") : css("--axis")})); svg.appendChild(el("text", {x: L - 6, y: y(v) + 4, "text-anchor": "end"}, nf(v))); }
+  data.forEach((v, i) => { const x0 = L + i * bw + 3, w = bw - 6, top = y(v), base = y(0);
+    const p = el("path", {d: `M${x0} ${base}V${top + 4}Q${x0} ${top} ${x0 + 4} ${top}H${x0 + w - 4}Q${x0 + w} ${top} ${x0 + w} ${top + 4}V${base}Z`, fill: hl[i] ? css("--s-real") : css("--s-base"), tabindex: 0});
+    svg.appendChild(p); svg.appendChild(el("text", {x: x0 + w / 2, y: H - 8, "text-anchor": "middle"}, labels[i].split(" ")[0]));
+    if (hl[i]) svg.appendChild(el("text", {x: x0 + w / 2, y: top - 5, "text-anchor": "middle", style: "fill:" + css("--ink-1")}, nf(v)));
+    const show = e => { const r = p.getBoundingClientRect(); showTip(host, e.clientX || r.right, e.clientY || r.top, "Día " + labels[i], [[hl[i] ? css("--s-real") : css("--s-base"), false, "Comensales estimados", nf(v)]]); };
+    p.addEventListener("pointermove", show); p.addEventListener("focus", show); p.addEventListener("pointerleave", hideTip); p.addEventListener("blur", hideTip); });
+  host.appendChild(svg);
+  host.appendChild(tableView(["Día", "Comensales estimados"], labels.map((l, i) => [l, nf(data[i])])));
+}
+function vozChart() {
+  const T = [["Tiempo de espera", 31, "negativo"], ["Precio y valor", 22, "mixto"], ["Temperatura del plato", 14, "negativo"], ["Consistencia del punto de cocción", 12, "negativo"], ["Atención del personal", 11, "positivo"], ["Sabor", 10, "positivo"]];
+  hbarsSimple("ch-voz", T);
+}
+function hbarsSimple(id, items) {
+  const host = document.getElementById(id); host.replaceChildren();
+  const W = 560, rowH = 34, L = 210, R = 120, H = items.length * rowH + 4, max = 40;
+  const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Temas de los comentarios"});
+  items.forEach(([t, v, s], k) => { const y0 = k * rowH + 6;
+    svg.appendChild(el("text", {x: L - 8, y: y0 + 14, "text-anchor": "end", style: "fill:" + css("--ink-2")}, t));
+    const b = el("rect", {x: L, y: y0 + 3, width: (W - L - R) * v / max, height: 14, rx: 4, fill: css("--s-real"), tabindex: 0}); svg.appendChild(b);
+    svg.appendChild(el("text", {x: L + (W - L - R) * v / max + 6, y: y0 + 14, style: "fill:" + css("--ink-1")}, v + " % · " + s));
+    const show = e => { const r = b.getBoundingClientRect(); showTip(host, e.clientX || r.right, e.clientY || r.top, t, [[css("--s-real"), false, "Comentarios del mes", v + " %"], [css("--ink-muted"), false, "Tono predominante", s]]); };
+    b.addEventListener("pointermove", show); b.addEventListener("focus", show); b.addEventListener("pointerleave", hideTip); b.addEventListener("blur", hideTip); });
+  host.appendChild(svg);
+  host.appendChild(el("text", {}, ""));
+  const p = document.createElement("p"); p.className = "note"; p.textContent = "Ejemplo con 212 comentarios del mes. La espera y la temperatura del plato se derivan a cocina y salón como prioridades de mejora; el precio alimenta la arquitectura de combos."; host.appendChild(p);
+  host.appendChild(tableView(["Tema", "Comentarios", "Tono"], items.map(([t, v, s]) => [t, v + " %", s])));
+}
+/* Asistente de WhatsApp: conversación de ejemplo con respuestas rápidas */
+const FLOW = {
+  inicio: ["¡Hola! Soy el asistente de Mis Costillitas Mall Aventura. ¿En qué te ayudo?", ["Reservar una mesa", "Ver promociones", "Hablar con una persona"]],
+  "Reservar una mesa": ["¡Genial! ¿Para cuántas personas y qué día?", ["4 personas, sábado 8 p. m.", "2 personas, jueves 1 p. m."]],
+  "4 personas, sábado 8 p. m.": ["El sábado a las 8 p. m. el local estará lleno (pronóstico: 121 comensales). Te puedo ofrecer las 6:30 p. m. con mesa para grupo, o ponerte en lista de espera para las 8 p. m.", ["Acepto las 6:30 p. m.", "Lista de espera"]],
+  "2 personas, jueves 1 p. m.": ["¡Listo! Mesa para 2 el jueves a la 1 p. m. Ese día el almuerzo parrillero va de S/ 24.90 a S/ 29.90 con chicha. Te recordaremos una hora antes.", ["Ver promociones", "Gracias"]],
+  "Acepto las 6:30 p. m.": ["Reserva confirmada: 4 personas, sábado 6:30 p. m. ¿Celebran algo especial? Si nos cuentas, preparamos el ritual de celebración.", ["Es un cumpleaños", "Gracias"]],
+  "Lista de espera": ["Te anoté en la lista de espera para las 8 p. m. Te escribo apenas se libere una mesa (tiempo estimado: 25 minutos).", ["Gracias"]],
+  "Es un cumpleaños": ["¡Qué bien! Anotado: cumpleaños, 4 personas. El equipo del salón tendrá listo el detalle de cortesía. ¡Los esperamos!", ["Gracias"]],
+  "Ver promociones": ["Esta semana: combo pareja S/ 99 (2 medias costillas, papas y jarra de limonada) y combo familiar para 4 a S/ 189. De lunes a jueves, almuerzo parrillero desde S/ 24.90.", ["Reservar una mesa", "Gracias"]],
+  "Hablar con una persona": ["Te comunico con el administrador del local. Horario de atención humana: 12 m. a 10 p. m.", ["Gracias"]],
+  "Gracias": ["¡A ti! Tus datos se usan solo para atender tu pedido y enviarte beneficios, según la Ley 29733. Escribe BAJA si no deseas recibir mensajes.", ["Reservar una mesa"]],
+};
+function chatSay(who, text) { const c = document.getElementById("chat"); const m = document.createElement("div"); m.className = "msg " + who; m.textContent = text; c.appendChild(m); c.scrollTop = c.scrollHeight; }
+function chatStep(key) {
+  const [bot, opts] = FLOW[key]; chatSay("bot", bot);
+  const q = document.getElementById("quick"); q.replaceChildren();
+  opts.forEach(o => { const b = document.createElement("button"); b.textContent = o; b.addEventListener("click", () => { chatSay("usr", o); setTimeout(() => chatStep(o), 350); }); q.appendChild(b); });
+}
+
+const selC = document.getElementById("corte");
+MESL.forEach((m, i) => { const o = document.createElement("option"); o.value = i; o.textContent = m.charAt(0).toUpperCase() + m.slice(1) + " 2027"; if (i === corte) o.selected = true; selC.appendChild(o); });
+selC.addEventListener("change", () => { corte = +selC.value; render(); });
+document.querySelectorAll("nav.tabs button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("nav.tabs button").forEach(x => x.setAttribute("aria-selected", x === b));
+  document.querySelectorAll("[data-panel]").forEach(p => p.classList.toggle("hidden", p.dataset.panel !== b.dataset.tab));
+  render();
+}));
+document.getElementById("tema").addEventListener("click", () => {
+  const dark = getComputedStyle(document.documentElement).colorScheme.includes("dark");
+  document.documentElement.setAttribute("data-theme", dark ? "light" : "dark"); render();
+});
+window.addEventListener("resize", hideTip);
+render();
+chatStep("inicio");
+</script>
+</body>
+</html>
